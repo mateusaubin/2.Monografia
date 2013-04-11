@@ -1,0 +1,268 @@
+%=======================================================================
+% Declarações iniciais identificando a classe de documento e
+% selecionando alguns pacotes adicionais.
+%
+% As opções disponíveis (separe-as com vírgulas, sem espaço) são:
+% - twoside: Formata o documento para impressão frente-e-verso
+%   (o default é somente-frente)
+% - english,brazilian,french,german,etc.: idiomas usados no documento.
+%   Deve ser colocado por último o idioma principal.
+%=======================================================================
+\documentclass[twoside,english,brazilian]{UNISINOSmonografia}
+\usepackage[utf8]{inputenc} % charset do texto (utf8, latin1, etc.)
+\usepackage[T1]{fontenc} % encoding da fonte (afeta a sep. de sílabas)
+\usepackage{graphicx} % comandos para gráficos e inclusão de figuras
+\usepackage{bibentry} % para inserir refs. bib. no meio do texto
+
+
+%=======================================================================
+% Escolha do sistema para geração de referências bibliográficas.
+%
+% O default é usar o estilo unisinos.bst.  Comente a definição abaixo
+% e descomente a linha seguinte para usar o estilo do ABNTeX (é
+% necessário ter esse pacote instalado).
+%
+% A vantagem do unisinos.bst é que ele permite o uso de um arquivo .bib
+% seguindo as orientações tradicionais do BibTeX (veja essas orientações
+% em http://ctan.tug.org/tex-archive/biblio/bibtex/contrib/doc/btxdoc.pdf).
+% Entretanto, o estilo não suporta algumas citações mais exóticas como
+% apud.  Para isso, use o ABNTeX, mas esteja ciente de que muitas de
+% suas referências serão incompatíveis com os estilos tradicionais do
+% BibTeX como plain, alpha, ieeetr, entre outros.
+%=======================================================================
+\unisinosbst
+%\usepackage[alf]{abntcite}
+
+
+%=======================================================================
+% Dados gerais sobre o trabalho.
+%=======================================================================
+\autor{Aubin}{Mateus Rauback}
+\titulo{Um Sistema de Gestão de Dispositivos Inteligentes Baseado em Protocolos de Gerência de Redes Voltado Para a Internet das Coisas}
+%\subtitulo{Versão \LaTeX}
+\orientador[Prof.~Dr.]{Ávila}{Rafael Bohrer}
+%\coorientador[Prof.~Dr.]{Lamport}{Leslie}
+\local{São Leopoldo}
+\ano{2013}
+
+%% dados específicos para monografia de Graduação
+\unidade{Unidade Acadêmica Graduação}
+\curso{Curso de Bacharelado em Ciência da Computação}
+\natureza{
+Trabalho de Conclusão de Curso apresentado como requisito parcial
+para a obtenção do título de Bacharel em Ciência da Computação
+pela Universidade do Vale do Rio dos Sinos --- UNISINOS
+}
+
+
+%=======================================================================
+% Palavras Chave.
+%
+% Deve ser fornecida para cada idioma.
+%=======================================================================
+\palavrachave{brazilian}{Internet das Coisas}
+\palavrachave{english}{Internet of Things}
+
+\palavrachave{brazilian}{Gerência de Redes}
+\palavrachave{english}{Network Management}
+
+\palavrachave{brazilian}{Protocolos de Rede}
+\palavrachave{english}{Network Protocols}
+
+
+%=======================================================================
+% Início do documento.
+%=======================================================================
+\begin{document}
+\capa
+\folhaderosto
+
+
+%=======================================================================
+% Dedicatória (opcional).
+%
+% O texto é normalmente colocado na parte de baixo da página, alinhado
+% à direita.  Mas a formatação é basicamente livre.  Só não se escreve
+% a palavra 'dedicatória'.
+%=======================================================================
+%\begin{dedicatoria}
+%Aos nossos pais.\\[4ex] % quebra a linha dando um espaçamento maior
+%\begin{itshape} % faz o texto ficar em itálico
+%If I have seen farther than others,\\
+%it is because I stood on the shoulders of giants.\\
+%\end{itshape}
+%--- \textsc{Sir Isaac Newton} % \textsc é o "small caps"
+%\end{dedicatoria}
+
+
+%=======================================================================
+% Agradecimentos (opcional).
+%=======================================================================
+%\begin{agradecimentos}
+%Obrigado!
+%\end{agradecimentos}
+
+
+%=======================================================================
+% Epígrafe (opcional).
+%
+% ``[...] o autor apresenta uma citação, seguida de indicação de autoria,
+% relacionada com a matéria tratada no corpo do trabalho. Podem, também,
+% constar epígrafes nas folhas de aberturas das seções primárias.''
+%=======================================================================
+%\begin{epigrafe}
+%``\textit{Ninguém abre um livro sem que aprenda alguma coisa}''.\\
+%(Anônimo)
+%\end{epigrafe}
+
+
+%=======================================================================
+% Resumo em Português.
+%
+% A recomendação é para 150 a 500 palavras.
+%=======================================================================
+\begin{abstract}
+Aqui vai o resumo
+\end{abstract}
+
+
+%=======================================================================
+% Resumo em língua estrangeira (obrigatório somente para teses e
+% dissertações).
+%
+% O idioma usado aqui deve necessariamente aparecer nos parâmetros do
+% \documentclass, no início do documento.
+%=======================================================================
+\begin{otherlanguage}{english}
+\begin{abstract}
+Abstract goes here
+\end{abstract}
+\end{otherlanguage}
+
+
+%=======================================================================
+% Lista de Figuras (opcional).
+%=======================================================================
+\listoffigures
+
+
+%=======================================================================
+% Lista de Tabelas (opcional).
+%=======================================================================
+\listoftables
+
+
+%=======================================================================
+% Lista de Abreviaturas (opcional).
+%
+% Deve ser passada como parâmetro a maior das abreviaturas utilizadas.
+%=======================================================================
+%\begin{listadeabreviaturas}{seg., segs.}
+%\item[ampl.] ampliado, -a
+%\item[atual.] atualizado, -a
+%\item[coord.] coordenador
+%\item[N.~T.] Novo Testamento
+%\item[seg., segs.] seguinte, -s
+%\end{listadeabreviaturas}
+
+
+%=======================================================================
+% Lista de Siglas (opcional).
+%
+% Deve ser passada como parâmetro a maior das siglas utilizadas.
+%=======================================================================
+%\begin{listadesiglas}{FAPERGS}
+%\item[ABNT] Associação Brasileira de Normas Técnicas
+%\item[CAPES] Coordenação de Aperfeiçoamento de Pessoal de Nível Superior
+%\item[FAPERGS] Fundação de Amparo à Pesquisa do Estado do Rio Grande do Sul
+%\end{listadesiglas}
+
+
+%=======================================================================
+% Lista de Símbolos (opcional).
+%
+% Deve ser passado o maior (mais largo) dos símbolos utilizados.
+%=======================================================================
+%\begin{listadesimbolos}{Ca}
+%\item[\textsuperscript{o}C] Graus Celsius
+%\item[Al] Alumínio
+%\item[Ca] Cálcio
+%\end{listadesimbolos}
+
+
+%=======================================================================
+% Sumário
+%=======================================================================
+\tableofcontents
+
+
+%=======================================================================
+% Introdução
+%=======================================================================
+\chapter{Introdução}
+
+% as epígrafes nos capítulos são opcionais
+\epigrafecap{The reasonable man adapts himself to the world; the unreasonable one persists in trying to adapt the world to himself. Therefore all progress depends on the unreasonable man.}{George Bernard Shaw}
+
+Inserir introdução\ldots
+
+
+\chapter{Conteúdo}
+
+Inserir o conteúdo do trabalho\ldots
+
+Teste \cite{Anderson95}
+
+\section{O que?}
+
+\emph{O que} aconteceu?
+
+\section{Como?}
+
+\emph{Como} foi que aconteceu?
+
+\section{Quando}
+
+\emph{Quando} é que aconteceu?
+
+\section{Onde}
+
+Mas \emph{onde} foi que aconteceu?
+
+
+%=======================================================================
+% Referências
+%=======================================================================
+\bibliography{aubin}
+
+
+%=======================================================================
+% Exemplo de Apêndice
+% O Apêndice é utilizado para apresentar material complementar elaborado
+% pelo próprio autor.  Deve seguir as mesmas regras de formatação do
+% corpo principal do documento.
+%=======================================================================
+\appendix
+\chapter{Informações Complementares}
+
+O Apêndice é utilizado para apresentar material complementar elaborado
+pelo próprio autor.  Deve seguir as mesmas regras de formatação do
+corpo principal do documento.
+
+
+%=======================================================================
+% Exemplo de Anexo
+% O Anexo é utilizado para a ``inclusão de materiais não elaborados pelo
+% próprio autor, como cópias de artigos, manuais, folders, balancetes, etc.
+% e não precisam estar em conformidade com o modelo''.
+%=======================================================================
+\annex
+\chapter{Artigos Publicados}
+
+O Anexo é utilizado para a ``inclusão de materiais não elaborados pelo
+próprio autor, como cópias de artigos, manuais, folders, balancetes, etc.
+e não precisam estar em conformidade com o modelo''.
+
+
+\end{document}
+
