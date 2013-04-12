@@ -38,6 +38,7 @@
 % Dados gerais sobre o trabalho.
 %=======================================================================
 \autor{Aubin}{Mateus Rauback}
+\author{Mateus Rauback Aubin}
 \titulo{
 Um Sistema de Gestão de Dispositivos Inteligentes 
 Baseado em Protocolos de Gerência de Redes Voltado Para a 
@@ -207,37 +208,222 @@ Abstract goes here
 
 % as epígrafes nos capítulos são opcionais
 \epigrafecap{
-	The reasonable man adapts himself to the world; 
-	the unreasonable one persists in trying to adapt the world to himself. 
-	Therefore all progress depends on the unreasonable man.}
-{George Bernard Shaw}
+	Uma citação bacana.}
+{Alguém}
 
-Inserir introdução\ldots
+	Inserir introdução\ldots
 
 
-\chapter{Conteúdo}
+	\section{Internet das Coisas}
+	
+		Contextualizar e explicar o conceito de Internet das Coisas,
+		porque é importante e o impacto social\ldots
+	
 
-Inserir o conteúdo do trabalho\ldots
-
-Teste \cite{Anderson95}
-
-\section{O que?}
-
-\emph{O que} aconteceu?
-
-\section{Como?}
-
-\emph{Como} foi que aconteceu?
-
-\section{Quando}
-
-\emph{Quando} é que aconteceu?
-
-\section{Onde}
-
-Mas \emph{onde} foi que aconteceu?
+	\section{Gerência de Redes}
+	
+		Contextualizar e explicar o conceito de Gerência de Redes, seu 
+		histórico
+		e motivações, por exemplo.
 
 
+\section{O Problema}
+
+	Expor o problema da gestão dos objetos inteligentes e como a grande 
+	quantidade
+	de dispositivos vai deixar este problema ainda pior.
+		
+	Descrever os objetivos brevemente de maneira textual e depois colocá-los em
+	forma de topicos\ldots
+
+
+	\subsection{Objetivo Geral}
+	
+		Definir, projetar e desenvolver um sistema de gerencia de dispositivos 
+		inteligentes utilizando-se de modelos e protocolos da gerência de 
+		redes 
+		tradicional aplicado a Internet das Coisas.
+	
+	
+	\subsection{Objetivos Específicos}
+	
+		\begin{itemize}
+			\item 
+				Aprofundar os conhecimentos sobre protocolos de Gerência de 
+				Redes 
+				e sobre protocolos utilizados por dispositivos aplicados à 
+				Internet das Coisas;
+				
+			\item
+				Definir e projetar um conjunto de extensões voltadas à gestão 
+				de dispositivos inteligentes de forma a melhor adaptar o 
+				protocolo escolhido à proposta;
+				
+			\item
+				Definir e projetar um software de Gerência de Redes com 
+				suporte 
+				as extensões propostas.
+				
+		\end{itemize}
+
+
+% FICA MAIS PARA O FINAL PARA DESCREVER OS PROXIMOS PASSOS NO DESENVOLVIMENTO
+% DO TRABALHO...
+\chapter{Metodologia}
+
+	Um estudo abrangendo os principais protocolos de gerencia de redes e de 
+	comunicação entre dispositivos inteligentes será realizado como ponto de 
+	partida para o trabalho proposto. Este estudo tem por objetivo fazer um 
+	levantamento dos protocolos de maior destaque em seu ramo, possibilitando 
+	a 
+	criação de um panorama contendo as principais tecnologias.
+	
+	De posse destes dados será feita uma avaliação para decidir quais 
+	protocolos 
+	apresentam as melhores características para atingir os objetivos deste 
+	trabalho. Esta etapa visa selecionar quais tecnologias serão utilizadas no 
+	restante do desenvolvimento do trabalho, de forma a obter a maior 
+	contribuição 
+	científica possível.
+	
+	Nesta etapa ocorrerá uma análise das funcionalidades do protocolo de 
+	gerencia 
+	de redes escolhido visando encontrar quais delas são úteis para o 
+	paradigma de 
+	Internet das Coisas e, adicionalmente, serão sugeridas melhorias 
+	específicas 
+	para este domínio de aplicação.
+	
+	Uma vez definido o conjunto de extensões necessárias ao protocolo de 
+	gerencia 
+	de redes selecionado, será projetado um software capaz de utilizar-se 
+	destas 
+	melhorias. Nesta etapa será criada a arquitetura do sistema de gerencia de 
+	redes específico para a gestão de dispositivos inteligentes.
+	
+	Finalmente serão efetivamente desenvolvidas as melhorias propostas. Nesta 
+	etapa serão implementadas as melhorias ao protocolo de gerencia de redes e 
+	será também desenvolvido o sistema de gerencia de redes aplicado a gestão 
+	de 
+	dispositivos inteligentes no contexto de Internet das Coisas.
+
+% ABORDAR A LITERATURA CLASSICA EM UM MOMENTO, EXPLICANDO OS PRINCIPAIS CARAS 
+% E AS DEFINIÇÕES.
+
+% DEPOIS ABORDAR A PARTE DE ARTIGOS COM TRABALHOS RELACIONADOS O QUE FIZERAM
+% RELACIONANDO IoT COM GERENCIA DE REDES
+
+
+\chapter{Protocolos de Gerência de Redes}
+
+	Contextualizar o leitor com a utilidade e os objetivos de um protocolo
+	de gerência de redes. Porque foram feitos, quais problemas resolvem,
+	onde funcionam bem e onde não são tão bons (segurança, por exemplo).
+	FCAPS\ldots
+	
+	Apresentar os protocolos principais, seus pontos fortes e fracos.
+	
+	
+	
+	\section{Modelo OSI (CMIP / CMOT)}
+
+		Apresentar este protocolo
+		
+		
+		
+	\section{SNMP}
+
+		Principal objeto de estudo do trabalho até o momento.
+		Provavelmente será o protocolo escolhido.
+		
+		
+	
+	\section{WSDM}
+	
+	
+	\section{Management By Delegation}
+	
+	
+	\section{AgentX}
+	
+	
+	\section{Outros?!}
+	
+	
+	\section{Conclusão}
+	
+		Apresentar o melhor candidato pra receber as melhorias e justificar
+		a escolha\ldots
+
+
+
+\chapter{Proposta para IoT}
+
+	Abordar neste capítulo as necessidades específicas de IoT e suas 
+	características.
+	
+	Apresentar as dificuldades (problemas) que levarão para as propostas
+	de como resolvê-las com as extensões ao protocolo.
+	
+	
+	\section{Multicast}
+		
+		Propor o uso de multicast para enviar diversos comandos aos objetos
+		disponíveis na rede.
+		
+		
+	\section{Tageamento de Objetos}
+		
+		Propor um sistema para tagear objetos com base em características
+		arbitrárias definidas pelo fabricante e pelo usuário.
+		
+		Quero enviar este comando para todos os objetos elétricos, para
+		todos que estão na cozinha, para todos os sensores...
+		
+		
+	\section{Compressão de Headers}
+		
+		Conforme feito por \cite{Choi2009}
+		
+		
+	\section{Compressão de Dados}
+		
+		No caso do SNMP compressão das PDUs conforme \cite{Choi2009}
+		
+		
+	% DESPRIORIZAR PORQUE É MUITO IGUAL E IMPORTANTE NO OUTRO ARTIGO
+	\section{Requests Periódicos}
+		
+		Configurar uma mensagem que faz com que os clientes enviem
+		dados de forma periódica para o server, evitando a necessidade
+		de realizar pooling para obter informações.
+		\cite{Choi2009}
+		
+		
+%cronograma revisado
+%metodologia revisada
+%considerações finais
+\chapter{Planejamento da Implementação}
+	
+	Documentar o processo de implementação\ldots
+	
+	\section{Proxy Forwarder}
+		
+		Para implementar essas alterações é possível que seja necessária
+		a criação de um forwarder que vai traduzir os pacotes.
+		
+		A melhor solução pra isso seria fazer com que o próprio cliente
+		reconhecesse o novo formato, mas perderia compatibilidade com
+		o padrão.
+		
+		Carece de maior análise e melhor detalhamento para entender 
+		melhor se realmente vai ser necessário, entretanto esta estratégia
+		com os Proxies foi a usada por \cite{Choi2009}.
+		%TODO Avaliar quem cita o Choi
+	
+	
+	
+	
 %=======================================================================
 % Referências
 %=======================================================================
@@ -250,12 +436,12 @@ Mas \emph{onde} foi que aconteceu?
 % pelo próprio autor.  Deve seguir as mesmas regras de formatação do
 % corpo principal do documento.
 %=======================================================================
-\appendix
-\chapter{Informações Complementares}
-
-O Apêndice é utilizado para apresentar material complementar elaborado
-pelo próprio autor.  Deve seguir as mesmas regras de formatação do
-corpo principal do documento.
+%\appendix
+%\chapter{Informações Complementares}
+%
+%O Apêndice é utilizado para apresentar material complementar elaborado
+%pelo próprio autor.  Deve seguir as mesmas regras de formatação do
+%corpo principal do documento.
 
 
 %=======================================================================
@@ -264,12 +450,12 @@ corpo principal do documento.
 % próprio autor, como cópias de artigos, manuais, folders, balancetes, etc.
 % e não precisam estar em conformidade com o modelo''.
 %=======================================================================
-\annex
-\chapter{Artigos Publicados}
-
-O Anexo é utilizado para a ``inclusão de materiais não elaborados pelo
-próprio autor, como cópias de artigos, manuais, folders, balancetes, etc.
-e não precisam estar em conformidade com o modelo''.
+%\annex
+%\chapter{Artigos Publicados}
+%
+%O Anexo é utilizado para a ``inclusão de materiais não elaborados pelo
+%próprio autor, como cópias de artigos, manuais, folders, balancetes, etc.
+%e não precisam estar em conformidade com o modelo''.
 
 
 \end{document}
