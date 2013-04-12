@@ -34,3 +34,5 @@
 .DS_Store
 
 *.pdf
+.dropbox
+desktop.ini
