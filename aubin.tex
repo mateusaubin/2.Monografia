@@ -148,13 +148,13 @@ Abstract goes here
 %=======================================================================
 % Lista de Figuras (opcional).
 %=======================================================================
-\listoffigures
+%\listoffigures
 
 
 %=======================================================================
 % Lista de Tabelas (opcional).
 %=======================================================================
-\listoftables
+%\listoftables
 
 
 %=======================================================================
@@ -176,11 +176,11 @@ Abstract goes here
 %
 % Deve ser passada como parâmetro a maior das siglas utilizadas.
 %=======================================================================
-%\begin{listadesiglas}{FAPERGS}
-%\item[ABNT] Associação Brasileira de Normas Técnicas
+\begin{listadesiglas}{IoT}
+\item[IoT] Internet of Things
 %\item[CAPES] Coordenação de Aperfeiçoamento de Pessoal de Nível Superior
 %\item[FAPERGS] Fundação de Amparo à Pesquisa do Estado do Rio Grande do Sul
-%\end{listadesiglas}
+\end{listadesiglas}
 
 
 %=======================================================================
@@ -211,13 +211,26 @@ Abstract goes here
 	Uma citação bacana.}
 {Alguém}
 
-	Inserir introdução\ldots
-
+	O contínuo aumento na capacidade de processamento de dispositivos computacionais e a redução de custos possibilitou uma nova revolução tecnológica. Munidos de circuitos integrados e microchips cada vez mais os computadores avançam em direção a ubiquidade.
+	
+	No atual cenário tecnológico já é possível colocar em prática, de maneira economicamente viável, algumas das ideias vislumbradas por \citetexto{Weiser1991}. A integração entre dispositivos computacionais e a vida cotidiana apresenta um grande desafio para diversas áreas do conhecimento.
+	
+	Apesar de não ser uma ideia nova, a implementação de uma ``Internet das Coisas'' era difícil devido a fatores como a complexidade e o custo de criar uma rede de dispositivos embarcados em objetos do dia-a-dia.
 
 	\section{Internet das Coisas}
 	
-		Contextualizar e explicar o conceito de Internet das Coisas,
-		porque é importante e o impacto social\ldots
+		Diversas são as definições disponíveis para o termo Internet das Coisas (IoT), segundo \citetexto{Atzori2010b} a grande variedade de definições ocorre porque, dependendo dos seus objetivos, diferentes organizações se dividem entre visões orientadas a Internet ou a coisas.
+		
+		\citetexto{Coetzee2011} definem IoT como:
+		
+		\begin{quote}
+			uma visão onde objetos se tornam parte da Internet: onde cada objeto é unicamente identificável e acessível à rede, sua posição e status conhecidos, onde serviços e inteligência são acrescidos a esta Internet expandida, fundindo o mundo físico e o digital~
+			\cite{Coetzee2011}.
+		\end{quote}
+		
+		\citetexto{Cisco2011} estima que em 2015 haverão 25 bilhões de dispositivos conectados a Internet e que apenas 5 anos depois, em 2020, este número chegará a casa de 50 bilhões.
+		
+		
 	
 
 	\section{Gerência de Redes}
