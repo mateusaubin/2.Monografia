@@ -126,9 +126,9 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 %
 % A recomendação é para 150 a 500 palavras.
 %=======================================================================
-\begin{abstract}
-Aqui vai o resumo
-\end{abstract}
+%\begin{abstract}
+%Aqui vai o resumo
+%\end{abstract}
 
 
 %=======================================================================
@@ -138,11 +138,11 @@ Aqui vai o resumo
 % O idioma usado aqui deve necessariamente aparecer nos parâmetros do
 % \documentclass, no início do documento.
 %=======================================================================
-\begin{otherlanguage}{english}
-\begin{abstract}
-Abstract goes here
-\end{abstract}
-\end{otherlanguage}
+%\begin{otherlanguage}{english}
+%\begin{abstract}
+%Abstract goes here
+%\end{abstract}
+%\end{otherlanguage}
 
 
 %=======================================================================
@@ -204,18 +204,19 @@ Abstract goes here
 %=======================================================================
 % Introdução
 %=======================================================================
-\chapter{Introdução}
+\chapter{1 Introdução}
 
 % as epígrafes nos capítulos são opcionais
-\epigrafecap{
-	Uma citação bacana.}
-{Alguém}
+\epigrafecap{in the nineteenth century, machines learned to do; in the twentieth century, they learned to think; and in the twenty-first century, they are learning to perceive -- they actually sense and respond.}
+{\citetexto{Sundmaeker2010}}
 
-	O contínuo aumento na capacidade de processamento de dispositivos computacionais e a redução de custos possibilitou uma nova revolução tecnológica. Munidos de circuitos integrados e microchips cada vez mais os computadores avançam em direção a ubiquidade.
+	O contínuo aumento na capacidade de processamento de dispositivos computacionais e a redução de custos possibilitou uma nova revolução tecnológica. Munidos de circuitos integrados e microchips, cada vez mais os computadores avançam em direção à ubiquidade.
 	
-	No atual cenário tecnológico já é possível colocar em prática, de maneira economicamente viável, algumas das ideias vislumbradas por \citetexto{Weiser1991}. A integração entre dispositivos computacionais e a vida cotidiana apresenta um grande desafio para diversas áreas do conhecimento.
+	No atual cenário tecnológico já é possível colocar em prática, de maneira economicamente viável, algumas das ideias vislumbradas por \citetexto{Weiser1991}. A integração entre dispositivos computacionais e a vida cotidiana apresenta um grande desafio para diversas áreas do conhecimento, entretanto as barreiras estão gradualmente diminuindo, possibilitando a criação de novos produtos e soluções para os mais diversos problemas.
 	
-	Apesar de não ser uma ideia nova, a implementação de uma ``Internet das Coisas'' era difícil devido a fatores como a complexidade e o custo de criar uma rede de dispositivos embarcados em objetos do dia-a-dia.
+	Apesar de não ser uma ideia nova, a implementação de uma ``Internet das Coisas'' não era viável devido a fatores como complexidade e o custo de criar uma rede de dispositivos embarcados em objetos do dia-a-dia. Tomando por referência a lei de \citetexto{Moore1965}, que dita que o número de transistores em um circuito integrado dobra aproximadamente a cada dois anos, é improvável que esta tendência, de dispositivos cada vez menores e mais baratos, se reverta.
+	
+	Diversas são as semelhanças entre a Internet das Coisas e Redes de Sensores sem Fio (WSN), porem, enquanto as WSNs são implantadas com o intuito de principalmente monitorar eventos em um ambiente, a Internet das Coisas expande este conceito a um próximo nível. Nas aplicações da Internet das Coisas cada dispositivo deve ser acessível na Internet, possibilitando o compartilhamento de informações entre sistemas, em uma modalidade chamada por \citetexto{ETSI2010} de comunicação Máquina-a-Máquina (M2M).
 
 	\section{Internet das Coisas}
 	
@@ -228,9 +229,32 @@ Abstract goes here
 			\cite{Coetzee2011}.
 		\end{quote}
 		
+		Segundo \citetexto{Sundmaeker2010}, dentre as mais citadas estão as definições por \citetexto{Brock2001} do Auto-ID Labs e da União Internacional de Telecomunicações \citetexto{ITU2005}. Enquanto a primeira é focada na identificação e detecção de objetos através do uso de, principalmente RFID, a segunda aborda uma definição mais ampla, detalhada a seguir.
+		
+		Em sua definição, a \citetexto{ITU2005} sugere que a Internet das Coisas, através de suas tecnologias sera capaz de conectar objetos de maneira inteligente e sensorial, combinando avanços nos campos de:
+		\begin{itemize}
+			\item Identificação --- \textit{Tagging things}: Tecnologias para identificação e rastreamento de objetos, baseadas principalmente em RFID. Possibilitam uma forma primitiva de integração entre o real e o virtual.
+			
+			\item Sensores --- \textit{Feeling things}: Tecnologias relacionadas a WSNs, utilizando-se dos conhecimentos ja adquiridos pelas pesquisas nesta área. Ampliam as informações contextuais de uma aplicação, possibilitando que ela conheça e sinta seu ambiente por meio de parâmetros como: temperatura, luminosidade, vibração, ruído e etc\ldots
+			
+			\item Sistemas embarcados --- \textit{Thinking things}: Refere-se a capacidade cada vez maior de embutir microcontroladores e processadores em objetos da vida cotidiana, efetivamente possibilitando a criação de objetos inteligentes. Com a redução de custo e tamanho, a substituição de circuitos com propósito específico por processadores multipropósito é favorecida, criando uma nova geração de objetos com novas funcionalidades.
+			
+			\item Nanotecnologia --- \textit{Shrinking things}: Abordando o impacto e as possibilidades do uso altamente difundido de tecnologias de nano escala. Dentre as previsões estão circuitos mais econômicos e baratos, além do uso de novos materiais na fabricação destes dispositivos.
+		\end{itemize}
+		
+		\begin{quote}
+			The definition of ``things'' in the IoT vision is very wide and includes a variety of
+			physical elements. These include personal objects we carry around such as smart phones, tablets and digital cameras. It also includes elements in our environments (be it home, vehicle or work) as well as things fitted with tags (RFID or other) which become connected via a gateway device (e.g. a smart phone). Based on the above view of “things” an enormous number of devices and things will be connected to the Internet, each providing data and information and some, even services.~
+			\cite{Coetzee2011}
+		\end{quote}
+		
 		\citetexto{Cisco2011} estima que em 2015 haverão 25 bilhões de dispositivos conectados a Internet e que apenas 5 anos depois, em 2020, este número chegará a casa de 50 bilhões.
 		
+		%TODO porque é importante?
 		
+		%TODO desafios
+		
+		%TODO oportunidades
 	
 
 	\section{Gerência de Redes}
@@ -280,9 +304,9 @@ Abstract goes here
 		\end{itemize}
 
 
+\chapter{2 Metodologia}
 % FICA MAIS PARA O FINAL PARA DESCREVER OS PROXIMOS PASSOS NO DESENVOLVIMENTO
 % DO TRABALHO...
-\chapter{Metodologia}
 
 	Um estudo abrangendo os principais protocolos de gerencia de redes e de 
 	comunicação entre dispositivos inteligentes será realizado como ponto de 
@@ -320,14 +344,13 @@ Abstract goes here
 	de 
 	dispositivos inteligentes no contexto de Internet das Coisas.
 
+
+\chapter{3 Protocolos de Gerência de Redes}
 % ABORDAR A LITERATURA CLASSICA EM UM MOMENTO, EXPLICANDO OS PRINCIPAIS CARAS 
 % E AS DEFINIÇÕES.
 
 % DEPOIS ABORDAR A PARTE DE ARTIGOS COM TRABALHOS RELACIONADOS O QUE FIZERAM
 % RELACIONANDO IoT COM GERENCIA DE REDES
-
-
-\chapter{Protocolos de Gerência de Redes}
 
 	Contextualizar o leitor com a utilidade e os objetivos de um protocolo
 	de gerência de redes. Porque foram feitos, quais problemas resolvem,
@@ -370,7 +393,7 @@ Abstract goes here
 
 
 
-\chapter{Proposta para IoT}
+\chapter{4 Proposta para IoT}
 
 	Abordar neste capítulo as necessidades específicas de IoT e suas 
 	características.
@@ -416,7 +439,7 @@ Abstract goes here
 %cronograma revisado
 %metodologia revisada
 %considerações finais
-\chapter{Planejamento da Implementação}
+\chapter{5 Planejamento da Implementação}
 	
 	Documentar o processo de implementação\ldots
 	
@@ -432,7 +455,6 @@ Abstract goes here
 		Carece de maior análise e melhor detalhamento para entender 
 		melhor se realmente vai ser necessário, entretanto esta estratégia
 		com os Proxies foi a usada por \cite{Choi2009}.
-		%TODO Avaliar quem cita o Choi
 	
 	
 	
