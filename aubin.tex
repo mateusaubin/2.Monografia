@@ -214,11 +214,26 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 	
 	No atual cenário tecnológico já é possível colocar em prática, de maneira economicamente viável, algumas das ideias vislumbradas por \citetexto{Weiser1991}. A integração entre dispositivos computacionais e a vida cotidiana apresenta um grande desafio para diversas áreas do conhecimento, entretanto as barreiras estão gradualmente diminuindo, possibilitando a criação de novos produtos e soluções para os mais diversos problemas.
 	
-	Apesar de não ser uma ideia nova, a implementação de uma ``Internet das Coisas'' não era viável devido a fatores como complexidade e o custo de criar uma rede de dispositivos embarcados em objetos do dia-a-dia. Tomando por referência a lei de \citetexto{Moore1965}, que dita que o número de transistores em um circuito integrado dobra aproximadamente a cada dois anos, é improvável que esta tendência, de dispositivos cada vez menores e mais baratos, se reverta.
+	Apesar de não ser uma ideia nova, a implementação de uma Internet das 
+	Coisas não era viável devido a fatores como a complexidade e o custo da 
+	criação de uma rede de dispositivos embarcados em objetos do dia-a-dia. 
+	Tomando por referência a lei de \citetexto{Moore1965}, que dita que o 
+	número de transistores em um circuito integrado dobra aproximadamente a 
+	cada dois anos, é improvável que esta tendência, de dispositivos cada vez 
+	menores e mais baratos, se reverta.
 	
-	Diversas são as semelhanças entre a Internet das Coisas e Redes de Sensores sem Fio (WSN), porem, enquanto as WSNs são implantadas com o intuito de principalmente monitorar eventos em um ambiente, a Internet das Coisas expande este conceito a um próximo nível. Nas aplicações da Internet das Coisas cada dispositivo deve ser acessível na Internet, possibilitando o compartilhamento de informações entre sistemas, em uma modalidade chamada por \citetexto{ETSI2010} de comunicação Máquina-a-Máquina (M2M).
+	Diversas são as semelhanças entre a Internet das Coisas e Redes de 
+	Sensores sem Fio (WSN), porém, enquanto as WSNs \cite{Sakthidharan2012} 
+	são implantadas principalmente com o intuito de monitorar eventos em um 
+	ambiente, a Internet das Coisas expande este conceito ao próximo nível. Ao 
+	possibilitar que cada dispositivo seja individualmente endereçável na 
+	Internet, o compartilhamento de informações entre sistemas é favorecido, 
+	em uma modalidade chamada por \citetexto{ETSI2010} de comunicação 
+	Máquina-a-Máquina (M2M).
 
 	\section{Internet das Coisas}
+	
+\subsection{Definição}
 	
 		Diversas são as definições disponíveis para o termo Internet das Coisas (IoT), segundo \citetexto{Atzori2010b} a grande variedade de definições ocorre porque, dependendo dos seus objetivos, diferentes organizações se dividem entre visões orientadas a Internet ou a coisas.
 		
@@ -229,30 +244,106 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 			\cite{Coetzee2011}.
 		\end{quote}
 		
-		Segundo \citetexto{Sundmaeker2010}, dentre as mais citadas estão as definições por \citetexto{Brock2001} do Auto-ID Labs e da União Internacional de Telecomunicações \citetexto{ITU2005}. Enquanto a primeira é focada na identificação e detecção de objetos através do uso de, principalmente RFID, a segunda aborda uma definição mais ampla, detalhada a seguir.
+		Segundo \citetexto{Sundmaeker2010}, dentre as mais citadas estão as 
+		definições por Kevin Ashton e David \citetexto{Brock2001} do Auto-ID 
+		Labs e da União Internacional de Telecomunicações \citetexto{ITU2005}. 
+		Enquanto a primeira é focada na identificação e detecção de objetos 
+		através do uso de RFIDs, a segunda aborda uma definição 
+		mais ampla, detalhada a seguir.
 		
 		Em sua definição, a \citetexto{ITU2005} sugere que a Internet das Coisas, através de suas tecnologias sera capaz de conectar objetos de maneira inteligente e sensorial, combinando avanços nos campos de:
 		\begin{itemize}
 			\item Identificação --- \textit{Tagging things}: Tecnologias para identificação e rastreamento de objetos, baseadas principalmente em RFID. Possibilitam uma forma primitiva de integração entre o real e o virtual.
 			
-			\item Sensores --- \textit{Feeling things}: Tecnologias relacionadas a WSNs, utilizando-se dos conhecimentos ja adquiridos pelas pesquisas nesta área. Ampliam as informações contextuais de uma aplicação, possibilitando que ela conheça e sinta seu ambiente por meio de parâmetros como: temperatura, luminosidade, vibração, ruído e etc\ldots
+			\item Sensores --- \textit{Feeling things}: Tecnologias 
+			relacionadas a WSNs, utilizando-se dos conhecimentos já adquiridos 
+			pelas pesquisas nesta área. Sensores ampliam a quantidade de 
+			informações contextuais para aplicações, possibilitando um melhor 
+			mapeamento do seu ambiente por meio de parâmetros como: 
+			temperatura, luminosidade, vibração, nível de ruído e etc\ldots
 			
-			\item Sistemas embarcados --- \textit{Thinking things}: Refere-se a capacidade cada vez maior de embutir microcontroladores e processadores em objetos da vida cotidiana, efetivamente possibilitando a criação de objetos inteligentes. Com a redução de custo e tamanho, a substituição de circuitos com propósito específico por processadores multipropósito é favorecida, criando uma nova geração de objetos com novas funcionalidades.
+			\item Sistemas embarcados --- \textit{Thinking things}: Refere-se 
+			a capacidade cada vez maior de embutir microcontroladores e 
+			processadores em objetos da vida cotidiana, efetivamente 
+			possibilitando a criação de objetos inteligentes. Com a redução de 
+			custo e tamanho, a substituição de circuitos com propósito 
+			específico por processadores multipropósito é favorecida, criando 
+			uma nova geração de objetos.
 			
-			\item Nanotecnologia --- \textit{Shrinking things}: Abordando o impacto e as possibilidades do uso altamente difundido de tecnologias de nano escala. Dentre as previsões estão circuitos mais econômicos e baratos, além do uso de novos materiais na fabricação destes dispositivos.
+			\item Nanotecnologia --- \textit{Shrinking things}: Abordando o 
+			impacto e as possibilidades do uso altamente difundido de 
+			tecnologias de nano escala. Dentre as previsões estão circuitos 
+			mais econômicos e baratos, além do uso de novos materiais, como 
+			grafeno e nanotubos, na fabricação destes dispositivos.
 		\end{itemize}
 		
+		Entretanto, a riqueza de possibilidades abertas pela IoT pode ser 
+		explicada simplesmente pela análise dos seus termos componentes de 
+		maneira individual, ou seja, a combinação de Internet e coisas. 
+		Segundo \citetexto{Simpson2005}, no Oxford English Dictionary, a 
+		Internet é ``uma rede global de computadores provendo diversos 
+		serviços de informação e comunicação, constituída de redes 
+		interconectadas usando protocolos padronizados de comunicação''.
+		
+		Coisas, por outro lado, não tem uma definição precisa, podendo variar 
+		conforme o contexto e o foco da aplicação. \citetexto{Coetzee2011} 
+		apresentam uma definição abrangente do conceito para IoT:
+		
 		\begin{quote}
-			The definition of ``things'' in the IoT vision is very wide and includes a variety of
-			physical elements. These include personal objects we carry around such as smart phones, tablets and digital cameras. It also includes elements in our environments (be it home, vehicle or work) as well as things fitted with tags (RFID or other) which become connected via a gateway device (e.g. a smart phone). Based on the above view of “things” an enormous number of devices and things will be connected to the Internet, each providing data and information and some, even services.~
-			\cite{Coetzee2011}
+			A definição de ``coisas'' na visão da IoT é muito ampla e inclui 
+			uma variedade de elementos físicos. Estes incluem objetos pessoais 
+			que carregamos como \textit{smart phones}, \textit{tablets} e 
+			câmeras digitais. Ela também inclui elementos em nosso ambiente 
+			(seja em casa, no carro ou no trabalho) assim como coisas 
+			equipadas com \textit{tags} (RFID ou outras) que se tornam 
+			conectadas através de um portal de acesso (um \textit{smart 
+			phone}, por exemplo).
+			~\cite{Coetzee2011}
 		\end{quote}
+		
+% Based on the above view of “things” an enormous number of devices and things 
+% will be connected to the Internet, each providing data and information and 
+% some, even services.
+
+\subsection{Importância}
+
+		Uma vez estabelecida a definição de Internet das Coisas, é possível 
+		compreender o impacto social e tecnológico deste conceito. A Internet 
+		causou uma revolução na maneira com que compartilhamos informação e 
+		conhecimento, gerando, segundo \citetexto{carr2010}, mudanças até 
+		mesmo em nossa estrutura cerebral.
+		
+		Classificada como a terceira onda da computação \cite{Register2013}, 
+		os conceitos de IoT poderão ser aplicados a diversos setores 
+		produtivos, desde a indústria ao setor público. Os possíveis 
+		benefícios obtidos através de uma vasta rede de dispositivos 
+		interconectados fez com que especialistas como \citetexto{Hung2012} da 
+		Gartner classificassem IoT como um paradigma transformacional.
+		
+		\citetexto{Cisco2011} ressalta que a importância da IoT está 
+		profundamente integrada na maneira como a humanidade se desenvolveu: 
+		``Humanos evoluem porque se comunicam. Assim que o fogo foi descoberto 
+		e compartilhado, por exemplo, ele não precisou ser redescoberto, 
+		apenas comunicado''. Ainda sob este ponto de vista afirma que, com a 
+		aplicação dos conceitos de IoT, haverá um aumento exponencial na 
+		quantidade de dados disponível:
+		
+		\begin{quote}
+			considere que a IoT representa a próxima evolução da Internet, 
+			levando a um enorme salto na sua habilidade de coletar, analisar e 
+			distribuir dados que podemos transformar em informação, 
+			conhecimento e, finalmente, conhecimento.~\cite{Cisco2011}
+		\end{quote}
+		
+		%TODO adicionar figura da piramide do conhecimento da Cisco
+		
+		
 		
 		\citetexto{Cisco2011} estima que em 2015 haverão 25 bilhões de dispositivos conectados a Internet e que apenas 5 anos depois, em 2020, este número chegará a casa de 50 bilhões.
 		
 		%TODO porque é importante?
 		
-		%TODO desafios
+		%TODO desafios (poder computacional, bateria, segurança)
 		
 		%TODO oportunidades
 	
