@@ -14,6 +14,7 @@
 \usepackage{graphicx} % comandos para gráficos e inclusão de figuras
 \usepackage{bibentry} % para inserir refs. bib. no meio do texto
 
+\graphicspath{ {./images/} }
 
 %=======================================================================
 % Escolha do sistema para geração de referências bibliográficas.
@@ -219,7 +220,7 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 	economicamente viável, algumas das ideias vislumbradas por 
 	\citetexto{Weiser1991}. A integração entre dispositivos computacionais e a 
 	vida cotidiana apresenta um grande desafio para diversas áreas do 
-	conhecimento, entretanto as barreiras estão gradualmente diminuindo, 
+	conhecimento, entretanto, as barreiras estão gradualmente diminuindo 
 	possibilitando a criação de novos produtos e soluções para os mais 
 	diversos problemas. 
 	
@@ -260,18 +261,18 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 		\end{quote}
 		
 		Segundo \citetexto{Sundmaeker2010}, dentre as mais citadas estão as 
-		definições por Kevin Ashton e David \citetexto{Brock2001} do Auto-ID 
-		Labs e da União Internacional de Telecomunicações \citetexto{ITU2005}. 
-		Enquanto a primeira é focada na identificação e detecção de objetos 
-		através do uso de RFIDs, a segunda aborda uma definição 
-		mais ampla, detalhada a seguir.
+		definições por Kevin \citetexto{Ashton2009} e David 
+		\citetexto{Brock2001} do Auto-ID Labs e da União Internacional de 
+		Telecomunicações \citetexto{ITU2005}. Enquanto a primeira é focada na 
+		identificação e detecção de objetos através do uso de RFIDs, a segunda 
+		aborda uma definição mais ampla, detalhada a seguir.
 		
 		Em sua definição, a \citetexto{ITU2005} sugere que a Internet das 
 		Coisas, através de suas tecnologias será capaz de conectar objetos de 
 		maneira inteligente e sensorial, combinando avanços nos campos de:
 		\begin{itemize}
 			\item Identificação --- \textit{Tagging things}: Tecnologias para 
-			identificação e rastreamento de objetos, baseadas principalmente 
+			reconhecimento e rastreamento de objetos, baseadas principalmente 
 			em RFID. Possibilitam uma forma primitiva de integração entre o 
 			real e o virtual.
 			
@@ -299,12 +300,12 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 		\end{itemize}
 		
 		Entretanto, a riqueza de possibilidades abertas pela IoT pode ser 
-		explicada simplesmente pela análise dos seus termos componentes de 
-		maneira individual, ou seja, a combinação de Internet e coisas. 
-		Segundo \citetexto{Simpson2005}, no Oxford English Dictionary, a 
-		Internet é ``uma rede global de computadores provendo diversos 
-		serviços de informação e comunicação, constituída de redes 
-		interconectadas usando protocolos padronizados de comunicação''.
+		explicada simplesmente pela análise individual de seus termos 
+		constituintes, ou seja, a combinação de Internet e coisas. Segundo 
+		\citetexto{Simpson2005}, no Oxford English Dictionary, a Internet é 
+		``uma rede global de computadores provendo diversos serviços de 
+		informação e comunicação, constituída de redes interconectadas usando 
+		protocolos padronizados de comunicação''.
 		
 		Coisas, por outro lado, não tem uma definição precisa, podendo variar 
 		conforme o contexto e o foco da aplicação. \citetexto{Coetzee2011} 
@@ -340,15 +341,15 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 		Uma vez estabelecida a definição de Internet das Coisas, é possível 
 		compreender o impacto social e tecnológico deste conceito. A Internet 
 		causou uma revolução na maneira com que compartilhamos informação e 
-		conhecimento, gerando, segundo \citetexto{carr2010}, mudanças até 
-		mesmo em nossa estrutura cerebral.
+		conhecimento, gerando, de acordo com \citetexto{Carr2010}, mudanças 
+		até mesmo em nossa estrutura cerebral.
 		
 		Classificada como a terceira onda da computação \cite{Register2013}, 
 		os conceitos de IoT poderão ser aplicados a diversos setores 
 		produtivos, desde a indústria ao setor público. Os possíveis 
 		benefícios obtidos através de uma vasta rede de dispositivos 
-		interconectados fez com que especialistas como \citetexto{Hung2012} da 
-		Gartner classificassem IoT como um paradigma transformacional.
+		interconectados fez com que especialistas como \citetexto{Hung2012}, 
+		da Gartner, classificassem IoT como um paradigma transformacional.
 		
 		\citetexto{Cisco2011} ressalta que a importância da IoT está 
 		profundamente integrada na maneira como a humanidade se desenvolveu: 
@@ -362,11 +363,20 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 			considere que a IoT representa a próxima evolução da Internet, 
 			levando a um enorme salto na sua habilidade de coletar, analisar e 
 			distribuir dados que podemos transformar em informação, 
-			conhecimento e, finalmente, conhecimento.~
-			\cite{Cisco2011}.
+			conhecimento e, finalmente, sabedoria.~
+			\cite[p.~2]{Cisco2011}.
 		\end{quote}
 		
 		%TODO adicionar figura da piramide do conhecimento da Cisco
+		\begin{figure}
+			\caption{Hierarquia do conhecimento}
+			\label{fig:wkid}
+			\centering
+			\begin{minipage}{.8\textwidth}
+				\includegraphics[width=\textwidth]{wkid}
+				\fonte{\citetexto{Cisco2011}}
+			\end{minipage}
+		\end{figure}
 		
 		
 		
@@ -584,7 +594,7 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 %=======================================================================
 % Referências
 %=======================================================================
-\bibliography{aubin}
+\bibliography{library}
 
 
 %=======================================================================
