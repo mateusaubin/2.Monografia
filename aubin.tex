@@ -221,19 +221,21 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 	\citetexto{Weiser1991}. A integração entre dispositivos computacionais e a 
 	vida cotidiana apresenta um grande desafio para diversas áreas do 
 	conhecimento, entretanto, as barreiras estão gradualmente diminuindo,
-	possibilitando a criação de novos produtos e soluções para os mais 
-	diversos problemas. 
+	possibilitando a criação de novos produtos e serviços, provendo soluções 
+	para os mais diversos problemas.
 	
-	Apesar de não ser uma ideia nova, a implementação de uma Internet das 
-	Coisas não era viável devido a fatores como a complexidade e o custo da 
-	criação de uma rede de dispositivos embarcados em objetos do dia-a-dia. 
-	Tomando por referência a lei de \citetexto{Moore1965}, que dita que o 
-	número de transistores em um circuito integrado dobra aproximadamente a 
-	cada dezoito meses, é improvável que esta tendência, de dispositivos cada 
-	vez menores e mais baratos, se reverta.
+	Apesar de não ser uma ideia nova \cite{Turck2013}, a implementação de uma 
+	Internet das Coisas (IoT) não era viável devido a fatores como a 
+	complexidade e 
+	o custo da criação de uma rede de dispositivos embarcados em objetos do 
+	dia-a-dia. Tomando por referência a lei de \citetexto{Moore1965}, que dita 
+	que o número de transistores em um circuito integrado dobra 
+	aproximadamente a cada dezoito meses, é improvável que esta tendência, de 
+	dispositivos cada vez menores e mais baratos, se reverta.
 	
 	Diversas são as semelhanças entre a Internet das Coisas e Redes de 
-	Sensores sem Fio (WSN), porém, enquanto as WSNs \cite{Sakthidharan2012} 
+	Sensores sem Fio, porém, enquanto as redes de sensores 
+	\cite{Sakthidharan2012} 
 	são implantadas principalmente com o intuito de monitorar eventos em um 
 	ambiente, a Internet das Coisas expande este conceito ao próximo nível. Ao 
 	possibilitar que cada dispositivo seja individualmente endereçável na 
@@ -245,8 +247,55 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 	
 \subsection{Origem}
 
-%TODO RFID
-%TODO WSN
+	Diversas tecnologias contribuíram com os avanços necessários para o 
+	desenvolvimento da Internet das Coisas. A partir dos estudos em áreas como 
+	etiquetas de Identificação por Radiofrequência (RFID), Redes de 
+	Sensores sem Fio (WSN), Protocolo de Internet versão 6 (IPv6) e Smart 
+	Objects foi possível atingir o atual nível de maturidade da IoT.
+	
+% Citar \cite[p.~8]{Buckley2006} sobre os graus de sofisticação dos 
+%dispositivos
+	
+%	Originado a partir das pesquisas aplicadas de etiquetas de Identificação 
+%	por radiofrequencia (RFID) \cite{Welbourne2009}, o conceito de Internet 
+%	das Coisas foi sendo moldado de acordo com os avanços tecnológicos obtidos 
+%	nos campos relacionados. 
+	
+	Etiquetas RFID representam uma nova geração dos mecanismos de 
+	identificação de objetos \cite{Brock2001}. Diferentemente dos códigos de 
+	barras, as \textit{tags} RFID utilizam comunicação via radiofrequência, o 
+	que, segundo \citetexto{Want2006}, possibilita uma maior distância de 
+	leitura e, adicionalmente, elimina a necessidade de visada direta. O autor 
+	afirma ainda que é possível que as etiquetas contenham memória de leitura 
+	e escrita, permitindo descrever estados do objeto identificado, além de 
+	sensores que podem indicar informações sobre o item (se ele sofreu quedas 
+	ou se permaneceu dentre os limites de temperatura, por exemplo).
+	
+	Iniciativas preliminares no campo da Internet das Coisas contemplaram 
+	principalmente o uso de RFIDs para realizar o rastreamento de objetos em 
+	um ambiente dotado de diversos leitores RFID ou para ativar determinados 
+	comportamentos em um sistema computacional de acordo com dados obtidos 
+	através da leitura de uma etiqueta. Os trabalhos de \citetexto{Want1999}, 
+	\citetexto{Floerkemeier2007a} e \citetexto{Welbourne2009} apresentam 
+	implementações concretas utilizando-se de RFIDs.
+	
+	Diferentemente das \textit{tags} RFID, que não realizam processamento e 
+	são geralmente passivas \cite{Atzori2010b}, as Redes de Sensores sem Fio 
+	são compostas de pequenos dispositivos que, apesar da capacidade reduzida, 
+	efetuam coleta e processamento de dados \cite{Sakthidharan2012}. Segundo 
+	\citetexto{Sung2007}, boa parte das aplicações de WSNs são utilizadas para 
+	o monitoramento de ambientes físicos. A comunicação nas WSNs acontece 
+	somente entre nós vizinhos  e é isolada da Internet, embora um nó 
+	específico da rede, que atua como coordenador, possa prover conectividade 
+	com redes externas \cite{Perera2013}.
+	
+	De acordo com \citetexto{Liu2012}, a capacidade de coletar e processar 
+	dados de maneira autônoma é uma das fundações da IoT, tornando as WSNs uma 
+	das áreas de pesquisa que mais contribuíram para o seu desenvolvimento. 
+	Pesquisas relacionando RFID e WSNs, em direção a uma visão de Internet das 
+	Coisas, foram realizadas por \citetexto{Sung2007}, \citetexto{Zhang2011a} 
+	e \citetexto{Hada2011}, comprovando a viabilidade da proposta.
+
 %TODO Gateways para conectar a Internet \cite{Zhu2010}
 %TODO IPv6 e a possibilidade de endereçar todo objeto \cite{Sundmaeker2010}p15
 %TODO Smart Objects
@@ -590,6 +639,7 @@ depois identificar e exemplificar os Application Domains \cite{Sundmaeker2010}
 	
 		Apresentar o melhor candidato pra receber as melhorias e justificar
 		a escolha\ldots
+		Fazer uma analise das principais caracteristicas e melhorias/sugestoes das referencias
 
 
 
