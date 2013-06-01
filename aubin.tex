@@ -261,6 +261,8 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 %	das Coisas foi sendo moldado de acordo com os avanços tecnológicos obtidos 
 %	nos campos relacionados. 
 	
+%RFID Begin
+\subsubsection{RFID}
 	Etiquetas RFID representam uma nova geração dos mecanismos de 
 	identificação de objetos \cite{Brock2001}. Diferentemente dos códigos de 
 	barras, as \textit{tags} RFID utilizam comunicação via radiofrequência, o 
@@ -278,26 +280,60 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 	através da leitura de uma etiqueta. Os trabalhos de \citetexto{Want1999}, 
 	\citetexto{Floerkemeier2007a} e \citetexto{Welbourne2009} apresentam 
 	implementações concretas utilizando-se de RFIDs.
-	
+%RFID End
+%WSN Begin
+\subsubsection{WSN}
 	Diferentemente das \textit{tags} RFID, que não realizam processamento e 
 	são geralmente passivas \cite{Atzori2010b}, as Redes de Sensores sem Fio 
 	são compostas de pequenos dispositivos que, apesar da capacidade reduzida, 
 	efetuam coleta e processamento de dados \cite{Sakthidharan2012}. Segundo 
-	\citetexto{Sung2007}, boa parte das aplicações de WSNs são utilizadas para 
-	o monitoramento de ambientes físicos. A comunicação nas WSNs acontece 
-	somente entre nós vizinhos  e é isolada da Internet, embora um nó 
-	específico da rede, que atua como coordenador, possa prover conectividade 
-	com redes externas \cite{Perera2013}.
+	\citetexto{Sung2007}, boa parte das aplicações de WSNs são voltadas para 
+	o monitoramento de ambientes físicos, contemplando fins militares, 
+	ecológicos e industriais \cite{Suhonen2012}. Pesquisas relacionando RFID e 
+	WSNs, em direção a uma visão de Internet das Coisas, foram realizadas por 
+	\citetexto{Sung2007}, \citetexto{Zhang2011a} e \citetexto{Hada2011}, 
+	comprovando a viabilidade da proposta.
 	
 	De acordo com \citetexto{Liu2012}, a capacidade de coletar e processar 
 	dados de maneira autônoma é uma das fundações da IoT, tornando as WSNs uma 
 	das áreas de pesquisa que mais contribuíram para o seu desenvolvimento. 
-	Pesquisas relacionando RFID e WSNs, em direção a uma visão de Internet das 
-	Coisas, foram realizadas por \citetexto{Sung2007}, \citetexto{Zhang2011a} 
-	e \citetexto{Hada2011}, comprovando a viabilidade da proposta.
+	\citetexto{Perera2013} corrobora ao afirmar que a IoT não pode existir sem 
+	o apoio das WSNs, pois elas fornecem a maior parte da infraestrutura de 
+	hardware para a comunicação e coleta de informações contextuais.
+%WSN End
+%IoT Gateway Begin
+\subsubsection{Gateway IoT}
+%	\cite{Zhu2010}
+%	while the WSN can realize the short- distance communication among the 
+%	objects by constructing wireless networks in ad-hoc manners. However, it’s 
+%	difficult to connect the WSN and mobile communication networks or the 
+%	Internet 
+%	with each other because it lacks of uniform standardization in 
+%	communication 
+%	protocols and sensing technologies and the data from WSN cannot be 
+%	transmitted 
+%	in long distance with the limitation of WSN’s transmission protocols.
+	
+	Apesar do sucesso das WSNs para a comunicação em curta distância, 
+	\citetexto{Zhu2010} afirma que existe dificuldade 
+	em conectar redes de sensores à Internet devido a falta de padronização 
+	nos protocolos de comunicação. Para superar esta dificuldade foi 
+	estabelecido o conceito de dispositivo coordenador, também chamado de 
+	\textit{gateway} \cite{Steenkamp2009}. 
+	Assim como as WSNs, os protótipos iniciais de IoT conectavam-se a Internet 
+	através do coordenador, um dispositivo mais potente que faz o papel de 
+	roteador na rede \cite{Kuryla2010} e, por não apresentar as mesmas 
+	restrições dos sensores, são encarregados de prover 
+	conectividade externa (através de 
+	tecnologias como GSM, CDMA e WLAN, por exemplo) \cite{Liu2012}.
+	
+	As implementações de \citetexto{Zhu2010}, \citetexto{Steenkamp2009} e 
+	\citetexto{Hada2011} apresentam resultados e percepções sobre o uso de 
+	\textit{gateways} entre WSNs e a Internet.
 
 %TODO Gateways para conectar a Internet \cite{Zhu2010}
-%TODO IPv6 e a possibilidade de endereçar todo objeto \cite{Sundmaeker2010}p15
+%TODO IPv6 e a possibilidade de endereçar todo objeto \cite{Sundmaeker2010}p15 
+% \cite{Mattern2010a} é contra gateways
 %TODO Smart Objects
 	
 \subsection{Definição}
