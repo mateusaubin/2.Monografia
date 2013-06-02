@@ -211,39 +211,48 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 \epigrafecap{in the nineteenth century, machines learned to do; in the twentieth century, they learned to think; and in the twenty-first century, they are learning to perceive -- they actually sense and respond.}
 {\citetexto{Sundmaeker2010}}
 
+%TODO Traçar um histórico da evolução tecnológica que culminou na IoT. Vindo 
+%		desde a invenção do computador, das redes de computadores e a 
+%		Internet, até a IoT
+
 	O contínuo aumento na capacidade de processamento dos dispositivos 
 	computacionais aliado a redução de custos possibilitou uma nova revolução 
 	tecnológica. Munidos de circuitos integrados e microchips, cada vez mais 
-	os computadores avançam em direção à ubiquidade. 
+	os computadores avançam em direção à ubiquidade.
 	
-	No atual cenário tecnológico já é possível colocar em prática, de maneira 
-	economicamente viável, algumas das ideias vislumbradas por 
-	\citetexto{Weiser1991}. A integração entre dispositivos computacionais e a 
-	vida cotidiana apresenta um grande desafio para diversas áreas do 
-	conhecimento, entretanto, as barreiras estão gradualmente diminuindo,
-	possibilitando a criação de novos produtos e serviços, provendo soluções 
-	para os mais diversos problemas.
+	No atual cenário tecnológico já é possível, de maneira economicamente 
+	viável, colocar em prática algumas das ideias vislumbradas por 
+	\citetexto{Weiser1991}. 
+	Apesar de representar um desafio para diversas áreas do conhecimento, as 
+	barreiras para a efetiva integração entre dispositivos computacionais e a 
+	vida cotidiana têm diminuído, possibilitando a criação de novos produtos e 
+	serviços, resultando em soluções para os mais diversos problemas.
 	
-	Apesar de não ser uma ideia nova \cite{Turck2013}, a implementação de uma 
-	Internet das Coisas (IoT) não era viável devido a fatores como a 
-	complexidade e 
-	o custo da criação de uma rede de dispositivos embarcados em objetos do 
-	dia-a-dia. Tomando por referência a lei de \citetexto{Moore1965}, que dita 
+	Segundo \citetexto{Turck2013}, ainda que não seja uma ideia nova, a 
+	implementação de uma Internet das Coisas (IoT) não era viável devido a 
+	fatores como a complexidade e o custo da criação de uma rede composta de 
+	dispositivos embarcados em objetos do dia-a-dia. 
+	Tomando por referência a lei de \citetexto{Moore1965}, que dita 
 	que o número de transistores em um circuito integrado dobra 
 	aproximadamente a cada dezoito meses, é improvável que esta tendência, de 
 	dispositivos cada vez menores e mais baratos, se reverta.
 	
 	Diversas são as semelhanças entre a Internet das Coisas e Redes de 
-	Sensores sem Fio, porém, enquanto as redes de sensores 
-	\cite{Sakthidharan2012} 
-	são implantadas principalmente com o intuito de monitorar eventos em um 
-	ambiente, a Internet das Coisas expande este conceito ao próximo nível. Ao 
-	possibilitar que cada dispositivo seja individualmente endereçável na 
-	Internet, o compartilhamento de informações entre sistemas é favorecido, 
+	Sensores sem Fio, porém, enquanto as redes de sensores  
+	são implantadas principalmente com o intuito de monitorar variáveis em um 
+	ambiente \cite{Sakthidharan2012}, a Internet das Coisas expande este 
+	conceito ao próximo nível. 
+	A capacidade de tornar cada dispositivo individualmente endereçável na 
+	Internet favorece o compartilhamento de informações entre sistemas, 
 	resultando em uma modalidade de comunicação chamada por 
 	\citetexto{ETSI2010} de comunicação Máquina-a-Máquina (M2M).
+	
+%TODO Apresentar a estrutura do trabalho (no cap x falaremos de IoT, no cap Y 
+%		de Gerência, tal tal e tal)
 
 	\section{Internet das Coisas}
+	
+% Web of Things como evolução de IoT
 	
 \subsection{Origem}
 
@@ -261,7 +270,6 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 %	das Coisas foi sendo moldado de acordo com os avanços tecnológicos obtidos 
 %	nos campos relacionados. 
 	
-%RFID Begin
 \subsubsection{RFID}
 	Etiquetas RFID representam uma nova geração dos mecanismos de 
 	identificação de objetos \cite{Brock2001}. Diferentemente dos códigos de 
@@ -280,8 +288,7 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 	através da leitura de uma etiqueta. Os trabalhos de \citetexto{Want1999}, 
 	\citetexto{Floerkemeier2007a} e \citetexto{Welbourne2009} apresentam 
 	implementações concretas utilizando-se de RFIDs.
-%RFID End
-%WSN Begin
+
 \subsubsection{WSN}
 	Diferentemente das \textit{tags} RFID, que não realizam processamento e 
 	são geralmente passivas \cite{Atzori2010b}, as Redes de Sensores sem Fio 
@@ -300,20 +307,8 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 	\citetexto{Perera2013} corrobora ao afirmar que a IoT não pode existir sem 
 	o apoio das WSNs, pois elas fornecem a maior parte da infraestrutura de 
 	hardware para a comunicação e coleta de informações contextuais.
-%WSN End
-%IoT Gateway Begin
+
 \subsubsection{Gateway IoT}
-%	\cite{Zhu2010}
-%	while the WSN can realize the short- distance communication among the 
-%	objects by constructing wireless networks in ad-hoc manners. However, it’s 
-%	difficult to connect the WSN and mobile communication networks or the 
-%	Internet 
-%	with each other because it lacks of uniform standardization in 
-%	communication 
-%	protocols and sensing technologies and the data from WSN cannot be 
-%	transmitted 
-%	in long distance with the limitation of WSN’s transmission protocols.
-	
 	Apesar do sucesso das WSNs para a comunicação em curta distância, 
 	\citetexto{Zhu2010} afirma que existe dificuldade 
 	em conectar redes de sensores à Internet devido a falta de padronização 
@@ -329,12 +324,71 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 	
 	As implementações de \citetexto{Zhu2010}, \citetexto{Steenkamp2009} e 
 	\citetexto{Hada2011} apresentam resultados e percepções sobre o uso de 
-	\textit{gateways} entre WSNs e a Internet.
+	\textit{gateways} entre WSNs e a Internet, viabilizando a criação de 
+	aplicações que comprovam a viabilidade do conceito de Internet das Coisas.
 
-%TODO Gateways para conectar a Internet \cite{Zhu2010}
-%TODO IPv6 e a possibilidade de endereçar todo objeto \cite{Sundmaeker2010}p15 
-% \cite{Mattern2010a} é contra gateways
+\subsubsection{IPv6}
+	Uma vez cumprido o objetivo de conectar as WSNs a Internet o próximo passo 
+	consiste em propiciar conectividade a cada dispositivo individualmente 
+	\cite[p.~13]{Atzori2010b}, efetivamente tornando-o parte da Internet.
+	Para tanto, a escolha considerada mais sábia por \citetexto{Mattern2010a} 
+	é de utilizar-se dos mesmos protocolos já estabelecidos pela Internet, 
+	favorecendo a interoperabilidade.
+	Sobre o uso de endereços IP como forma de 
+	identificação \citetexto{Sundmaeker2010} dizem que:
+	\begin{quotation}
+		a ideia de atribuí-los a cada um dos aproximadamente 5 
+		mil objetos diários que nos cercam, é bastante atraente.
+		Com a tecnologia certa em cada objeto (uma etiqueta RFID, por exemplo) 
+		e a rede certa nos arredores, será fácil localizar e catalogar itens 
+		em poucos segundos e colher os benefícios da vasta quantidade de novas 
+		informações que a comunicação entre eles vai prover. IPv6 é 
+		indiscutivelmente um dos passos para tornar a Internet das Coisas uma 
+		realidade.
+		\cite[p.~15]{Sundmaeker2010}.
+	\end{quotation}
+	
+	Orientadas por esta visão, companhias como Intel, Cisco e SAP formaram em 
+	2008 a aliança ``IP para Objetos Inteligentes'' (IPSO), reforçando o 
+	interesse da indústria pela conectividade direta entre dispositivos 
+	\cite{Dunkels2008, Mattern2010a}. 
+	Aliada a esse interesse, a Força Tarefa de Engenharia da Internet, IETF, 
+	vem desenvolvendo o protocolo IPv6 sobre Rede Local Pessoal Sem Fio de 
+	Baixo Consumo, 6LoWPAN, que define os mecanismos para troca de mensagens 
+	IPv6 sobre redes IEEE 802.15.4 \cite{Gomez2010}.
+	
 %TODO Smart Objects
+\subsubsection{Smart Objects}
+	Contrastando com as etiquetas RFID, o conceito de Objetos Inteligentes 
+	(\textit{Smart Objects}) compreende objetos físicos/digitais autônomos 
+	aumentados com capacidades sensoriais, de processamento e rede 
+	\cite{Beigl2001}.
+	Estes objetos foram classificados, no trabalho de \cite{Kortuem2010a}, em 
+	três grandes grupos de acordo com seu grau de percepção e, 
+	consequentemente, complexidade. Sendo eles: consciência de atividade, de 
+	política e de processo.
+	Segundo \citetexto{Dunkels2008}, a adoção e popularização dos Objetos 
+	Inteligentes tem sido dificultada pela grande quantidade de sistemas 
+	fechados e proprietários, o que dificulta, ou até mesmo impossibilita, a 
+	integração entre soluções. 
+	
+	Espera-se que as principais habilidades de um Objeto Inteligente digam 
+	respeito ao compartilhamento de informações (entre dispositivos e 
+	usuários), e a consciência do seu contexto \cite{Beigl2001}. Os autores 
+	ainda enfatizam que tais objetos ``serão deliberadamente limitados em sua 
+	capacidade computacional, memória e poder de processamento a níveis 
+	adequados para um propósito específico''. Seguindo esta tendência, 
+	\citetexto{Mattern2010a} prevêem que a tecnologia caminha em direção a um 
+	modelo onde Objetos Inteligentes efetivamente se comunicam entre eles, 
+	serviços na Internet e seus usuários.
+	
+	Experiências no planejamento e execução de aplicações compostas por 
+	\textit{Smart Objects} podem ser encontradas nos trabalhos de 
+	\citetexto{Beigl2001}, \citetexto{Gellersen2004}, 
+	\citetexto{Holmquist2004}, através do projeto Smart-Its, e 
+	\citetexto{Kortuem2010a}, abordando questões de saúde e segurança, gestão 
+	de processos e modelos de negócio por intermédio de um único dispositivo 
+	aplicado ao ramo da construção civíl.
 	
 \subsection{Definição}
 	
