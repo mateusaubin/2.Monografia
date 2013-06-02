@@ -250,27 +250,121 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 %TODO Apresentar a estrutura do trabalho (no cap x falaremos de IoT, no cap Y 
 %		de Gerência, tal tal e tal)
 
-	\section{Internet das Coisas}
+\section{O Problema}
+
+	Expor o problema da gestão dos objetos inteligentes e como a grande 
+	quantidade
+	de dispositivos vai deixar este problema ainda pior.
 	
+	Descrever os objetivos brevemente de maneira textual e depois colocá-los em
+	forma de topicos\ldots
+
+\subsection{Objetivo Geral}
+
+	Definir, projetar e desenvolver um sistema de gerencia de dispositivos 
+	inteligentes utilizando-se de modelos e protocolos da gerência de 
+	redes tradicional aplicado a Internet das Coisas.
+
+\subsection{Objetivos Específicos}
+
+	\begin{itemize}
+		\item 
+		Aprofundar os conhecimentos sobre protocolos de Gerência de 
+		Redes e sobre protocolos utilizados por dispositivos aplicados 
+		à Internet das Coisas;
+		
+		\item
+		Definir e projetar um conjunto de extensões voltadas à gestão 
+		de dispositivos inteligentes de forma a melhor adaptar o 
+		protocolo escolhido à proposta;
+		
+		\item
+		Definir e projetar um software de Gerência de Redes com 
+		suporte as extensões propostas.
+		
+	\end{itemize}
+
+
+\chapter{Gerência de Redes}
+
+	Impulsionada pelo crescimento e evolução das redes de computadores, as 
+	técnicas de gerência de redes se tornaram fundamentais para garantir o 
+	funcionamento e a qualidade dos serviços prestados. Cada vez mais 
+	importantes para as atividades humanas, as redes de computadores, em 
+	especial a Internet, ``têm catalizado a inovação e favorecido a emergência 
+	de novos e disruptivos modelos de negócio'' \cite{Ding2009}.
+	
+	De acordo com \citetexto{Clemm2006}, a gerência de redes pode ser definida 
+	como ``as atividades, métodos, procedimentos, e ferramentas que dizem 
+	respeito a operação, administração, manutenção e provisionamento de 
+	sistemas de rede''. Uma definição extensiva do conceito de gerência de 
+	redes é fornecida por \citetexto{Ding2009}:
+	
+	\begin{quotation}
+		a execução de um conjunto de funções requeridas para controlar, 
+		planejar, alocar, implantar, coordenar, e monitorar os recursos de uma 
+		rede de telecomunicações ou de computadores, incluindo a realização de 
+		funções como planejamento inicial da rede, atribuição de frequências, 
+		roteamento predefinido de tráfico para suportar balanceamento de 
+		carga, autorização de distribuição de chaves criptográficas, gerência 
+		de configuração, gerenciamento de falhas, gestão da segurança, 
+		gerência de performance e gestão de contabilização.~
+		\cite[p.~64]{Ding2009}.
+% defined as the execution of the set of functions required for 
+% controlling, planning, allocating, deploying, coordinating, and 
+% monitoring the resources of a telecommunications network or a computer 
+% network, including performing functions such as initial network 
+% planning, frequency allocation, predetermined traffic routing to 
+% support load balancing, cryptographic key distribution authorization, 
+% configuration management, fault management, security management, 
+% performance management, and accounting management.
+	\end{quotation}
+	
+	O reconhecimento da importância das técnicas de gerência de redes provocou 
+	esforços por parte de órgãos reguladores, como a Organização Internacional 
+	para Padronização (ISO). Em sua normativa 7498-4, a \citetexto{ISO1989} 
+	define as cinco principais categorias da gerência de redes, conhecido como 
+	o modelo FCAPS:
+	
+	\begin{itemize}
+		\item gerenciamento de falhas
+		\item gerência de configuração
+		\item gestão de contabilização
+		\item gerência de performance
+		\item gestão da segurança
+	\end{itemize}
+	
+	Para que ocorra o gerenciamento de rede, são necessários, segundo 
+	\cite{Ding2009}, três componentes principais:
+	
+	\begin{itemize}
+		\item Centro de gerenciamento
+		\item Dispositivo gerenciado
+		\item Protocolo de gerenciamento
+	\end{itemize}
+
+
+\chapter{Internet das Coisas}
+
 % Web of Things como evolução de IoT
-	
-\subsection{Origem}
+
+\section{Origem}
 
 	Diversas tecnologias contribuíram com os avanços necessários para o 
 	desenvolvimento da Internet das Coisas. A partir dos estudos em áreas como 
 	etiquetas de Identificação por Radiofrequência (RFID), Redes de 
 	Sensores sem Fio (WSN), Protocolo de Internet versão 6 (IPv6) e Smart 
 	Objects foi possível atingir o atual nível de maturidade da IoT.
-	
+
 % Citar \cite[p.~8]{Buckley2006} sobre os graus de sofisticação dos 
 %dispositivos
-	
+
 %	Originado a partir das pesquisas aplicadas de etiquetas de Identificação 
 %	por radiofrequencia (RFID) \cite{Welbourne2009}, o conceito de Internet 
 %	das Coisas foi sendo moldado de acordo com os avanços tecnológicos obtidos 
 %	nos campos relacionados. 
-	
-\subsubsection{RFID}
+
+\subsection{RFID}
 	Etiquetas RFID representam uma nova geração dos mecanismos de 
 	identificação de objetos \cite{Brock2001}. Diferentemente dos códigos de 
 	barras, as \textit{tags} RFID utilizam comunicação via radiofrequência, o 
@@ -289,7 +383,7 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 	\citetexto{Floerkemeier2007a} e \citetexto{Welbourne2009} apresentam 
 	implementações concretas utilizando-se de RFIDs.
 
-\subsubsection{WSN}
+\subsection{WSN}
 	Diferentemente das \textit{tags} RFID, que não realizam processamento e 
 	são geralmente passivas \cite{Atzori2010b}, as Redes de Sensores sem Fio 
 	são compostas de pequenos dispositivos que, apesar da capacidade reduzida, 
@@ -308,7 +402,7 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 	o apoio das WSNs, pois elas fornecem a maior parte da infraestrutura de 
 	hardware para a comunicação e coleta de informações contextuais.
 
-\subsubsection{Gateway IoT}
+\subsection{Gateway IoT}
 	Apesar do sucesso das WSNs para a comunicação em curta distância, 
 	\citetexto{Zhu2010} afirma que existe dificuldade 
 	em conectar redes de sensores à Internet devido a falta de padronização 
@@ -327,7 +421,7 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 	\textit{gateways} entre WSNs e a Internet, viabilizando a criação de 
 	aplicações que comprovam a viabilidade do conceito de Internet das Coisas.
 
-\subsubsection{IPv6}
+\subsection{IPv6}
 	Uma vez cumprido o objetivo de conectar as WSNs a Internet o próximo passo 
 	consiste em propiciar conectividade a cada dispositivo individualmente 
 	\cite[p.~13]{Atzori2010b}, efetivamente tornando-o parte da Internet.
@@ -356,9 +450,8 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 	vem desenvolvendo o protocolo IPv6 sobre Rede Local Pessoal Sem Fio de 
 	Baixo Consumo, 6LoWPAN, que define os mecanismos para troca de mensagens 
 	IPv6 sobre redes IEEE 802.15.4 \cite{Gomez2010}.
-	
-%TODO Smart Objects
-\subsubsection{Smart Objects}
+
+\subsection{Smart Objects}
 	Contrastando com as etiquetas RFID, o conceito de Objetos Inteligentes 
 	(\textit{Smart Objects}) compreende objetos físicos/digitais autônomos 
 	aumentados com capacidades sensoriais, de processamento e rede 
@@ -389,267 +482,172 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 	\citetexto{Kortuem2010a}, abordando questões de saúde e segurança, gestão 
 	de processos e modelos de negócio por intermédio de um único dispositivo 
 	aplicado ao ramo da construção civíl.
+
+\section{Definição}
+
+	Diversas são as definições disponíveis para o termo Internet das 
+	Coisas (IoT), \citetexto{Atzori2010b} atribuem a grande variedade de 
+	definições às diferentes visões que cada organização, dependendo dos 
+	seus objetivos, tem, geralmente sendo orientadas a Internet ou as 
+	coisas. Apesar das diferenças o conceito de IoT é, para 
+	\citetexto{Coetzee2011}:
 	
-\subsection{Definição}
+	\begin{quote}
+		uma visão onde objetos se tornam parte da Internet: onde cada 
+		objeto é unicamente identificável e acessível à rede, sua posição 
+		e status conhecidos, onde serviços e inteligência são acrescidos a 
+		esta Internet expandida, fundindo o mundo físico e o digital~
+		\cite{Coetzee2011}.
+	\end{quote}
 	
-		Diversas são as definições disponíveis para o termo Internet das 
-		Coisas (IoT), \citetexto{Atzori2010b} atribuem a grande variedade de 
-		definições às diferentes visões que cada organização, dependendo dos 
-		seus objetivos, tem, geralmente sendo orientadas a Internet ou as 
-		coisas. Apesar das diferenças o conceito de IoT é, para 
-		\citetexto{Coetzee2011}:
+	Segundo \citetexto{Sundmaeker2010}, dentre as mais citadas estão as 
+	definições por Kevin \citetexto{Ashton2009} e David 
+	\citetexto{Brock2001} do Auto-ID Labs e da União Internacional de 
+	Telecomunicações, \citetexto{ITU2005}. Enquanto a primeira é focada na 
+	identificação e detecção de objetos através do uso de RFIDs, a segunda 
+	aborda uma definição mais ampla, detalhada a seguir.
+	
+	Em sua definição, a \citetexto{ITU2005} sugere que a Internet das 
+	Coisas, através de suas tecnologias será capaz de conectar objetos de 
+	maneira inteligente e sensorial, combinando avanços nos campos de:
+	\begin{itemize}
+		\item Identificação --- \textit{Tagging things}: Tecnologias para 
+		reconhecimento e rastreamento de objetos, baseadas principalmente 
+		em RFID. Possibilitam uma forma primitiva de integração entre o 
+		real e o virtual.
 		
-		\begin{quote}
-			uma visão onde objetos se tornam parte da Internet: onde cada 
-			objeto é unicamente identificável e acessível à rede, sua posição 
-			e status conhecidos, onde serviços e inteligência são acrescidos a 
-			esta Internet expandida, fundindo o mundo físico e o digital~
-			\cite{Coetzee2011}.
-		\end{quote}
+		\item Sensores --- \textit{Feeling things}: Tecnologias 
+		relacionadas a WSNs, utilizando-se dos conhecimentos já adquiridos 
+		pelas pesquisas nesta área. Sensores ampliam a quantidade de 
+		informações contextuais para aplicações, possibilitando um melhor 
+		mapeamento do seu ambiente por meio de parâmetros como: 
+		temperatura, luminosidade, vibração, nível de ruído e etc\ldots
 		
-		Segundo \citetexto{Sundmaeker2010}, dentre as mais citadas estão as 
-		definições por Kevin \citetexto{Ashton2009} e David 
-		\citetexto{Brock2001} do Auto-ID Labs e da União Internacional de 
-		Telecomunicações, \citetexto{ITU2005}. Enquanto a primeira é focada na 
-		identificação e detecção de objetos através do uso de RFIDs, a segunda 
-		aborda uma definição mais ampla, detalhada a seguir.
+		\item Sistemas embarcados --- \textit{Thinking things}: Refere-se 
+		a crescente capacidade de embutir microcontroladores e 	
+		processadores em objetos da vida cotidiana, efetivamente 
+		possibilitando a criação de objetos inteligentes. Com a redução de 
+		custo e tamanho, a substituição de circuitos de propósito 
+		específico por processadores multipropósito é favorecida, criando 
+		uma nova geração de objetos.
 		
-		Em sua definição, a \citetexto{ITU2005} sugere que a Internet das 
-		Coisas, através de suas tecnologias será capaz de conectar objetos de 
-		maneira inteligente e sensorial, combinando avanços nos campos de:
-		\begin{itemize}
-			\item Identificação --- \textit{Tagging things}: Tecnologias para 
-			reconhecimento e rastreamento de objetos, baseadas principalmente 
-			em RFID. Possibilitam uma forma primitiva de integração entre o 
-			real e o virtual.
-			
-			\item Sensores --- \textit{Feeling things}: Tecnologias 
-			relacionadas a WSNs, utilizando-se dos conhecimentos já adquiridos 
-			pelas pesquisas nesta área. Sensores ampliam a quantidade de 
-			informações contextuais para aplicações, possibilitando um melhor 
-			mapeamento do seu ambiente por meio de parâmetros como: 
-			temperatura, luminosidade, vibração, nível de ruído e etc\ldots
-			
-			\item Sistemas embarcados --- \textit{Thinking things}: Refere-se 
-			a crescente capacidade de embutir microcontroladores e 	
-			processadores em objetos da vida cotidiana, efetivamente 
-			possibilitando a criação de objetos inteligentes. Com a redução de 
-			custo e tamanho, a substituição de circuitos de propósito 
-			específico por processadores multipropósito é favorecida, criando 
-			uma nova geração de objetos.
-			
-			\item Nanotecnologia --- \textit{Shrinking things}: Abordando o 
-			impacto e as possibilidades do uso altamente difundido de 
-			tecnologias de nano escala. Dentre as previsões estão circuitos 
-			menores, mais econômicos e baratos, além do uso de novos 
-			materiais, como grafeno e nanotubos, na fabricação destes 
-			dispositivos.
-		\end{itemize}
-		
-		Entretanto, a riqueza de possibilidades abertas pela IoT pode ser 
-		explicada simplesmente pela análise individual de seus termos 
-		constituintes, ou seja, a combinação de Internet e coisas. Segundo 
-		\citetexto{Simpson2005}, no Oxford English Dictionary, a Internet é 
-		``uma rede global de computadores provendo diversos serviços de 
-		informação e comunicação, constituída de redes interconectadas usando 
-		protocolos padronizados de comunicação''.
-		
-		Coisas, por outro lado, não tem uma definição precisa, podendo variar 
-		conforme o contexto e o foco da aplicação. \citetexto{Coetzee2011} 
-		apresentam uma definição abrangente direcionada para IoT:
-		
-		\begin{quote}
-			A definição de ``coisas'' na visão da IoT é muito ampla e inclui 
-			uma variedade de elementos físicos. Estes incluem objetos pessoais 
-			que carregamos como \textit{smart phones}, \textit{tablets} e 
-			câmeras digitais. Ela também inclui elementos em nosso ambiente 
-			(seja em casa, no carro ou no trabalho) assim como coisas 
-			equipadas com \textit{tags} (RFID ou outras) que se tornam 
-			conectadas através de um portal de acesso (um \textit{smart 
+		\item Nanotecnologia --- \textit{Shrinking things}: Abordando o 
+		impacto e as possibilidades do uso altamente difundido de 
+		tecnologias de nano escala. Dentre as previsões estão circuitos 
+		menores, mais econômicos e baratos, além do uso de novos 
+		materiais, como grafeno e nanotubos, na fabricação destes 
+		dispositivos.
+	\end{itemize}
+	
+	Entretanto, a riqueza de possibilidades abertas pela IoT pode ser 
+	explicada simplesmente pela análise individual de seus termos 
+	constituintes, ou seja, a combinação de Internet e coisas. Segundo 
+	\citetexto{Simpson2005}, no Oxford English Dictionary, a Internet é 
+	``uma rede global de computadores provendo diversos serviços de 
+	informação e comunicação, constituída de redes interconectadas usando 
+	protocolos padronizados de comunicação''.
+	
+	Coisas, por outro lado, não tem uma definição precisa, podendo variar 
+	conforme o contexto e o foco da aplicação. \citetexto{Coetzee2011} 
+	apresentam uma definição abrangente direcionada para IoT:
+	
+	\begin{quote}
+		A definição de ``coisas'' na visão da IoT é muito ampla e inclui 
+		uma variedade de elementos físicos. Estes incluem objetos pessoais 
+		que carregamos como \textit{smart phones}, \textit{tablets} e 
+		câmeras digitais. Ela também inclui elementos em nosso ambiente 
+		(seja em casa, no carro ou no trabalho) assim como coisas 
+		equipadas com \textit{tags} (RFID ou outras) que se tornam 
+		conectadas através de um portal de acesso (um \textit{smart 
 			phone}, por exemplo).~
-			\cite{Coetzee2011}.
-		\end{quote}
-		
-		Identifica-se uma mudança gradual na definição do conceito de Internet 
-		das Coisas, inicialmente contemplando apenas mecanismos de 
-		identificação e, impulsionado pela evolução tecnológica, passando a 
-		versar sobre dispositivos inteligentes e diretamente conectados à 
-		Internet necessidade de intermediários. Segundo 
-		\citetexto{Buckley2006} a transformação no conceito de IoT é resultado 
-		tanto de avanços tecnológicos quanto de interesse mercadológico 
-		impulsionado pelos potenciais benefícios.
-		
+		\cite{Coetzee2011}.
+	\end{quote}
+	
+	Identifica-se uma mudança gradual na definição do conceito de Internet 
+	das Coisas, inicialmente contemplando apenas mecanismos de 
+	identificação e, impulsionado pela evolução tecnológica, passando a 
+	versar sobre dispositivos inteligentes e diretamente conectados à 
+	Internet necessidade de intermediários. Segundo 
+	\citetexto{Buckley2006} a transformação no conceito de IoT é resultado 
+	tanto de avanços tecnológicos quanto de interesse mercadológico 
+	impulsionado pelos potenciais benefícios.
+
 % Based on the above view of “things” an enormous number of devices and things 
 % will be connected to the Internet, each providing data and information and 
 % some, even services.
 
-\subsection{Importância}
+\section{Importância}
 
-		Uma vez estabelecida a definição de Internet das Coisas, é possível 
-		compreender o impacto social e tecnológico deste conceito. A Internet 
-		causou uma revolução na maneira com que compartilhamos informação e 
-		conhecimento, gerando, de acordo com \citetexto{Carr2010}, mudanças 
-		até mesmo em nossa estrutura cerebral.
-		
-		Classificada como a terceira onda da computação \cite{Register2013}, 
-		os conceitos de IoT poderão ser aplicados a diversos setores 
-		produtivos, desde a indústria ao setor público. Os possíveis 
-		benefícios obtidos através de uma vasta rede de dispositivos 
-		interconectados fez com que especialistas como \citetexto{Hung2012}, 
-		da Gartner, classificassem IoT como um paradigma transformacional.
-		
-		\citetexto{Cisco2011} ressalta que a importância da IoT está 
-		profundamente interligada na maneira como a humanidade se desenvolveu: 
-		``Humanos evoluem porque se comunicam. Assim que o fogo foi descoberto 
-		e compartilhado, por exemplo, ele não precisou ser redescoberto, 
-		apenas comunicado''. Ainda sob este ponto de vista afirma que, com a 
-		aplicação dos conceitos de IoT, haverá um aumento exponencial na 
-		quantidade de dados disponível:
-		
-		\begin{quote}
-			considere que a IoT representa a próxima evolução da Internet, 
-			levando a um enorme salto na sua habilidade de coletar, analisar e 
-			distribuir dados que podemos transformar em informação, 
-			conhecimento e, finalmente, sabedoria.~
-			\cite[p.~2]{Cisco2011}.
-		\end{quote}
-		
-		%TODO Melhorar a figura
-		\begin{figure}
-			\caption{Hierarquia do conhecimento}
-			\label{fig:wkid}
-			\centering
-			\begin{minipage}{.8\textwidth}
-				\includegraphics[width=\textwidth]{wkid}
-				\fonte{\citetexto{Cisco2011}}
-			\end{minipage}
-		\end{figure}
-		
-		%TODO Medir & Otimizar (gestão de processos)
-decisoes em tempo real a partir de leituras de sensores
-alta resolução dos dados, possibilitando controle individual de recursos (big 
-data)
+	Uma vez estabelecida a definição de Internet das Coisas, é possível 
+	compreender o impacto social e tecnológico deste conceito. A Internet 
+	causou uma revolução na maneira com que compartilhamos informação e 
+	conhecimento, gerando, de acordo com \citetexto{Carr2010}, mudanças 
+	até mesmo em nossa estrutura cerebral.
+	
+	Classificada como a terceira onda da computação \cite{Register2013}, 
+	os conceitos de IoT poderão ser aplicados a diversos setores 
+	produtivos, desde a indústria ao setor público. Os possíveis 
+	benefícios obtidos através de uma vasta rede de dispositivos 
+	interconectados fez com que especialistas como \citetexto{Hung2012}, 
+	da Gartner, classificassem IoT como um paradigma transformacional.
+	
+	\citetexto{Cisco2011} ressalta que a importância da IoT está 
+	profundamente interligada na maneira como a humanidade se desenvolveu: 
+	``Humanos evoluem porque se comunicam. Assim que o fogo foi descoberto 
+	e compartilhado, por exemplo, ele não precisou ser redescoberto, 
+	apenas comunicado''. Ainda sob este ponto de vista afirma que, com a 
+	aplicação dos conceitos de IoT, haverá um aumento exponencial na 
+	quantidade de dados disponível:
+	
+	\begin{quote}
+		considere que a IoT representa a próxima evolução da Internet, 
+		levando a um enorme salto na sua habilidade de coletar, analisar e 
+		distribuir dados que podemos transformar em informação, 
+		conhecimento e, finalmente, sabedoria.~
+		\cite[p.~2]{Cisco2011}.
+	\end{quote}
+	
+%TODO Melhorar a figura
+	\begin{figure}
+		\caption{Hierarquia do conhecimento}
+		\label{fig:wkid}
+		\centering
+		\begin{minipage}{.8\textwidth}
+			\includegraphics[width=\textwidth]{wkid}
+			\fonte{\citetexto{Cisco2011}}
+		\end{minipage}
+	\end{figure}
+	
+%TODO Medir & Otimizar (gestão de processos)
+	decisoes em tempo real a partir de leituras de sensores
+	alta resolução dos dados, possibilitando controle individual de recursos 
+	(big data)
+	
+%TODO Relacionar com Big Data
+	
+	\citetexto{Cisco2011} estima que em 2015 haverão 25 bilhões de 
+	dispositivos conectados a Internet e que apenas 5 anos depois, em 
+	2020, este número chegará a casa de 50 bilhões.
 
-		%TODO Relacionar com Big Data
-		
-		\citetexto{Cisco2011} estima que em 2015 haverão 25 bilhões de 
-		dispositivos conectados a Internet e que apenas 5 anos depois, em 
-		2020, este número chegará a casa de 50 bilhões.
-		
-\subsection{Desafios}
+\section{Desafios}
 
 %TODO Tecnológicos: bateria, processamento, antenas, protocolos
 %TODO Sociais: ética, privacidade (big brother)
 
-\subsection{Oportunidades}
+\section{Oportunidades}
 
-IBM Smarter Planet
-HP?
-
-inteligencia por agregação de dados
-processos autonomos
-
-explicar as principais vantagens do uso de IoT nos seguintes contextos
-Industria
-Meio Ambiente
-Sociedade (governamental)
-depois identificar e exemplificar os Application Domains \cite{Sundmaeker2010}
-
-
-\section{Gerência de Redes}
-
-	Impulsionada pelo crescimento e evolução das redes de computadores, as 
-	técnicas de gerência de redes se tornaram fundamentais para garantir o 
-	funcionamento e a qualidade dos serviços prestados. Cada vez mais 
-	importantes para as atividades humanas, as redes de computadores, em 
-	especial a Internet, ``têm catalizado a inovação e favorecido a emergência 
-	de novos e disruptivos modelos de negócio'' \cite{Ding2009}.
+	IBM Smarter Planet
+	HP?
 	
-	De acordo com \citetexto{Clemm2006}, a gerência de redes pode ser definida 
-	como ``as atividades, métodos, procedimentos, e ferramentas que dizem 
-	respeito a operação, administração, manutenção e provisionamento de 
-	sistemas de rede''. Uma definição extensiva do conceito de gerência de 
-	redes é fornecida por \citetexto{Ding2009}:
+	inteligencia por agregação de dados
+	processos autonomos
 	
-	\begin{quotation}
-		a execução de um conjunto de funções requeridas para controlar, 
-		planejar, alocar, implantar, coordenar, e monitorar os recursos de uma 
-		rede de telecomunicações ou de computadores, incluindo a realização de 
-		funções como planejamento inicial da rede, atribuição de frequências, 
-		roteamento predefinido de tráfico para suportar balanceamento de 
-		carga, autorização de distribuição de chaves criptográficas, gerência 
-		de configuração, gerenciamento de falhas, gestão da segurança, 
-		gerência de performance e gestão de contabilização.~
-		\cite[p.~64]{Ding2009}.
-	% defined as the execution of the set of functions required for 
-	% controlling, planning, allocating, deploying, coordinating, and 
-	% monitoring the resources of a telecommunications network or a computer 
-	% network, including performing functions such as initial network 
-	% planning, frequency allocation, predetermined traffic routing to 
-	% support load balancing, cryptographic key distribution authorization, 
-	% configuration management, fault management, security management, 
-	% performance management, and accounting management.
-	\end{quotation}
-
-	O reconhecimento da importância das técnicas de gerência de redes provocou 
-	esforços por parte de órgãos reguladores, como a Organização Internacional 
-	para Padronização (ISO). Em sua normativa 7498-4, a \citetexto{ISO1989} 
-	define as cinco principais categorias da gerência de redes, conhecido como 
-	o modelo FCAPS:
-	
-	\begin{itemize}
-		\item gerenciamento de falhas
-		\item gerência de configuração
-		\item gestão de contabilização
-		\item gerência de performance
-		\item gestão da segurança
-	\end{itemize}
-	
-	Para que ocorra o gerenciamento de rede, são necessários, segundo 
-	\cite{Ding2009}, três componentes principais:
-	
-	\begin{itemize}
-		\item Centro de gerenciamento
-		\item Dispositivo gerenciado
-		\item Protocolo de gerenciamento
-	\end{itemize}
-
-\section{O Problema}
-
-	Expor o problema da gestão dos objetos inteligentes e como a grande 
-	quantidade
-	de dispositivos vai deixar este problema ainda pior.
-		
-	Descrever os objetivos brevemente de maneira textual e depois colocá-los em
-	forma de topicos\ldots
-
-
-	\subsection{Objetivo Geral}
-	
-		Definir, projetar e desenvolver um sistema de gerencia de dispositivos 
-		inteligentes utilizando-se de modelos e protocolos da gerência de 
-		redes tradicional aplicado a Internet das Coisas.
-	
-	
-	\subsection{Objetivos Específicos}
-	
-		\begin{itemize}
-			\item 
-				Aprofundar os conhecimentos sobre protocolos de Gerência de 
-				Redes e sobre protocolos utilizados por dispositivos aplicados 
-				à Internet das Coisas;
-				
-			\item
-				Definir e projetar um conjunto de extensões voltadas à gestão 
-				de dispositivos inteligentes de forma a melhor adaptar o 
-				protocolo escolhido à proposta;
-				
-			\item
-				Definir e projetar um software de Gerência de Redes com 
-				suporte as extensões propostas.
-				
-		\end{itemize}
-
+	explicar as principais vantagens do uso de IoT nos seguintes contextos
+	Industria
+	Meio Ambiente
+	Sociedade (governamental)
+	depois identificar e exemplificar os Application Domains 
+	\cite{Sundmaeker2010}
 
 \chapter{2 Metodologia}
 % FICA MAIS PARA O FINAL PARA DESCREVER OS PROXIMOS PASSOS NO DESENVOLVIMENTO
@@ -835,4 +833,3 @@ depois identificar e exemplificar os Application Domains \cite{Sundmaeker2010}
 
 
 \end{document}
-
