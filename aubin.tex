@@ -227,8 +227,8 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 
 	O contínuo aumento na capacidade de processamento dos dispositivos 
 	computacionais aliado a redução de custos possibilitou uma nova revolução 
-	tecnológica. Munidos de circuitos integrados e microchips, cada vez mais 
-	os computadores avançam em direção à ubiquidade.
+	tecnológica. Munidos de circuitos integrados e \textit{microchips}, cada 
+	vez mais os computadores avançam em direção à ubiquidade.
 	
 	No atual cenário tecnológico já é possível, de maneira economicamente 
 	viável, colocar em prática algumas das ideias vislumbradas por 
@@ -243,8 +243,8 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 	fatores como a complexidade e o custo da criação de uma rede composta de 
 	dispositivos embarcados em objetos do dia-a-dia. 
 	Tomando por referência a lei de \citetexto{Moore1965}, que dita 
-	que o número de transistores em um circuito integrado dobra 
-	aproximadamente a cada dezoito meses, é improvável que esta tendência, de 
+	que o número de transístores em um circuito integrado dobra 
+	aproximadamente a cada dois anos, é improvável que esta tendência, de 
 	dispositivos cada vez menores e mais baratos, se reverta.
 	
 	Diversas são as semelhanças entre a Internet das Coisas e Redes de 
@@ -257,13 +257,13 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 	resultando em uma modalidade de comunicação chamada por 
 	\citetexto{ETSI2010} de comunicação Máquina-a-Máquina (M2M).
 	
-	Motivados pelas oportunidades e pelo alto impacto da computação pervasiva, 
-	atingida através da IoT, na vida cotidiana, pesquisadores tanto da 
-	academia quanto da indústria se mobilizaram em torno do conceito 
-	\cite{Atzori2010b}. Entidades governamentais reconheceram também a IoT 
-	como um paradigma promissor, com iniciativas de pesquisa e desenvolvimento 
-	na China, Japão, Estados Unidos e União Européia 
-	\cite[p.~16]{Sundmaeker2010}.
+	Motivados pelas oportunidades e pelo alto impacto social da computação 
+	pervasiva, atingida com a ajuda da IoT, pesquisadores tanto da academia 
+	quanto da indústria se mobilizaram em torno do conceito 
+	\cite{Atzori2010b}. 
+	Entidades governamentais reconheceram também a IoT como um paradigma 
+	promissor, com iniciativas de pesquisa e desenvolvimento na China, Japão, 
+	Estados Unidos e União Europeia \cite[p.~16]{Sundmaeker2010}.
 	
 	Entretanto, com grandes poderes vêm grandes responsabilidades
 	\footnote{Lição dada a Peter Parker por seu tio Ben na história em 
@@ -285,7 +285,62 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 %		          padronizada? Como reaproveitar tecnologias estabelecidas?
 %		Objetivo: Para facilitar a gestão de dispositivos inteligentes
 
+	Em um mundo cada vez mais conectado e dependente da Internet, a quantidade 
+	de dispositivos capazes de integrar a rede já representa uma fatia 
+	considerável entre os aparelhos usados diariamente \cite{Accenture2012}.
+	Computadores, \textit{laptops}, \textit{tablets}, \textit{smartphones} e 
+	televisores integram uma crescente classe de produtos comercialmente 
+	chamados de Dispositivos Inteligentes (\textit{Smart Devices}) e que 
+	permitem, dentre outras funções, acesso a redes e, principalmente, à 
+	Internet.
 	
+	Paralelamente a esta tendência, seguindo as previsões de 
+	\citetexto{Moore1965} e \citetexto{Gilder2007}, por exemplo, a capacidade 
+	de equipamentos e redes continua a aumentar, tornando cada vez mais 
+	atraente e economicamente viável a visão de um mundo conectado 
+	\cite{Ding2009}.
+	Tais mudanças influenciam direta e indiretamente a sociedade, seus 
+	costumes, e, conforme afirma \citetexto{Carr2010}, até mesmo o pensamento 
+	humano.
+	
+	A difusão dos aparelhos capazes de acessar a Internet criou um novo 
+	paradigma que está transformando a gestão de Tecnologia da Informação (TI) 
+	\cite{ZdnetBYOD}. Batizado de Traga Seu Próprio Dispositivo (BYOD), 
+	este modelo aponta para um futuro onde colaboradores não estarão mais 
+	limitados aos equipamentos das organizações, podendo usar dispositivos de 
+	sua preferência para trabalho e lazer.
+	
+	Ocasionando um significativo aumento na quantidade de ativos 
+	fora do controle da organização, este novo paradigma apresenta-se um 
+	desafio para as áreas de segurança da informação e gerência de redes.
+	Empresas como \citetexto{CiscoBYOD}, \citetexto{HP2013} e 
+	\citetexto{Motorola2011} identificaram este desafio como uma oportunidade 
+	de negócio, lançando diferentes produtos visando prover soluções para 
+	controlar e, enfim, viabilizar a realização do BYOD nas organizações.
+	
+	Assim como o BYOD, a Internet das Coisas trará consigo uma vasta gama de 
+	novos aparelhos que carecem de diretivas de gestão \cite{Atzori2010b}.
+	Apesar das soluções propostas para o cenário BYOD, não há um consenso 
+	sobre mecanismos específicos de gerência, gerando soluções proprietárias e 
+	que não colaboram entre si. 
+	
+	Visando manter a interoperabilidade entre dispositivos, há, nas pesquisas 
+	de IoT, um consenso referente ao uso de IP, mais especificamente o IPv6, 
+	como o protocolo padrão de comunicação. 
+	%TODO Incluir as referências
+%	``Modelos e protocolos de gerenciamento de Internet 
+%	deveriam ser estendidos para suportar a gestão da IoT''
+	Compartilhando desta motivação, autores como \citetexto{Wang2012} e OUTROS
+	%TODO Referências
+	afirmam que os protocolos de gerenciamento devem também manter a 
+	compatibilidade com os modelos já existente, sendo, se necessário, 
+	estendidos para dar suporte aos desafios da IoT.
+	
+	Corroborando com esta visão, o presente trabalho se propõe a estudar e 
+	criar mecanismos que possibilitem o emprego de protocolos e modelos da 
+	gerência de redes tradicional aplicados ao contexto de Internet das Coisas.
+	
+	\pagebreak
 	Expor o problema da gestão dos objetos inteligentes e como a grande 
 	quantidade
 	de dispositivos vai deixar este problema ainda pior.
