@@ -34,5 +34,6 @@
 .DS_Store
 
 *.pdf
+*.zip
 .dropbox
 desktop.ini
