@@ -210,7 +210,7 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 %=======================================================================
 % Introdução
 %=======================================================================
-\chapter{1 Introdução}
+\chapter{Introdução}
 
 % as epígrafes nos capítulos são opcionais
 \epigrafecap{
@@ -395,9 +395,13 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 	\end{itemize}
 
 
-\chapter{2 Metodologia}
+\chapter{Metodologia}
 % FICA MAIS PARA O FINAL PARA DESCREVER OS PROXIMOS PASSOS NO DESENVOLVIMENTO
 % DO TRABALHO...
+
+
+%TODO incluir as definições mais clássicas / formais
+
 
 Um estudo abrangendo os principais protocolos de gerencia de redes e de 
 comunicação entre dispositivos inteligentes será realizado como ponto de 
@@ -488,6 +492,55 @@ de dispositivos inteligentes no contexto de Internet das Coisas.
 		\item Dispositivo gerenciado
 		\item Protocolo de gerenciamento
 	\end{itemize}
+	
+\section{Protocolos de Gerência de Redes}
+% ABORDAR A LITERATURA CLASSICA EM UM MOMENTO, EXPLICANDO OS PRINCIPAIS CARAS 
+% E AS DEFINIÇÕES.
+
+% DEPOIS ABORDAR A PARTE DE ARTIGOS COM TRABALHOS RELACIONADOS O QUE FIZERAM
+% RELACIONANDO IoT COM GERENCIA DE REDES
+
+Contextualizar o leitor com a utilidade e os objetivos de um protocolo
+de gerência de redes. Porque foram feitos, quais problemas resolvem,
+onde funcionam bem e onde não são tão bons (segurança, por exemplo).
+FCAPS\ldots
+
+Apresentar os protocolos principais, seus pontos fortes e fracos.
+
+
+
+\subsection{Modelo OSI (CMIP / CMOT)}
+
+Apresentar este protocolo
+
+
+\subsection{SNMP}
+
+Principal objeto de estudo do trabalho até o momento.
+Provavelmente será o protocolo escolhido.
+
+
+\subsection{WSDM}
+
+
+\subsection{Management By Delegation}
+
+
+\subsection{AgentX}
+
+
+\subsection{Outros?!}
+
+
+\subsection{Conclusão}
+
+	%TODO Muito importante botar bastante embasamento nesta sessão para 
+	%justificar a escolha do protocolo a ser usado.
+
+Apresentar o melhor candidato pra receber as melhorias e justificar
+a escolha\ldots
+Fazer uma analise das principais caracteristicas e melhorias/sugestoes das 
+referencias
 
 
 \chapter{Internet das Coisas}
@@ -797,56 +850,8 @@ de dispositivos inteligentes no contexto de Internet das Coisas.
 	depois identificar e exemplificar os Application Domains 
 	\cite{Sundmaeker2010}
 
-\chapter{3 Protocolos de Gerência de Redes}
-% ABORDAR A LITERATURA CLASSICA EM UM MOMENTO, EXPLICANDO OS PRINCIPAIS CARAS 
-% E AS DEFINIÇÕES.
 
-% DEPOIS ABORDAR A PARTE DE ARTIGOS COM TRABALHOS RELACIONADOS O QUE FIZERAM
-% RELACIONANDO IoT COM GERENCIA DE REDES
-
-	Contextualizar o leitor com a utilidade e os objetivos de um protocolo
-	de gerência de redes. Porque foram feitos, quais problemas resolvem,
-	onde funcionam bem e onde não são tão bons (segurança, por exemplo).
-	FCAPS\ldots
-	
-	Apresentar os protocolos principais, seus pontos fortes e fracos.
-	
-	
-	
-	\section{Modelo OSI (CMIP / CMOT)}
-
-		Apresentar este protocolo
-		
-		
-		
-	\section{SNMP}
-
-		Principal objeto de estudo do trabalho até o momento.
-		Provavelmente será o protocolo escolhido.
-		
-		
-	
-	\section{WSDM}
-	
-	
-	\section{Management By Delegation}
-	
-	
-	\section{AgentX}
-	
-	
-	\section{Outros?!}
-	
-	
-	\section{Conclusão}
-	
-		Apresentar o melhor candidato pra receber as melhorias e justificar
-		a escolha\ldots
-		Fazer uma analise das principais caracteristicas e melhorias/sugestoes das referencias
-
-
-
-\chapter{4 Proposta para IoT}
+\chapter{Proposta para IoT}
 
 	Abordar neste capítulo as necessidades específicas de IoT e suas 
 	características.
@@ -892,22 +897,18 @@ de dispositivos inteligentes no contexto de Internet das Coisas.
 %cronograma revisado
 %metodologia revisada
 %considerações finais
-\chapter{5 Planejamento da Implementação}
+\chapter{Planejamento da Implementação}
+	
+	
+	%TODO cronograma
+	
+	%TODO Diagrama de blocos entre dispositivos e gerente com as trocas de 
+	%mensagens
+	
+	%TODO Como avaliar: Quantidade / tamanho das mensagens, tempos de 
+	%resposta e processamento, consumo de recursos (pouco importante)
 	
 	Documentar o processo de implementação\ldots
-	
-	\section{Proxy Forwarder}
-		
-		Para implementar essas alterações é possível que seja necessária
-		a criação de um forwarder que vai traduzir os pacotes.
-		
-		A melhor solução pra isso seria fazer com que o próprio cliente
-		reconhecesse o novo formato, mas perderia compatibilidade com
-		o padrão.
-		
-		Carece de maior análise e melhor detalhamento para entender 
-		melhor se realmente vai ser necessário, entretanto esta estratégia
-		com os Proxies foi a usada por \cite{Choi2009}.
 	
 	
 	
