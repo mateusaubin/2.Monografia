@@ -49,6 +49,15 @@
 \RequirePackage{lastpage}
 
 %=======================================================================
+% Customs do Mateus
+% Exemplos de uso:
+%   \urlbr{Data}{url}
+%=======================================================================
+\DeclareRobustCommand{\urlbr}[2]{
+	Dispon\'{\i}vel em: <\url{#2}>. Acesso em: #1.
+}
+
+%=======================================================================
 % Comandos para definições principais.
 % Exemplos de uso:
 %   \autor{Sobrenome}{Nomes Iniciais}
