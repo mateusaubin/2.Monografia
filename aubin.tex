@@ -1,3 +1,16 @@
+%TODO
+%	Procurar protocolos de gerencia especificos pra IoT
+%
+%	Capitulo de Gerencia de Redes com um viés mais IoT.
+%
+%	Na parte de gerência justificar a escolha do snmp por ser um padrão e 
+% argumentar que é importante usá-lo para aproveitar a infraestrutura já 
+% existente.
+%
+%	Comparar os protocolos de gerencia especificos pra IoT e dar enfase aos 
+% pros e contras de cada um e entrar com a minha proposta pra melhorar esses 
+% pontos.
+%
 %=======================================================================
 % Declarações iniciais identificando a classe de documento e
 % selecionando alguns pacotes adicionais.
@@ -12,10 +25,28 @@
 \usepackage[utf8]{inputenc} % charset do texto (utf8, latin1, etc.)
 \usepackage[T1]{fontenc} % encoding da fonte (afeta a sep. de sílabas)
 \usepackage{graphicx} % comandos para gráficos e inclusão de figuras
+
 \usepackage{bibentry} % para inserir refs. bib. no meio do texto
+\usepackage{hyperref}
+
+
+
+\hypersetup{
+	breaklinks=true,
+	unicode=true,          % non-Latin characters in Acrobat’s bookmarks
+	hidelinks=true,
+	linktoc=all,
+	pdflang=pt-BR
+}
 
 \graphicspath{ {./images/} }
 
+%\hypersetup{
+%	pdftitle={titulo},    % title
+%	pdfauthor={mateus},     % author
+%	pdfsubject={subsubsub},   % subject of the document
+%	pdfkeywords={kkk1} {key2} {key3}, % list of keywords
+%}
 %=======================================================================
 % Escolha do sistema para geração de referências bibliográficas.
 %
@@ -33,6 +64,7 @@
 %=======================================================================
 \unisinosbst
 %\usepackage[alf]{abntcite}
+
 
 
 %=======================================================================
@@ -57,7 +89,7 @@ Internet das Coisas
 \natureza{
 Trabalho de Conclusão de Curso apresentado como requisito parcial
 para a obtenção do título de Bacharel em Ciência da Computação
-pela Universidade do Vale do Rio dos Sinos --- UNISINOS
+pela Universidade do Vale do Rio dos Sinos --- Unisinos
 }
 
 
@@ -79,10 +111,9 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 %=======================================================================
 % Início do documento.
 %=======================================================================
-\begin{document}
+\begin{document}	
 \capa
 \folhaderosto
-
 
 %=======================================================================
 % Dedicatória (opcional).
@@ -182,8 +213,12 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 %
 % Deve ser passada como parâmetro a maior das siglas utilizadas.
 %=======================================================================
-\begin{listadesiglas}{IoT}
+\begin{listadesiglas}{M2M}
 \item[IoT] Internet of Things
+\item[M2M] Machine-To-Machine
+\item[TI] Tecnologia da Informação
+\item[IP] Internet Protocol
+\item[IPv6] Internet Protocol version 6
 %\item[CAPES] Coordenação de Aperfeiçoamento de Pessoal de Nível Superior
 %\item[FAPERGS] Fundação de Amparo à Pesquisa do Estado do Rio Grande do Sul
 \end{listadesiglas}
@@ -229,15 +264,48 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 %		Apresentar a Estrutura:  Fica pro final
 %		Explicar a Metodologia:  Vai ter capítulo específico
 
-%TODO Traçar um histórico da evolução tecnológica que culminou na IoT. Vindo 
-%		desde a invenção do computador, das redes de computadores e a 
-%		Internet, até a IoT
+	Desde a Revolução Industrial há uma crescente busca pela automação das 
+	tarefas humanas. Através de máquinas cada vez mais sofisticadas foi 
+	possível obter significativo avanço nas tecnologias e nos métodos de 
+	produção ao passo que diversas tarefas deixaram de ser realizadas 
+	manualmente.
+	Seguindo esta filosofia, máquinas computacionais foram projetadas e as 
+	bases da ciência da computação estabelecidas. Conceitos como a 
+	Álgebra Booleana de \citetexto{boole2003}, publicado originalmente em 
+	1854, servem até hoje como fundamentos deste campo de estudos.
 
-	O aumento contínuo na capacidade de processamento dos dispositivos 
-	computacionais aliado a redução de custos possibilitou uma nova revolução 
-	tecnológica. %TODO quem afirma isto?
-	Munidos de circuitos integrados e \textit{microchips}, cada 
-	vez mais os computadores avançam em direção à ubiquidade.
+	Durante a segunda guerra mundial houve um expressivo progresso na 
+	computação graças ao incentivo das organizações de defesa para melhorar 
+	métodos de cálculo e criptografia. Neste período publicações como as de 
+	\citetexto{Shannon1948}, \citetexto{Turing1937} e 
+	\citetexto{VonNeumann1945} definiram a ciência da computação como é 
+	conhecida hoje.
+
+	Ainda com objetivos de defesa, pesquisas no campo de redes de computadores 
+	começaram a ser desenvolvidas nos anos que seguiram. A IBM, nos anos 50,
+	desenvolveu para os EUA o SAGE\footnote{Semi-Automatic Ground Environment, 
+	um sistema nacional de defesa do espaço aéreo e um dos mais importantes 
+	projetos da IBM. 
+	\urlbr{set.~2013}{www.ibm.com/ibm/history/ibm100/us/en/icons/sage/}}, 
+	um dos primeiros exemplos de computadores conectados em rede, 
+	caracterizado pela ``transmissão de dados digitais em linhas telefônicas 
+	de voz à 1300 bits por segundo'' \cite{IBMSAGE1983}.
+
+	Contudo, o SAGE comunicava-se através do conceito de circuitos, que, mais 
+	tarde, mostrou-se inferior à troca de pacotes (\textit{packet switching}). 
+	Explorado pela agência de defesa americana nos anos 70, a comunicação via 
+	troca de pacotes originou a ARPANET, uma rede nacional descentralizada 
+	utilizada para interligar universidades e centros de pesquisas 
+	\cite{ARPANET1964}, assim como os protocolos TCP/IP, a base da atual 
+	internet.
+
+	A contínua ampliação da capacidade de processamento dos dispositivos 
+	computacionais, aliada a redução de custos, possibilitou uma nova 
+	revolução tecnológica \cite{Atzori2010b}, abrindo caminho para a Era da 
+	Informação.
+	Munidos de circuitos integrados e \textit{microchips}, os computadores 
+	estão cada vez mais presentes nas atividades humanas, avançando em direção 
+	à ubiquidade.
 	
 	No atual cenário tecnológico já é possível, de maneira economicamente 
 	viável, colocar em prática algumas das ideias vislumbradas por 
@@ -247,33 +315,34 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 	vida cotidiana têm diminuído, possibilitando a criação de novos produtos e 
 	serviços, resultando em soluções para os mais diversos problemas.
 	
-	Ainda que não seja uma ideia nova, \citetexto{Turck2013} pontua que a 
-	implementação de uma Internet das Coisas (IoT) não era viável devido a 
-	fatores como a complexidade e o custo da criação de uma rede composta de 
-	dispositivos embarcados em objetos do dia-a-dia. 
-	Tomando por referência a lei de \citetexto{Moore1965}, que dita 
-	que o número de transístores em um circuito integrado dobra 
-	aproximadamente a cada dois anos, é improvável que esta tendência, de 
-	dispositivos cada vez menores e mais baratos, se reverta.
+	Ainda que não seja uma proposta nova, \citetexto{Turck2013} pontua que a 
+	implementação de uma rede composta de dispositivos embarcados em objetos 
+	do dia-a-dia, ou seja, a Internet das Coisas (IoT), não era viável devido 
+	a fatores como complexidade e custo. 
+	Entretanto, tomando por referência a lei de \citetexto{Moore1965}, a qual 
+	dita que o número de transístores em um circuito integrado dobra 
+	aproximadamente a cada dois anos, é improvável que se reverta a tendência 
+	de dispositivos cada vez menores e mais baratos, se reverta.
 	
-	Diversas são as semelhanças entre a Internet das Coisas e Redes de 
+	Diversas são as semelhanças entre a Internet das Coisas e as Redes de 
 	Sensores sem Fio, porém, enquanto as redes de sensores  
 	são implantadas principalmente com o intuito de monitorar variáveis em um 
 	ambiente \cite{Sakthidharan2012}, a Internet das Coisas expande este 
 	conceito ao próximo nível. 
 	A capacidade de tornar cada dispositivo individualmente endereçável na 
-	Internet favorece o compartilhamento de informações entre sistemas, 
-	resultando em uma modalidade de comunicação chamada por 
+	internet favorece o compartilhamento de informações entre sistemas, 
+	resultando em uma modalidade de comunicação chamada pela 
 	\citetexto{ETSI2010} de comunicação Máquina-a-Máquina (M2M).
 	
 	Motivados pelas oportunidades e pelo alto impacto social da computação 
 	pervasiva, impulsionada com a ajuda da IoT, pesquisadores tanto da 
-	academia quanto da indústria se mobilizaram em torno do conceito 
+	academia quanto da indústria se mobilizaram em torno deste conceito 
 	\cite{Atzori2010b}. 
 	Entidades governamentais reconheceram também a IoT como um paradigma 
-	promissor, promovendo iniciativas de pesquisa e desenvolvimento na China, 
-	Japão, Estados Unidos e União Europeia 
-	\cite[p.~16]{Sundmaeker2010}.
+	promissor, fomentando iniciativas de pesquisa e desenvolvimento em países 
+	como China, Japão, Estados Unidos e da União Europeia 
+	% p 16
+	\cite{Sundmaeker2010}.
 	
 	Entretanto, com grandes poderes vêm grandes responsabilidades
 	\footnote{Lição dada a Peter Parker por seu tio Ben na história em 
@@ -295,85 +364,92 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 %		          padronizada? Como reaproveitar tecnologias estabelecidas?
 %		Objetivo: Para facilitar a gestão de dispositivos inteligentes
 
-	Em um mundo cada vez mais conectado e dependente da Internet, a quantidade 
+	Em um mundo cada vez mais conectado e dependente da internet, a quantidade 
 	de dispositivos capazes de integrar a rede já representa uma fatia 
 	considerável entre os aparelhos usados diariamente \cite{Accenture2012}.
 	Computadores, \textit{laptops}, \textit{tablets}, \textit{smartphones} e 
 	televisores integram uma crescente classe de produtos comercialmente 
 	chamados de Dispositivos Inteligentes (\textit{Smart Devices}) e que 
 	permitem, dentre outras funções, acesso a redes e, consequentemente, à 
-	Internet.
+	internet.
 	
-	Paralelamente a esta tendência, seguindo as previsões de 
+	Paralelamente a esta tendência e seguindo as previsões de 
 	\citetexto{Gilder2007} e \citetexto{Moore1965}, por exemplo, a capacidade 
-	de equipamentos e redes continua a aumentar, tornando cada vez mais 
-	atraente e economicamente viável a visão de um mundo conectado 
-	\cite{Ding2009}.
+	de equipamentos e redes continua a aumentar, resultando na visão de um 
+	atraente e economicamente viável mundo conectado \cite{Ding2009}.
 	Tais mudanças influenciam direta e indiretamente a sociedade, seus 
 	costumes, e, conforme afirma \citetexto{Carr2010}, até mesmo o pensamento 
 	humano.
 	
-	%TODO remover byod
-	A difusão dos aparelhos capazes de acessar a Internet criou um novo 
+	A difusão de aparelhos capazes de acessar a internet criou um novo 
 	paradigma que está transformando a gestão de Tecnologia da Informação (TI) 
-	\cite{ZdnetBYOD}. Batizado de Traga Seu Próprio Dispositivo (BYOD), 
-	este modelo aponta para um futuro onde colaboradores não estarão mais 
-	limitados aos equipamentos das organizações, podendo usar dispositivos de 
-	sua preferência para trabalho e lazer.
+	\cite{ZdnetBYOD}.
+	Este aumento apresenta-se como um desafio para as áreas de segurança da 
+	informação e gerência de redes, convidando grandes empresas como 
+	\citetexto{CiscoBYOD}, \citetexto{HP2013} e \citetexto{Motorola2011} a 
+	propor novas soluções.
 	
-	Ocasionando um significativo aumento na quantidade de ativos 
-	fora do controle das companhias, este novo paradigma apresenta-se um 
-	desafio para as áreas de segurança da informação e gerência de redes.
-	Empresas como \citetexto{CiscoBYOD}, \citetexto{HP2013} e 
-	\citetexto{Motorola2011} identificaram este desafio como uma oportunidade 
-	de negócio, lançando diferentes produtos visando prover soluções para 
-	controlar e, enfim, viabilizar a realização do BYOD nas organizações.
-	
-	Assim como o BYOD, a Internet das Coisas trará consigo uma vasta gama de 
-	novos aparelhos que carecem de diretivas de gestão \cite{Atzori2010b}.
-	Apesar das soluções propostas para o cenário BYOD, não há um consenso 
-	sobre mecanismos específicos de gerência, gerando soluções proprietárias e 
-	que não colaboram entre si. 
+	Apesar de constituir um desafio de gestão, não há indícios da redução de 
+	dispositivos nas redes. A Internet das Coisas trará consigo uma vasta gama 
+	de novos aparelhos que carecem de diretivas de gestão \cite{Atzori2010b} 
+	e, ainda que novas soluções estejam em desenvolvimento, não há um acordo 
+	sobre mecanismos específicos de gerência, resultando em soluções 
+	proprietárias e que não colaboram entre si.
 	
 	Visando manter a interoperabilidade entre dispositivos, há, nas pesquisas 
 	de IoT, um consenso referente ao uso do Protocolo de Internet (IP), mais 
-	especificamente o IPv6, como o protocolo padrão de comunicação. 
-	%TODO Incluir as referências
-%	``Modelos e protocolos de gerenciamento de Internet 
-%	deveriam ser estendidos para suportar a gestão da IoT''
-	Compartilhando desta motivação, autores como \citetexto{Wang2012}
-	%TODO Referências
-	afirmam que os protocolos de gerenciamento devem também manter a 
-	compatibilidade com os modelos já existentes, sendo, se necessário, 
+	especificamente o IPv6, como o protocolo padrão de comunicação 
+	\cite{Dunkels2008,Mattern2010a,Feng2011,Paventhan2012}.
+	Compartilhando desta motivação, autores como \citetexto{Sundmaeker2010}, 
+	\citetexto{Mattern2010a} e \citetexto{Wang2012}
+	afirmam que os protocolos de gerenciamento de redes devem, também, manter 
+	a compatibilidade com os padrões já existentes, sendo, se necessário, 
 	estendidos para dar suporte aos desafios da IoT.
 	
-	% neste ponto falta deixar claro qual o problema que estamos estudando
+	Para tanto, é de grande interesse da indústria e da academia que um 
+	protocolo de gerência de redes possa desempenhar seu papel em conjunto com 
+	a infraestrutura já existente sem deixar de atender às restrições e 
+	características da IoT. É nesta tarefa que concentram-se os esforços deste 
+	trabalho, buscando melhorias específicas para este novo cenário e, ao 
+	mesmo tempo, manter a interoperabilidade com padrões já estabelecidos.
 	
-	% aqui deves abrir uma secao de Objetivos
+\section{Objetivos}
+
 	Corroborando com esta visão, o presente trabalho se propõe a estudar e 
 	criar mecanismos que possibilitem o emprego de protocolos e modelos da 
-	gerência de redes tradicional aplicados ao contexto de Internet das Coisas.
+	gerência de redes tradicional aplicados ao contexto de Internet das 
+	Coisas. 
 	
-	\pagebreak
-	Expor o problema da gestão dos objetos inteligentes e como a grande 
-	quantidade
-	de dispositivos vai deixar este problema ainda pior.
-	
-	Falar que é possível usar SNMP como protocolo pra gerir IoT e explicar que 
-	vou propor melhorias específicas para este caso de uso.
-	% +padronizacao
-	% +aproveitamento de tecnologias estabelecidas
-	% -pesado
-	
-	Descrever os objetivos brevemente de maneira textual e depois colocá-los em
-	forma de topicos\ldots
+	Os dispositivos embarcados que compõem a Internet das Coisas não contam 
+	com interfaces de usuário, causando com que toda sua gestão deva ser 
+	realizada remotamente ou de forma automatizada. Enquanto, idealmente, um 
+	dispositivo deveria ser auto-gerenciável, é improvável que tais métodos 
+	sejam apropriados para todas as situações. Desta forma, eventualmente será 
+	necessária a intervenção manual sobre um ou mais dispositivos.
+
+	Devido a ausência de padrões para IoT é provável que cada fabricante 
+	sugira diferentes maneiras de realizar esta gestão, criando implementações 
+	incompatíveis entre si e de padrão fechado. Esta filosofia vai diretamente 
+	de encontro a mentalidade da Internet, que é composta de padrões abertos e 
+	para que todos tenham acesso.
+
+	Porém, a gestão da Internet das Coisas apresenta características únicas 
+	não contempladas pelos padrões já estabelecidos, entre elas estão a grande 
+	quantidade de dispositivos presentes na rede e a reduzida capacidade de 
+	processamento. Surge, então, a necessidade de estudar e ajustar estes 
+	protocolos para este contexto, de forma que atendam às necessidades da IoT.
+
+	Uma vez encontradas as fraquezas da gerência de redes tradicional, um 
+	conjunto de melhorias serão propostas ao protocolo. Tais melhorias devem, 
+	idealmente, manter a compatibilidade com o protocolo, funcionando como 
+	extensões. Ao final haverá a implementação das propostas, realizada a 
+	título de prova de conceito.
 
 \subsection{Objetivo Geral}
 
-	% podes tirar o "desenvolver"
-	Definir, projetar e desenvolver um sistema de gerencia de dispositivos 
-	inteligentes utilizando-se de modelos e protocolos da gerência de 
-	redes tradicional aplicado a Internet das Coisas.
+	Definir e projetar um sistema de gerência de dispositivos inteligentes 
+	utilizando modelos e protocolos da gerência de redes tradicional e 
+	aplicado-os ao contexto da Internet das Coisas.
 
 \subsection{Objetivos Específicos}
 
@@ -389,13 +465,14 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 		protocolo escolhido à proposta;
 		
 		\item
+	%TODO [Perguntar] um software ou melhorias ao protocolo?
 		Definir e projetar um software de Gerência de Redes com 
 		suporte as extensões propostas.
 		
 	\end{itemize}
 
 
-\chapter{Metodologia}
+\chapter{Método de Pesquisa}
 % FICA MAIS PARA O FINAL PARA DESCREVER OS PROXIMOS PASSOS NO DESENVOLVIMENTO
 % DO TRABALHO...
 
@@ -403,7 +480,7 @@ pela Universidade do Vale do Rio dos Sinos --- UNISINOS
 %TODO incluir as definições mais clássicas / formais
 
 
-Um estudo abrangendo os principais protocolos de gerencia de redes e de 
+Um estudo abrangendo os principais protocolos de gerência de redes e de 
 comunicação entre dispositivos inteligentes será realizado como ponto de 
 partida para o trabalho proposto. Este estudo tem por objetivo fazer um 
 levantamento dos protocolos de maior destaque em seu ramo, possibilitando 
@@ -413,24 +490,62 @@ De posse destes dados será feita uma avaliação para decidir quais
 protocolos apresentam as melhores características para atingir os 
 objetivos deste trabalho. Esta etapa visa selecionar quais tecnologias 
 serão utilizadas no restante do desenvolvimento do trabalho, de forma a 
-obter a maior contribuição científica possível.
+obter o melhor aproveitamento possível.
 
-Nesta etapa ocorrerá uma análise das funcionalidades do protocolo de 
-gerencia de redes escolhido visando encontrar quais delas são úteis para o 
+Em seguida ocorrerá uma análise das funcionalidades do protocolo de 
+gerência de redes escolhido visando encontrar quais delas são úteis para o 
 paradigma de Internet das Coisas e, adicionalmente, serão sugeridas 
 melhorias específicas para este domínio de aplicação.
 
 Uma vez definido o conjunto de extensões necessárias ao protocolo de 
-gerencia de redes selecionado, será projetado um software capaz de 
+gerência de redes selecionado, será projetado um software capaz de 
 utilizar-se destas melhorias. Nesta etapa será criada a arquitetura do 
-sistema de gerencia de redes específico para a gestão de dispositivos 
+sistema de gerência de redes específico para a gestão de dispositivos 
 inteligentes.
 
-Finalmente serão efetivamente desenvolvidas as melhorias propostas. Nesta 
-% em nivel de prototipo, nao de produto acabado
-etapa serão implementadas as melhorias ao protocolo de gerencia de redes e 
-será também desenvolvido o sistema de gerencia de redes aplicado a gestão 
-de dispositivos inteligentes no contexto de Internet das Coisas.
+Finalmente serão efetivamente desenvolvidas as melhorias propostas. 
+Esta etapa contempla a criação de um protótipo, como prova de conceito, no 
+qual serão implementadas as melhorias propostas ao protocolo de gerência de 
+redes. Tais funcionalidades contemplam melhorias à gestão de dispositivos 
+inteligentes no contexto de Internet das Coisas.
+
+Desta forma, pode-se classificar o presente trabalho como uma proposta de 
+melhoria na abordagem de gerência de redes. Considerando que ``não é 
+necessário, porém, que o autor de algum método novo demonstre que o seu método 
+é melhor do que outro método do estado da arte para toda e qualquer situação'' 
+\cite{Wazlawick2008} a abrangência do trabalho é intencionalmente limitada ao 
+domínio da Internet das Coisas. % no contexto de home-automation?!
+
+Para avaliar a eficácia das melhorias propostas uma implementação a título de  
+protótipo será desenvolvida, possibilitando a comparação direta entre 
+estratégias já estabelecidas (estado da arte) e a proposta. Caracteriza-se, 
+portanto, como uma pesquisa quantitativa que se propõe a ``verificar o
+quão melhor é usar um programa/sistema novo frente à(s) alternativa(s)'' 
+\cite{Jacques2007}.
+
+
+%TODO Revisar se realmente deve-se avaliar de maneira quantitativa uma vez que 
+%     o foco do trabalho é a proposta das TAGS
+Escolhido método de pesquisa, neste caso quantitativo, é necessário definir 
+indicadores que avaliem de maneira objetiva o desempenho das implementações.
+São eles:
+\begin{itemize}
+
+%     Ganhos por usar multicast (ou broadcast mesmo)
+\item Tráfego de Rede: Quantidade total de dados trafegados na rede durante 
+uma requisição para N dispositivos.
+
+%     (minha abordagem é paralela, tradicional é sequencial
+\item Tempo de Resposta Total: Intervalo de tempo entre a requisição e a 
+obtenção das respostas de todos os dispositivos.
+
+\end{itemize}
+
+% http://eprints.eemcs.utwente.nl/7111/01/2004-eTNSM.pdf
+% - Bandwidth usage
+% - CPU time
+% - Memory usage
+% - Round trip delay
 
 
 \chapter{Gerência de Redes}
@@ -655,7 +770,7 @@ referencias
 	Contrastando com as etiquetas RFID, o conceito de Objetos Inteligentes 
 	(\textit{Smart Objects}) compreende objetos físicos/digitais autônomos 
 	aumentados com capacidades sensoriais, de processamento e rede 
-	\cite{Beigl2001}.
+	\cite{Gellersen2001}.
 	Estes objetos foram classificados, no trabalho de \cite{Kortuem2010a}, em 
 	três grandes grupos de acordo com seu grau de percepção e, 
 	consequentemente, complexidade. Sendo eles: consciência de atividade, de 
@@ -667,17 +782,17 @@ referencias
 	
 	Espera-se que as principais habilidades de um Objeto Inteligente digam 
 	respeito ao compartilhamento de informações (entre dispositivos e 
-	usuários), e a consciência do seu contexto \cite{Beigl2001}. Os autores 
-	ainda enfatizam que tais objetos ``serão deliberadamente limitados em sua 
-	capacidade computacional, memória e poder de processamento a níveis 
-	adequados para um propósito específico''. Seguindo esta tendência, 
-	\citetexto{Mattern2010a} prevêem que a tecnologia caminha em direção a um 
-	modelo onde Objetos Inteligentes efetivamente se comunicam entre eles, 
-	serviços na Internet e seus usuários.
+	usuários), e a consciência do seu contexto \cite{Gellersen2001}. 
+	Os autores ainda enfatizam que tais objetos ``serão deliberadamente 
+	limitados em sua capacidade computacional, memória e poder de 
+	processamento a níveis adequados para um propósito específico''. 
+	Seguindo esta tendência, \citetexto{Mattern2010a} prevêem que a tecnologia 
+	caminha em direção a um modelo onde Objetos Inteligentes efetivamente se 
+	comunicam entre eles, serviços na Internet e seus usuários.
 	
 	Experiências no planejamento e execução de aplicações compostas por 
 	\textit{Smart Objects} podem ser encontradas nos trabalhos de 
-	\citetexto{Beigl2001}, \citetexto{Gellersen2004}, 
+	\citetexto{Gellersen2001}, \citetexto{Gellersen2004}, 
 	\citetexto{Holmquist2004}, através do projeto Smart-Its, e 
 	\citetexto{Kortuem2010a}, abordando questões de saúde e segurança, gestão 
 	de processos e modelos de negócio por intermédio de um único dispositivo 
@@ -898,8 +1013,61 @@ referencias
 %metodologia revisada
 %considerações finais
 \chapter{Planejamento da Implementação}
-	
-	
+
+\begin{verbatim}
+aubinMIB
+  - TagManager
+    > Listar
+    > Adicionar
+    > Remover
+  - TagDB
+    - Tipo
+      - Eletrônico
+        > Estado (on / off)
+        > Voltagem
+        > Consumo
+      - Áudio
+        > Volume
+      - Vídeo
+        > Width
+        > Height
+        > Cores
+      - Iluminação
+        > Luminosidade %
+        > Cor
+    - Localização
+      - GPS
+        > Latitude
+        > Longitude
+      - Domiciliar
+        - Sala
+        - Quarto
+        - Cozinha
+\end{verbatim}
+
+Manager precisa saber todas as tags de cada elemento pra conseguir fazer 
+consultas por tag. Criar uma "resource" que notifica o manager das alterações 
+nas tags (publish/subscribe) do COAP. Senão corre o risco do manager ficar com 
+um estado desatualizado / inconsistente.
+
+No caso do COAP os OIDs são traduzidos para resources, podendo ficar do tipo: 
+
+\url{coap://192.168.1.15/snmp/tags/tipo/eletronico/estado}
+
+tais resources recebem comandos RESTful (GET, POST, PUT, DELETE). Por exemplo, 
+para desligar e ligar um objeto enviaria um request do tipo:
+
+\url{POST(0) coap://192.168.1.15/snmp/tags/tipo/eletronico/estado}
+
+\url{POST(1) coap://192.168.1.15/snmp/tags/tipo/eletronico/estado}
+
+Adicionalmente, para reduzir o overhead poderia tentar criar um "alias" para 
+as resources, tornando duas urls equivalentes, por exemplo:
+
+\url{coap://192.168.1.15/snmp/tags/tipo/eletronico/estado}
+
+\url{coap://192.168.1.15/snmp/tags/2/1/1}
+
 	%TODO cronograma
 	
 	%TODO Diagrama de blocos entre dispositivos e gerente com as trocas de 
@@ -908,6 +1076,7 @@ referencias
 	%TODO Como avaliar: Quantidade / tamanho das mensagens, tempos de 
 	%resposta e processamento, consumo de recursos (pouco importante)
 	
+
 	Documentar o processo de implementação\ldots
 	
 	
