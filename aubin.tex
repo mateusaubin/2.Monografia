@@ -415,23 +415,34 @@ pela Universidade do Vale do Rio dos Sinos --- Unisinos
 	
 \section{Objetivos}
 
-	Corroborando com esta visão, o presente trabalho se propõe a estudar e 
+	Corroborando a visão apresentada, o presente trabalho se propõe a estudar 
+	e 
 	criar mecanismos que possibilitem o emprego de protocolos e modelos da 
 	gerência de redes tradicional aplicados ao contexto de Internet das 
 	Coisas. 
 	
-	Os dispositivos embarcados que compõem a Internet das Coisas não contam 
+	Os dispositivos embarcados\footnote{
+Tais dispositivos são caracterizados pela escassez de recursos computacionais 
+e que atuam de forma praticamente autônoma, requerindo pouca ou nenhuma 
+configuração.
+%TODO adicionar citação
+	}
+	que compõem a Internet das Coisas não contam 
 	com interfaces de usuário, causando com que toda sua gestão deva ser 
 	realizada remotamente ou de forma automatizada. Enquanto, idealmente, um 
 	dispositivo deveria ser auto-gerenciável, é improvável que tais métodos 
-	sejam apropriados para todas as situações. Desta forma, eventualmente será 
-	necessária a intervenção manual sobre um ou mais dispositivos.
+	sejam apropriados ou até mesmo possíveis em todas as situações. Desta 
+	forma, eventualmente será 
+	necessária a intervenção manual sobre um ou mais destes dispositivos.
 
-	Devido a ausência de padrões para IoT é provável que cada fabricante 
-	sugira diferentes maneiras de realizar esta gestão, criando implementações 
-	incompatíveis entre si e de padrão fechado. Esta filosofia vai diretamente 
-	de encontro a mentalidade da Internet, que é composta de padrões abertos e 
-	para que todos tenham acesso.
+	Devido a ausência de padrões de gerenciamento para IoT é provável que cada 
+	fabricante 
+	proponha diferentes maneiras de realizar esta gestão, criando 
+	implementações 
+	incompatíveis e de padrão fechado. Esta filosofia vai diretamente 
+	de encontro a mentalidade da Internet, que é composta por padrões livres e 
+	abertos,
+	para que todos (indivíduos e organizações) tenham acesso.
 
 	Porém, a gestão da Internet das Coisas apresenta características únicas 
 	não contempladas pelos padrões já estabelecidos, entre elas estão a grande 
@@ -439,17 +450,19 @@ pela Universidade do Vale do Rio dos Sinos --- Unisinos
 	processamento. Surge, então, a necessidade de estudar e ajustar estes 
 	protocolos para este contexto, de forma que atendam às necessidades da IoT.
 
-	Uma vez encontradas as fraquezas da gerência de redes tradicional, um 
-	conjunto de melhorias serão propostas ao protocolo. Tais melhorias devem, 
-	idealmente, manter a compatibilidade com o protocolo, funcionando como 
-	extensões. Ao final haverá a implementação das propostas, realizada a 
-	título de prova de conceito.
+	Uma vez encontradas as fraquezas da gerência de redes tradicional no 
+	contexto de IoT, este trabalho apresentará sugestões de melhorias ao 
+	processo de gestão.
+	Tais funcionalidades devem, idealmente, manter a compatibilidade com o 
+	protocolo, funcionando como extensões. 
+	O resultado final deve conter o detalhamento das melhorias propostas e uma 
+	implementação das mesmas, realizada a título de prova de conceito.
 
 \subsection{Objetivo Geral}
 
-	Definir e projetar um sistema de gerência de dispositivos inteligentes 
-	utilizando modelos e protocolos da gerência de redes tradicional e 
-	aplicado-os ao contexto da Internet das Coisas.
+Projetar e implementar uma solução que permita o uso de modelos da gerência de 
+redes tradicional (protocolos e sistemas) para gerir dispositivos em um 
+contexto de Internet das Coisas.
 
 \subsection{Objetivos Específicos}
 
@@ -460,25 +473,51 @@ pela Universidade do Vale do Rio dos Sinos --- Unisinos
 		à Internet das Coisas;
 		
 		\item
-		Definir e projetar um conjunto de extensões voltadas à gestão 
-		de dispositivos inteligentes de forma a melhor adaptar o 
-		protocolo escolhido à proposta;
+		Projetar uma solução que possibilite o uso de ferramentas e protocolos 
+		da gerência de redes tradicional no contexto de IoT;
 		
 		\item
-	%TODO [Perguntar] um software ou melhorias ao protocolo?
-		Definir e projetar um software de Gerência de Redes com 
-		suporte as extensões propostas.
+		Desenvolver um protótipo da solução projetada como prova de conceito;
+
+		\item
+		Avaliar a solução em termos de suas forças, fraquezas e futuras 
+		oportunidades.
 		
 	\end{itemize}
 
 
-\chapter{Método de Pesquisa}
+\section{Método de Pesquisa}
 % FICA MAIS PARA O FINAL PARA DESCREVER OS PROXIMOS PASSOS NO DESENVOLVIMENTO
 % DO TRABALHO...
 
 
 %TODO incluir as definições mais clássicas / formais
 
+Para atingir seus objetivos, a presente pesquisa é caracterizada por uma 
+abordagem quantitativa 
+``que tem suas raízes no pensamento positivista lógico, tende a enfatizar o 
+raciocínio dedutivo, as regras da lógica e os atributos mensuráveis''
+\cite{Gerhardt2009},
+e busca
+``traduzir em números opiniões e informações para classificá-las e 
+analisá-las''
+\cite{MetodologiaUFSC2005}.
+Ao estabelecer como contexto as áreas de Gerência de Redes e Internet das 
+Coisas, atribui-se a natureza de pesquisa aplicada, onde os resultados serão 
+adequados para a
+``aplicação prática e dirigidos à solução de problemas específicos''
+\cite{MetodologiaUFSC2005}.
+
+Quanto aos seus procedimentos técnicos, esta será uma pesquisa experimental. 
+Neste aspecto, \citetexto{MetodologiaUFSC2005} e \citetexto{Gerhardt2009} 
+apoiam-se em \citetexto{Gil2007} que a define como o processo de determinar um 
+objeto de estudo, selecionar variáveis capazes de influenciá-lo e definir 
+formas de controle e observação destas variáveis.
+Um maior detalhamento, segundo \citetexto{Fonseca2002}, ainda é possível, onde 
+deve-se dividir a pesquisa experimental em duas categorias, a de campo e a de 
+laboratório, realizada neste trabalho.
+
+[...]
 
 Um estudo abrangendo os principais protocolos de gerência de redes e de 
 comunicação entre dispositivos inteligentes será realizado como ponto de 
@@ -771,7 +810,7 @@ referencias
 	(\textit{Smart Objects}) compreende objetos físicos/digitais autônomos 
 	aumentados com capacidades sensoriais, de processamento e rede 
 	\cite{Gellersen2001}.
-	Estes objetos foram classificados, no trabalho de \cite{Kortuem2010a}, em 
+	Estes objetos foram classificados, no trabalho de \citetexto{Kortuem2010a}, em 
 	três grandes grupos de acordo com seu grau de percepção e, 
 	consequentemente, complexidade. Sendo eles: consciência de atividade, de 
 	política e de processo.
@@ -1013,6 +1052,13 @@ referencias
 %metodologia revisada
 %considerações finais
 \chapter{Planejamento da Implementação}
+
+Projetar como vai ser feita a query:
+avg(cosumo), 	sala 						> 20 w/h
+min(volume), 	quarto sala 				> -5db
+estado, 		sala 						> host1:0 host2:1
+voltagem, 		gps.lat:21.4 gsp.long:44.3 	> host3:110 host4: 220
+
 
 \begin{verbatim}
 aubinMIB
