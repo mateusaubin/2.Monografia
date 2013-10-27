@@ -510,43 +510,12 @@ adequados para a
 
 Quanto aos seus procedimentos técnicos, esta será uma pesquisa experimental. 
 Neste aspecto, \citetexto{MetodologiaUFSC2005} e \citetexto{Gerhardt2009} 
-apoiam-se em \citetexto{Gil2007} que a define como o processo de determinar um 
+apoiam-se em \citetexto{Gil2007}, que a define como o processo de determinar um 
 objeto de estudo, selecionar variáveis capazes de influenciá-lo e definir 
 formas de controle e observação destas variáveis.
 Um maior detalhamento, segundo \citetexto{Fonseca2002}, ainda é possível, onde 
 deve-se dividir a pesquisa experimental em duas categorias, a de campo e a de 
 laboratório, realizada neste trabalho.
-
-[...]
-
-Um estudo abrangendo os principais protocolos de gerência de redes e de 
-comunicação entre dispositivos inteligentes será realizado como ponto de 
-partida para o trabalho proposto. Este estudo tem por objetivo fazer um 
-levantamento dos protocolos de maior destaque em seu ramo, possibilitando 
-a criação de um panorama contendo as principais tecnologias.
-
-De posse destes dados será feita uma avaliação para decidir quais 
-protocolos apresentam as melhores características para atingir os 
-objetivos deste trabalho. Esta etapa visa selecionar quais tecnologias 
-serão utilizadas no restante do desenvolvimento do trabalho, de forma a 
-obter o melhor aproveitamento possível.
-
-Em seguida ocorrerá uma análise das funcionalidades do protocolo de 
-gerência de redes escolhido visando encontrar quais delas são úteis para o 
-paradigma de Internet das Coisas e, adicionalmente, serão sugeridas 
-melhorias específicas para este domínio de aplicação.
-
-Uma vez definido o conjunto de extensões necessárias ao protocolo de 
-gerência de redes selecionado, será projetado um software capaz de 
-utilizar-se destas melhorias. Nesta etapa será criada a arquitetura do 
-sistema de gerência de redes específico para a gestão de dispositivos 
-inteligentes.
-
-Finalmente serão efetivamente desenvolvidas as melhorias propostas. 
-Esta etapa contempla a criação de um protótipo, como prova de conceito, no 
-qual serão implementadas as melhorias propostas ao protocolo de gerência de 
-redes. Tais funcionalidades contemplam melhorias à gestão de dispositivos 
-inteligentes no contexto de Internet das Coisas.
 
 Desta forma, pode-se classificar o presente trabalho como uma proposta de 
 melhoria na abordagem de gerência de redes. Considerando que ``não é 
@@ -561,30 +530,27 @@ estratégias já estabelecidas (estado da arte) e a proposta. Caracteriza-se,
 portanto, como uma pesquisa quantitativa que se propõe a ``verificar o
 quão melhor é usar um programa/sistema novo frente à(s) alternativa(s)'' 
 \cite{Jacques2007}.
+Faz-se necessária, então, a escolha de indicadores técnicos que
+possibilitem uma avaliação clara e objetiva do desempenho do 
+método proposto frente ao estado da arte, são eles:
 
+%TODO Pedir ajuda pro Rafael pra definir os indicadores.
 
-%TODO Revisar se realmente deve-se avaliar de maneira quantitativa uma vez que 
-%     o foco do trabalho é a proposta das TAGS
-Escolhido método de pesquisa, neste caso quantitativo, é necessário definir 
-indicadores que avaliem de maneira objetiva o desempenho das implementações.
-São eles:
 \begin{itemize}
+	% http://eprints.eemcs.utwente.nl/7111/01/2004-eTNSM.pdf
+	% - Bandwidth usage
+	% - CPU time
+	% - Memory usage
+	% - Round trip delay
 
-%     Ganhos por usar multicast (ou broadcast mesmo)
-\item Tráfego de Rede: Quantidade total de dados trafegados na rede durante 
-uma requisição para N dispositivos.
+	\item Tráfego de Rede: 
+Quantidade total de dados trafegados na rede durante uma requisição para N dispositivos.
 
-%     (minha abordagem é paralela, tradicional é sequencial
-\item Tempo de Resposta Total: Intervalo de tempo entre a requisição e a 
-obtenção das respostas de todos os dispositivos.
+	\item Tempo de Resposta Total: 
+Intervalo de tempo entre a requisição e a obtenção das respostas de todos os dispositivos.
 
+	\item Outros: \dots
 \end{itemize}
-
-% http://eprints.eemcs.utwente.nl/7111/01/2004-eTNSM.pdf
-% - Bandwidth usage
-% - CPU time
-% - Memory usage
-% - Round trip delay
 
 
 \chapter{Gerência de Redes}
