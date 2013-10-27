@@ -219,6 +219,7 @@ pela Universidade do Vale do Rio dos Sinos --- Unisinos
 \item[TI] Tecnologia da Informação
 \item[IP] Internet Protocol
 \item[IPv6] Internet Protocol version 6
+\item[SLA] Service Level Agreement
 %\item[CAPES] Coordenação de Aperfeiçoamento de Pessoal de Nível Superior
 %\item[FAPERGS] Fundação de Amparo à Pesquisa do Estado do Rio Grande do Sul
 \end{listadesiglas}
@@ -592,16 +593,80 @@ Intervalo de tempo entre a requisição e a obtenção das respostas de todos os
 	esforços por parte de órgãos reguladores, como a Organização Internacional 
 	para Padronização (ISO). Em sua normativa 7498-4, a \citetexto{ISO1989} 
 	define as cinco principais categorias da gerência de redes, conhecido como 
-	o modelo FCAPS:
+	o modelo FCAPS que contempla o gerenciamento de:
 	
 	%TODO Descrever cada um
 	\begin{itemize}
 		% gerenciamento/gerencia/gestao?
-		\item gerenciamento de falhas
-		\item gerência de configuração
-		\item gestão de contabilização
-		\item gerência de desempenho
-		\item gestão da segurança
+		\item \textbf{\textit{Fault} -- Falhas:} 
+Engloba todas as ações de detecção e correção de falhas que possam ocorrer na 
+rede e em seus equipamentos. 
+Segundo \citetexto{Ding2009}, é composta por três passos fundamentais: 
+Detecção, Isolamento e Correção. 
+Em suma, o ``gerenciamento de falhas está portanto interessado no 
+monitoramento da rede para garantir que tudo esteja funcionando regularmente e 
+reagir quando este não for o caso'' \cite{Clemm2006}.
+
+		\item \textbf{\textit{Configuration} -- Configuração:}
+Responsável por manter uma lista completa e atualizada de todos os ativos que 
+compõem a rede, guardando informações como: Configurações de Hardware, Versões 
+de Sistemas, Serviços e Documentação.
+\cite{Clemm2006,Ding2009,Mauro2009}
+A manutenção de tal inventário não é uma tarefa trivial, devendo contemplar a 
+inclusão, remoção e atualização de dados sobre cada dispositivo que compõe a 
+rede. 
+Portanto uma boa gerência de configuração, ``para realizar estas 
+atividades deve monitorar todas as mudanças feitas aos recursos'' 
+\cite{Wang2012}.
+
+% in order to fulfill these functionalities, 
+% it must track all changes made to network resources
+
+		\item \textbf{\textit{Accounting} -- Contabilização:}
+Contempla principalmente a coleta de estatísticas sobre usuários e/ou grupos 
+de usuários. 
+Apontada por \citetexto{Hunt1997} como desejável para o repasse 
+de custos do uso de recursos aos usuários, esta categoria é de especial 
+importância para empresas pois auxilia na cobrança à clientes internos e 
+externos \cite{Clemm2006}. 
+O valor da contabilização está em ``possibilitar que o uso por indivíduos ou 
+grupos seja regulamentado de forma adequada. Tal regulamentação minimiza 
+problemas de rede (pois os recursos de rede podem ser repartidos com base nas 
+suas capacidades) e maximiza a equidade de acesso à rede dentre todos os 
+usuários'' \cite{Ding2009}.
+
+% The measurement of network utilization parameters enables individual or 
+% group uses on the network to be regulated appropriately. Such regulation 
+% minimizes network problems (because network resources can be apportioned 
+% based on resource capacities) and maximizes the fairness of network access 
+% across all users.
+
+		\item \textbf{\textit{Performance} -- Desempenho:}
+Interessada principalmente na qualidade do serviços de rede, a finalidade 
+desta categoria é ``garantir que os objetivos de níveis de serviço (SLA) sejam 
+alcançados ao mesmo tempo em que os recursos de rede sejam utilizados de 
+maneira economicamente eficiente'' \cite{Wang2012}.
+Depende quase exclusivamente de métricas que mensurem as características da 
+rede, sendo as principais: \textit{Throughput}, \textit{Delay}, Percentagem de 
+erros e uso de \textit{links} \cite{Clemm2006,Wang2012,Ding2009,Hunt1997}.
+Pode ainda ser discriminada em três passos: Coleta de dados, Estabelecimento 
+de valores de referência e Monitoramento destes valores. 
+Alterações nesses valores podem indicar recursos congestionados e/ou 
+subutilizados, desencadeando processos de gerência de falhas e configuração.
+
+		\item \textbf{\textit{Security} -- Segurança:}
+Abrange procedimentos para prover controle de acesso, proteção de dados, 
+autenticação, autorização e auditoria sobre as ações ocorridas em determinada 
+rede \cite{Wang2012}.
+Ou, nas palavas de \citetexto{Ding2009}, ``um conjunto de funções que protege 
+redes e sistemas de acessos não autorizados por pessoas, atos ou influências''.
+Ainda segundo o autor, tais funções contemplam desde a autorização de login a 
+um usuário, até a disseminação de chaves criptográficas e a distribuição de 
+registros sobre eventos de segurança.
+Em suma, o objetivo desta categoria é duplo, sendo tanto garantir o controle 
+de acesso quanto prevenir e detectar ataques aos recursos de rede 
+\cite{Mauro2009}.
+
 	\end{itemize}
 	
 	Para que ocorra o gerenciamento de rede, são necessários três componentes 
