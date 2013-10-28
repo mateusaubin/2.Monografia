@@ -220,6 +220,9 @@ pela Universidade do Vale do Rio dos Sinos --- Unisinos
 \item[IP] Internet Protocol
 \item[IPv6] Internet Protocol version 6
 \item[SLA] Service Level Agreement
+\item[CMIP] Common Management Information Protocol
+\item[IETF] Internet Engineering Task Force
+\item[SNMP] (Simple Network Management Protocol)
 %\item[CAPES] Coordenação de Aperfeiçoamento de Pessoal de Nível Superior
 %\item[FAPERGS] Fundação de Amparo à Pesquisa do Estado do Rio Grande do Sul
 \end{listadesiglas}
@@ -595,7 +598,6 @@ Intervalo de tempo entre a requisição e a obtenção das respostas de todos os
 	define as cinco principais categorias da gerência de redes, conhecido como 
 	o modelo FCAPS que contempla o gerenciamento de:
 	
-	%TODO Descrever cada um
 	\begin{itemize}
 		% gerenciamento/gerencia/gestao?
 		\item \textbf{\textit{Fault} -- Falhas:} 
@@ -668,16 +670,129 @@ de acesso quanto prevenir e detectar ataques aos recursos de rede
 \cite{Mauro2009}.
 
 	\end{itemize}
-	
-	Para que ocorra o gerenciamento de rede, são necessários três componentes 
-	principais \cite{Ding2009}:
-	
-	\begin{itemize}
-		\item Centro de gerenciamento
-		\item Dispositivo gerenciado
-		\item Protocolo de gerenciamento
-	\end{itemize}
-	
+
+%TODO
+\citetexto{stallings1999snmp} sumariza:
+``The purpose of network monitoring is to gather information about the status 
+and beahvior of network elements. Information to be gathered includes static 
+information, related to the configuration; dynamic information, related to 
+events in the network; and statistical information, summarized from dynamic 
+information. Typically, each managed device in the network includes an agent 
+module responsible for collecting local management information and 
+transmitting it to one of more management stations. Each management statio 
+include network management application software plus software for 
+communicating with agents. Information may be collected actively, by means of 
+poolling by the management station, or passively, by means of event reporting 
+by the agents.
+p45 c2''
+
+``The addition of external (or remote) management must add value to the system 
+for it to be useful.
+p154 c5'' \cite{perkins1997understanding}
+
+\section{Simple Network Management Protocol}
+
+O crescimento explosivo das redes de computadores nos anos oitenta trouxe à 
+tona uma série de desafios para os administradores de sistemas, de um lado as 
+facilidades e a agilidade na troca de informações e do outro a dificuldade em 
+gerir a grande quantidade de recursos computacionais \cite{stallings1999snmp}. 
+A crescente dependência de empresas e organizações nos serviços de rede 
+significa que ``manter estes serviços funcionando torna-se sinônimo de manter 
+o negócio funcionando''
+% keeping those services running becomes synonymous with 
+% keeping the business running
+\cite{Clemm2006}.
+
+A internet impulsionou o crescimento das redes e tornou sua gestão ainda mais 
+complicada, uma vez que tais redes podem conter centenas de dispositivos 
+geograficamente distribuídos e heterogêneos em suas funcionalidades e recursos.
+Reconhecendo estas dificuldades, diversos grupos de trabalho se formaram em 
+entidades padronizadoras buscando criar soluções, ou pelo menos mitigar, o 
+problema nas mãos dos administradores de redes
+\cite{Leinwand1996}.
+
+Neste cenário, duas vertentes dominavam as iniciativas de gerência de redes. 
+De um lado os padrões ISO com seu modelo OSI de protocolos e, consequentemente 
+um modelo de gerência com base no CMIP \textit{(Common Management Information 
+Protocol)}.
+E, de outro lado, a IETF \textit{(Internet Engineering Task Force)} com o 
+suporte ao modelo TCP/IP e sugerindo o SNMP \textit{(Simple Network Management 
+Protocol)} como uma medida tapa-buraco enquanto uma solução melhor não ficasse 
+pronta.
+
+Neste contexto, o SNMP seguiria como uma solução temporária, simplificada e 
+focada, tratando apenas das áreas de gerência de falhas e configuração, 
+enquanto no longo prazo o CMIP assumiria seu lugar como uma solução completa 
+\cite{Leinwand1996,stallings1999snmp}. 
+Entretanto tal desejo nunca se concretizou e o desenvolvimento dos padrões ISO 
+passou por grandes dificuldades e incompatibilidades com o TCP/IP.
+\citetexto{Hunt1997} atribui este desfecho ao fato de que ``o programa de 
+desenvolvimento OSI foi muito lento e a implementação de produtos ainda mais 
+lenta, com o resultado inevitável de que o SNMP aproveitou a janela de 
+oportunidade e foi implementado rápidamente por uma série de fornecedores''.
+% The OSI development program was very slow and product implementation even 
+% slower, with the inevitable result that SNMP took the window of opportunity 
+% and became implemented rapidly by a numer of vendors
+
+Ainda sobre porquê o SNMP se tornou o protocolo padrão para gerência de redes, 
+\citetexto{stallings1999snmp} corrobora com a visão de \citetexto{Hunt1997}:
+
+\begin{quote}
+O Protocolo Simples de Gerência de Rede foi projetado para ser uma ferramenta 
+basica e facilmente implementável de gerência de redes que poderia ser 
+utilizado para atender num curto prazo às necessidades de gerência. Devido ao 
+progresso lento na gerência de sistemas OSI, o SNMP preencheu a lacuna e 
+acabou se tornando o método dominante padronizado de gerência de rede em uso 
+atualmente.
+% The Simple Network Management Protocol was designed to be an easily 
+% implemented, basic network management tool that could be used to meet 
+% short-term network management needs. Because of the slow progress in OSI 
+% systems management, SNMP has filled the gap and become the dominant 
+% standardized network management scheme in use today.
+\cite[p.~83]{stallings1999snmp}
+\end{quote}
+
+Apesar de ser projetado como uma solução rápida e fácil para os principais 
+problemas enfrentados na época, o sucesso do SNMP deve-se também em parte à 
+sua estrutura de dados projetada para acomodar o crescimento e proporcionar 
+flexibilidade para a inclusão de novos objetos \cite{stallings1999snmp}.
+Graças a esta flexibilidade, o protocolo pôde ser adaptado para atender as 
+necessidades de diversos casos de uso, sendo utilizado em produtos que vão 
+desde computadores e impressoras a roteadores e \textit{no-breaks}.
+Neste contexto, a gestão baseada em SNMP
+
+\begin{quote}
+é inerentemente genérica de forma que ela pode ser usada para gerir diversos 
+tipos de sistemas. Esta abordagem pode ser usada com redes computacionais de 
+dados, redes de tráfego automotivo, redes de controle de calefação e 
+arrefecimento, redes de irrigação, ou fábricas de produtos químicos. Portanto 
+vê-se que quase qualquer sistema de tempo real consistindo de uma coleção de 
+elementos independentes de comunicando pode usar SNMP.
+% However, then SNMP-based management approach is inherently generic so that 
+% it can be used to manage many types of systems. This approach can be used 
+% with computer data networks, automotive traffic networks, heating and 
+% cooling control networks, irrigation networks, or chemical plants. Thus you 
+% can see that almos any real0time system consisting of a collection of 
+% independent communicating elements can use SNMP.
+\cite[p.~2]{perkins1997understanding}
+\end{quote}
+
+[...]
+%TODO falar das críticas ao SNMP
+
+\subsection{MIB}
+
+``MIBs are specifications containing definitions of management information so 
+that networked systems can be remotely monitored, configured, and 
+controlled.'' \cite{perkins1997understanding}.
+
+
+\subsection{SMI}
+\subsection{Operações}
+%get, set, get-next, ...
+\subsection{Mensagens}
+%mostrar os campos do protocolo, UDP
+
 \section{Protocolos de Gerência de Redes}
 % ABORDAR A LITERATURA CLASSICA EM UM MOMENTO, EXPLICANDO OS PRINCIPAIS CARAS 
 % E AS DEFINIÇÕES.
