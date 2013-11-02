@@ -217,6 +217,7 @@ pela Universidade do Vale do Rio dos Sinos --- Unisinos
 \item[IoT] Internet of Things
 \item[M2M] Machine-To-Machine
 \item[TI] Tecnologia da Informação
+\item[TCP] Transmission Control Protocol
 \item[IP] Internet Protocol
 \item[IPv6] Internet Protocol version 6
 \item[SLA] Service Level Agreement
@@ -224,6 +225,8 @@ pela Universidade do Vale do Rio dos Sinos --- Unisinos
 \item[IETF] Internet Engineering Task Force
 \item[SNMP] Simple Network Management Protocol
 \item[RFC] Request For Comments
+\item[SMI] Structure of Management Information
+\item[MIB] Management Information Base
 %\item[CAPES] Coordenação de Aperfeiçoamento de Pessoal de Nível Superior
 %\item[FAPERGS] Fundação de Amparo à Pesquisa do Estado do Rio Grande do Sul
 \end{listadesiglas}
@@ -668,19 +671,70 @@ de acesso quanto prevenir e detectar ataques aos recursos de rede
 
 	\end{itemize}
 
-%TODO Integrar ao capítulo
-Componentes (Ding p45)
+Redes são naturalmente compostas por um conjunto de dispositivos 
+interconectados. 
+A gerência de redes ocorre, portanto, nestes dispositivos, tendo como 
+requisito para seu sucesso a existência de uma infraestrutura de suporte aos 
+processos envolvidos.
+Não há uma fórmula de sucesso para a implantação de processos de gerência de 
+redes, contudo há uma série de requisitos necessários. 
+\citetexto{Ding2009} os define como:
+
 \begin{itemize}
-\item Dispositivo
-\item Agente
-\item Gerente
-\item objeto gerenciado
-\item estação de gerencia de redes (NMS / NOC)
-\item protocolo de gerencia
-\item SMI
-\item MIB
+
+\item \textbf{Dispositivo:}
+	Todo e qualquer equipamento conectado à rede e que deseja-se qe faça parte
+da gerência. 
+Deve conter um software denominado Agente.
+
+\item \textbf{Agente:}
+	Um programa que reside no dispositivo gerenciado e que facilita a execução
+das tarefas solicitadas pelo gerente. 
+Deve coletar e manter dados de gerência referentes ao dispositivo onde 
+encontra-se e reportá-los ao gerente na forma de respostas a solicitações ou 
+alertas.
+Cada equipamento da rede pode abrigar um ou mais agentes.
+	
+\item \textbf{Gerente:}
+	Responsável por emitir requisições e receber notificações dos agentes.
+Pode ser pensado como um software que realiza as ações solicitadas pelo 
+usuário, servindo como centralizador.
+Deve também ter uma visão geral da rede e facilitar a obtenção de informações 
+de alto nível para embasar a tomada de decisão.
+Geralmente existem poucos gerentes na rede.
+
+\item \textbf{Protocolo de Gerência:}
+	Responsável por mediar a comunicação entre os dispositivos da rede e seus 
+agentes e gerentes.
+
+\item \textbf{Estação de Gerência de Redes:}
+	Dispositivo onde o usuário terá acesso ao gerente, executando as 
+aplicações de gerência para monitoramento e controle dos elementos da rede.
+Constituído geralmente por uma máquina com abundância de recursos.
+
+\item \textbf{Objeto Gerenciado:}
+	Representa algum recurso presente em um dispositivo que é de interesse do 
+usuário.
+Pode ser exemplificado como a lista de conexões TCP de determinado dispositivo 
+da rede.
+Este objeto será de interesse do agente e do gerente e estará presente em uma 
+MIB, representado através da SMI.
+
+\item \textbf{Estrutura das Informações de Gerenciamento (SMI):}
+	Linguagem usada para descrever as regras de nomenclatura e codificação 
+dos dados de um objeto gerenciado. 
+É base para toda informação codificada no sistema e é usada tanto por agentes 
+quanto por gerentes.
+
+\item \textbf{Base de Informações de Gerenciamento (MIB):}
+	Banco de dados para os objetos gerenciados, abrigando-os em uma estrutura 
+hierárquica (árvore) que estabelece as relações entre eles.
+Também compartilhada entre agentes e gerentes, define as funcionalidades que 
+um agente disponibiliza e estes podem conter mais de uma MIB.
+
 \end{itemize}
 
+%TODO Integrar ao capítulo
 \citetexto{stallings1999snmp} sumariza:
 ``The purpose of network monitoring is to gather information about the status 
 and beahvior of network elements. Information to be gathered includes static 
