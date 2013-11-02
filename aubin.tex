@@ -592,7 +592,7 @@ Intervalo de tempo entre a requisição e a obtenção das respostas de todos os
 	esforços por parte de órgãos reguladores, como a Organização Internacional 
 	para Padronização (ISO). Em sua normativa 7498-4, a \citetexto{ISO1989} 
 	define as cinco principais categorias da gerência de redes, conhecido como 
-	o modelo FCAPS que contempla o gerenciamento de:
+	o modelo \textbf{FCAPS} que contempla o gerenciamento de:
 	
 	\begin{itemize}
 		% gerenciamento/gerencia/gestao?
@@ -669,6 +669,18 @@ de acesso quanto prevenir e detectar ataques aos recursos de rede
 	\end{itemize}
 
 %TODO Integrar ao capítulo
+Componentes (Ding p45)
+\begin{itemize}
+\item Dispositivo
+\item Agente
+\item Gerente
+\item objeto gerenciado
+\item estação de gerencia de redes (NMS / NOC)
+\item protocolo de gerencia
+\item SMI
+\item MIB
+\end{itemize}
+
 \citetexto{stallings1999snmp} sumariza:
 ``The purpose of network monitoring is to gather information about the status 
 and beahvior of network elements. Information to be gathered includes static 
@@ -702,7 +714,8 @@ o negócio funcionando''
 
 A internet impulsionou o crescimento das redes e tornou sua gestão ainda mais 
 complicada, uma vez que tais redes podem conter centenas de dispositivos 
-geograficamente distribuídos e heterogêneos em suas funcionalidades e recursos.
+geograficamente distribuídos e heterogêneos em suas funcionalidades e recursos
+\cite{stallings1999snmp}.
 Reconhecendo estas dificuldades, diversos grupos de trabalho se formaram em 
 entidades padronizadoras buscando criar soluções, ou pelo menos mitigar, o 
 problema nas mãos dos administradores de redes
@@ -774,6 +787,64 @@ elementos independentes de comunicando pode usar SNMP.
 \cite[p.~2]{perkins1997understanding}
 \end{quote}
 
+Como nenhuma solução é perfeita para todos os casos, o SNMP sofreu também 
+grandes críticas. 
+A comunidade de profissionais que efetivamente fazem a gerência de redes 
+expressa opiniões negativas sobre o protocolo e sua implementação, 
+questionando a existência do termo ``simples'' em seu nome.
+Até mesmo na literatura não é incomum encontrar questionamentos a respeito das 
+decisões de projeto do protocolo e sobre a complexidade de operar um sistema 
+de gerenciamento baseado em SNMP.
+Nas palavras de \citetexto{stallings1999snmp}, ``os resultados são 
+desanimadores para o cliente/usuário que acredita no 
+\textit{simples} em SNMP''.
+
+Entretanto, \citetexto{Clemm2006} argumenta que a simplicidade do SNMP foi 
+pensada em termos das operações que o protocolo suporta, o que facilita a 
+implementação de agentes mas move a complexidade para as aplicações de 
+gerência.
+
+\begin{quote}
+Como tantas vezes é o caso na engenharia, é tudo sobre trocas.
+Os projetistas originais do SNMP decidiram que era mais importante manter a 
+implementação de agentes simples e, como consequência, empurrar um pouco mais 
+de complexidade na lógica da aplicação de gerenciamento.
+Primeiro, haveria um menor número de aplicações de gerência (talvez uma dúzia) 
+do que implementações de agentes (talvez centenas, senão milhares).
+Além disso, aplicações de gerência não estariam sujeitas às mesmas restrições 
+de recursos computacionais de um dispositivo de rede.
+Portanto, esta complexidade se acomodaria mais facilmente nos gerentes do que 
+nos agentes.
+% As is so often the case in engineering, it is all about tradeoffs. 
+% The original designers of SNMP decided that it was important to keep SNMP 
+% agent implementations simple and, as a consequence, push a little more 
+% complexity into management application logic itself. 
+% First, there would be fewer management applications (perhaps a few dozen) 
+% than 
+% agent implementations (perhaps hundreds, if not thousands). 
+% Also, management applications would not be subjected to the same type of 
+% computation resource constraints as network devices. 
+% Therefore, managers would find it easier than agents to accommodate 
+% complexity. 
+% This decision led to SNMP agent implementations becoming rapidly available 
+% and quickly gaining widespread acceptance, with management applications 
+% following suit.
+\cite[p.~250]{Clemm2006}
+\end{quote}
+
+Esta transferência na complexidade é ainda, segundo \citetexto{Clemm2006}, uma 
+das responsáveis pela rápida disponibilidade de agentes SNMP, facilitando a 
+aceitação do protocolo nos anos que seguiram sua padronização.
+A decisão de manter o agente como a parte simplificada do modelo SNMP é também 
+muito útil no contexto de Internet das Coisas, uma vez que estes dispositivos 
+compartilham das mesmas (se não piores) restrições de poder computacional que 
+os dispositivos de rede que são objeto da gerência.
+
+%TODO falar das críticas ao SNMP
+% the results are discouraging to the customer/user who believes the 
+% "simple" in "SNMP".
+% Stallings p111 c5
+
 \subsection{Versões}
 
 Devido ao seu surgimento como uma solução interina para o problema da gerência 
@@ -789,12 +860,12 @@ Versão inicial do protocolo, padronizada pela RFC 1157 %TODO add ref
 e publicada em 1990. 
 Hoje está obsoleta e é mantida apenas como um padrão histórico, porém 
 implementações desta versão ainda são encontradas em dispositivos 
-\cite{Mauro2009}.
+\cite{Mauro2009,Ding2009}.
 Focava principalmente na detecção de falhas e no monitoramento da rede, não 
 dando a devida importância à segurança \cite{Clemm2006}, causando com que as 
 senhas para configuração de dispositivos sejam transmitidas em 
 \textit{plaintext}, ou seja, visíveis a qualquer equipamento na rede 
-\cite{Hunt1997}.
+\cite{Hunt1997,Ding2009}.
 Ainda que com algumas falhas estabeleceu a base do que seria o SNMP e a 
 gerência de redes como conhecemos hoje.
 
@@ -813,17 +884,35 @@ os metadados utilizados para descrever os objetos gerenciados
 Apesar do interesse por melhorias na segurança o processo de padronização 
 encontrou dificuldades e divergências nas soluções, causando com que tais 
 funcionalidades fossem removidas do padrão, revertendo aos moldes de segurança 
-do SNMPv1, baseado em senhas \cite{Clemm2006}.
+do SNMPv1, baseado em senhas \cite{Clemm2006,Ding2009}.
 
 \item \textbf{SNMPv3:}
+Após quase uma década de uso do protocolo, sua terceira versão é concluída 
+trazendo uma solução completa de segurança, o que ``finalmente torna o SNMP um 
+protocolo seguro'' \cite{Clemm2006}.
+Se fosse necessário sumarizar esta versão, \citetexto{Clemm2006} afirma que 
+ela ``pode essencialmente ser pensada como SNMPv2 mais segurança''.
+Apesar das funcionalidades de criptografia, integridade e autenticação serem 
+destaque nesta versão, \citetexto{Mauro2009} ponderam que não são as únicas.
+Outra novidade é a ``introdução de novas convenções textuais, conceitos e 
+terminologia'' \cite{Mauro2009}, possibilitando que as especificações sejam 
+mais precisas e se relacionem melhor, facilitando o entendimento e 
+implementações do padrão.
+Tais novidades, apesar de mostrarem um amadurecimento do protocolo, tornaram o 
+SNMP muito mais complexo do que inicialmente planejado e, devido ao longo 
+tempo de desenvolvimento, gerentes deixaram de usar o protocolo no contexto de 
+configuração (recorrendo a outras ferramentas) mantendo-o apenas no 
+monitoramento \cite{Clemm2006}.
+Outra dificuldade identificada é devida aos fornecedores de equipamentos, que 
+são ``notoriamente lentos em adotar novas versões do protocolo'' 
+\cite{Ding2009}.
+Portanto, ``resta saber se o SNMPv3 impulsionará o uso do protocolo para 
+outros propósitos além do monitoramento'' \cite{Clemm2006}.
+
 \end{itemize}
 
 
 [...]
-%TODO falar das críticas ao SNMP
-% the results are discouraging to the customer/user who believes the 
-% "simple" in "SNMP".
-% Stallings p111 c5
 
 \subsection{MIB}
 
