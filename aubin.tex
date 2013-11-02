@@ -223,6 +223,7 @@ pela Universidade do Vale do Rio dos Sinos --- Unisinos
 \item[CMIP] Common Management Information Protocol
 \item[IETF] Internet Engineering Task Force
 \item[SNMP] Simple Network Management Protocol
+\item[RFC] Request For Comments
 %\item[CAPES] Coordenação de Aperfeiçoamento de Pessoal de Nível Superior
 %\item[FAPERGS] Fundação de Amparo à Pesquisa do Estado do Rio Grande do Sul
 \end{listadesiglas}
@@ -558,7 +559,7 @@ Intervalo de tempo entre a requisição e a obtenção das respostas de todos os
 	técnicas de gerência de redes se tornaram fundamentais para garantir o 
 	funcionamento e a qualidade dos serviços prestados. Cada vez mais 
 	importantes para as atividades humanas, as redes de computadores, em 
-	especial a Internet, ``têm catalizado a inovação e favorecido a emergência 
+	especial a internet, ``têm catalizado a inovação e favorecido a emergência 
 	de novos e disruptivos modelos de negócio'' \cite{Ding2009}.
 	
 	De acordo com \citetexto{Clemm2006}, a gerência de redes pode ser definida 
@@ -644,12 +645,13 @@ desta categoria é ``garantir que os objetivos de níveis de serviço (SLA) seja
 alcançados ao mesmo tempo em que os recursos de rede sejam utilizados de 
 maneira economicamente eficiente'' \cite{Wang2012}.
 Depende quase exclusivamente de métricas que mensurem as características da 
-rede, sendo as principais: \textit{Throughput}, \textit{Delay}, Percentagem de 
+rede, sendo as principais: \textit{throughput}, \textit{delay}, percentagem de 
 erros e uso de \textit{links} \cite{Clemm2006,Wang2012,Ding2009,Hunt1997}.
 Pode ainda ser discriminada em três passos: Coleta de dados, Estabelecimento 
-de valores de referência e Monitoramento destes valores. 
-Alterações nesses valores podem indicar recursos congestionados e/ou 
-subutilizados, desencadeando processos de gerência de falhas e configuração.
+de valores de referência e Monitoramento destes valores \cite{Mauro2009}. 
+Alterações nos parâmetros definidos podem indicar recursos congestionados e/ou 
+subutilizados, desencadeando processos de gerência de falhas e configuração 
+\cite{Wang2012}.
 
 		\item \textbf{\textit{Security} -- Segurança:}
 Abrange procedimentos para prover controle de acesso, proteção de dados, 
@@ -772,8 +774,56 @@ elementos independentes de comunicando pode usar SNMP.
 \cite[p.~2]{perkins1997understanding}
 \end{quote}
 
+\subsection{Versões}
+
+Devido ao seu surgimento como uma solução interina para o problema da gerência 
+de redes, o SNMP passou por diversas versões e revisões.
+Ao ser padronizado através do uso de RFCs (Request For Comments) da IETF, seu 
+desenvolvimento passou por diversas iterações em comitês específicos para este 
+fim.
+Hoje existem em uso três principais versões do protocolo, abordadas a seguir:
+
+\begin{itemize}
+\item \textbf{SNMPv1:}
+Versão inicial do protocolo, padronizada pela RFC 1157 %TODO add ref
+e publicada em 1990. 
+Hoje está obsoleta e é mantida apenas como um padrão histórico, porém 
+implementações desta versão ainda são encontradas em dispositivos 
+\cite{Mauro2009}.
+Focava principalmente na detecção de falhas e no monitoramento da rede, não 
+dando a devida importância à segurança \cite{Clemm2006}, causando com que as 
+senhas para configuração de dispositivos sejam transmitidas em 
+\textit{plaintext}, ou seja, visíveis a qualquer equipamento na rede 
+\cite{Hunt1997}.
+Ainda que com algumas falhas estabeleceu a base do que seria o SNMP e a 
+gerência de redes como conhecemos hoje.
+
+\item \textbf{SNMPv2:}
+Com o uso difundido do SNMP e o mapeamento de suas deficiências iniciou-se, no 
+final de 1992, o trabalho para a definição de um sucessor \cite{Hunt1997}.
+O crescimento das redes trouxe novas necessidades para os gerentes, agravando 
+o fato de que o ``SNMPv1 é notóriamente ineficiente na busca de grandes 
+quantidades de informações gerenciais'' \cite{Clemm2006} e expondo ainda mais 
+suas fragilidades de segurança.
+Sendo assim, esta versão introduziu dois novos tipos de operação
+(\textit{get-bulk} e \textit{inform}) %TODO linkar pras operações
+além de redefinir o formato dos pacotes (de modo à uniformizá-los) e melhorar 
+os metadados utilizados para descrever os objetos gerenciados 
+\cite{Hunt1997,stallings1999snmp,Mauro2009}. 
+Apesar do interesse por melhorias na segurança o processo de padronização 
+encontrou dificuldades e divergências nas soluções, causando com que tais 
+funcionalidades fossem removidas do padrão, revertendo aos moldes de segurança 
+do SNMPv1, baseado em senhas \cite{Clemm2006}.
+
+\item \textbf{SNMPv3:}
+\end{itemize}
+
+
 [...]
 %TODO falar das críticas ao SNMP
+% the results are discouraging to the customer/user who believes the 
+% "simple" in "SNMP".
+% Stallings p111 c5
 
 \subsection{MIB}
 
