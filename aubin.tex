@@ -325,8 +325,9 @@ pela Universidade do Vale do Rio dos Sinos --- Unisinos
 	
 	Ainda que não seja uma proposta nova, \citetexto{Turck2013} pontua que a 
 	implementação de uma rede composta de dispositivos embarcados em objetos 
-	do dia-a-dia, ou seja, a Internet das Coisas (IoT), não era viável devido 
-	a fatores como complexidade e custo. 
+	do dia-a-dia, ou seja, a Internet das Coisas 
+	(do inglês Internet of Things, IoT), 
+	não era viável devido a fatores como complexidade e custo. 
 	Entretanto, tomando por referência a lei de \citetexto{Moore1965}, a qual 
 	dita que o número de transístores em um circuito integrado dobra 
 	aproximadamente a cada dois anos, é improvável que se reverta a tendência 
@@ -429,15 +430,16 @@ pela Universidade do Vale do Rio dos Sinos --- Unisinos
 	gerência de redes tradicional aplicados ao contexto de Internet das 
 	Coisas. 
 	
-	Os dispositivos embarcados\footnote{
-Tais dispositivos são caracterizados pela escassez de recursos computacionais 
-e que atuam de forma praticamente autônoma, requerindo pouca ou nenhuma 
-configuração.
-%TODO adicionar citação
-	}
-	que compõem a Internet das Coisas não contam 
-	com interfaces de usuário, causando com que toda sua gestão deva ser 
-	realizada remotamente ou de forma automatizada. Enquanto, idealmente, um 
+	Nos alicerces da IoT encontram-se computadores associados a objetos do 
+	cotidiano denominados dispositivos embarcados e que são caracterizados, 
+	na definição de \citetexto{ietfCNN2013}, pela escassez de recursos 
+	computacionais e atuação praticamente autônoma, requerindo pouca ou 
+	nenhuma configuração.
+	Observa-se ainda que tais dispositivos não contam 
+	com interfaces de usuário, fazendo com que toda sua gestão deva ser 
+	realizada remotamente ou de forma automatizada. 
+
+	Enquanto, idealmente, um 
 	dispositivo deveria ser auto-gerenciável, é improvável que tais métodos 
 	sejam apropriados ou até mesmo possíveis em todas as situações. Desta 
 	forma, eventualmente será 
@@ -448,27 +450,27 @@ configuração.
 	proponha diferentes maneiras de realizar esta gestão, criando 
 	implementações 
 	incompatíveis e de padrão fechado. Esta filosofia vai diretamente 
-	de encontro a mentalidade da Internet, que é composta por padrões livres e 
+	de encontro à mentalidade da internet, que é composta por padrões livres e 
 	abertos,
 	para que todos (indivíduos e organizações) tenham acesso.
 
 	Porém, a gestão da Internet das Coisas apresenta características únicas 
 	não contempladas pelos padrões já estabelecidos, entre elas estão a grande 
 	quantidade de dispositivos presentes na rede e a reduzida capacidade de 
-	processamento. Surge, então, a necessidade de estudar e ajustar estes 
+	processamento. Surge, então, a necessidade de estudar e ajustar os 
 	protocolos para este contexto, de forma que atendam às necessidades da IoT.
 
 	Uma vez encontradas as fraquezas da gerência de redes tradicional no 
-	contexto de IoT, este trabalho apresentará sugestões de melhorias ao 
+	contexto de IoT, este trabalho apresenta sugestões de melhorias ao 
 	processo de gestão.
 	Tais funcionalidades devem, idealmente, manter a compatibilidade com o 
 	protocolo, funcionando como extensões. 
 	O resultado final deve conter o detalhamento das melhorias propostas e uma 
-	implementação das mesmas, realizada a título de prova de conceito.
+	implementação realizada a título de prova de conceito.
 
 \subsection{Objetivo Geral}
 
-Projetar e implementar uma solução que permita o uso de modelos da gerência de 
+Propor uma solução que permita o uso de modelos da gerência de 
 redes tradicional (protocolos e sistemas) para gerir dispositivos em um 
 contexto de Internet das Coisas.
 
@@ -558,12 +560,29 @@ Intervalo de tempo entre a requisição e a obtenção das respostas de todos os
 
 \chapter{Gerência de Redes}
 
-	Impulsionada pelo crescimento e evolução das redes de computadores, as 
-	técnicas de gerência de redes se tornaram fundamentais para garantir o 
-	funcionamento e a qualidade dos serviços prestados. Cada vez mais 
-	importantes para as atividades humanas, as redes de computadores, em 
-	especial a internet, ``têm catalizado a inovação e favorecido a emergência 
-	de novos e disruptivos modelos de negócio'' \cite{Ding2009}.
+
+O crescimento explosivo das redes de computadores nos anos oitenta trouxe à 
+tona uma série de desafios para os administradores de sistemas, de um lado as 
+facilidades e a agilidade na troca de informações e do outro a dificuldade em 
+gerir a grande quantidade de recursos computacionais \cite{stallings1999snmp}.
+Impulsionada pelo crescimento e evolução das redes de computadores, as 
+técnicas de gerência de redes, ainda que primitivas e sem padronização, se 
+tornaram fundamentais para garantir o 
+funcionamento e a qualidade dos serviços prestados.  
+
+
+Cada vez mais importantes para as atividades humanas, as redes de computadores 
+(especialmente a internet) obtiveram grande êxito nas atividades comerciais, 
+onde ``têm catalizado a inovação e favorecido a emergência de novos e 
+disruptivos modelos de negócio'' \cite{Ding2009}.
+Portanto observa-se uma crescente dependência de empresas e organizações nos 
+serviços de conectividade, demonstrando seu valor e provando que ``manter 
+estes serviços funcionando torna-se sinônimo de manter o negócio funcionando''
+% keeping those services running becomes synonymous with 
+% keeping the business running
+\cite{Clemm2006}.
+
+
 	
 	De acordo com \citetexto{Clemm2006}, a gerência de redes pode ser definida 
 	como ``as atividades, métodos, procedimentos, e ferramentas que dizem 
@@ -606,7 +625,7 @@ Segundo \citetexto{Ding2009}, é composta por três passos fundamentais:
 Detecção, Isolamento e Correção. 
 Em suma, o ``gerenciamento de falhas está portanto interessado no 
 monitoramento da rede para garantir que tudo esteja funcionando regularmente e 
-reagir quando este não for o caso'' \cite{Clemm2006}.
+reagir quando este não for o caso'' \cite{Clemm2006};
 
 		\item \textbf{\textit{Configuration} -- Configuração:}
 Responsável por manter uma lista completa e atualizada de todos os ativos que 
@@ -618,7 +637,7 @@ inclusão, remoção e atualização de dados sobre cada dispositivo que compõe
 rede. 
 Portanto uma boa gerência de configuração, ``para realizar estas 
 atividades deve monitorar todas as mudanças feitas aos recursos'' 
-\cite{Wang2012}.
+\cite{Wang2012};
 
 % in order to fulfill these functionalities, 
 % it must track all changes made to network resources
@@ -634,7 +653,7 @@ O valor da contabilização está em ``possibilitar que o uso por indivíduos ou
 grupos seja regulamentado de forma adequada. Tal regulamentação minimiza 
 problemas de rede (pois os recursos de rede podem ser repartidos com base nas 
 suas capacidades) e maximiza a equidade de acesso à rede dentre todos os 
-usuários'' \cite{Ding2009}.
+usuários'' \cite{Ding2009};
 
 % The measurement of network utilization parameters enables individual or 
 % group uses on the network to be regulated appropriately. Such regulation 
@@ -654,7 +673,7 @@ Pode ainda ser discriminada em três passos: Coleta de dados, Estabelecimento
 de valores de referência e Monitoramento destes valores \cite{Mauro2009}. 
 Alterações nos parâmetros definidos podem indicar recursos congestionados e/ou 
 subutilizados, desencadeando processos de gerência de falhas e configuração 
-\cite{Wang2012}.
+\cite{Wang2012};
 
 		\item \textbf{\textit{Security} -- Segurança:}
 Abrange procedimentos para prover controle de acesso, proteção de dados, 
@@ -685,7 +704,7 @@ redes, contudo há uma série de requisitos necessários.
 \item \textbf{Dispositivo:}
 	Todo e qualquer equipamento conectado à rede e que deseja-se qe faça parte
 da gerência. 
-Deve conter um software denominado Agente.
+Deve conter um software denominado Agente;
 
 \item \textbf{Agente:}
 	Um programa que reside no dispositivo gerenciado e que facilita a execução
@@ -693,7 +712,7 @@ das tarefas solicitadas pelo gerente.
 Deve coletar e manter dados de gerência referentes ao dispositivo onde 
 encontra-se e reportá-los ao gerente na forma de respostas a solicitações ou 
 alertas.
-Cada equipamento da rede pode abrigar um ou mais agentes.
+Cada equipamento da rede pode abrigar um ou mais agentes;
 	
 \item \textbf{Gerente:}
 	Responsável por emitir requisições e receber notificações dos agentes.
@@ -701,16 +720,16 @@ Pode ser pensado como um software que realiza as ações solicitadas pelo
 usuário, servindo como centralizador.
 Deve também ter uma visão geral da rede e facilitar a obtenção de informações 
 de alto nível para embasar a tomada de decisão.
-Geralmente existem poucos gerentes na rede.
+Geralmente existem poucos gerentes na rede;
 
 \item \textbf{Protocolo de Gerência:}
 	Responsável por mediar a comunicação entre os dispositivos da rede e seus 
-agentes e gerentes.
+agentes e gerentes;
 
 \item \textbf{Estação de Gerência de Redes:}
 	Dispositivo onde o usuário terá acesso ao gerente, executando as 
 aplicações de gerência para monitoramento e controle dos elementos da rede.
-Constituído geralmente por uma máquina com abundância de recursos.
+Constituído geralmente por uma máquina com abundância de recursos;
 
 \item \textbf{Objeto Gerenciado:}
 	Representa algum recurso presente em um dispositivo que é de interesse do 
@@ -718,13 +737,13 @@ usuário.
 Pode ser exemplificado como a lista de conexões TCP de determinado dispositivo 
 da rede.
 Este objeto será de interesse do agente e do gerente e estará presente em uma 
-MIB, representado através da SMI.
+MIB, representado através da SMI;
 
 \item \textbf{Estrutura das Informações de Gerenciamento (SMI):}
 	Linguagem usada para descrever as regras de nomenclatura e codificação 
 dos dados de um objeto gerenciado. 
 É base para toda informação codificada no sistema e é usada tanto por agentes 
-quanto por gerentes.
+quanto por gerentes;
 
 \item \textbf{Base de Informações de Gerenciamento (MIB):}
 	Banco de dados para os objetos gerenciados, abrigando-os em uma estrutura 
@@ -733,38 +752,43 @@ Também compartilhada entre agentes e gerentes, define as funcionalidades que
 um agente disponibiliza e estes podem conter mais de uma MIB.
 
 \end{itemize}
+%TODO falar sobre as estratégias de coleta (Pooling / Trap)
 
-%TODO Integrar ao capítulo
-\citetexto{stallings1999snmp} sumariza:
-``The purpose of network monitoring is to gather information about the status 
-and beahvior of network elements. Information to be gathered includes static 
-information, related to the configuration; dynamic information, related to 
-events in the network; and statistical information, summarized from dynamic 
-information. Typically, each managed device in the network includes an agent 
-module responsible for collecting local management information and 
-transmitting it to one of more management stations. Each management statio 
-include network management application software plus software for 
-communicating with agents. Information may be collected actively, by means of 
-poolling by the management station, or passively, by means of event reporting 
-by the agents.
-p45 c2''
+Em suma, a disciplina de gerência de redes pode ser definida como:
 
-``The addition of external (or remote) management must add value to the system 
-for it to be useful.
-p154 c5'' \cite{perkins1997understanding}
+\begin{quote}
+O propósito da gerência de redes é de reunir informações sobre o estado e o 
+comportamento dos elementos da rede.
+Dados a serem reunidos incluem informações estáticas, relacionadas a 
+configuração; informações dinâmicas, relacionadas aos eventos na rede; e 
+informações estatísticas, resumida a partir de informações dinâmicas.
+Tipicamente, cada dispositivo gerenciado na rede inclui um módulo agente 
+responsável por coletar informações locais de gerência e transmití-las a uma 
+ou mais estações de gerência.
+Cada estação de gerência inclui software de aplicação de gerência de rede e 
+software para comunicação com os agentes.
+Informações podem ser coletadas de maneira ativa, através de \textit{pooling} 
+pela estação de gerenciamento, ou passivamente, através de relatórios de 
+eventos gerados pelos agentes.
+% The purpose of network monitoring is to gather information about the status 
+% and beahvior of network elements. 
+% Information to be gathered includes static information, related to the 
+% configuration; dynamic information, related to events in the network; and 
+% statistical information, summarized from dynamic information. 
+% Typically, each managed device in the network includes an agent module 
+% responsible for collecting local management information and transmitting it
+% to one of more management stations. 
+% Each management statio include network management application software plus 
+% software for communicating with agents. 
+% Information may be collected actively, by means of poolling by the
+% management station, or passively, by means of event reporting by the agents.
+\cite[p.~45]{stallings1999snmp}
+\end{quote}
+
+
+
 
 \section{Simple Network Management Protocol}
-
-O crescimento explosivo das redes de computadores nos anos oitenta trouxe à 
-tona uma série de desafios para os administradores de sistemas, de um lado as 
-facilidades e a agilidade na troca de informações e do outro a dificuldade em 
-gerir a grande quantidade de recursos computacionais \cite{stallings1999snmp}. 
-A crescente dependência de empresas e organizações nos serviços de rede 
-significa que ``manter estes serviços funcionando torna-se sinônimo de manter 
-o negócio funcionando''
-% keeping those services running becomes synonymous with 
-% keeping the business running
-\cite{Clemm2006}.
 
 A internet impulsionou o crescimento das redes e tornou sua gestão ainda mais 
 complicada, uma vez que tais redes podem conter centenas de dispositivos 
@@ -784,13 +808,14 @@ suporte ao modelo TCP/IP e sugerindo o SNMP \textit{(Simple Network Management
 Protocol)} como uma medida tapa-buraco enquanto uma solução melhor não ficasse 
 pronta.
 
-Neste contexto, o SNMP seguiria como uma solução temporária, simplificada e 
+Com essa premissa, o SNMP seguiria como uma solução temporária, simplificada e 
 focada, tratando apenas das áreas de gerência de falhas e configuração, 
 enquanto no longo prazo o CMIP assumiria seu lugar como uma solução completa 
 \cite{Leinwand1996,stallings1999snmp}. 
 Entretanto tal desejo nunca se concretizou e o desenvolvimento dos padrões ISO 
 passou por grandes dificuldades e incompatibilidades com o TCP/IP.
-\citetexto{Hunt1997} atribui este desfecho ao fato de que ``o programa de 
+Este desfecho é atribuído por \citetexto{Hunt1997} ao fato de que 
+``o programa de 
 desenvolvimento OSI foi muito lento e a implementação de produtos ainda mais 
 lenta, com o resultado inevitável de que o SNMP aproveitou a janela de 
 oportunidade e foi implementado rápidamente por uma série de fornecedores''.
@@ -859,10 +884,10 @@ implementação de agentes mas move a complexidade para as aplicações de
 gerência.
 
 \begin{quote}
-Como tantas vezes é o caso na engenharia, é tudo sobre trocas.
+Como tantas vezes é o caso na engenharia, é tudo sobre \textit{tradeoffs}.
 Os projetistas originais do SNMP decidiram que era mais importante manter a 
 implementação de agentes simples e, como consequência, empurrar um pouco mais 
-de complexidade na lógica da aplicação de gerenciamento.
+de complexidade para a lógica da aplicação de gerenciamento.
 Primeiro, haveria um menor número de aplicações de gerência (talvez uma dúzia) 
 do que implementações de agentes (talvez centenas, senão milhares).
 Além disso, aplicações de gerência não estariam sujeitas às mesmas restrições 
@@ -886,7 +911,7 @@ nos agentes.
 \cite[p.~250]{Clemm2006}
 \end{quote}
 
-Esta transferência na complexidade é ainda, segundo \citetexto{Clemm2006}, uma 
+Esta transferência na complexidade é, ainda segundo \citetexto{Clemm2006}, uma 
 das responsáveis pela rápida disponibilidade de agentes SNMP, facilitando a 
 aceitação do protocolo nos anos que seguiram sua padronização.
 A decisão de manter o agente como a parte simplificada do modelo SNMP é também 
@@ -894,7 +919,6 @@ muito útil no contexto de Internet das Coisas, uma vez que estes dispositivos
 compartilham das mesmas (se não piores) restrições de poder computacional que 
 os dispositivos de rede que são objeto da gerência.
 
-%TODO falar das críticas ao SNMP
 % the results are discouraging to the customer/user who believes the 
 % "simple" in "SNMP".
 % Stallings p111 c5
@@ -903,9 +927,9 @@ os dispositivos de rede que são objeto da gerência.
 
 Devido ao seu surgimento como uma solução interina para o problema da gerência 
 de redes, o SNMP passou por diversas versões e revisões.
-Ao ser padronizado através do uso de RFCs (Request For Comments) da IETF, seu 
-desenvolvimento passou por diversas iterações em comitês específicos para este 
-fim.
+Ao ser padronizado através do uso de RFCs (\textit{Request For Comments}) 
+da IETF, seu desenvolvimento passou por diversas iterações em comitês 
+específicos para este fim.
 Hoje existem em uso três principais versões do protocolo, abordadas a seguir:
 
 \begin{itemize}
@@ -917,15 +941,15 @@ implementações desta versão ainda são encontradas em dispositivos
 \cite{Mauro2009,Ding2009}.
 Focava principalmente na detecção de falhas e no monitoramento da rede, não 
 dando a devida importância à segurança \cite{Clemm2006}, causando com que as 
-senhas para configuração de dispositivos sejam transmitidas em 
+senhas para configuração de dispositivos fossem transmitidas em 
 \textit{plaintext}, ou seja, visíveis a qualquer equipamento na rede 
 \cite{Hunt1997,Ding2009}.
-Ainda que com algumas falhas estabeleceu a base do que seria o SNMP e a 
-gerência de redes como conhecemos hoje.
+Ainda que com algumas falhas estabeleceu as bases do que viria a ser o SNMP 
+e a gerência de redes como conhecemos hoje;
 
 \item \textbf{SNMPv2:}
-Com o uso difundido do SNMP e o mapeamento de suas deficiências iniciou-se, no 
-final de 1992, o trabalho para a definição de um sucessor \cite{Hunt1997}.
+Com o uso difundido do SNMP e o mapeamento de suas deficiências, iniciou-se no 
+final de 1992 o trabalho para a definição de um sucessor \cite{Hunt1997}.
 O crescimento das redes trouxe novas necessidades para os gerentes, agravando 
 o fato de que o ``SNMPv1 é notóriamente ineficiente na busca de grandes 
 quantidades de informações gerenciais'' \cite{Clemm2006} e expondo ainda mais 
@@ -938,7 +962,7 @@ os metadados utilizados para descrever os objetos gerenciados
 Apesar do interesse por melhorias na segurança o processo de padronização 
 encontrou dificuldades e divergências nas soluções, causando com que tais 
 funcionalidades fossem removidas do padrão, revertendo aos moldes de segurança 
-do SNMPv1, baseado em senhas \cite{Clemm2006,Ding2009}.
+do SNMPv1, baseado em senhas \cite{Clemm2006,Ding2009};
 
 \item \textbf{SNMPv3:}
 Após quase uma década de uso do protocolo, sua terceira versão é concluída 
@@ -951,13 +975,13 @@ destaque nesta versão, \citetexto{Mauro2009} ponderam que não são as únicas.
 Outra novidade é a ``introdução de novas convenções textuais, conceitos e 
 terminologia'' \cite{Mauro2009}, possibilitando que as especificações sejam 
 mais precisas e se relacionem melhor, facilitando o entendimento e 
-implementações do padrão.
+a implementação do padrão.
 Tais novidades, apesar de mostrarem um amadurecimento do protocolo, tornaram o 
 SNMP muito mais complexo do que inicialmente planejado e, devido ao longo 
 tempo de desenvolvimento, gerentes deixaram de usar o protocolo no contexto de 
-configuração (recorrendo a outras ferramentas) mantendo-o apenas no 
+configuração (recorrendo a outras ferramentas) e mantendo-o apenas para 
 monitoramento \cite{Clemm2006}.
-Outra dificuldade identificada é devida aos fornecedores de equipamentos, que 
+Outra dificuldade identificada é devida aos fornecedores de equipamentos que 
 são ``notoriamente lentos em adotar novas versões do protocolo'' 
 \cite{Ding2009}.
 Portanto, ``resta saber se o SNMPv3 impulsionará o uso do protocolo para 
@@ -981,54 +1005,6 @@ controlled.'' \cite{perkins1997understanding}.
 \subsection{Mensagens}
 %mostrar os campos do protocolo, UDP
 
-\section{Protocolos de Gerência de Redes}
-% ABORDAR A LITERATURA CLASSICA EM UM MOMENTO, EXPLICANDO OS PRINCIPAIS CARAS 
-% E AS DEFINIÇÕES.
-
-% DEPOIS ABORDAR A PARTE DE ARTIGOS COM TRABALHOS RELACIONADOS O QUE FIZERAM
-% RELACIONANDO IoT COM GERENCIA DE REDES
-
-Contextualizar o leitor com a utilidade e os objetivos de um protocolo
-de gerência de redes. Porque foram feitos, quais problemas resolvem,
-onde funcionam bem e onde não são tão bons (segurança, por exemplo).
-FCAPS\ldots
-
-Apresentar os protocolos principais, seus pontos fortes e fracos.
-
-
-
-\subsection{Modelo OSI (CMIP / CMOT)}
-
-Apresentar este protocolo
-
-
-\subsection{SNMP}
-
-Principal objeto de estudo do trabalho até o momento.
-Provavelmente será o protocolo escolhido.
-
-
-\subsection{WSDM}
-
-
-\subsection{Management By Delegation}
-
-
-\subsection{AgentX}
-
-
-\subsection{Outros?!}
-
-
-\subsection{Conclusão}
-
-	%TODO Muito importante botar bastante embasamento nesta sessão para 
-	%justificar a escolha do protocolo a ser usado.
-
-Apresentar o melhor candidato pra receber as melhorias e justificar
-a escolha\ldots
-Fazer uma analise das principais caracteristicas e melhorias/sugestoes das 
-referencias
 
 
 \chapter{Internet das Coisas}
@@ -1093,11 +1069,11 @@ referencias
 \subsection{Gateway IoT}
 	Apesar do sucesso das WSNs para a comunicação em curta distância, 
 	\citetexto{Zhu2010} afirma que existe dificuldade 
-	em conectar redes de sensores à Internet devido a falta de padronização 
+	em conectar redes de sensores à internet devido a falta de padronização 
 	nos protocolos de comunicação. Para superar esta dificuldade foi 
 	estabelecido o conceito de dispositivo coordenador, também chamado de 
 	\textit{gateway} \cite{Steenkamp2009}. 
-	Assim como as WSNs, os protótipos iniciais de IoT conectavam-se a Internet 
+	Assim como as WSNs, os protótipos iniciais de IoT conectavam-se a internet 
 	através do coordenador, um dispositivo mais potente que faz o papel de 
 	roteador na rede \cite{Kuryla2010} e, por não apresentar as mesmas 
 	restrições dos sensores, são encarregados de prover 
@@ -1106,15 +1082,15 @@ referencias
 	
 	As implementações de \citetexto{Zhu2010}, \citetexto{Steenkamp2009} e 
 	\citetexto{Hada2011} apresentam resultados e percepções sobre o uso de 
-	\textit{gateways} entre WSNs e a Internet, viabilizando a criação de 
+	\textit{gateways} entre WSNs e a internet, viabilizando a criação de 
 	aplicações que comprovam a viabilidade do conceito de Internet das Coisas.
 
 \subsection{IPv6}
-	Uma vez cumprido o objetivo de conectar as WSNs a Internet o próximo passo 
+	Uma vez cumprido o objetivo de conectar as WSNs a internet o próximo passo 
 	consiste em propiciar conectividade a cada dispositivo individualmente 
-	\cite[p.~13]{Atzori2010b}, efetivamente tornando-o parte da Internet.
+	\cite[p.~13]{Atzori2010b}, efetivamente tornando-o parte da internet.
 	Para tanto, a escolha considerada mais sábia por \citetexto{Mattern2010a} 
-	é de utilizar-se dos mesmos protocolos já estabelecidos pela Internet, 
+	é de utilizar-se dos mesmos protocolos já estabelecidos pela internet, 
 	favorecendo a interoperabilidade.
 	Sobre o uso de endereços IP como forma de 
 	identificação \citetexto{Sundmaeker2010} dizem que:
@@ -1161,7 +1137,7 @@ referencias
 	processamento a níveis adequados para um propósito específico''. 
 	Seguindo esta tendência, \citetexto{Mattern2010a} prevêem que a tecnologia 
 	caminha em direção a um modelo onde Objetos Inteligentes efetivamente se 
-	comunicam entre eles, serviços na Internet e seus usuários.
+	comunicam entre eles, serviços na internet e seus usuários.
 	
 	Experiências no planejamento e execução de aplicações compostas por 
 	\textit{Smart Objects} podem ser encontradas nos trabalhos de 
@@ -1176,15 +1152,15 @@ referencias
 	Diversas são as definições disponíveis para o termo Internet das 
 	Coisas (IoT). \citetexto{Atzori2010b} atribuem a grande variedade de 
 	definições às diferentes visões que cada organização, dependendo dos 
-	seus objetivos, tem, geralmente sendo orientadas a Internet ou as 
+	seus objetivos, tem, geralmente sendo orientadas a internet ou as 
 	coisas. Apesar das diferenças o conceito de IoT é, para 
 	\citetexto{Coetzee2011}:
 	
 	\begin{quote}
-		uma visão onde objetos se tornam parte da Internet: onde cada 
+		uma visão onde objetos se tornam parte da internet: onde cada 
 		objeto é unicamente identificável e acessível à rede, sua posição 
 		e status conhecidos, onde serviços e inteligência são acrescidos a 
-		esta Internet expandida, fundindo o mundo físico e o digital~
+		esta internet expandida, fundindo o mundo físico e o digital~
 		\cite{Coetzee2011}.
 	\end{quote}
 	
@@ -1229,8 +1205,8 @@ referencias
 	
 	Entretanto, a riqueza de possibilidades abertas pela IoT pode ser 
 	explicada simplesmente pela análise individual de seus termos 
-	constituintes, ou seja, a combinação de Internet e coisas. Segundo 
-	\citetexto{Simpson2005}, no Oxford English Dictionary, a Internet é 
+	constituintes, ou seja, a combinação de internet e coisas. Segundo 
+	\citetexto{Simpson2005}, no Oxford English Dictionary, a internet é 
 	``uma rede global de computadores provendo diversos serviços de 
 	informação e comunicação, constituída de redes interconectadas usando 
 	protocolos padronizados de comunicação''.
@@ -1255,7 +1231,7 @@ referencias
 	das Coisas, inicialmente contemplando apenas mecanismos de 
 	identificação e, impulsionado pela evolução tecnológica, passando a 
 	versar sobre dispositivos inteligentes e diretamente conectados à 
-	Internet necessidade de intermediários. Segundo 
+	internet sem a necessidade de intermediários. Segundo 
 	\citetexto{Buckley2006} a transformação no conceito de IoT é resultado 
 	tanto de avanços tecnológicos quanto de interesse mercadológico 
 	impulsionado pelos potenciais benefícios.
@@ -1267,7 +1243,7 @@ referencias
 \section{Importância}
 
 	Uma vez estabelecida a definição de Internet das Coisas, é possível 
-	compreender o impacto social e tecnológico deste conceito. A Internet 
+	compreender o impacto social e tecnológico deste conceito. A internet 
 	causou uma revolução na maneira com que compartilhamos informação e 
 	conhecimento, gerando, de acordo com \citetexto{Carr2010}, mudanças 
 	até mesmo em nossa estrutura cerebral.
@@ -1288,7 +1264,7 @@ referencias
 	quantidade de dados disponível:
 	
 	\begin{quote}
-		considere que a IoT representa a próxima evolução da Internet, 
+		considere que a IoT representa a próxima evolução da internet, 
 		levando a um enorme salto na sua habilidade de coletar, analisar e 
 		distribuir dados que podemos transformar em informação, 
 		conhecimento e, finalmente, sabedoria.~
@@ -1315,7 +1291,7 @@ referencias
 %TODO Relacionar com Big Data
 	
 	\citetexto{Cisco2011} estima que em 2015 haverão 25 bilhões de 
-	dispositivos conectados a Internet e que apenas 5 anos depois, em 
+	dispositivos conectados a internet e que apenas 5 anos depois, em 
 	2020, este número chegará a casa de 50 bilhões.
 
 \section{Desafios}
@@ -1466,6 +1442,7 @@ as resources, tornando duas urls equivalentes, por exemplo:
 % Referências
 %=======================================================================
 %TODO Revisar completeza dos dados
+% Jäntti > J{\"a}ntti
 \bibliography{library}
 
 
