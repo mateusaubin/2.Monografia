@@ -527,33 +527,6 @@ necessário, porém, que o autor de algum método novo demonstre que o seu méto
 \cite{Wazlawick2008} a abrangência do trabalho é intencionalmente limitada ao 
 domínio da Internet das Coisas. % no contexto de home-automation?!
 
-Para avaliar a eficácia das melhorias propostas uma implementação a título de  
-protótipo será desenvolvida, possibilitando a comparação direta entre 
-estratégias já estabelecidas (estado da arte) e a proposta. Caracteriza-se, 
-portanto, como uma pesquisa quantitativa que se propõe a ``verificar o
-quão melhor é usar um programa/sistema novo frente à(s) alternativa(s)'' 
-\cite{Jacques2007}.
-Faz-se necessária, então, a escolha de indicadores técnicos que
-possibilitem uma avaliação clara e objetiva do desempenho do 
-método proposto frente ao estado da arte, são eles:
-
-%TODO Pedir ajuda pro Rafael pra definir os indicadores.
-
-\begin{itemize}
-	% http://eprints.eemcs.utwente.nl/7111/01/2004-eTNSM.pdf
-	% - Bandwidth usage
-	% - CPU time
-	% - Memory usage
-	% - Round trip delay
-
-	\item Tráfego de Rede: 
-Quantidade total de dados trafegados na rede durante uma requisição para N dispositivos.
-
-	\item Tempo de Resposta Total: 
-Intervalo de tempo entre a requisição e a obtenção das respostas de todos os dispositivos.
-
-	\item Outros: \dots
-\end{itemize}
 
 
 \chapter{Gerência de Redes}
@@ -785,98 +758,6 @@ eventos gerados pelos agentes.
 
 
 
-\section{MIB}
-
-Parte integral da gerência de redes é a definição de um idioma comum que será 
-usado entre gerentes e agentes. O protocolo, seja SNMP ou qualquer outro, faz 
-parte da solução mas sozinho não é capaz de preencher todos os requisitos 
-necessários para o estabelecimento de uma linguagem compreendida por todos os 
-interessados na gerência e, apesar de especificar o formato das mensagens, o 
-protocolo não determina como as informações serão representadas.
-Esta é a função da Base de Informações de Gerência 
-(em inglês \textit{Management Information Base}, MIB).
-
-O papel da MIB é especificar a organização lógica e quais são os dados 
-disponíveis para que aplicações se comuniquem de maneira padronizada 
-\cite{Silva2005}.
-Sua importância deve-se ao fato de ser 
-``uma definição precisa das informações acessíveis através de um protocolo de 
-gerência de redes''
-\cite[p.~152]{Leinwand1996} 
-e de que as
-``informações de gerência estão no cerne da comunicação que ocorre entre 
-gerentes e agentes''
-% Management information is at the core of management communication that 
-% takes place between managers and agents
-\cite[p.~227]{Clemm2006}.
-
-Sua origem ``deriva do modelo OSI/ISO de gerência de redes''
-% stems from the OSI/ISO Network management model
-\cite[p.~46]{Ding2009} 
-e indica que
-``como um conceito, uma MIB não depende de nenhum protocolo de gerência''
-% as a concept, a MIB does not depend on any particular management protocol
-\cite[p.~222]{Clemm2006}.
-Porém este nem sempre é o caso e, como o próprio \citetexto{Clemm2006} 
-explica, 
-``apesar de, em teoria, MIBs poderem ser definidas de forma verdadeiramente 
-independente do seu protocolo, na prática diferentes protocolos exigem sua 
-própria maneira''
-% Although in theory MIBs could be defined to be truly independent of the 
-% management protocol, in practice, different management protocols require 
-% their own specific way. [p 201 / 179]
-.
-Este foi o caso do SNMP e do modelo ISO, onde inicialmente previa-se que ambos 
-compartilhariam as mesmas MIBs, porém diferenças nos protocolos forçaram o 
-desenvolvimento independente \cite{Hunt1997,stallings1999snmp,Leinwand1996}.
-
-Estruturada como uma árvore, a MIB abriga e define todas as informações de 
-gerência para determinado dispositivo ou classe de dispositivos, ou seja, 
-``MIBs são especificações contendo as definições das informações de 
-gerenciamento para que sistemas em rede possam ser monitorados, configurados e 
-controlados''
-% MIBs are specifications containing definitions of management information so 
-% that networked systems can be remotely monitored, configured, and controlled.
-\cite[p.~1]{perkins1997understanding}.
-Outra forma de visualizar a MIB é como uma coleção de objetos em um banco de 
-dados virtual usado para gerir entidades de rede, tais como computadores, 
-roteadores e impressoras 
-% It comprises a collection of objects in a (virtual) database used 
-% to manage entities (such as routers and switches) in a network 
-% [p 46 / 67]
-\cite{Ding2009}, permitindo representar uma visão lógica do dispositivo sendo 
-gerenciado e criando uma camada de abstração especificamente para fins de 
-gerência de redes 
-% it represents an abstraction and a view of the 
-% device being managed for management purposes
-\cite{Clemm2006}.
-Desta forma 
-``qualquer tipo de informação estatística ou de estado que pode ser acessada 
-pelo gerente está definida na MIB''
-% Any sort of status or statistical information that 
-% can be accessed by the NMS is defined in a MIB
-\cite[p.~4]{Mauro2009}.
-
-É importante notar que um agente pode, e é encorajado a, 
-implementar mais de uma MIB concorrentemente 
-% multiple MIBs might be supported concurrently by the same managed device, 
-% each by its own management agent
-\cite{Clemm2006}, 
-isto é possível pois 
-``permite-se a indivíduos e fornecedores definir MIBs para seu próprio uso'' 
-% vendors, and individuals, are allowed to define MIB 
-% variables for their own use
-\cite[p.~5]{Mauro2009}. 
-Grandes fabricantes como Cisco e 3Com (agora HP), além de suportar um 
-conjunto básico de MIBs, fornecem, juntamente com seus equipamentos, MIBs 
-próprias e específicas para determinados produtos.
-Desta forma podemos concluir que uma MIB 
-``pode ser pensada como a especificação que define os objetos gerenciados que 
-um dispositivo ou fornecedor suporta''
-% The MIB can be thought of as a specification that defines 
-% the managed objects a vendor or device supports
-\cite[p.~27]{Mauro2009}
-
 
 \section{Simple Network Management Protocol}
 
@@ -1013,6 +894,16 @@ os dispositivos de rede que são objeto da gerência.
 % "simple" in "SNMP".
 % Stallings p111 c5
 
+Ainda que existam outras tecnologias para gerência de redes, o SNMP segue 
+como a principal delas no contexto pessoal e empresarial.
+As informações apresentadas até aqui apenas confirmam esta hipótese
+e tornam o SNMP o protocolo de escolha para esta pesquisa.
+Deste ponto em diante apresenta-se um detalhamento sobre o protocolo de forma
+a apresentar ao leitor suas principais características e uma visão mais 
+detalhada das suas funcionalidades.
+
+
+
 \subsection{Versões}
 
 Devido ao seu surgimento como uma solução interina para o problema da gerência 
@@ -1089,6 +980,98 @@ mostrar os campos do protocolo, UDP
 
 [\dots]
 
+
+\section{MIB}
+
+Parte integral da gerência de redes é a definição de um idioma comum que será 
+usado entre gerentes e agentes. O protocolo, seja SNMP ou qualquer outro, faz 
+parte da solução mas sozinho não é capaz de preencher todos os requisitos 
+necessários para o estabelecimento de uma linguagem compreendida por todos os 
+interessados na gerência e, apesar de especificar o formato das mensagens, o 
+protocolo não determina como as informações serão representadas.
+Esta é a função da Base de Informações de Gerência 
+(em inglês \textit{Management Information Base}, MIB).
+
+O papel da MIB é especificar a organização lógica e quais são os dados 
+disponíveis para que aplicações se comuniquem de maneira padronizada 
+\cite{Silva2005}.
+Sua importância deve-se ao fato de ser 
+``uma definição precisa das informações acessíveis através de um protocolo de 
+gerência de redes''
+\cite[p.~152]{Leinwand1996} 
+e de que as
+``informações de gerência estão no cerne da comunicação que ocorre entre 
+gerentes e agentes''
+% Management information is at the core of management communication that 
+% takes place between managers and agents
+\cite[p.~227]{Clemm2006}.
+
+Sua origem ``deriva do modelo OSI/ISO de gerência de redes''
+% stems from the OSI/ISO Network management model
+\cite[p.~46]{Ding2009} 
+e indica que
+``como um conceito, uma MIB não depende de nenhum protocolo de gerência''
+% as a concept, a MIB does not depend on any particular management protocol
+\cite[p.~222]{Clemm2006}.
+Porém este nem sempre é o caso e, como o próprio \citetexto{Clemm2006} 
+explica, 
+``apesar de, em teoria, MIBs poderem ser definidas de forma verdadeiramente 
+independente do seu protocolo, na prática diferentes protocolos exigem sua 
+própria maneira''
+% Although in theory MIBs could be defined to be truly independent of the 
+% management protocol, in practice, different management protocols require 
+% their own specific way. [p 201 / 179]
+.
+Este foi o caso do SNMP e do modelo ISO, onde inicialmente previa-se que ambos 
+compartilhariam as mesmas MIBs, porém diferenças nos protocolos forçaram o 
+desenvolvimento independente \cite{Hunt1997,stallings1999snmp,Leinwand1996}.
+
+Estruturada como uma árvore, a MIB abriga e define todas as informações de 
+gerência para determinado dispositivo ou classe de dispositivos, ou seja, 
+``MIBs são especificações contendo as definições das informações de 
+gerenciamento para que sistemas em rede possam ser monitorados, configurados e 
+controlados''
+% MIBs are specifications containing definitions of management information so 
+% that networked systems can be remotely monitored, configured, and controlled.
+\cite[p.~1]{perkins1997understanding}.
+Outra forma de visualizar a MIB é como uma coleção de objetos em um banco de 
+dados virtual usado para gerir entidades de rede, tais como computadores, 
+roteadores e impressoras 
+% It comprises a collection of objects in a (virtual) database used 
+% to manage entities (such as routers and switches) in a network 
+% [p 46 / 67]
+\cite{Ding2009}, permitindo representar uma visão lógica do dispositivo sendo 
+gerenciado e criando uma camada de abstração especificamente para fins de 
+gerência de redes 
+% it represents an abstraction and a view of the 
+% device being managed for management purposes
+\cite{Clemm2006}.
+Desta forma 
+``qualquer tipo de informação estatística ou de estado que pode ser acessada 
+pelo gerente está definida na MIB''
+% Any sort of status or statistical information that 
+% can be accessed by the NMS is defined in a MIB
+\cite[p.~4]{Mauro2009}.
+
+É importante notar que um agente pode, e é encorajado a, 
+implementar mais de uma MIB concorrentemente 
+% multiple MIBs might be supported concurrently by the same managed device, 
+% each by its own management agent
+\cite{Clemm2006}, 
+isto é possível pois 
+``permite-se a indivíduos e fornecedores definir MIBs para seu próprio uso'' 
+% vendors, and individuals, are allowed to define MIB 
+% variables for their own use
+\cite[p.~5]{Mauro2009}. 
+Grandes fabricantes como Cisco e 3Com (agora HP), além de suportar um 
+conjunto básico de MIBs, fornecem, juntamente com seus equipamentos, MIBs 
+próprias e específicas para determinados produtos.
+Desta forma podemos concluir que uma MIB 
+``pode ser pensada como a especificação que define os objetos gerenciados que 
+um dispositivo ou fornecedor suporta''
+% The MIB can be thought of as a specification that defines 
+% the managed objects a vendor or device supports
+\cite[p.~27]{Mauro2009}.
 
 
 \chapter{Internet das Coisas}
