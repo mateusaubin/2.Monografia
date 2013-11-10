@@ -20,7 +20,7 @@
 
 \usepackage{bibentry} % para inserir refs. bib. no meio do texto
 \usepackage{hyperref}
-
+\usepackage{subcaption}
 
 \interfootnotelinepenalty=10000 % evitar a quebra de footnotes em 
 								% mais de uma página
@@ -221,6 +221,8 @@ pela Universidade do Vale do Rio dos Sinos --- Unisinos
 \item[RFC] Request For Comments
 \item[SMI] Structure of Management Information
 \item[MIB] Management Information Base
+\item[UDP] User Datagram Protocol
+\item[PDU] Protocol Data Unit
 %\item[CAPES] Coordenação de Aperfeiçoamento de Pessoal de Nível Superior
 %\item[FAPERGS] Fundação de Amparo à Pesquisa do Estado do Rio Grande do Sul
 \end{listadesiglas}
@@ -1087,7 +1089,115 @@ porém a nomenclatura é ainda pouco usada.
 
 \subsection{Mensagens}
 \label{sec:mensagens}
-mostrar os campos do protocolo, UDP
+
+Projetado desde o princípio para ser o protocolo de gerência de redes 
+associado aos protocolos de internet (TCP/IP), o SNMP trabalha nativamente 
+sobre o serviço de datagramas UDP (\textit{User Datagram Protocol}).
+Ao contrário do TCP, que exige o estabelecimento de uma conexão antes de 
+comunicar-se, o UDP evita este custo enquanto não garante a entrega nem 
+a ordenação das mensagens.
+Apesar dessas deficiências, os ganhos obtidos são suficientes para justificar 
+sua escolha pois um vez que os metadados do pacote são menores, seu uso reduz 
+o impacto na operação normal da rede e aumenta as chances de sucesso na 
+comunicação em redes sobrecarregadas \cite{Mauro2009}.
+
+Entretanto a situação torna-se mais delicada quando \textit{traps} são 
+consideradas. 
+A ausência de confirmação por parte do UDP faz com que não seja possível ao 
+emissor saber se sua mensagem chegou ao destino e, no caso das \textit{traps}, 
+pode significar a perda de um evento importante \cite{Clemm2006}.
+Para casos onde é estritamente necessária a confirmação de um evento foi 
+adicionada a operação \textit{inform}, que realiza este controle através da 
+aplicação ao invés do protocolo de transporte.
+
+Apesar de projetado para o funcionamento sobre redes TCP/IP, o SNMP, devido ao 
+seu sucesso, ganhou compatibilidade com outras plataformas como AppleTalk e 
+IPX, além de projetos para interoperabilidade com o modelo ISO 
+assim que ele entrasse em uso \cite{Hunt1997}.
+Para comunicação sobre UDP, o SNMP utiliza a porta 161 para todas operações 
+exceto \textit{traps} e \textit{informs}, quando usa a porta 162 
+\cite{Mauro2009}.
+
+
+\begin{figure}
+	\caption{Estrutura de funcionamento do SNMP}
+	\label{fig:snmp-stack}
+	\centering
+	\begin{minipage}{.8\textwidth}
+		\includegraphics[width=\textwidth]{snmp_stack}
+		\fonte{Adaptado pelo autor de \citetexto{Ding2009}.}
+	\end{minipage}
+\end{figure}
+
+
+Ao longo de sua evolução o SNMP passou por revisões na estrutura de suas 
+mensagens, com a principal delas ocorrendo na transição entre as versões 1 e 2.
+Tais correções tiveram por objetivo unificar a arquitetura e 
+simplificar o seu tratamento tanto no agente quanto no gerente 
+\cite{perkins1997understanding}.
+Apesar das alterações no formato das mensagens, a arquitetura do modelo SNMP, 
+como ilustrada pela ~\autoref{fig:snmp-stack}, não foi alterada, 
+seguindo estável desde seu projeto.
+
+\begin{figure}
+	%TODO Melhorar imagens
+    \caption{Estrutura dos Pacotes SNMP}
+	\label{fig:snmp-pdu}
+    \centering
+    \begin{subfigure}[b]{0.60\textwidth}
+        \includegraphics[height=9cm,keepaspectratio=true]{snmp_pdu_v3}
+		%\fonte{muito texto longo longo longo}
+    \end{subfigure}
+\hfill
+    \begin{subfigure}[b]{0.30\textwidth}
+        \includegraphics[height=9cm,keepaspectratio=true]{snmp_pdu}
+		%\fonte{muito texto longo longo longo}
+    \end{subfigure}
+\\
+    \begin{subfigure}[b]{0.27\textwidth}
+        \includegraphics[height=4cm,keepaspectratio=true]{snmp_pdu_v1}
+		%\fonte{muito texto longo longo longo}
+    \end{subfigure}
+\hspace{.1\textwidth}
+    \begin{subfigure}[b]{0.27\textwidth}
+        \includegraphics[keepaspectratio=true]{snmp_pdu_varbinds}
+		%\fonte{muito texto longo longo longo}
+    \end{subfigure}
+\fonte{Adaptado pelo autor com base em 
+	\citetexto{perkins1997understanding}, 
+	\citetexto{Stallings1998}, 
+	\citetexto{stallings1999snmp} e
+	\citetexto{Mauro2009}.
+}
+\end{figure}
+
+
+Com a padronização de sua terceira versão o SNMP passou a contar com 
+funcionalidades maduras de segurança, entretanto esta evolução trouxe 
+consigo um significativo aumento na complexidade do protocolo
+\cite{Mauro2009}.
+Este crescimento fica evidente quando inspeciona-se a estrutura de um pacote 
+SNMP das versões 1 e 2 comparado com a versão 3 e, com a ajuda da
+\autoref{fig:snmp-pdu}, percebe-se que as funcionalidades de segurança 
+incorrem um custo tanto no tamanho dos pacotes quanto na simplicidade do 
+protocolo.
+
+Apesar da mudança no pacote SNMP, a estrutura da PDU (\textit{Protocol Data 
+Unit}, ou, em tradução livre, Unidade de Dados do Protocolo) manteve-se 
+estável.
+A PDU é responsável por encapsular os dados de requisições e respostas 
+realizadas através do SNMP e, para isso, conta com campos de metadados 
+e dados \cite{perkins1997understanding}.
+Todas as operações disponibilizadas pelo SNMP compartilham a mesma PDU, 
+com ressalvas no caso do \textit{get-bulk}.
+
+Abaixo apresenta-se um detalhamento\footnote{
+	Adaptadas a partir de:
+	\citetexto{perkins1997understanding},
+	\citetexto{Stallings1998}, 
+	\citetexto{stallings1999snmp} e 
+	\citetexto{Mauro2009}.
+} das mensagens previstas no protocolo SNMP no que diz respeito a suas PDUs.
 
 \begin{itemize}
 
@@ -1100,8 +1210,6 @@ mostrar os campos do protocolo, UDP
 \item Set:
 \item Trap:
 \end{itemize}
-
-[\dots]
 
 
 \section{MIB}
