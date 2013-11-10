@@ -1,13 +1,5 @@
 %TODO
 %
-%	Revisar os objetivos específicos
-%
-%	Retirar a última parte da metodologia
-%
-%	Reafirmar, logo antes da seção 2.1.1, que 
-%	decidiste te concentrar diretamente no SNMP
-%
-%	Falar do SMI / ASN.1 ?
 %
 %=======================================================================
 % Declarações iniciais identificando a classe de documento e
@@ -971,12 +963,100 @@ outros propósitos além do monitoramento'' \cite{Clemm2006}.
 \end{itemize}
 
 \subsection{Operações}
-get, set, get-next
 
-[\dots]
+%TODO Intro textual
+
+% key capabilities: get, set, trap stallings p78
+
+% The operations available in SNMP are quite limited, and yet quite powerful
+% p 169 c6 \cite{perkins1997understanding}
+
+% Having just a few simple operations has allowed the implementationsof the
+% protocol engines to be quite small and require fewer resources to develop, 
+% as compared with other management protocols.
+% p 185 c6 \cite{perkins1997understanding}
+
+% dada a estrutura da PDU (vista a seguir) todas as operações podem ser
+% efetuadas sobre mais de um elemento
+
+\begin{itemize}
+
+\item \textbf{\textit{Get}:}
+Contempla a obtenção do valor de uma informação de gerência. Nesta operação o 
+gerente solicita um dado sobre um determinado objeto a um agente;
+
+\item \textbf{\textit{Get-Next}:}
+Assim como o \textit{get}, contempla uma obtenção, porém, neste caso, o 
+gerente está solicitando o próximo objeto, potencialmente desconhecido, a 
+partir de outro objeto. 
+Esta operação é útil para explorar MIBs desconhecidas ou obter valores 
+de objetos tabulares;
+
+\item \textbf{\textit{Get-Bulk}:}
+Constitui uma melhoria em relação ao \textit{get-next} pois possibilita 
+representar grandes requisições, principalmente de tabelas, de forma mais 
+econômica.
+Atinge este objetivo através de uma indicação de repetições;
+
+\item \textbf{\textit{Inform}:}
+Assim como o \textit{trap}, esta operação é utilizada para relatar eventos.
+Contudo, esta operação exige uma confirmação de recebimento e pode ser usada 
+para comunicação entre agente--gerente assim como gerente--gerente;
+
+\item \textbf{\textit{Set}:}
+Define o valor de uma determinada informação de um objeto gerenciado. 
+Esta operação é indispensável para a gerência e a compatibilidade com o 
+modelo FCAPS. 
+Devido a sua simplicidade o SNMP não contempla ações de criação ou remoção de 
+objetos gerenciados, sendo realizadas pelo próprio \textit{set}
+;
+
+\item \textbf{\textit{Trap}:}
+Representa um aviso enviado de maneira autônoma do agente para o gerente. 
+Usado para relatar condições excepcionais e gerar alertas.
+Esta operação, ao contrário do \textit{inform}, não é confirmada, portanto
+não há como saber se foi recebida pelo gerente.
+
+\end{itemize}
+
+\begin{table}
+	\caption{Resumo das operações do protocolo SNMP}
+	\label{tab:operacoesSNMP}
+	\centering
+	\begin{minipage}{.75\textwidth}
+		\begin{tabular*}{.90\textwidth}{|l|l|l|l|}
+	\hline
+		\textbf{Operação}   &  
+		\textbf{De -- Para} & 
+		\textbf{Requisição} & 
+		\textbf{Resposta}   \\ 
+	\hline
+		GET     & Gerente -- Agente   & get-request      & response \\
+		GETNEXT & Gerente -- Agente   & get-next-request & response \\
+		GETBULK & Gerente -- Agente   & get-bulk-request & response \\
+		SET     & Gerente -- Agente   & set-request      & response \\
+		TRAP    & Agente -- Gerente   & trap             & não há   \\
+		INFORM  & Qualquer -- Gerente & inform-request   & response \\ 
+	\hline
+		\end{tabular*}
+		\fonte{Adaptado pelo autor de \citetexto{perkins1997understanding}.}
+	\end{minipage}
+\end{table}
 
 \subsection{Mensagens}
 mostrar os campos do protocolo, UDP
+
+\begin{itemize}
+
+\item Get:
+\item Get-Next:
+\item Get-Bulk:
+\item Inform:
+\item Report:
+\item Response:
+\item Set:
+\item Trap:
+\end{itemize}
 
 [\dots]
 
