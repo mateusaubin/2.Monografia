@@ -16,6 +16,8 @@
 \usepackage[T1]{fontenc} % encoding da fonte (afeta a sep. de sílabas)
 \usepackage{graphicx} % comandos para gráficos e inclusão de figuras
 
+\usepackage{tabulary}
+
 \usepackage{bibentry} % para inserir refs. bib. no meio do texto
 \usepackage{hyperref}
 
@@ -1020,25 +1022,24 @@ não há como saber se foi recebida pelo gerente.
 \end{itemize}
 
 \begin{table}
+	\centering
 	\caption{Resumo das operações do protocolo SNMP}
 	\label{tab:operacoesSNMP}
-	\centering
-	\begin{minipage}{.75\textwidth}
-		\begin{tabular*}{.90\textwidth}{|l|l|l|l|}
+	\begin{minipage}{.60\textwidth}
+		\begin{tabulary}{\textwidth}{|C|L|L|}
 	\hline
 		\textbf{Operação}   &  
 		\textbf{De -- Para} & 
-		\textbf{Requisição} & 
-		\textbf{Resposta}   \\ 
+		\textbf{Requisição} \\ 
 	\hline
-		GET     & Gerente -- Agente   & get-request      & response \\
-		GETNEXT & Gerente -- Agente   & get-next-request & response \\
-		GETBULK & Gerente -- Agente   & get-bulk-request & response \\
-		SET     & Gerente -- Agente   & set-request      & response \\
-		TRAP    & Agente -- Gerente   & trap             & não há   \\
-		INFORM  & Qualquer -- Gerente & inform-request   & response \\ 
+		GET     & Gerente -- Agente   & get-request      \\
+		GETNEXT & Gerente -- Agente   & get-next-request \\
+		GETBULK & Gerente -- Agente   & get-bulk-request \\
+		SET     & Gerente -- Agente   & set-request      \\
+		TRAP    & Agente -- Gerente   & trap             \\
+		INFORM  & Qualquer -- Gerente & inform-request   \\ 
 	\hline
-		\end{tabular*}
+		\end{tabulary}
 		\fonte{Adaptado pelo autor de \citetexto{perkins1997understanding}.}
 	\end{minipage}
 \end{table}
