@@ -22,6 +22,8 @@
 \usepackage{hyperref}
 
 
+\interfootnotelinepenalty=10000 % evitar a quebra de footnotes em 
+								% mais de uma página
 
 \hypersetup{
 	breaklinks=true,
@@ -467,7 +469,7 @@ redes tradicional (protocolos e sistemas) para gerir dispositivos em um
 contexto de Internet das Coisas.
 
 \subsection{Objetivos Específicos}
-
+	%TODO Rever os objetivos com o Rafael
 	\begin{itemize}
 		\item 
 		Aprofundar os conhecimentos sobre protocolos de Gerência de 
@@ -966,20 +968,47 @@ outros propósitos além do monitoramento'' \cite{Clemm2006}.
 
 \subsection{Operações}
 
-%TODO Intro textual
+Simplicidade é um dos objetivos de projeto do SNMP, portanto espera-se que
+suas operações sejam simples também.
+Entretanto, as ações realizadas sobre um determinado dispositivo devem ser 
+expressas de maneira compacta e precisa, evitando a complexidade associada ao 
+decidir qual operação é válida dado o estado do objeto.
+Apesar do conjunto limitado, \citetexto{stallings1999snmp} elenca três 
+operações básicas que devem estar disponíveis em qualquer protocolo de 
+gerência e que são contempladas pelo SNMP, sendo elas: 
+\textit{get}, \textit{set} e \textit{trap}.
 
-% key capabilities: get, set, trap stallings p78
+No SNMP as operações podem afetar mais de um objeto, isto é devido a sua 
+estrutura de pacotes, explicada à seguir na seção \nameref{sec:mensagens}.
+Desta forma uma operação \textit{get}, por exemplo, pode buscar o valor de 
+diversos objetos em uma única requisição.
+Adicionalmente define-se que as operações são atômicas, causando com que a 
+falha em um ou mais itens invalide a requisição inteira \cite{Simoneau1999}.
 
-% The operations available in SNMP are quite limited, and yet quite powerful
-% p 169 c6 \cite{perkins1997understanding}
+A decisão de manter a complexidade no gerente e simplificar os agentes já foi 
+elogiada por \citetexto{Clemm2006} e, no que diz respeito às operações, 
+\citetexto{perkins1997understanding} corrobora ao afirmar que, embora 
+limitadas, as operações do SNMP são muito poderosas.
 
-% Having just a few simple operations has allowed the implementationsof the
+\begin{quote}
+Possuir apenas algumas poucas e simples operações permitiu que as 
+implementações dos mecanismos do protocolo fossem muito pequenas e exigissem 
+menos recursos para seu desenvolvimento quando comparadas a outros protocolos 
+de gerência
+% Having just a few simple operations has allowed the implementations of the
 % protocol engines to be quite small and require fewer resources to develop, 
-% as compared with other management protocols.
-% p 185 c6 \cite{perkins1997understanding}
+% as compared with other management protocols. p 185 c6
+\cite[p.~185]{perkins1997understanding}.
+\end{quote}
 
-% dada a estrutura da PDU (vista a seguir) todas as operações podem ser
-% efetuadas sobre mais de um elemento
+Abaixo apresenta-se um detalhamento\footnote{
+	Adaptadas a partir de:
+	\citetexto{perkins1997understanding},
+	\citetexto{Simoneau1999},
+	\citetexto{stallings1999snmp},
+	\citetexto{Clemm2006} e 
+	\citetexto{Mauro2009}.
+} das operações que o protocolo SNMP prevê. 
 
 \begin{itemize}
 
@@ -1001,29 +1030,41 @@ econômica.
 Atinge este objetivo através de uma indicação de repetições;
 
 \item \textbf{\textit{Inform}:}
-Assim como o \textit{trap}, esta operação é utilizada para relatar eventos.
+Assim como o \textit{trap}, é utilizada para relatar eventos.
 Contudo, esta operação exige uma confirmação de recebimento e pode ser usada 
-para comunicação entre agente--gerente assim como gerente--gerente;
+para comunicação entre agente--gerente assim como gerente--gerente.
+Contudo, a necessidade de confirmação incorre um custo extra no controle de 
+mensagens e, portanto, faz com que esta operação seja indicada apenas para 
+comunicação entre gerentes;
+
+\item \textbf{\textit{Report}:}
+Contempla a comunicação de mensagens internas entre gerentes e agentes SNMP, 
+sendo responsável pela comunicação de erros de processamento.
+Tem como objetivo informar o originador de uma requisição que um erro interno 
+ocorreu durante o processamento no receptor e não deve ser gerada por operação 
+do usuário;
 
 \item \textbf{\textit{Set}:}
 Define o valor de uma determinada informação de um objeto gerenciado. 
 Esta operação é indispensável para a gerência e a compatibilidade com o 
 modelo FCAPS. 
-Devido a sua simplicidade o SNMP não contempla ações de criação ou remoção de 
-objetos gerenciados, sendo realizadas pelo próprio \textit{set}
-;
+Devido a sua simplicidade, o SNMP não contempla ações de criação ou remoção de 
+objetos gerenciados, sendo realizadas pelo próprio \textit{set};
 
 \item \textbf{\textit{Trap}:}
 Representa um aviso enviado de maneira autônoma do agente para o gerente. 
 Usado para relatar condições excepcionais e gerar alertas.
 Esta operação, ao contrário do \textit{inform}, não é confirmada, portanto
 não há como saber se foi recebida pelo gerente.
+Com a chegada do SNMPv2 e as alterações no formato da mensagem, 
+esta operação passou a ser chamada \textit{notification}, 
+porém a nomenclatura é ainda pouco usada.
 
 \end{itemize}
 
 \begin{table}
 	\centering
-	\caption{Resumo das operações do protocolo SNMP}
+	\caption{Principais operações do protocolo SNMP}
 	\label{tab:operacoesSNMP}
 	\begin{minipage}{.60\textwidth}
 		\begin{tabulary}{\textwidth}{|C|L|L|}
@@ -1045,6 +1086,7 @@ não há como saber se foi recebida pelo gerente.
 \end{table}
 
 \subsection{Mensagens}
+\label{sec:mensagens}
 mostrar os campos do protocolo, UDP
 
 \begin{itemize}
