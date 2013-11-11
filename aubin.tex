@@ -17,6 +17,8 @@
 \usepackage{graphicx} % comandos para gráficos e inclusão de figuras
 
 \usepackage{tabulary}
+\usepackage{pdflscape}
+\usepackage{afterpage}
 
 \usepackage{bibentry} % para inserir refs. bib. no meio do texto
 \usepackage{hyperref}
@@ -1073,7 +1075,7 @@ porém a nomenclatura é ainda pouco usada.
 	\hline
 		\textbf{Operação}   &  
 		\textbf{De -- Para} & 
-		\textbf{Requisição} \\ 
+		\textbf{Mensagem}  \\ 
 	\hline
 		GET     & Gerente -- Agente   & get-request      \\
 		GETNEXT & Gerente -- Agente   & get-next-request \\
@@ -1090,54 +1092,15 @@ porém a nomenclatura é ainda pouco usada.
 \subsection{Mensagens}
 \label{sec:mensagens}
 
-Projetado desde o princípio para ser o protocolo de gerência de redes 
-associado aos protocolos de internet (TCP/IP), o SNMP trabalha nativamente 
-sobre o serviço de datagramas UDP (\textit{User Datagram Protocol}).
-Ao contrário do TCP, que exige o estabelecimento de uma conexão antes de 
-comunicar-se, o UDP evita este custo enquanto não garante a entrega nem 
-a ordenação das mensagens.
-Apesar dessas deficiências, os ganhos obtidos são suficientes para justificar 
-sua escolha pois um vez que os metadados do pacote são menores, seu uso reduz 
-o impacto na operação normal da rede e aumenta as chances de sucesso na 
-comunicação em redes sobrecarregadas \cite{Mauro2009}.
-
-Entretanto a situação torna-se mais delicada quando \textit{traps} são 
-consideradas. 
-A ausência de confirmação por parte do UDP faz com que não seja possível ao 
-emissor saber se sua mensagem chegou ao destino e, no caso das \textit{traps}, 
-pode significar a perda de um evento importante \cite{Clemm2006}.
-Para casos onde é estritamente necessária a confirmação de um evento foi 
-adicionada a operação \textit{inform}, que realiza este controle através da 
-aplicação ao invés do protocolo de transporte.
-
-Apesar de projetado para o funcionamento sobre redes TCP/IP, o SNMP, devido ao 
-seu sucesso, ganhou compatibilidade com outras plataformas como AppleTalk e 
-IPX, além de projetos para interoperabilidade com o modelo ISO 
-assim que ele entrasse em uso \cite{Hunt1997}.
-Para comunicação sobre UDP, o SNMP utiliza a porta 161 para todas operações 
-exceto \textit{traps} e \textit{informs}, quando usa a porta 162 
-\cite{Mauro2009}.
-
-
 \begin{figure}
 	\caption{Estrutura de funcionamento do SNMP}
 	\label{fig:snmp-stack}
 	\centering
 	\begin{minipage}{.8\textwidth}
-		\includegraphics[width=\textwidth]{snmp_stack}
+		\includegraphics[width=\textwidth,keepaspectratio=true]{snmp_stack}
 		\fonte{Adaptado pelo autor de \citetexto{Ding2009}.}
 	\end{minipage}
 \end{figure}
-
-
-Ao longo de sua evolução o SNMP passou por revisões na estrutura de suas 
-mensagens, com a principal delas ocorrendo na transição entre as versões 1 e 2.
-Tais correções tiveram por objetivo unificar a arquitetura e 
-simplificar o seu tratamento tanto no agente quanto no gerente 
-\cite{perkins1997understanding}.
-Apesar das alterações no formato das mensagens, a arquitetura do modelo SNMP, 
-como ilustrada pela ~\autoref{fig:snmp-stack}, não foi alterada, 
-seguindo estável desde seu projeto.
 
 \begin{figure}
 	%TODO Melhorar imagens
@@ -1145,22 +1108,22 @@ seguindo estável desde seu projeto.
 	\label{fig:snmp-pdu}
     \centering
     \begin{subfigure}[b]{0.60\textwidth}
-        \includegraphics[height=9cm,keepaspectratio=true]{snmp_pdu_v3}
+        \includegraphics[height=9cm,width=\textwidth,keepaspectratio=true]{snmp_pdu_v3}
 		%\fonte{muito texto longo longo longo}
     \end{subfigure}
 \hfill
     \begin{subfigure}[b]{0.30\textwidth}
-        \includegraphics[height=9cm,keepaspectratio=true]{snmp_pdu}
+        \includegraphics[height=9cm,width=\textwidth,keepaspectratio=true]{snmp_pdu}
 		%\fonte{muito texto longo longo longo}
     \end{subfigure}
 \\
     \begin{subfigure}[b]{0.27\textwidth}
-        \includegraphics[height=4cm,keepaspectratio=true]{snmp_pdu_v1}
+        \includegraphics[height=4cm,width=\textwidth,keepaspectratio=true]{snmp_pdu_v1}
 		%\fonte{muito texto longo longo longo}
     \end{subfigure}
 \hspace{.1\textwidth}
     \begin{subfigure}[b]{0.27\textwidth}
-        \includegraphics[keepaspectratio=true]{snmp_pdu_varbinds}
+        \includegraphics[width=\textwidth,keepaspectratio=true]{snmp_pdu_varbinds}
 		%\fonte{muito texto longo longo longo}
     \end{subfigure}
 \fonte{Adaptado pelo autor com base em 
@@ -1172,15 +1135,59 @@ seguindo estável desde seu projeto.
 \end{figure}
 
 
+Projetado desde o princípio para ser o protocolo de gerência de redes 
+associado aos protocolos de internet (TCP/IP), o SNMP trabalha nativamente 
+sobre o serviço de datagramas UDP (\textit{User Datagram Protocol}).
+Ao contrário do TCP, que exige o estabelecimento de uma conexão antes de 
+comunicar-se, o UDP evita este custo enquanto não garante a entrega nem 
+a ordenação das mensagens.
+Apesar dessas deficiências, os ganhos obtidos são suficientes para justificar 
+sua escolha pois um vez que os metadados do pacote são menores, seu uso reduz 
+o impacto na operação normal da rede e aumenta as chances de sucesso na 
+comunicação em redes sobrecarregadas \cite{Mauro2009}.
+
+
+Entretanto a situação torna-se mais delicada quando \textit{traps} são 
+consideradas. 
+A ausência de confirmação por parte do UDP faz com que não seja possível ao 
+emissor saber se sua mensagem chegou ao destino e, no caso das \textit{traps}, 
+pode significar a perda de um evento importante \cite{Clemm2006}.
+Para casos onde é estritamente necessária a confirmação de um evento foi 
+adicionada a operação \textit{inform}, que realiza este controle através da 
+aplicação ao invés do protocolo de transporte.
+
+
+Apesar de projetado para o funcionamento sobre redes TCP/IP, o SNMP, devido ao 
+seu sucesso, ganhou compatibilidade com outras plataformas como AppleTalk e 
+IPX, além de projetos para interoperabilidade com o modelo ISO 
+assim que ele entrasse em uso \cite{Hunt1997}.
+Entretanto tais tecnologias perderam espaço e hoje não têm mais relevância nas 
+redes de computadores e na sua gerência.
+Para comunicação sobre UDP, o SNMP utiliza a porta 161 para todas operações 
+exceto \textit{traps} e \textit{informs}, quando usa a porta 162 
+\cite{Mauro2009}.
+
+
+Ao longo de sua evolução o SNMP passou por revisões na estrutura de suas 
+mensagens, com a principal delas ocorrendo na transição entre as versões 1 e 2.
+Tais correções tiveram por objetivo unificar a arquitetura e 
+simplificar o seu tratamento tanto no agente quanto no gerente 
+\cite{perkins1997understanding}.
+Apesar das alterações no formato das mensagens, a arquitetura do modelo SNMP, 
+como ilustrada pela ~\autoref{fig:snmp-stack}, não foi alterada, 
+seguindo estável desde seu projeto.
+
+
 Com a padronização de sua terceira versão o SNMP passou a contar com 
 funcionalidades maduras de segurança, entretanto esta evolução trouxe 
 consigo um significativo aumento na complexidade do protocolo
 \cite{Mauro2009}.
 Este crescimento fica evidente quando inspeciona-se a estrutura de um pacote 
-SNMP das versões 1 e 2 comparado com a versão 3 e, com a ajuda da
-\autoref{fig:snmp-pdu}, percebe-se que as funcionalidades de segurança 
-incorrem um custo tanto no tamanho dos pacotes quanto na simplicidade do 
-protocolo.
+SNMP das versões 1 e 2 comparado com a versão 3.
+Com a ajuda da \autoref{fig:snmp-pdu}, percebe-se que as funcionalidades de 
+segurança incorrem um custo tanto no tamanho dos pacotes quanto na 
+simplicidade do protocolo.
+
 
 Apesar da mudança no pacote SNMP, a estrutura da PDU (\textit{Protocol Data 
 Unit}, ou, em tradução livre, Unidade de Dados do Protocolo) manteve-se 
@@ -1188,28 +1195,112 @@ estável.
 A PDU é responsável por encapsular os dados de requisições e respostas 
 realizadas através do SNMP e, para isso, conta com campos de metadados 
 e dados \cite{perkins1997understanding}.
+
+
 Todas as operações disponibilizadas pelo SNMP compartilham a mesma PDU, 
 com ressalvas no caso do \textit{get-bulk}.
+Na \autoref{tab:pdu-operacao} é detalhado o significado de cada um dos
+campos da PDU conforme a operação realizada.
+Cabe destacar que os campos \textit{error status} e \textit{error index} 
+adquirem outro significado quando usados na requisição \textit{get-bulk},
+informando quais dos itens nos \textit{variable bindings} devem ser 
+interpretados como repetidos ou não \cite{perkins1997understanding}.
 
-Abaixo apresenta-se um detalhamento\footnote{
-	Adaptadas a partir de:
-	\citetexto{perkins1997understanding},
-	\citetexto{Stallings1998}, 
-	\citetexto{stallings1999snmp} e 
-	\citetexto{Mauro2009}.
-} das mensagens previstas no protocolo SNMP no que diz respeito a suas PDUs.
 
-\begin{itemize}
+Cabe, também, atenção especial aos \textit{variable bindings}, que indicam 
+os objetos de interesse da requisição e da resposta.
+Neste campo espera-se uma lista contendo os nomes (identificadores na MIB) 
+e os valores dos campos sobre os quais o gerente deseja operar 
+\cite{Simoneau1999}.
+No caso de respostas e \textit{traps} 
+(considerando também \textit{informs} e \textit{reports})
+estarão presentes os valores que definem os objetos, enquanto nas requisições
+devem conter um indicador de campo vazio (NULL) \cite{Clemm2006}.
+Nessa estrutura reside a capacidade do SNMP de obter e definir diversas 
+informações de gerência em uma única requisição e de maneira atômica.
 
-\item Get:
-\item Get-Next:
-\item Get-Bulk:
-\item Inform:
-\item Report:
-\item Response:
-\item Set:
-\item Trap:
-\end{itemize}
+
+% Maldito seja o momento em 
+% que decidi fazer uma tabela
+\afterpage{%
+    \clearpage			% Flush earlier floats (otherwise order might not be correct)
+    \begin{landscape}	% Landscape page
+        \centering
+		\begin{table}
+			\caption{Relação dos campos da PDU e seu uso de acordo com a operação}
+			\label{tab:pdu-operacao}
+			\renewcommand{\arraystretch}{1.5}%
+		    \begin{tabulary}{\textwidth}{
+|p{2.5cm}	% campos
+|p{3.75cm}	% response
+|p{3.0cm}	% set
+|p{1.25cm}	% trap
+|p{1.25cm}	% inform
+|p{1.25cm}	% report
+|p{3.75cm}	% get
+|p{1.5cm}	% get-next
+|p{3.75cm}	% get-bulk
+|}
+\hline
+  ~ 
+& \textbf{\textit{response}} 
+& \textbf{\textit{set}} 
+& \textbf{\textit{trap}} 
+& \textbf{\textit{inform}} 
+& \textbf{\textit{report}} 
+& \textbf{\textit{get}} 
+& \textbf{\textit{get-next}} 
+& \textbf{\textit{get-bulk}} 
+\\ 
+\hline
+  PDU Type 
+& 0xA2 
+& 0xA3 
+& 0xA7 
+& 0xA6 
+& 0xA8 
+& 0xA0 
+& 0xA1 
+& 0xA5 
+\\
+\hline
+  Request ID 
+& Copia o valor da requisição 
+& \multicolumn{7}{c|}{Número gerado pelo solicitante para identificar a requisição} 
+\\
+\hline
+  Error Status / \newline 
+  Non Repeaters 
+& Indica o código do erro ocorrido no processamento da resposta 
+& \multicolumn{6}{c|}{Não utilizado, deve ser enviado zerado} 
+& Assume o papel de Non Repeaters, indicando quantos dos itens presentes nos Variable Bindings devem retornar apenas uma ocorrência 
+\\
+\hline
+  Error Index / \newline 
+  Max Repetitions 
+& Indica a posição do item nos Variable Bindings que causou o erro 
+& \multicolumn{6}{c|}{Não utilizado, deve ser enviado zerado} 
+& Assume o papel de Max Repetitions, indicando quantas vezes deve obter os itens restantes nos Variable Bindings 
+\\
+\hline
+  Variable \newline 
+  Bindings 
+& Lista de Nomes e Valores conforme recebido na requisição porém com os valores preenchidos com os dados atuais do dispositivo 
+& Lista de Nomes e Valores contendo os valores que deseja-se definir para os objetos no dispositivo destino 
+& \multicolumn{3}{p{4.6cm}|}{Lista de Nomes e Valores contendo os dados relevantes à notificação e obrigatoriamente informando o uptime do dispositivo e o tipo de notificação} 
+& Lista de Nomes e Valores contendo os identificadores dos objetos aos quais deseja-se obter o valor e com o valor na requisição definido como NULL 
+& \multicolumn{2}{p{5.75cm}|}{Lista de Nomes e Valores contendo os identificadores parciais dos objetos aos quais deseja-se obter o valor e com o valor na requisição definido como NULL} 
+\\ 
+\hline
+    		\end{tabulary}
+			\fonte{Adaptado pelo autor com base em 
+				\citetexto{perkins1997understanding} e 
+				\citetexto{stallings1999snmp}.
+			}
+		\end{table}
+    \end{landscape}
+	\clearpage
+}
 
 
 \section{MIB}
