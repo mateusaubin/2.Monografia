@@ -849,6 +849,10 @@ Nas palavras de \citetexto{stallings1999snmp}, ``os resultados são
 desanimadores para o cliente/usuário que acredita no 
 \textit{simples} em SNMP''.
 
+% the results are discouraging to the customer/user who believes the 
+% "simple" in "SNMP".
+% Stallings p111 c5
+
 Entretanto, \citetexto{Clemm2006} argumenta que a simplicidade do SNMP foi 
 pensada em termos das operações que o protocolo suporta, o que facilita a 
 implementação de agentes mas move a complexidade para as aplicações de 
@@ -890,9 +894,6 @@ muito útil no contexto de Internet das Coisas, uma vez que estes dispositivos
 compartilham das mesmas (se não piores) restrições de poder computacional que 
 os dispositivos de rede que são objeto da gerência.
 
-% the results are discouraging to the customer/user who believes the 
-% "simple" in "SNMP".
-% Stallings p111 c5
 
 Ainda que existam outras tecnologias para gerência de redes, o SNMP segue 
 como a principal delas no contexto pessoal e empresarial.
@@ -991,7 +992,7 @@ falha em um ou mais itens invalide a requisição inteira \cite{Simoneau1999}.
 
 A decisão de manter a complexidade no gerente e simplificar os agentes já foi 
 elogiada por \citetexto{Clemm2006} e, no que diz respeito às operações, 
-\citetexto{perkins1997understanding} corrobora ao afirmar que, embora 
+\citetexto{perkins1997understanding} corroboram ao afirmar que, embora 
 limitadas, as operações do SNMP são muito poderosas.
 
 \begin{quote}
@@ -1062,7 +1063,7 @@ Esta operação, ao contrário do \textit{inform}, não é confirmada, portanto
 não há como saber se foi recebida pelo gerente.
 Com a chegada do SNMPv2 e as alterações no formato da mensagem, 
 esta operação passou a ser chamada \textit{notification}, 
-porém a nomenclatura é ainda pouco usada.
+porém esta nomenclatura é pouco usada.
 
 \end{itemize}
 
@@ -1152,8 +1153,8 @@ consideradas.
 A ausência de confirmação por parte do UDP faz com que não seja possível ao 
 emissor saber se sua mensagem chegou ao destino e, no caso das \textit{traps}, 
 pode significar a perda de um evento importante \cite{Clemm2006}.
-Para casos onde é estritamente necessária a confirmação de um evento foi 
-adicionada a operação \textit{inform}, que realiza este controle através da 
+Para casos onde é estritamente necessária a confirmação de um evento, foi 
+adicionada a operação \textit{inform} que realiza este controle através da 
 aplicação ao invés do protocolo de transporte.
 
 
@@ -1162,7 +1163,7 @@ seu sucesso, ganhou compatibilidade com outras plataformas como AppleTalk e
 IPX, além de projetos para interoperabilidade com o modelo ISO 
 assim que ele entrasse em uso \cite{Hunt1997}.
 Entretanto tais tecnologias perderam espaço e hoje não têm mais relevância nas 
-redes de computadores e na sua gerência.
+redes de computadores e tampouco na sua gerência.
 Para comunicação sobre UDP, o SNMP utiliza a porta 161 para todas operações 
 exceto \textit{traps} e \textit{informs}, quando usa a porta 162 
 \cite{Mauro2009}.
@@ -1198,7 +1199,9 @@ e dados \cite{perkins1997understanding}.
 
 
 Todas as operações disponibilizadas pelo SNMP compartilham a mesma PDU, 
-com ressalvas no caso do \textit{get-bulk}.
+com ressalvas no caso do \textit{get-bulk}, sendo esta uma prova concreta
+da simplicidade do SNMP, uma vez que a estrutura compartilhada facilita
+a implementação de agentes \cite{Clemm2006}
 Na \autoref{tab:pdu-operacao} é detalhado o significado de cada um dos
 campos da PDU conforme a operação realizada.
 Cabe destacar que os campos \textit{error status} e \textit{error index} 
@@ -1212,7 +1215,7 @@ os objetos de interesse da requisição e da resposta.
 Neste campo espera-se uma lista contendo os nomes (identificadores na MIB) 
 e os valores dos campos sobre os quais o gerente deseja operar 
 \cite{Simoneau1999}.
-No caso de respostas e \textit{traps} 
+No caso de respostas, \textit{sets} e \textit{traps} 
 (considerando também \textit{informs} e \textit{reports})
 estarão presentes os valores que definem os objetos, enquanto nas requisições
 devem conter um indicador de campo vazio (NULL) \cite{Clemm2006}.
