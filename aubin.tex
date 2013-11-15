@@ -1465,17 +1465,17 @@ um dispositivo ou fornecedor suporta''
 	nos protocolos de comunicação. Para superar esta dificuldade foi 
 	estabelecido o conceito de dispositivo coordenador, também chamado de 
 	\textit{gateway} \cite{Steenkamp2009}. 
-	Assim como as WSNs, os protótipos iniciais de IoT conectavam-se a internet 
+	Assim como as WSNs, os protótipos iniciais de IoT conectavam-se à internet 
 	através do coordenador, um dispositivo mais potente que faz o papel de 
 	roteador na rede \cite{Kuryla2010} e, por não apresentar as mesmas 
-	restrições dos sensores, são encarregados de prover 
+	restrições dos sensores, é encarregado de prover 
 	conectividade externa (através de 
 	tecnologias como GSM, CDMA e WLAN, por exemplo) \cite{Liu2012}.
 	
 	As implementações de \citetexto{Zhu2010}, \citetexto{Steenkamp2009} e 
 	\citetexto{Hada2011} apresentam resultados e percepções sobre o uso de 
 	\textit{gateways} entre WSNs e a internet, viabilizando a criação de 
-	aplicações que comprovam a viabilidade do conceito de Internet das Coisas.
+	aplicações que demonstram, na prática, o conceito de Internet das Coisas.
 
 \subsection{IPv6}
 	Uma vez cumprido o objetivo de conectar as WSNs a internet o próximo passo 
@@ -1505,7 +1505,8 @@ um dispositivo ou fornecedor suporta''
 	Aliada a esse interesse, a Força Tarefa de Engenharia da Internet, IETF, 
 	vem desenvolvendo o protocolo IPv6 sobre Rede Local Pessoal Sem Fio de 
 	Baixo Consumo, 6LoWPAN, que define os mecanismos para troca de mensagens 
-	IPv6 sobre redes IEEE 802.15.4 \cite{Gomez2010}.
+	IPv6 sobre redes IEEE 802.15.4, especialmente projetada para o caso da 
+	Internet das Coisas \cite{Gomez2010}.
 
 \subsection{Smart Objects}
 	Contrastando com as etiquetas RFID, o conceito de Objetos Inteligentes 
@@ -1514,8 +1515,8 @@ um dispositivo ou fornecedor suporta''
 	\cite{Gellersen2001}.
 	Estes objetos foram classificados, no trabalho de \citetexto{Kortuem2010a}, em 
 	três grandes grupos de acordo com seu grau de percepção e, 
-	consequentemente, complexidade. Sendo eles: consciência de atividade, de 
-	política e de processo.
+	consequentemente, complexidade. Sendo eles: consciência à nível de 
+	atividade, de política e de processo.
 	Segundo \citetexto{Dunkels2008}, a adoção e popularização dos Objetos 
 	Inteligentes tem sido dificultada pela grande quantidade de sistemas 
 	fechados e proprietários, o que dificulta, ou até mesmo impossibilita, a 
@@ -1523,13 +1524,14 @@ um dispositivo ou fornecedor suporta''
 	
 	Espera-se que as principais habilidades de um Objeto Inteligente digam 
 	respeito ao compartilhamento de informações (entre dispositivos e 
-	usuários), e a consciência do seu contexto \cite{Gellersen2001}. 
+	usuários) e a consciência do contexto em que estão inseridos 
+	\cite{Gellersen2001}. 
 	Os autores ainda enfatizam que tais objetos ``serão deliberadamente 
 	limitados em sua capacidade computacional, memória e poder de 
 	processamento a níveis adequados para um propósito específico''. 
 	Seguindo esta tendência, \citetexto{Mattern2010a} prevêem que a tecnologia 
 	caminha em direção a um modelo onde Objetos Inteligentes efetivamente se 
-	comunicam entre eles, serviços na internet e seus usuários.
+	comuniquem entre eles mesmos, serviços na internet e seus usuários.
 	
 	Experiências no planejamento e execução de aplicações compostas por 
 	\textit{Smart Objects} podem ser encontradas nos trabalhos de 
@@ -1564,7 +1566,7 @@ um dispositivo ou fornecedor suporta''
 	aborda uma definição mais ampla, detalhada a seguir.
 	
 	Em sua definição, a \citetexto{ITU2005} sugere que a Internet das 
-	Coisas, através de suas tecnologias será capaz de conectar objetos de 
+	Coisas, através de suas tecnologias, será capaz de conectar objetos de 
 	maneira inteligente e sensorial, combinando avanços nos campos de:
 	\begin{itemize}
 		\item Identificação --- \textit{Tagging things}: Tecnologias para 
@@ -1645,10 +1647,10 @@ um dispositivo ou fornecedor suporta''
 	produtivos, desde a indústria ao setor público. Os possíveis 
 	benefícios obtidos através de uma vasta rede de dispositivos 
 	interconectados fez com que especialistas como \citetexto{Hung2012}, 
-	da Gartner, classificassem IoT como um paradigma transformacional.
+	da Gartner, classificassem a IoT como um paradigma transformacional.
 	
 	\citetexto{Cisco2011} ressaltam que a importância da IoT está 
-	profundamente interligada na maneira como a humanidade se desenvolveu: 
+	profundamente interligada com a maneira como a humanidade se desenvolveu: 
 	``Humanos evoluem porque se comunicam. Assim que o fogo foi descoberto 
 	e compartilhado, por exemplo, ele não precisou ser redescoberto, 
 	apenas comunicado''. Ainda sob este ponto de vista afirma que, com a 
@@ -1675,26 +1677,165 @@ um dispositivo ou fornecedor suporta''
 		\end{minipage}
 	\end{figure}
 	
-%TODO Medir & Otimizar (gestão de processos)
-	decisoes em tempo real a partir de leituras de sensores
-	alta resolução dos dados, possibilitando controle individual de recursos 
-	(big data)
 	
-%TODO Relacionar com Big Data
-	
-	\citetexto{Cisco2011} estima que em 2015 haverão 25 bilhões de 
-	dispositivos conectados a internet e que apenas 5 anos depois, em 
-	2020, este número chegará a casa de 50 bilhões.
+%	\citetexto{Cisco2011} estima que em 2015 haverão 25 bilhões de 
+%	dispositivos conectados a internet e que apenas 5 anos depois, em 
+%	2020, este número chegará a casa de 50 bilhões.
 
 \section{Desafios}
 
-%TODO Tecnológicos: bateria, processamento, antenas, protocolos
-%TODO Sociais: ética, privacidade (big brother)
+
+A realização de uma visão de Internet das Coisas não ocorrerá sem desafios, 
+tanto sociais e políticos quanto tecnológicos.
+As implicações ligadas a existência de uma infinidade de dispositivos 
+coletando e transmitindo informações sobre a vida cotidiana de seus usuários 
+já causa grandes preocupações entre membros da indústria e da academia.
+Desenvolvimentos tecnológicos, necessários para viabilizar a difusão do 
+conceito de IoT, também representam grandes barreiras no avanço deste 
+paradigma.
+
+
+No âmbito social, as dificuldades em tornar real a visão da Internet das 
+Coisas concentram-se principalmente em torno da privacidade.
+Diversos autores demonstram receio quanto a maneira com que os dados obtidos 
+serão utilizados, havendo, inclusive, propostas de códigos de conduta 
+específicos para este paradigma \cite{ITU2005}.
+Existe a noção de que há um balanço a ser atingido através dessas tecnologias, 
+de um lado a proteção à privacidade, e de outro o conforto obtido através do 
+uso destas informações \cite{Atzori2010b}.
+
+
+Assim como a revolução industrial causou um aumento na dependência da 
+civilização na energia elétrica, \citetexto{Mattern2010a} ponderam que a 
+implantação de uma Internet das Coisas a nível global trará um aumento na 
+dependência de conectividade.
+Há de se convir que atualmente já percebe-se um aumento na dependência por 
+computadores e conectividade, como nota \citetexto{Carr2010}, contudo o 
+aumento explosivo na quantidade de dispositivos, previsto por 
+\citetexto{Cisco2011} para a casa de 50 bilhões em 2020, vai agravar ainda 
+mais a situação.
+
+
+O medo de viver em uma era Orwelliana\footnote{
+	George Orwell era um escritor inglês que, em seu livro 1984, caracterizou 
+	um ditador totalitário que vigiava a todos através de câmeras e 
+	denominava-se Big Brother.
+}, com vigilância integral sobre o indivíduo, torna-se uma possibilidade real 
+e factível.
+Desta forma, há grandes receios por parte da comunidade acadêmica sobre a 
+forma com que tais dados serão utilizados. 
+A respeito da privacidade, \citetexto{Buckley2006} argumenta que dentre as 
+principais questões em aberto neste contexto encontram-se: a propriedade dos 
+dados, quem é o dono dos dados coletados; a gestão de acessos, quem pode 
+acessar e qual é o nível de acesso aos dados; a autorização para transmissão, 
+quem está ciente e/ou autoriza a transmissão dos dados para terceiros; e a 
+neutralização de objetos, como desabilitá-los de forma permanente.
+
+
+Relacionada a privacidade, existem ainda questões de segurança que previnem a 
+difusão da Internet das Coisas.
+Dada a reduzida capacidade de processamento dos dispositivos que integram o 
+paradigma da IoT, técnicas de criptografia e segurança de dados acabam sendo 
+de aplicabilidade limitada, portanto ainda são necessários desenvolvimentos 
+nestas técnicas \cite{Sundmaeker2010}.
+Mecanismos de identificação, como chaves pública-privadas, por exemplo, devem 
+também ser melhorados e padronizados para o uso no contexto de IoT, uma vez 
+que serão responsáveis por manter o controle e permissionamento necessário 
+para o acesso aos dados contidos nos dispositivos, assim como mecanismos para 
+revogação destas identificações \cite{Buckley2006}.
+Ainda permeando a segurança está a preocupação com a clonagem de \textit{tags} 
+e dispositivos, algo que pode comprometer toda uma rede assim como colocar em 
+risco a segurança de outras pessoas, como no caso de um passaporte clonado 
+\cite{ITU2005}. 
+
+
+A quantidade de dados gerados através dos dispositivos que compõem a Internet 
+das Coisas também apresenta seus próprios desafios. 
+\citetexto{Coetzee2011} define este fenômeno como ``dilúvio de dados'', onde 
+deve-se provisionar desde espaço de armazenamento até capacidade de rede para 
+tratar do volume de informação. Existe, ainda, o problema de como interpretar 
+todos estes novos dados que, devido ao seu volume, nem sempre fazem sentido 
+com técnicas simples de análise \cite{ITU2005}.
+Apesar de diretamente relacionado às questões de segurança e privacidade, o 
+problema da quantidade de informação gerada permeia também questões técnicas.
+
+
+Os desafios de âmbito técnico apresentados pelo paradigma da Internet das 
+Coisas são muitos e diversos, caracterizando, em alguns casos, uma área de 
+estudo própria. Portanto são apresentados na lista abaixo uma compilação dos 
+desafios técnicos conforme definidos por 
+\citetexto{ITU2005}, 
+\citetexto{Buckley2006}, 
+\citetexto{Mattern2010a} e 
+\citetexto{Sundmaeker2010}:
+
+\begin{itemize}
+	
+	\item \textbf{Energia:}
+Melhorias na capacidade de baterias e nas técnicas de conversão de energia a 
+partir de outras fontes (como vibração, luz e calor) são necessárias para 
+aumentar a utilidade dos dispositivos, uma vez que a limitação energética faz 
+com que outras características do aparelho também tenham que ser limitadas;
+	
+	\item \textbf{Antenas:}
+Visando aumentar o alcance das comunicações e a duração das baterias, 
+desenvolvimentos em técnicas de processamento de sinais e no projeto de 
+antenas também são desejáveis para dispositivos da IoT;
+	
+	\item \textbf{Protocolos:}
+Reduções no custo das comunicações e métodos de tolerância a falhas são 
+necessários para tornar a comunicação sem fio mais confiável, tendo como 
+efeito colateral uma redução no gasto energético (uma vez que mensagens não 
+precisarão ser retransmitidas);
+	
+	\item Sensores:
+Melhorias na precisão e redução no consumo energético de sensores são, também, 
+áreas onde deseja-se desenvolvimento tecnológico. Dado que geralmente mais de 
+um sensor integra um dispositivo da Internet das Coisas e as limitações de 
+sensores como GPS em ambientes fechados, a superação destas barreiras 
+possibilitaria grandes avanços;
+	
+	\item \textbf{Atuadores:}
+Complementando o trabalho dos sensores, os atuadores são responsáveis por 
+efetivamente realizar as ações (a partir das decisões tomadas com base nos 
+dados de sensores), portanto o seu desenvolvimento traz melhorias para os 
+dispositivos e novas possibilidades de produtos e serviços;
+	
+	\item \textbf{Endereçamento:}
+A identificação de dispositivos, não só através de endereços como o IP, também 
+é área de estudo relacionada à IoT. O desenvolvimento de ontologias e maneiras 
+de endereçar as ``coisas'' conforme a aplicação em questão são necessárias, 
+uma vez que o IP não funciona bem com humanos e não provê características 
+sobre o dispositivo identificado;
+	
+	\item \textbf{Busca:}
+Da mesma forma como existem algoritmos de busca para documentos na internet, 
+é necessário o desenvolvimento de formas de buscar os dispositivos que compõem 
+a Internet das Coisas, possivelmente utilizando-se das diferentes técnicas de 
+endereçamento e das características de cada um destes dispositivos.s
+	
+\end{itemize}
+
+
+
 
 \section{Oportunidades}
 
-	IBM Smarter Planet
-	HP?
+
+Conceitos atuais como Big Data fornecem uma amostra das possibilidades de 
+extração de conhecimento a partir de grandes conjuntos de dados. 
+Com uma Internet das Coisas funcional é possível aumentar a quantidade e a 
+qualidade dos dados obtidos e, consequentemente, melhorar também a 
+qualidade e a precisão das análises.
+Projetos como Hadoop e SAP Hana já encontram-se em uso em diversas 
+organizações e contribuem para a gestão e otimização de processos, 
+possibilitando a tomada de decisões em tempo real a partir de dados 
+vindos de diversas fontes
+
+\cite{Coetzee2011}
+	IBM Smarter Planet 
+	HP CeNSE
+	Microsoft Eye-On-Earth
 	
 	inteligencia por agregação de dados
 	processos autonomos
@@ -1704,7 +1845,7 @@ um dispositivo ou fornecedor suporta''
 	Meio Ambiente
 	Sociedade (governamental)
 	depois identificar e exemplificar os Application Domains 
-	\cite{Sundmaeker2010}
+	\cite[p.~41]{Sundmaeker2010}
 
 
 \chapter{Proposta para IoT}
