@@ -854,9 +854,9 @@ desanimadores para o cliente/usuário que acredita no
 % Stallings p111 c5
 
 Entretanto, \citetexto{Clemm2006} argumenta que a simplicidade do SNMP foi 
-pensada em termos das operações que o protocolo suporta, o que facilita a 
-implementação de agentes mas move a complexidade para as aplicações de 
-gerência.
+pensada em termos das operações que o protocolo suporta, conforme ilustra a 
+\autoref{tab:operacoesSNMP}, o que facilita a implementação de agentes mas 
+move a complexidade para as aplicações de gerência.
 
 \begin{quote}
 Como tantas vezes é o caso na engenharia, é tudo sobre \textit{tradeoffs}.
@@ -1685,9 +1685,7 @@ realização deste paradigma.
 		conhecimento e, finalmente, sabedoria.~
 		\cite[p.~2]{Cisco2011}.
 	\end{quote}
-	
-%TODO Melhorar a figura
-% tens que faze-la em portugues
+
 	\begin{figure}
 		\caption{Hierarquia do conhecimento}
 		\label{fig:wkid}
@@ -1697,11 +1695,7 @@ realização deste paradigma.
 			\fonte{\citetexto{Cisco2011}}
 		\end{minipage}
 	\end{figure}
-	
-	
-%	\citetexto{Cisco2011} estima que em 2015 haverão 25 bilhões de 
-%	dispositivos conectados a internet e que apenas 5 anos depois, em 
-%	2020, este número chegará a casa de 50 bilhões.
+
 
 \section{Desafios}
 
@@ -1714,6 +1708,17 @@ já causa grandes preocupações entre membros da indústria e da academia.
 Desenvolvimentos tecnológicos, necessários para viabilizar a difusão do 
 conceito de IoT, também representam grandes barreiras no avanço deste 
 paradigma.
+
+
+\begin{figure}
+	\caption{Estratégias para proteção de privacidade}
+	\label{fig:iot-privacy}
+	\centering
+	\begin{minipage}{.8\textwidth}
+		\includegraphics[width=\textwidth,keepaspectratio=true]{ITU_privacy[107]}
+		\fonte{Adaptado pelo autor de \citetexto{ITU2005}.}
+	\end{minipage}
+\end{figure}
 
 
 No âmbito social, as dificuldades em tornar real a visão da Internet das 
@@ -1744,7 +1749,8 @@ O medo de viver em uma era Orwelliana\footnote{
 }, com vigilância integral sobre o indivíduo, torna-se uma possibilidade real 
 e factível.
 Desta forma, há grandes receios por parte da comunidade acadêmica sobre a 
-forma com que tais dados serão utilizados. 
+forma com que tais dados serão utilizados e, conforme aponta a 
+\autoref{fig:iot-privacy}, como serão protegidos. 
 A respeito da privacidade, \citetexto{Buckley2006} argumenta que dentre as 
 principais questões em aberto neste contexto encontram-se: a propriedade dos 
 dados, quem é o dono dos dados coletados; a gestão de acessos, quem pode 
