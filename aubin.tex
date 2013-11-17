@@ -2001,49 +2001,91 @@ itens não descartados corretamente.
 
 \chapter{Proposta para IoT}
 
-	Abordar neste capítulo as necessidades específicas de IoT e suas 
-	características.
+
+Uma ver apresentado o conceito de Internet das Coisas e conhecidos seus 
+desafios e oportunidades, torna-se possível identificar pontos de melhoria.
+A grande quantidade de dispositivos previstos no contexto de IoT torna sua 
+gerência e configuração uma tarefa não trivial e altamente vulnerável a erros 
+humanos.
+Apesar das iniciativas em busca de autoconfiguração e gestão automatizada, é 
+improvável que tais esforços possibilitem uma gerência sem a intervenção de 
+operadores.
+
+
+Ainda que a autoconfiguração forneça um objetivo de longo prazo, a necessidade 
+de configurar dispositivos, mesmo que em situações experimentais e de escala 
+reduzida, é um problema que já se enfrenta atualmente.
+Desta forma, percebe-se o desejo de um método padronizado para a gerência de 
+configuração destes dispositivos, uma vez que cada sistema operacional (por 
+vezes específico para o domínio de aplicação) apresenta mecanismos próprios de 
+gestão e configuração.
+
+
+Tais necessidades são deveras semelhantes aquelas encontradas nos anos 1980, 
+onde profissionais e acadêmicos passavam por grandes dificuldades na gestão 
+de suas infraestruturas, seja na forma de um escritório ou de um laboratório.
+Semelhanças existem também no que diz respeito à falta de padronização destes 
+dispositivos, explicitando ainda mais a sua relação com a gerência de redes 
+clássica e o SNMP.
+
+
+Os problemas semelhantes, no contexto de Internet das Coisas e de gerência de 
+redes, tornam oportuno o reuso de estratégias reconhecidamente eficazes e 
+postas à prova ao longo dos anos através do SNMP.
+Contudo, as peculiaridades características da IoT exigem adaptações e revisões 
+das antigas estratégias, de forma que aproveite-se também a oportunidade para 
+revisitar partes problemáticas do modelo clássico de gerência de redes.
+Ainda é possível citar a aderência ao paradigma FCAPS de gerência de redes 
+como um subproduto da mescla proposta entre SNMP e IoT, possibilitando o 
+reuso de todo um arcabouço de conhecimento frente aos novos desafios 
+apresentados pela Internet das Coisas.
+
+
+% falar do reuso
+
+
+%	Abordar neste capítulo as necessidades específicas de IoT e suas 
+%	características.
 	
-	Apresentar as dificuldades (problemas) que levarão para as propostas
-	de como resolvê-las com as extensões ao protocolo.
+%	Apresentar as dificuldades (problemas) que levarão para as propostas
+%	de como resolvê-las com as extensões ao protocolo.
 	
 	
-	\section{Multicast}
+%	\section{Multicast}
 		
-		Propor o uso de multicast para enviar diversos comandos aos objetos
-		disponíveis na rede.
-		
-		
-	\section{Tageamento de Objetos}
-		
-		Propor um sistema para tagear objetos com base em características
-		arbitrárias definidas pelo fabricante e pelo usuário.
-		
-		Quero enviar este comando para todos os objetos elétricos, para
-		todos que estão na cozinha, para todos os sensores...
+%		Propor o uso de multicast para enviar diversos comandos aos objetos
+%		disponíveis na rede.
 		
 		
-	\section{Compressão de Headers}
+%	\section{Tageamento de Objetos}
 		
-		Conforme feito por \cite{Choi2009}
+%		Propor um sistema para tagear objetos com base em características
+%		arbitrárias definidas pelo fabricante e pelo usuário.
+		
+%		Quero enviar este comando para todos os objetos elétricos, para
+%		todos que estão na cozinha, para todos os sensores...
 		
 		
-	\section{Compressão de Dados}
+%	\section{Compressão de Headers}
 		
-		No caso do SNMP compressão das PDUs conforme \cite{Choi2009}
+%		Conforme feito por \cite{Choi2009}
+		
+		
+%	\section{Compressão de Dados}
+		
+%		No caso do SNMP compressão das PDUs conforme \cite{Choi2009}
 		
 		
 	% DESPRIORIZAR PORQUE É MUITO IGUAL E IMPORTANTE NO OUTRO ARTIGO
-	\section{Requests Periódicos}
+%	\section{Requests Periódicos}
 		
-		Configurar uma mensagem que faz com que os clientes enviem
-		dados de forma periódica para o server, evitando a necessidade
-		de realizar pooling para obter informações.
-		\cite{Choi2009}
+%		Configurar uma mensagem que faz com que os clientes enviem
+%		dados de forma periódica para o server, evitando a necessidade
+%		de realizar pooling para obter informações.
+%		\cite{Choi2009}
 		
 		
 %cronograma revisado
-%metodologia revisada
 %considerações finais
 \chapter{Planejamento da Implementação}
 
