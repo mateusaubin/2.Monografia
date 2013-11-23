@@ -2008,47 +2008,130 @@ itens não descartados corretamente.
 \chapter{Proposta para IoT}
 
 
-Uma ver apresentado o conceito de Internet das Coisas e conhecidos seus 
+Uma vez apresentado o conceito de Internet das Coisas e conhecidos seus 
 desafios e oportunidades, torna-se possível identificar pontos de melhoria.
 A grande quantidade de dispositivos previstos no contexto de IoT torna sua 
 gerência e configuração uma tarefa não trivial e altamente vulnerável a erros 
 humanos.
 Apesar das iniciativas em busca de autoconfiguração e gestão automatizada, é 
-improvável que tais esforços possibilitem uma gerência sem a intervenção de 
+improvável que tais esforços possibilitem uma gerência livre da intervenção de 
 operadores.
 
 
 Ainda que a autoconfiguração forneça um objetivo de longo prazo, a necessidade 
-de configurar dispositivos, mesmo que em situações experimentais e de escala 
-reduzida, é um problema que já se enfrenta atualmente.
-Desta forma, percebe-se o desejo de um método padronizado para a gerência de 
-configuração destes dispositivos, uma vez que cada sistema operacional (por 
-vezes específico para o domínio de aplicação) apresenta mecanismos próprios de 
-gestão e configuração.
+de configurar e gerenciar dispositivos, mesmo que em situações experimentais e 
+de escala reduzida, é um problema que já se enfrenta atualmente.
+Desta forma, percebe-se o desejo por um método padronizado para a gerência  
+destes dispositivos, principalmente no que diz respeito à configuração, uma 
+vez que cada sistema operacional (por vezes específico para o domínio de 
+aplicação) apresenta mecanismos próprios de gestão e configuração.
 
 
 Tais necessidades são deveras semelhantes aquelas encontradas nos anos 1980, 
 onde profissionais e acadêmicos passavam por grandes dificuldades na gestão 
 de suas infraestruturas, seja na forma de um escritório ou de um laboratório.
-Semelhanças existem também no que diz respeito à falta de padronização destes 
-dispositivos, explicitando ainda mais a sua relação com a gerência de redes 
-clássica e o SNMP.
+Semelhanças existem também no que diz respeito à falta de padronização dos 
+dispositivos usados em aplicações para a Internet das Coisas, explicitando 
+ainda mais a relação com a gerência de redes clássica e o SNMP.
 
 
 Os problemas semelhantes, no contexto de Internet das Coisas e de gerência de 
 redes, tornam oportuno o reuso de estratégias reconhecidamente eficazes e 
-postas à prova ao longo dos anos através do SNMP.
+postas à prova ao longo dos anos através do SNMP, que acabou tornando-se 
+o protocolo \textit{de facto} e sinônimo de gerência de redes.
 Contudo, as peculiaridades características da IoT exigem adaptações e revisões 
 das antigas estratégias, de forma que aproveite-se também a oportunidade para 
 revisitar partes problemáticas do modelo clássico de gerência de redes.
+
+
+A união dos conceitos de IoT e gerência de redes traz benefícios pois 
+possibilita o reuso de ferramentas, protocolos e estratégias de gestão e, 
+mesmo que ainda não sejam as mais eficazes, permite obter boa parte dos ganhos 
+provenientes do seu uso.
 Ainda é possível citar a aderência ao paradigma FCAPS de gerência de redes 
-como um subproduto da mescla proposta entre SNMP e IoT, possibilitando o 
+como um subproduto da mescla proposta entre SNMP e IoT, viabilizando o 
 reuso de todo um arcabouço de conhecimento frente aos novos desafios 
 apresentados pela Internet das Coisas.
 
 
-% falar do reuso
+\section{Escopo}
 
+De forma a melhor delimitar os objetivos, necessidades e critérios de 
+avaliação, este trabalho tem seu escopo de atuação intencionalmente limitado 
+à automação residencial.
+Neste contexto estão inseridos processos tais como a coleta de dados, ou seja, 
+o monitoramento do ambiente (temperatura, umidade, iluminação), 
+seus dispositivo (consumo energético, estado) e 
+o controle sobre estes dispositivos (ligar, desligar, alterar a temperatura).
+
+
+Esforços de automação residencial auxiliam na caminhada rumo à casas e prédios 
+inteligentes e que regulam, de forma autônoma, parâmetros ambientais como 
+temperatura e iluminação baseados em dados a respeito dos hábitos de seus 
+moradores.
+Entre os ganhos ocasionados por este tipo de automação é possível citar a 
+economia de energia e a consequente redução no impacto ambiental, além do 
+aumento nos níveis de conforto e segurança das residencias.
+
+
+A este contexto pertencem as ideias de casas futuristas, vistas em feiras e 
+nas obras de ficção-científica, onde, por exemplo, moradores são recebidos com 
+torradas e café prontos ao chegar do trabalho, ou com um banho quente à sua 
+espera.
+Devido às dificuldades tecnológicas e as incompatibilidades entre padrões e 
+fornecedores esta visão manteve-se limitada à experimentos.
+Entretanto a Internet das Coisas fornece meios que possibilitam chegar ainda 
+mais perto da realização desta visão.
+
+
+\section{Arquitetura}
+
+[\ldots]
+
+
+Contudo, dados os recursos limitados dos dispositivos da Internet das Coisas, 
+conforme detalhado por \citetexto{ietfCNN2013}, a execução de um agente SNMP 
+no dispositivo deixa de ser uma tarefa trivial.
+Esforços como os de \citetexto{Choi2009} e \citetexto{Kuryla2010} demonstram 
+que embutir um agente SNMP em um dispositivo para Internet das Coisas é 
+possível, entretanto a implementação ocupa grande parte dos recursos do 
+dispositivo, fazendo com que este seja incapaz de executar aplicações de 
+usuário, efetivamente inutilizando-o.
+Em contrapartida, os trabalhos de \citetexto{Steenkamp2009} e 
+\citetexto{Zhu2010} sugerem o uso de um dispositivo dedicado à prover 
+conectividade e interoperabilidade aos nós da rede, um \textit{gateway}.
+Este dispositivo deve prover comunicação com a internet e servir como um 
+tradutor, possibilitando a comunicação em diferentes protocolos, desta forma 
+os dispositivos continuariam com suas aplicações de usuário intactas, 
+concentrando o custo da tradução no \textit{gateway}.
+
+
+\begin{figure}
+	%TODO Melhorar imagens
+    \caption{Arquiteturas de Integração SNMP--IoT}
+	\label{fig:arch}
+	\centering
+    \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[width=\textwidth,keepaspectratio=true]{arch_snmp}
+		\caption{SNMP no dispositivo}
+    \end{subfigure}
+\hspace{.2\textwidth}
+    \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[width=\textwidth,keepaspectratio=true]{arch_gateway}
+		\caption{Gateway}
+    \end{subfigure}
+%TODO verificar com a natalia
+\fonte{Elaborado pelo autor.}
+\end{figure}
+
+
+Uma avaliação das vantagens e desvantagens de cada modelo é necessária para 
+uma tomada de decisão bem informada, entretanto esta análise dele levar em 
+consideração as características do problema em questão e quais são os 
+objetivos da solução.
+
+
+[\ldots]
 
 %	Abordar neste capítulo as necessidades específicas de IoT e suas 
 %	características.
