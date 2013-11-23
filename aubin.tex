@@ -2078,15 +2078,40 @@ A este contexto pertencem as ideias de casas futuristas, vistas em feiras e
 nas obras de ficção-científica, onde, por exemplo, moradores são recebidos com 
 torradas e café prontos ao chegar do trabalho, ou com um banho quente à sua 
 espera.
-Devido às dificuldades tecnológicas e as incompatibilidades entre padrões e 
-fornecedores esta visão manteve-se limitada à experimentos.
+Contudo, devido às dificuldades tecnológicas e as incompatibilidades entre 
+padrões e fornecedores esta visão manteve-se limitada à experimentos.
 Entretanto a Internet das Coisas fornece meios que possibilitam chegar ainda 
 mais perto da realização desta visão.
 
 
 \section{Arquitetura}
 
-[\ldots]
+Definidos os objetivos do trabalho, é necessária a criação de uma arquitetura 
+que suporte seus objetivos, possibilitando reaproveitar as técnicas, 
+protocolos e sistemas de gerência de redes e, ao mesmo tempo, empregá-los na 
+gestão dos dispositivos em uma Internet das Coisas.
+Em um cenário ideal, com abundância de recursos, a tarefa em questão poderia 
+ser solucionada de forma trivial, simplesmente incluindo os softwares de 
+gerência de redes diretamente nos dispositivos.
+
+
+\begin{figure}
+	%TODO Melhorar imagens
+    \caption{Arquiteturas de Integração SNMP--IoT}
+	\label{fig:arch}
+	\centering
+    \begin{subfigure}[b]{0.4\textwidth}
+        \includegraphics[width=\textwidth,keepaspectratio=true]{arch_snmp}
+		\caption{SNMP no dispositivo}
+		\vspace{.2\textwidth}
+    \end{subfigure}
+\hspace{.1\textwidth}
+    \begin{subfigure}[b]{0.4\textwidth}
+        \includegraphics[width=\textwidth,keepaspectratio=true]{arch_gateway}
+		\caption{Gateway}
+    \end{subfigure}
+\fonte{Elaborado pelo autor.}
+\end{figure}
 
 
 Contudo, dados os recursos limitados dos dispositivos da Internet das Coisas, 
@@ -2106,29 +2131,96 @@ os dispositivos continuariam com suas aplicações de usuário intactas,
 concentrando o custo da tradução no \textit{gateway}.
 
 
+Uma avaliação das vantagens e desvantagens de cada modelo, 
+ilustrados pela \autoref{fig:arch}, 
+é necessária para uma tomada de decisão bem informada, entretanto esta análise 
+dele levar em consideração as características do problema em questão e quais 
+são os objetivos da solução.
+No contexto deste trabalho, direcionado à automação residencial, a arquitetura 
+com \textit{gateway} foi escolhida pois exige um menor número de alterações 
+nos dispositivos já presentes e pelo fato de que é comum a presença de algum 
+tipo de dispositivo com papel análogo ao do \textit{gateway}, como um 
+modem ou \textit{set-top box} de TV a cabo, e que poderia ser incorporado na 
+solução proposta.
+Esta arquitetura contempla três elementos principais, sendo eles:
+
+\begin{itemize}
+
+	\item \textbf{Dispositivo:}
+[\ldots]
+
+	\item \textbf{\textit{Gateway}:}
+[\ldots]
+
+	\item \textbf{Gerente:}
+[\ldots]
+
+\end{itemize}
+
+
+\section{Agrupamento de Dispositivos}
+
+A presença de um \textit{gateway} entre a internet e os dispositivos permite 
+que operações como filtrar e agregar dados sejam facilmente desempenhadas na 
+rede.
+A existência de um grande número de dispositivos torna estas operações ainda 
+mais desejáveis, uma vez que os dados de interesse podem encontrar-se apenas 
+em um subconjunto dos dispositivos da rede, não fazendo sentido a obtenção 
+desses dados de todos os integrantes da rede.
+
+
+Há, então, a necessidade de uma maneira de agrupar conjuntos de dispositivos 
+em entidades lógicas (denominadas, a partir de agora, grupos) e controladas 
+pelo usuário, através do gerente.
+Possibilita-se, graças a esta funcionalidade, a classificação de um 
+dispositivo ao associá-lo a um grupo que represente uma categoria, por exemplo 
+ao classificar o dispositivo televisão à categoria eletrônico.
+Além de fazer parte de diferentes grupos, um dispositivo pode ser 
+classificado de acordo com sua localização, estando na sala ou no quarto, por 
+exemplo.
+
+
+Entretanto esta classificação ainda apresenta-se limitada no contexto de 
+automação residencial, uma vez que um televisor, por exemplo, pode pertencer à 
+múltiplos grupos representando desde categorias (como eletrônico, áudio e 
+vídeo) até sua localização (apartamento 203, quarto do João ou cozinha).
+Percebe-se, portanto, que este controle deve permitir a associação de um mesmo 
+dispositivo à mais de um grupo simultaneamente, funcionando nos moldes das 
+\textit{tags}, ou etiquetas, popularizadas na internet.
+
+
+Tal estratégia permite que um único dispositivo, representando um objeto, seja 
+associado a mais de uma categoria, possibilitando uma descrição mais flexível 
+e detalhada das propriedades deste objeto.
+Ainda com o exemplo do televisor, uma série de \textit{tags} possíveis para a 
+sua classificação seriam: eletrônico; áudio; vídeo; digital; apartamento 203;
+cozinha.
+Por intermédio das \textit{tags} torna-se possível a realização de buscas 
+filtradas de acordo com os grupos aos quais os dispositivos pertencem.
+
+
+Adicionalmente, de forma a melhor apresentar os resultados, cria-se a 
+necessidade de agrupar os dados resultantes da busca.
+Operações de agrupamento como mínimo, máximo, e média (entre outras), podem 
+ser usadas para representar o estado de toda uma classe de dispositivos e seus 
+respectivos objetos, aumentando o poder de expressão das consultas.
+Como produto final da proposta, representado pela \autoref{fig:arch-diagrama}, 
+é criada a possibilidade de realizar consultas que abrangem 
+todo um conjunto de dispositivos, filtrados por suas \textit{tags} e com seus 
+valores agrupados.
+
+
 \begin{figure}
 	%TODO Melhorar imagens
-    \caption{Arquiteturas de Integração SNMP--IoT}
-	\label{fig:arch}
+	\caption{Diagrama de uma requisição}
+	\label{fig:arch-diagrama}
 	\centering
-    \begin{subfigure}[b]{0.3\textwidth}
-        \includegraphics[width=\textwidth,keepaspectratio=true]{arch_snmp}
-		\caption{SNMP no dispositivo}
-    \end{subfigure}
-\hspace{.2\textwidth}
-    \begin{subfigure}[b]{0.3\textwidth}
-        \includegraphics[width=\textwidth,keepaspectratio=true]{arch_gateway}
-		\caption{Gateway}
-    \end{subfigure}
-%TODO verificar com a natalia
-\fonte{Elaborado pelo autor.}
+	\begin{minipage}{.8\textwidth}
+		\includegraphics[trim=0mm 200mm 0mm 
+		0mm,width=\textwidth,keepaspectratio=true]{arch_diagrama}
+		\fonte{Elaborado pelo autor.}
+	\end{minipage}
 \end{figure}
-
-
-Uma avaliação das vantagens e desvantagens de cada modelo é necessária para 
-uma tomada de decisão bem informada, entretanto esta análise dele levar em 
-consideração as características do problema em questão e quais são os 
-objetivos da solução.
 
 
 [\ldots]
