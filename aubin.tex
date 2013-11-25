@@ -2,6 +2,7 @@
 %
 % verificar a lista de siglas
 % verificar se as definições estão junto com a primeira ocorrência do termo
+% conferir se todas as figuras/tabelas são referenciadas no texto
 % cronograma do TCC 2 (janeiro/julho)
 % == Proposta ==
 % retomar os objetivos
@@ -27,28 +28,35 @@
 \usepackage{afterpage}
 
 \usepackage{bibentry} % para inserir refs. bib. no meio do texto
-\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}
 \usepackage{subcaption}
+
+%\setcounter{page}{-100} % evitar endereços duplicados no hyperref
 
 \interfootnotelinepenalty=10000 % evitar a quebra de footnotes em 
 								% mais de uma página
 
-\hypersetup{
-	breaklinks=true,
-	unicode=true,          % non-Latin characters in Acrobat’s bookmarks
-	hidelinks=true,
-	linktoc=all,
-	pdflang=pt-BR
-}
-
 \graphicspath{ {./images/} }
 
-%\hypersetup{
-%	pdftitle={titulo},    % title
-%	pdfauthor={mateus},     % author
-%	pdfsubject={subsubsub},   % subject of the document
-%	pdfkeywords={kkk1} {key2} {key3}, % list of keywords
-%}
+\hypersetup{
+	pdfauthor	= {Mateus R. Aubin},
+	pdftitle	= {
+Um Sistema de Gestão de Dispositivos Inteligentes 
+Baseado em Protocolos de Gerência de Redes 
+Voltado Para a Internet das Coisas
+},
+	pdfsubject	= {
+Trabalho de Conclusão de Curso apresentado como 
+requisito parcial para a obtenção do título de 
+Bacharel em Ciência da Computação pela 
+Universidade do Vale do Rio dos Sinos - Unisinos
+},
+	pdfkeywords	= {Internet of Things} {Network Management} {Internet das Coisas} {Gerência de Redes},
+	breaklinks	= true,
+	unicode		= true, % non-Latin characters in Acrobat’s bookmarks
+	linktoc		= all,
+	pdflang		= pt-BR
+}
 %=======================================================================
 % Escolha do sistema para geração de referências bibliográficas.
 %
@@ -113,7 +121,9 @@ pela Universidade do Vale do Rio dos Sinos --- Unisinos
 %=======================================================================
 % Início do documento.
 %=======================================================================
-\begin{document}	
+\begin{document}
+
+\pagenumbering{roman} % evitar endereços duplicados no hyperref
 \capa
 \folhaderosto
 
@@ -258,13 +268,14 @@ pela Universidade do Vale do Rio dos Sinos --- Unisinos
 % Introdução
 %=======================================================================
 \chapter{Introdução}
+\pagenumbering{arabic} % evitar endereços duplicados no hyperref
 
 % as epígrafes nos capítulos são opcionais
-\epigrafecap{
-	In the nineteenth century, machines learned to do; in the twentieth 
-	century, they learned to think; and in the twenty-first century, they are 
-	learning to perceive -- they actually sense and respond.
-}{\citetexto{Sundmaeker2010}}
+%TODO Melhorar o alinhamento
+\epigrafecap{In the nineteenth century, machines learned to do; in the twentieth 
+			 century, they learned to think; and in the twenty-first century, they are 
+			 learning to perceive -- they actually sense and respond.}
+{\citetexto{Sundmaeker2010}}
 
 %	Deve conter:
 %		Apresentação do Assunto: IoT
@@ -1044,7 +1055,7 @@ mensagens e, portanto, faz com que esta operação seja indicada apenas para
 comunicação entre gerentes;
 
 \item \textbf{\textit{Report}:}
-Contempla a comunicação de mensagens internas entre gerentes e agentes SNMP, 
+Contempla a comunicação de mensagens internas entre gerentes e agentes, 
 sendo responsável pela comunicação de erros de processamento.
 Tem como objetivo informar o originador de uma requisição que um erro interno 
 ocorreu durante o processamento no receptor e não deve ser gerada por operação 
@@ -2224,7 +2235,7 @@ valores agrupados.
 	\label{fig:arch-diagrama}
 	\centering
 	\begin{minipage}{.8\textwidth}
-		\includegraphics[clip=true,trim=10mm 195mm 60mm 15mm,width=\textwidth,keepaspectratio=true]{arch_diagrama}
+		\includegraphics[clip,trim=10mm 195mm 60mm 15mm,width=\textwidth,keepaspectratio=true]{arch_diagrama}
 		\fonte{Elaborado pelo autor.}
 	\end{minipage}
 \end{figure}
