@@ -1084,7 +1084,7 @@ porém esta nomenclatura é pouco usada.
 	\caption{Principais operações do protocolo SNMP}
 	\label{tab:operacoesSNMP}
 	\begin{minipage}{.60\textwidth}
-		\begin{tabulary}{\textwidth}{|C|L|L|}
+		\begin{tabulary}{\textwidth}{CLL}
 	\hline
 		\textbf{Operação}   &  
 		\textbf{De -- Para} & 
@@ -1242,16 +1242,16 @@ informações de gerência em uma única requisição e de maneira atômica.
 			\label{tab:pdu-operacao}
 			\renewcommand{\arraystretch}{1.5}%
 		    \begin{tabulary}{\textwidth}{
-|p{2.5cm}	% campos
-|p{3.75cm}	% response
-|p{3.0cm}	% set
-|p{1.25cm}	% trap
-|p{1.25cm}	% inform
-|p{1.25cm}	% report
-|p{3.75cm}	% get
-|p{1.5cm}	% get-next
-|p{3.75cm}	% get-bulk
-|}
+p{2.5cm}	% campos
+p{3.75cm}	% response
+p{3.0cm}	% set
+p{1.25cm}	% trap
+p{1.25cm}	% inform
+p{1.25cm}	% report
+p{3.75cm}	% get
+p{1.5cm}	% get-next
+p{3.75cm}	% get-bulk
+}
 \hline
   ~ 
 & \textbf{\textit{response}} 
@@ -1277,20 +1277,20 @@ informações de gerência em uma única requisição e de maneira atômica.
 \hline
   Request ID 
 & Copia o valor da requisição 
-& \multicolumn{7}{c|}{Número gerado pelo solicitante para identificar a requisição} 
+& \multicolumn{7}{c}{Número gerado pelo solicitante para identificar a requisição} 
 \\
 \hline
   Error Status / \newline 
   Non Repeaters 
 & Indica o código do erro ocorrido no processamento da resposta 
-& \multicolumn{6}{c|}{Não utilizado, deve ser enviado zerado} 
+& \multicolumn{6}{c}{Não utilizado, deve ser enviado zerado} 
 & Assume o papel de Non Repeaters, indicando quantos dos itens presentes nos Variable Bindings devem retornar apenas uma ocorrência 
 \\
 \hline
   Error Index / \newline 
   Max Repetitions 
 & Indica a posição do item nos Variable Bindings que causou o erro 
-& \multicolumn{6}{c|}{Não utilizado, deve ser enviado zerado} 
+& \multicolumn{6}{c}{Não utilizado, deve ser enviado zerado} 
 & Assume o papel de Max Repetitions, indicando quantas vezes deve obter os itens restantes nos Variable Bindings 
 \\
 \hline
@@ -1298,9 +1298,9 @@ informações de gerência em uma única requisição e de maneira atômica.
   Bindings 
 & Lista de Nomes e Valores conforme recebido na requisição porém com os valores preenchidos com os dados atuais do dispositivo 
 & Lista de Nomes e Valores contendo os valores que deseja-se definir para os objetos no dispositivo destino 
-& \multicolumn{3}{p{4.6cm}|}{Lista de Nomes e Valores contendo os dados relevantes à notificação e obrigatoriamente informando o uptime do dispositivo e o tipo de notificação} 
+& \multicolumn{3}{p{4.6cm}}{Lista de Nomes e Valores contendo os dados relevantes à notificação e obrigatoriamente informando o uptime do dispositivo e o tipo de notificação} 
 & Lista de Nomes e Valores contendo os identificadores dos objetos aos quais deseja-se obter o valor e com o valor na requisição definido como NULL 
-& \multicolumn{2}{p{5.75cm}|}{Lista de Nomes e Valores contendo os identificadores parciais dos objetos aos quais deseja-se obter o valor e com o valor na requisição definido como NULL} 
+& \multicolumn{2}{p{5.75cm}}{Lista de Nomes e Valores contendo os identificadores parciais dos objetos aos quais deseja-se obter o valor e com o valor na requisição definido como NULL} 
 \\ 
 \hline
     		\end{tabulary}
@@ -1438,7 +1438,7 @@ realização deste paradigma.
 	etiquetas de Identificação por Radiofrequência (RFID), Redes de 
 	Sensores sem Fio (WSN), Protocolo de Internet versão 6 (IPv6) e Smart 
 	Objects foi possível atingir o atual nível de maturidade da IoT.
-	Abaixo são apresentadas as principais tecnologias nas quais o conceito de 
+	A seguir são apresentadas as principais tecnologias nas quais o conceito de 
 	Internet das Coisas se apóia e que possibilitaram o seu desenvolvimento.
 
 % Citar \cite[p.~8]{Buckley2006} sobre os graus de sofisticação dos 
@@ -1537,7 +1537,7 @@ realização deste paradigma.
 	IPv6 sobre redes IEEE 802.15.4, especialmente projetada para o caso da 
 	Internet das Coisas \cite{Gomez2010}.
 
-\subsection{Smart Objects}
+\subsection{\textit{Smart Objects}}
 	Contrastando com as etiquetas RFID, o conceito de Objetos Inteligentes 
 	(\textit{Smart Objects}) compreende objetos físicos/digitais autônomos 
 	aumentados com capacidades sensoriais, de processamento e rede 
@@ -1847,7 +1847,7 @@ sobre o dispositivo identificado;
 Da mesma forma como existem algoritmos de busca para documentos na internet, 
 é necessário o desenvolvimento de formas de buscar os dispositivos que compõem 
 a Internet das Coisas, possivelmente utilizando-se das diferentes técnicas de 
-endereçamento e das características de cada um destes dispositivos.s
+endereçamento e das características de cada um destes dispositivos.
 	
 \end{itemize}
 
@@ -2071,11 +2071,11 @@ avaliação, este trabalho tem seu escopo de atuação intencionalmente limitado
 à automação residencial.
 Neste contexto estão inseridos processos tais como a coleta de dados, ou seja, 
 o monitoramento do ambiente (temperatura, umidade, iluminação), 
-seus dispositivo (consumo energético, estado) e 
+seus dispositivos (consumo energético, estado) e 
 o controle sobre estes dispositivos (ligar, desligar, alterar a temperatura).
 
 
-Esforços de automação residencial auxiliam na caminhada rumo à casas e prédios 
+Esforços de automação residencial auxiliam na caminhada rumo a casas e prédios 
 inteligentes e que regulam, de forma autônoma, parâmetros ambientais como 
 temperatura e iluminação baseados em dados a respeito dos hábitos de seus 
 moradores.
@@ -2089,7 +2089,7 @@ nas obras de ficção-científica, onde, por exemplo, moradores são recebidos c
 torradas e café prontos ao chegar do trabalho, ou com um banho quente à sua 
 espera.
 Contudo, devido às dificuldades tecnológicas e as incompatibilidades entre 
-padrões e fornecedores esta visão manteve-se limitada à experimentos.
+padrões e fornecedores esta visão manteve-se limitada a experimentos.
 Entretanto a Internet das Coisas fornece meios que possibilitam chegar ainda 
 mais perto da realização desta visão.
 
@@ -2132,7 +2132,7 @@ possível, entretanto a implementação ocupa grande parte dos recursos do
 dispositivo, fazendo com que este seja incapaz de executar aplicações de 
 usuário, efetivamente inutilizando-o.
 Em contrapartida, os trabalhos de \citetexto{Steenkamp2009} e 
-\citetexto{Zhu2010} sugerem o uso de um dispositivo dedicado à prover 
+\citetexto{Zhu2010} sugerem o uso de um dispositivo dedicado a prover 
 conectividade e interoperabilidade aos nós da rede, um \textit{gateway}.
 Este dispositivo deve prover comunicação com a internet e servir como um 
 tradutor, possibilitando a comunicação em diferentes protocolos, desta forma 
@@ -2151,6 +2151,13 @@ nos dispositivos já presentes e pelo fato de que é comum a presença de algum
 tipo de dispositivo com papel análogo ao do \textit{gateway}, como um 
 modem ou \textit{set-top box} de TV a cabo, e que poderia ser incorporado na 
 solução proposta.
+%TODO falar mais do gateway:
+% acho importante destacar a certa facilidade que se tem hoje em dia de
+% implementar a funcionalidade do gateway em um modem ou roteador doméstico. 
+% Podes mencionar que vários desses dispositivos se baseiam em
+% micro-distribuições Linux como BusyBox (http://www.busybox.net/about.html),
+% OpenWRT (http://openwrt.org) e DD-WRT (http://dd-wrt.com/site/index), 
+% e que portanto podem ser modificadas para incorporar o gateway.
 Esta arquitetura contempla três elementos principais, sendo eles:
 
 \begin{itemize}
@@ -2201,11 +2208,11 @@ exemplo.
 
 
 Entretanto esta classificação ainda apresenta-se limitada no contexto de 
-automação residencial, uma vez que um televisor, por exemplo, pode pertencer à 
+automação residencial, uma vez que um televisor, por exemplo, pode pertencer a 
 múltiplos grupos representando desde categorias (como eletrônico, áudio e 
 vídeo) até sua localização (apartamento 203, quarto do João ou cozinha).
 Percebe-se, portanto, que este controle deve permitir a associação de um mesmo 
-dispositivo à mais de um grupo simultaneamente, funcionando nos moldes das 
+dispositivo a mais de um grupo simultaneamente, funcionando nos moldes das 
 \textit{tags}, ou etiquetas, popularizadas na internet.
 
 
@@ -2244,7 +2251,10 @@ valores agrupados.
 [\ldots]
 
 
-% \chapter{Planejamento da Implementação}
+\chapter{Planejamento da Implementação}
+%TODO Planejamento da Implementação
+Para finalizar, cria mais um capítulo com o planejamento do próximo semestre 
+-- basicamente uma revisão do teu cronograma inicial.
 
 % quando associar uma tag, testar se o dispositivo suporta fazendo um req.
 % Falar da MIB
