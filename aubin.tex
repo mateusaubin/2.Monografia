@@ -1,15 +1,10 @@
 %TODO
 %
-% diminuir o tamanho da figura dos campos snmp
+% verificar a lista de siglas
+% verificar se as definições estão junto com a primeira ocorrência do termo
 % cronograma do TCC 2 (janeiro/julho)
 % == Proposta ==
 % retomar os objetivos
-% relacionar os objetivos com IOT e Redes
-% 'dado que o snmp domina faremos algo em snmp'
-% quais são os requisitos, o que ela vai atender (cenário onde vai ser aplicad)
-% modelo visual (motes, gateway, gerente)
-% descrever cada um dos elementos do modelo
-% descrever cenários de uso (agregação via gateway)
 % como validar o sucesso da ideia (elaboracao do prototipo)
 %
 %=======================================================================
@@ -1110,29 +1105,25 @@ porém esta nomenclatura é pouco usada.
 \end{figure}
 
 \begin{figure}
-	%TODO Melhorar imagens
+	%TODO tirar o azul da linha SNMP 3
     \caption{Estrutura dos Pacotes SNMP}
 	\label{fig:snmp-pdu}
     \centering
-    \begin{subfigure}[b]{0.60\textwidth}
-        \includegraphics[height=9cm,width=\textwidth,keepaspectratio=true]{snmp_pdu_v3}
-		%\fonte{muito texto longo longo longo}
+    \begin{subfigure}{0.35\textwidth}
+        \includegraphics[height=40ex,keepaspectratio=true]{snmp_pdu_v3}
     \end{subfigure}
-\hfill
-    \begin{subfigure}[b]{0.30\textwidth}
-        \includegraphics[height=9cm,width=\textwidth,keepaspectratio=true]{snmp_pdu}
-		%\fonte{muito texto longo longo longo}
+    \begin{subfigure}{0.20\textwidth}
+        \includegraphics[height=40ex,keepaspectratio=true]{snmp_pdu}
     \end{subfigure}
-\\
-    \begin{subfigure}[b]{0.27\textwidth}
-        \includegraphics[height=4cm,width=\textwidth,keepaspectratio=true]{snmp_pdu_v1}
-		%\fonte{muito texto longo longo longo}
+\\ % quebra de linha
+    \begin{subfigure}{0.35\textwidth}
+		\hspace{0.3\textwidth} % centralizar
+        \includegraphics[height=10ex,keepaspectratio=true]{snmp_pdu_v1}
     \end{subfigure}
-\hspace{.1\textwidth}
-    \begin{subfigure}[b]{0.27\textwidth}
-        \includegraphics[width=\textwidth,keepaspectratio=true]{snmp_pdu_varbinds}
-		%\fonte{muito texto longo longo longo}
+    \begin{subfigure}{0.196\textwidth}
+        \includegraphics[height=10ex,keepaspectratio=true]{snmp_pdu_varbinds}
     \end{subfigure}
+
 \fonte{Adaptado pelo autor com base em 
 	\citetexto{perkins1997understanding}, 
 	\citetexto{Stallings1998}, 
@@ -2104,7 +2095,6 @@ gerência de redes diretamente nos dispositivos.
 
 
 \begin{figure}
-	%TODO Melhorar imagens
     \caption{Arquiteturas de Integração SNMP--IoT}
 	\label{fig:arch}
 	\centering
@@ -2155,13 +2145,24 @@ Esta arquitetura contempla três elementos principais, sendo eles:
 \begin{itemize}
 
 	\item \textbf{Dispositivo:}
-[\ldots]
+Qualquer dispositivo que disponha de conectividade e de uma API\footnote{
+	Uma API, ou Interface de Programação de Aplicativos, é um conjunto de 
+	padrões e regras que estabelece a forma como ocorrerá a comunicação entre 
+	diferentes softwares.
+} para leitura e definição de informações e configurações a seu próprio 
+respeito ou dos objetos aos quais ele se relaciona;
 
 	\item \textbf{\textit{Gateway}:}
-[\ldots]
+Um dispositivo com maior poder de processamento capaz de servir como 
+intermediário e tradutor das comunicações entre dispositivos e gerentes, 
+criando uma ponte entre os protocolos específicos de Internet das Coisas e de 
+gerência de redes, neste caso o SNMP;
+
 
 	\item \textbf{Gerente:}
-[\ldots]
+Aplicativo de gerência de redes capaz de utilizar o protocolo SNMP e, 
+portanto, possa comunicar-se com o \textit{gateway} de forma a gerenciar os 
+dispositivos da Internet das Coisas.
 
 \end{itemize}
 
@@ -2219,12 +2220,11 @@ valores agrupados.
 
 
 \begin{figure}
-	%TODO Melhorar imagens
 	\caption{Diagrama de uma requisição}
 	\label{fig:arch-diagrama}
 	\centering
 	\begin{minipage}{.8\textwidth}
-		\includegraphics[trim=0mm 200mm 0mm 0mm,width=\textwidth,keepaspectratio=true]{arch_diagrama}
+		\includegraphics[clip=true,trim=10mm 195mm 60mm 15mm,width=\textwidth,keepaspectratio=true]{arch_diagrama}
 		\fonte{Elaborado pelo autor.}
 	\end{minipage}
 \end{figure}
