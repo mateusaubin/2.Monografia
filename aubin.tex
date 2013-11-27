@@ -1,9 +1,6 @@
 %TODO
 %
-% verificar a lista de siglas
 % verificar se as definições estão junto com a primeira ocorrência do termo
-% conferir se todas as figuras/tabelas são referenciadas no texto (fig 3, por exemplo)
-% sempre que uma citação tiver o "et al.", a concordância do verbo seguinte deve seguir o plural
 % cronograma do TCC 2 (janeiro/julho)
 % reforçar no capítulo 3 o significado da sigla IoT
 % é importante já preveres como será validada a proposta (simulação, protótipo, etc.).
@@ -229,22 +226,36 @@ pela Universidade do Vale do Rio dos Sinos --- Unisinos
 %
 % Deve ser passada como parâmetro a maior das siglas utilizadas.
 %=======================================================================
-\begin{listadesiglas}{SNMP}
-\item[IoT] Internet of Things
-\item[M2M] Machine-To-Machine
-\item[TI] Tecnologia da Informação
-\item[TCP] Transmission Control Protocol
-\item[IP] Internet Protocol
-\item[IPv6] Internet Protocol version 6
-\item[SLA] Service Level Agreement
-\item[CMIP] Common Management Information Protocol
-\item[IETF] Internet Engineering Task Force
-\item[SNMP] Simple Network Management Protocol
-\item[RFC] Request For Comments
-\item[SMI] Structure of Management Information
-\item[MIB] Management Information Base
-\item[UDP] User Datagram Protocol
-\item[PDU] Protocol Data Unit
+\begin{listadesiglas}{ARPANET}
+\label{siglas}
+\item[6LoWPAN]	IPv6 over Low power Wireless Personal Area Networks
+\item[ARPANET]	Advanced Research Projects Agency Network %1
+\item[CDMA]		Code division multiple access
+\item[CMIP]		Common Management Information Protocol
+\item[FCAPS]	Fault Configuration Accounting Performance Security
+\item[GPS]		Global Positioning System
+\item[GSM]		Global System for Mobile Communications
+\item[IEEE]		Institute of Electrical and Electronics Engineers
+\item[IETF]		Internet Engineering Task Force
+\item[IoT]		Internet of Things %3
+\item[IP]		Internet Protocol %2
+\item[IPSO]		IP for Smart Objects Alliance
+\item[IPv6]		Internet Protocol version 6
+\item[IPX]		Internetwork Packet Exchange
+\item[ISO]		International Organization for Standardization
+\item[M2M]		Machine-To-Machine %4
+\item[MIB]		Management Information Base
+\item[NFC]		Near Field Communication
+\item[OSI]		Open Systems Interconnection
+\item[PDU]		Protocol Data Unit
+\item[RFC]		Request For Comments
+\item[SLA]		Service Level Agreement
+\item[SMI]		Structure of Management Information
+\item[SNMP]		Simple Network Management Protocol
+\item[TCP]		Transmission Control Protocol %2
+\item[TI]		Tecnologia da Informação
+\item[UDP]		User Datagram Protocol
+\item[WLAN]		Wireless Local Area Network
 %\item[CAPES] Coordenação de Aperfeiçoamento de Pessoal de Nível Superior
 %\item[FAPERGS] Fundação de Amparo à Pesquisa do Estado do Rio Grande do Sul
 \end{listadesiglas}
@@ -316,15 +327,16 @@ to perceive --- they actually sense and respond}
 	\urlbr{set.~2013}{www.ibm.com/ibm/history/ibm100/us/en/icons/sage/}}, 
 	um dos primeiros exemplos de computadores conectados em rede, 
 	caracterizado pela ``transmissão de dados digitais em linhas telefônicas 
-	de voz à 1300 bits por segundo'' \cite{IBMSAGE1983}.
+	de voz à 1300 bits por segundo'' \cite[p.~348]{IBMSAGE1983}.
 
 	Contudo, o SAGE comunicava-se através do conceito de circuitos, que, mais 
 	tarde, mostrou-se inferior à troca de pacotes (\textit{packet switching}). 
-	Explorado pela agência de defesa americana nos anos 70, a comunicação via 
-	troca de pacotes originou a ARPANET, uma rede nacional descentralizada 
+	Explorada pela agência de defesa americana nos anos 70, a comunicação via 
+	troca de pacotes originou a \hyperref[siglas]{ARPANET}, 
+	uma rede nacional descentralizada 
 	utilizada para interligar universidades e centros de pesquisas 
-	\cite{ARPANET1964}, assim como os protocolos TCP/IP, a base da atual 
-	internet.
+	\cite{ARPANET1964}, assim como os protocolos \hyperref[siglas]{TCP/IP}, 
+	a base da atual internet.
 
 	A contínua ampliação da capacidade de processamento dos dispositivos 
 	computacionais, aliada a redução de custos, possibilitou uma nova 
@@ -332,7 +344,7 @@ to perceive --- they actually sense and respond}
 	Informação.
 	Munidos de circuitos integrados e \textit{microchips}, os computadores 
 	estão cada vez mais presentes nas atividades humanas, avançando em direção 
-	à ubiquidade.
+	à ubiquidade \cite{Kaku2007}.
 	
 	No atual cenário tecnológico já é possível, de maneira economicamente 
 	viável, colocar em prática algumas das ideias vislumbradas por 
@@ -345,12 +357,12 @@ to perceive --- they actually sense and respond}
 	Ainda que não seja uma proposta nova, \citetexto{Turck2013} pontua que a 
 	implementação de uma rede composta de dispositivos embarcados em objetos 
 	do dia-a-dia, ou seja, a Internet das Coisas 
-	(do inglês Internet of Things, IoT), 
+	(do inglês Internet of Things, \hyperref[siglas]{IoT}), 
 	não era viável devido a fatores como complexidade e custo. 
 	Entretanto, tomando por referência a lei de \citetexto{Moore1965}, a qual 
 	dita que o número de transístores em um circuito integrado dobra 
 	aproximadamente a cada dois anos, é improvável que se reverta a tendência 
-	de dispositivos cada vez menores e mais baratos, se reverta.
+	de dispositivos cada vez menores e mais baratos.
 	
 	Diversas são as semelhanças entre a Internet das Coisas e as Redes de 
 	Sensores sem Fio, porém, enquanto as redes de sensores  
@@ -359,27 +371,34 @@ to perceive --- they actually sense and respond}
 	conceito ao próximo nível. 
 	A capacidade de tornar cada dispositivo individualmente endereçável na 
 	internet favorece o compartilhamento de informações entre sistemas, 
-	resultando em uma modalidade de comunicação chamada pela 
-	\citetexto{ETSI2010} de comunicação Máquina-a-Máquina (M2M).
+	resultando em uma modalidade de comunicação chamada por
+	\citetexto{ETSI2010} de comunicação Máquina-a-Máquina 
+	(\hyperref[siglas]{M2M}).
 	
 	Motivados pelas oportunidades e pelo alto impacto social da computação 
-	pervasiva, impulsionada com a ajuda da IoT, pesquisadores tanto da 
+	pervasiva\footnote{
+A computação ubíqua e/ou pervasiva é uma área de estudo que tem como objetivo 
+tornar a interação homem computador invisível, ou seja, integrar a informática 
+com as ações e comportamentos naturais das pessoas.
+\urlbr{nov.~2013}{https://en.wikipedia.org/wiki/Pervasive\_computing}
+}, impulsionada com a ajuda da \hyperref[siglas]{IoT}, pesquisadores tanto da 
 	academia quanto da indústria se mobilizaram em torno deste conceito 
 	\cite{Atzori2010b}. 
-	Entidades governamentais reconheceram também a IoT como um paradigma 
+	Entidades governamentais reconheceram também a \hyperref[siglas]{IoT} como um paradigma 
 	promissor, fomentando iniciativas de pesquisa e desenvolvimento em países 
 	como China, Japão, Estados Unidos e da União Europeia 
 	% p 16
 	\cite{Sundmaeker2010}.
 	
-	Entretanto, com grandes poderes vêm grandes responsabilidades
-	\footnote{Lição dada a Peter Parker por seu tio Ben na história em 
-	quadrinhos Homem-Aranha, escrita por Stan Lee.}. 
+	Entretanto, com grandes poderes vêm grandes responsabilidades\footnote{
+Lição dada a Peter Parker por seu tio Ben na história em 
+quadrinhos Homem-Aranha, escrita por Stan Lee.
+}. 
 	Para realizar sua visão, a Internet das Coisas deve superar uma série de 
 	desafios, entre eles: privacidade, padronização tecnológica e 
 	escalabilidade \cite{Coetzee2011}. 
-	Para tanto, a cooperação entre academia, indústria e governo é fundamental 
-	para que a IoT possa demonstrar seu verdadeiro potencial.
+	Percebe-se, portanto, que a cooperação entre academia, indústria e governo é fundamental 
+	para que a \hyperref[siglas]{IoT} possa demonstrar seu verdadeiro potencial.
 	
 %TODO Apresentar a estrutura do trabalho (no cap x falaremos de IoT, no cap Y 
 %		de Gerência, tal tal e tal)
@@ -393,7 +412,7 @@ to perceive --- they actually sense and respond}
 %		Objetivo: Para facilitar a gestão de dispositivos inteligentes
 
 	Em um mundo cada vez mais conectado e dependente da internet, a quantidade 
-	de dispositivos capazes de integrar a rede já representa uma fatia 
+	de dispositivos capazes de integrar esta rede já representa uma fatia 
 	considerável entre os aparelhos usados diariamente \cite{Accenture2012}.
 	Computadores, \textit{laptops}, \textit{tablets}, \textit{smartphones} e 
 	televisores integram uma crescente classe de produtos comercialmente 
@@ -409,35 +428,37 @@ to perceive --- they actually sense and respond}
 	costumes, e, conforme afirma \citetexto{Carr2010}, até mesmo o pensamento 
 	humano.
 	
-	A difusão de aparelhos capazes de acessar a internet criou um novo 
-	paradigma que está transformando a gestão de Tecnologia da Informação (TI) 
+	Tamanha difusão de aparelhos capazes de acessar a internet deu origem a um novo 
+	paradigma que está transformando a gestão da Tecnologia da Informação (\hyperref[siglas]{TI}) 
 	\cite{ZdnetBYOD}.
 	Este aumento apresenta-se como um desafio para as áreas de segurança da 
 	informação e gerência de redes, convidando grandes empresas como 
 	\citetexto{CiscoBYOD}, \citetexto{HP2013} e \citetexto{Motorola2011} a 
-	propor novas soluções.
+	criar novas soluções de forma a atender demandas de mercado.
 	
-	Apesar de constituir um desafio de gestão, não há indícios da redução de 
-	dispositivos nas redes. A Internet das Coisas trará consigo uma vasta gama 
+	Apesar de constituir um desafio de gestão, não há indícios da redução 
+	no número de dispositivos nas redes. 
+	A Internet das Coisas trará consigo uma vasta gama 
 	de novos aparelhos que carecem de diretivas de gestão \cite{Atzori2010b} 
 	e, ainda que novas soluções estejam em desenvolvimento, não há um acordo 
 	sobre mecanismos específicos de gerência, resultando em soluções 
 	proprietárias e que não colaboram entre si.
 	
 	Visando manter a interoperabilidade entre dispositivos, há, nas pesquisas 
-	de IoT, um consenso referente ao uso do Protocolo de Internet (IP), mais 
-	especificamente o IPv6, como o protocolo padrão de comunicação 
+	de \hyperref[siglas]{IoT}, um consenso referente ao uso do 
+	Protocolo de Internet (\hyperref[siglas]{IP}), mais 
+	especificamente o \hyperref[siglas]{IPv6}, como o protocolo padrão de comunicação 
 	\cite{Dunkels2008,Mattern2010a,Feng2011,Paventhan2012}.
 	Compartilhando desta motivação, autores como \citetexto{Sundmaeker2010}, 
 	\citetexto{Mattern2010a} e \citetexto{Wang2012}
 	afirmam que os protocolos de gerenciamento de redes devem, também, manter 
 	a compatibilidade com os padrões já existentes, sendo, se necessário, 
-	estendidos para dar suporte aos desafios da IoT.
+	estendidos para dar suporte aos desafios da \hyperref[siglas]{IoT}.
 	
 	Para tanto, é de grande interesse da indústria e da academia que um 
 	protocolo de gerência de redes possa desempenhar seu papel em conjunto com 
 	a infraestrutura já existente sem deixar de atender às restrições e 
-	características da IoT. É nesta tarefa que concentram-se os esforços deste 
+	características da \hyperref[siglas]{IoT}. É nesta tarefa que concentram-se os esforços deste 
 	trabalho, buscando melhorias específicas para este novo cenário e, ao 
 	mesmo tempo, manter a interoperabilidade com padrões já estabelecidos.
 	
@@ -449,7 +470,7 @@ to perceive --- they actually sense and respond}
 	gerência de redes tradicional aplicados ao contexto de Internet das 
 	Coisas. 
 	
-	Nos alicerces da IoT encontram-se computadores associados a objetos do 
+	Nos alicerces da \hyperref[siglas]{IoT} encontram-se computadores associados a objetos do 
 	cotidiano denominados dispositivos embarcados e que são caracterizados, 
 	na definição de \citetexto{ietfCNN2013}, pela escassez de recursos 
 	computacionais e atuação praticamente autônoma, requerindo pouca ou 
@@ -464,23 +485,24 @@ to perceive --- they actually sense and respond}
 	forma, eventualmente será 
 	necessária a intervenção manual sobre um ou mais destes dispositivos.
 
-	Devido a ausência de padrões de gerenciamento para IoT é provável que cada 
-	fabricante 
-	proponha diferentes maneiras de realizar esta gestão, criando 
-	implementações 
-	incompatíveis e de padrão fechado. Esta filosofia vai diretamente 
+	Devido a ausência de padrões de gerenciamento para \hyperref[siglas]{IoT}
+	e a constante competição entre grandes empresas, existe a possibilidade
+	de que cada  fabricante  proponha diferentes maneiras de realizar 
+	esta gestão, criando implementações incompatíveis e de padrão fechado. 
+	Esta filosofia vai diretamente 
 	de encontro à mentalidade da internet, que é composta por padrões livres e 
 	abertos,
-	para que todos (indivíduos e organizações) tenham acesso.
+	para que todos, tanto indivíduos quanto organizações, possam acessá-los.
 
 	Porém, a gestão da Internet das Coisas apresenta características únicas 
 	não contempladas pelos padrões já estabelecidos, entre elas estão a grande 
 	quantidade de dispositivos presentes na rede e a reduzida capacidade de 
 	processamento. Surge, então, a necessidade de estudar e ajustar os 
-	protocolos para este contexto, de forma que atendam às necessidades da IoT.
+	protocolos para este contexto, de forma que melhor atendam às 
+	necessidades da \hyperref[siglas]{IoT}.
 
 	Uma vez encontradas as fraquezas da gerência de redes tradicional no 
-	contexto de IoT, este trabalho apresenta sugestões de melhorias ao 
+	contexto de \hyperref[siglas]{IoT}, este trabalho apresenta sugestões de melhorias ao 
 	processo de gestão.
 	Tais funcionalidades devem, idealmente, manter a compatibilidade com o 
 	protocolo, funcionando como extensões. 
@@ -516,16 +538,16 @@ Para atingir seus objetivos, a presente pesquisa é caracterizada por uma
 abordagem quantitativa 
 ``que tem suas raízes no pensamento positivista lógico, tende a enfatizar o 
 raciocínio dedutivo, as regras da lógica e os atributos mensuráveis''
-\cite{Gerhardt2009},
+\cite[p.~33]{Gerhardt2009},
 e busca
 ``traduzir em números opiniões e informações para classificá-las e 
 analisá-las''
-\cite{MetodologiaUFSC2005}.
+\cite[p.~20]{MetodologiaUFSC2005}.
 Ao estabelecer como contexto as áreas de Gerência de Redes e Internet das 
 Coisas, atribui-se a natureza de pesquisa aplicada, onde os resultados serão 
 adequados para a
 ``aplicação prática e dirigidos à solução de problemas específicos''
-\cite{MetodologiaUFSC2005}.
+\cite[p.~20]{MetodologiaUFSC2005}.
 
 Quanto aos seus procedimentos técnicos, esta será uma pesquisa experimental. 
 Neste aspecto, \citetexto{MetodologiaUFSC2005} e \citetexto{Gerhardt2009} 
@@ -537,11 +559,11 @@ deve-se dividir a pesquisa experimental em duas categorias, a de campo e a de
 laboratório, realizada neste trabalho.
 
 Desta forma, pode-se classificar o presente trabalho como uma proposta de 
-melhoria na abordagem de gerência de redes. Considerando que ``não é 
+melhoria na abordagem de gerência de redes e, considerando que ``não é 
 necessário, porém, que o autor de algum método novo demonstre que o seu método 
 é melhor do que outro método do estado da arte para toda e qualquer situação'' 
-\cite{Wazlawick2008} a abrangência do trabalho é intencionalmente limitada ao 
-domínio da Internet das Coisas. % no contexto de home-automation?!
+\cite{Wazlawick2008}, sua abrangência é intencionalmente limitada ao 
+domínio da Internet das Coisas.
 
 
 
@@ -561,13 +583,14 @@ funcionamento e a qualidade dos serviços prestados.
 Cada vez mais importantes para as atividades humanas, as redes de computadores 
 (especialmente a internet) obtiveram grande êxito nas atividades comerciais, 
 onde ``têm catalizado a inovação e favorecido a emergência de novos e 
-disruptivos modelos de negócio'' \cite{Ding2009}.
+disruptivos modelos de negócio'' \cite[p.~23]{Ding2009}.
 Portanto observa-se uma crescente dependência de empresas e organizações nos 
-serviços de conectividade, demonstrando seu valor e provando que ``manter 
-estes serviços funcionando torna-se sinônimo de manter o negócio funcionando''
+serviços de conectividade, demonstrando o seu valor e provando, ná prática
+que ``manter estes serviços funcionando torna-se sinônimo de manter o 
+negócio funcionando''
 % keeping those services running becomes synonymous with 
 % keeping the business running
-\cite{Clemm2006}.
+\cite[p.~xix]{Clemm2006}.
 
 
 	
@@ -575,7 +598,7 @@ estes serviços funcionando torna-se sinônimo de manter o negócio funcionando'
 	como ``as atividades, métodos, procedimentos, e ferramentas que dizem 
 	respeito a operação, administração, manutenção e provisionamento de 
 	sistemas de rede''. Uma definição extensiva do conceito de gerência de 
-	redes é fornecida por \citetexto{Ding2009}:
+	redes é fornecida por \citetexto[p.~64]{Ding2009}:
 	
 	\begin{quote}
 		a execução de um conjunto de funções requeridas para controlar, 
@@ -585,8 +608,7 @@ estes serviços funcionando torna-se sinônimo de manter o negócio funcionando'
 		roteamento predefinido de tráfico para suportar balanceamento de 
 		carga, autorização de distribuição de chaves criptográficas, gerência 
 		de configuração, gerenciamento de falhas, gestão da segurança, 
-		gerência de performance e gestão de contabilização.~
-		\cite[p.~64]{Ding2009}.
+		gerência de performance e gestão de contabilização.
 % defined as the execution of the set of functions required for 
 % controlling, planning, allocating, deploying, coordinating, and 
 % monitoring the resources of a telecommunications network or a computer 
@@ -599,9 +621,9 @@ estes serviços funcionando torna-se sinônimo de manter o negócio funcionando'
 	
 	O reconhecimento da importância das técnicas de gerência de redes provocou 
 	esforços por parte de órgãos reguladores, como a Organização Internacional 
-	para Padronização (ISO). Em sua normativa 7498-4, a \citetexto{ISO1989} 
+	para Padronização (\hyperref[siglas]{ISO}). Em sua normativa 7498-4, a \citetexto{ISO1989} 
 	define as cinco principais categorias da gerência de redes, conhecido como 
-	o modelo \textbf{FCAPS} que contempla o gerenciamento de:
+	o modelo \hyperref[siglas]{FCAPS} que contempla o gerenciamento de:
 	
 	\begin{itemize}
 		% gerenciamento/gerencia/gestao?
@@ -612,7 +634,7 @@ Segundo \citetexto{Ding2009}, é composta por três passos fundamentais:
 Detecção, Isolamento e Correção. 
 Em suma, o ``gerenciamento de falhas está portanto interessado no 
 monitoramento da rede para garantir que tudo esteja funcionando regularmente e 
-reagir quando este não for o caso'' \cite{Clemm2006};
+reagir quando este não for o caso'' \cite[p.~132]{Clemm2006};
 
 		\item \textbf{\textit{Configuration} -- Configuração:}
 Responsável por manter uma lista completa e atualizada de todos os ativos que 
@@ -624,10 +646,9 @@ inclusão, remoção e atualização de dados sobre cada dispositivo que compõe
 rede. 
 Portanto uma boa gerência de configuração, ``para realizar estas 
 atividades deve monitorar todas as mudanças feitas aos recursos'' 
-\cite{Wang2012};
-
 % in order to fulfill these functionalities, 
 % it must track all changes made to network resources
+\cite[p.~2]{Wang2012};
 
 		\item \textbf{\textit{Accounting} -- Contabilização:}
 Contempla principalmente a coleta de estatísticas sobre usuários e/ou grupos 
@@ -640,25 +661,25 @@ O valor da contabilização está em ``possibilitar que o uso por indivíduos ou
 grupos seja regulamentado de forma adequada. Tal regulamentação minimiza 
 problemas de rede (pois os recursos de rede podem ser repartidos com base nas 
 suas capacidades) e maximiza a equidade de acesso à rede dentre todos os 
-usuários'' \cite{Ding2009};
-
+usuários'' 
 % The measurement of network utilization parameters enables individual or 
 % group uses on the network to be regulated appropriately. Such regulation 
 % minimizes network problems (because network resources can be apportioned 
 % based on resource capacities) and maximizes the fairness of network access 
 % across all users.
+\cite[p.~93]{Ding2009};
 
 		\item \textbf{\textit{Performance} -- Desempenho:}
 Interessada principalmente na qualidade do serviços de rede, a finalidade 
-desta categoria é ``garantir que os objetivos de níveis de serviço (SLA) sejam 
+desta categoria é ``garantir que os objetivos de níveis de serviço (\hyperref[siglas]{SLA}) sejam 
 alcançados ao mesmo tempo em que os recursos de rede sejam utilizados de 
-maneira economicamente eficiente'' \cite{Wang2012}.
+maneira economicamente eficiente'' \cite[p.~2]{Wang2012}.
 Depende quase exclusivamente de métricas que mensurem as características da 
 rede, sendo as principais: \textit{throughput}, \textit{delay}, percentagem de 
 erros e uso de \textit{links} \cite{Clemm2006,Wang2012,Ding2009,Hunt1997}.
 Pode ainda ser discriminada em três passos: Coleta de dados, Estabelecimento 
 de valores de referência e Monitoramento destes valores \cite{Mauro2009}. 
-Alterações nos parâmetros definidos podem indicar recursos congestionados e/ou 
+Alterações nos parâmetros inicialmente definidos podem indicar recursos congestionados e/ou 
 subutilizados, desencadeando processos de gerência de falhas e configuração 
 \cite{Wang2012};
 
@@ -666,9 +687,9 @@ subutilizados, desencadeando processos de gerência de falhas e configuração
 Abrange procedimentos para prover controle de acesso, proteção de dados, 
 autenticação, autorização e auditoria sobre as ações ocorridas em determinada 
 rede \cite{Wang2012}.
-Ou, nas palavas de \citetexto{Ding2009}, ``um conjunto de funções que protege 
+Ou, nas palavas de \citetexto[p.~94]{Ding2009}, ``um conjunto de funções que protege 
 redes e sistemas de acessos não autorizados por pessoas, atos ou influências''.
-Ainda segundo o autor, tais funções contemplam desde a autorização de login a 
+Ainda segundo o autor, tais funções contemplam desde a autorização de um login a 
 um usuário, até a disseminação de chaves criptográficas e a distribuição de 
 registros sobre eventos de segurança.
 Em suma, o objetivo desta categoria é duplo, sendo tanto garantir o controle 
@@ -716,7 +737,7 @@ agentes e gerentes;
 \item \textbf{Estação de Gerência de Redes:}
 	Dispositivo onde o usuário terá acesso ao gerente, executando as 
 aplicações de gerência para monitoramento e controle dos elementos da rede.
-Constituído geralmente por uma máquina com abundância de recursos;
+Constituído, geralmente, por uma máquina com abundância de recursos;
 
 \item \textbf{Objeto Gerenciado:}
 	Representa algum recurso presente em um dispositivo que é de interesse do 
@@ -724,7 +745,7 @@ usuário.
 Pode ser exemplificado como a lista de conexões TCP de determinado dispositivo 
 da rede.
 Este objeto será de interesse do agente e do gerente e estará presente em uma 
-, representado através da SMI;
+representado através da \hyperref[siglas]{SMI};
 
 \item \textbf{Estrutura das Informações de Gerenciamento (SMI):}
 	Linguagem usada para descrever as regras de nomenclatura e codificação 
@@ -756,7 +777,7 @@ Cada estação de gerência inclui software de aplicação de gerência de rede 
 software para comunicação com os agentes.
 Informações podem ser coletadas de maneira ativa, através de \textit{pooling} 
 pela estação de gerenciamento, ou passivamente, através de relatórios de 
-eventos gerados pelos agentes.
+eventos gerados pelos agentes
 % The purpose of network monitoring is to gather information about the status 
 % and beahvior of network elements. 
 % Information to be gathered includes static information, related to the 
@@ -769,7 +790,7 @@ eventos gerados pelos agentes.
 % software for communicating with agents. 
 % Information may be collected actively, by means of poolling by the
 % management station, or passively, by means of event reporting by the agents.
-\cite[p.~45]{stallings1999snmp}
+\cite[p.~45]{stallings1999snmp}.
 \end{quote}
 
 
@@ -787,55 +808,55 @@ problema nas mãos dos administradores de redes
 \cite{Leinwand1996}.
 
 Neste cenário, duas vertentes dominavam as iniciativas de gerência de redes. 
-De um lado os padrões ISO com seu modelo OSI de protocolos e, consequentemente 
-um modelo de gerência com base no CMIP \textit{(Common Management Information 
+De um lado os padrões \hyperref[siglas]{ISO} com seu modelo \hyperref[siglas]{OSI} de protocolos e, consequentemente 
+um modelo de gerência com base no \hyperref[siglas]{CMIP} \textit{(Common Management Information 
 Protocol)}.
-E, de outro lado, a IETF \textit{(Internet Engineering Task Force)} com o 
-suporte ao modelo TCP/IP e sugerindo o SNMP \textit{(Simple Network Management 
-Protocol)} como uma medida tapa-buraco enquanto uma solução melhor não ficasse 
-pronta.
+E, de outro lado, a \hyperref[siglas]{IETF} \textit{(Internet Engineering Task Force)} com o 
+suporte ao modelo \hyperref[siglas]{TCP/IP} e sugerindo o \hyperref[siglas]{SNMP} 
+\textit{(Simple Network Management Protocol)} 
+como uma medida tapa-buraco enquanto uma solução melhor não ficasse pronta.
 
-Com essa premissa, o SNMP seguiria como uma solução temporária, simplificada e 
+Com essa premissa, o \hyperref[siglas]{SNMP} seguiria como uma solução temporária, simplificada e 
 focada, tratando apenas das áreas de gerência de falhas e configuração, 
-enquanto no longo prazo o CMIP assumiria seu lugar como uma solução completa 
+enquanto no longo prazo o \hyperref[siglas]{CMIP} assumiria seu lugar como uma solução completa 
 \cite{Leinwand1996,stallings1999snmp}. 
-Entretanto tal desejo nunca se concretizou e o desenvolvimento dos padrões ISO 
-passou por grandes dificuldades e incompatibilidades com o TCP/IP.
-Este desfecho é atribuído por \citetexto{Hunt1997} ao fato de que 
+Entretanto tal desejo nunca se concretizou e o desenvolvimento dos padrões \hyperref[siglas]{ISO} 
+passou por grandes dificuldades e incompatibilidades com o \hyperref[siglas]{TCP/IP}.
+Este desfecho é atribuído por \citetexto[p.~77]{Hunt1997} ao fato de que 
 ``o programa de 
-desenvolvimento OSI foi muito lento e a implementação de produtos ainda mais 
-lenta, com o resultado inevitável de que o SNMP aproveitou a janela de 
-oportunidade e foi implementado rápidamente por uma série de fornecedores''.
+desenvolvimento \hyperref[siglas]{OSI} foi muito lento e a implementação de produtos ainda mais 
+lenta, com o resultado inevitável de que o \hyperref[siglas]{SNMP} aproveitou a janela de 
+oportunidade e foi implementado rapidamente por uma série de fornecedores''.
 % The OSI development program was very slow and product implementation even 
 % slower, with the inevitable result that SNMP took the window of opportunity 
 % and became implemented rapidly by a numer of vendors
 
-Ainda sobre porquê o SNMP se tornou o protocolo padrão para gerência de redes, 
+Ainda sobre porquê o \hyperref[siglas]{SNMP} se tornou o protocolo padrão para gerência de redes, 
 \citetexto{stallings1999snmp} corrobora com a visão de \citetexto{Hunt1997}:
 
 \begin{quote}
 O Protocolo Simples de Gerência de Rede foi projetado para ser uma ferramenta 
 basica e facilmente implementável de gerência de redes que poderia ser 
 utilizado para atender num curto prazo às necessidades de gerência. Devido ao 
-progresso lento na gerência de sistemas OSI, o SNMP preencheu a lacuna e 
+progresso lento na gerência de sistemas \hyperref[siglas]{OSI}, o \hyperref[siglas]{SNMP} preencheu a lacuna e 
 acabou se tornando o método dominante padronizado de gerência de rede em uso 
-atualmente.
+atualmente
 % The Simple Network Management Protocol was designed to be an easily 
 % implemented, basic network management tool that could be used to meet 
 % short-term network management needs. Because of the slow progress in OSI 
 % systems management, SNMP has filled the gap and become the dominant 
 % standardized network management scheme in use today.
-\cite[p.~83]{stallings1999snmp}
+\cite[p.~83]{stallings1999snmp}.
 \end{quote}
 
 Apesar de ser projetado como uma solução rápida e fácil para os principais 
-problemas enfrentados na época, o sucesso do SNMP deve-se também em parte à 
+problemas enfrentados na época, o sucesso do \hyperref[siglas]{SNMP} deve-se também em parte à 
 sua estrutura de dados projetada para acomodar o crescimento e proporcionar 
 flexibilidade para a inclusão de novos objetos \cite{stallings1999snmp}.
 Graças a esta flexibilidade, o protocolo pôde ser adaptado para atender as 
 necessidades de diversos casos de uso, sendo utilizado em produtos que vão 
 desde computadores e impressoras a roteadores e \textit{no-breaks}.
-Neste contexto, a gestão baseada em SNMP
+Neste contexto, a gestão baseada em \hyperref[siglas]{SNMP}
 
 \begin{quote}
 é inerentemente genérica de forma que ela pode ser usada para gerir diversos 
@@ -843,40 +864,40 @@ tipos de sistemas. Esta abordagem pode ser usada com redes computacionais de
 dados, redes de tráfego automotivo, redes de controle de calefação e 
 arrefecimento, redes de irrigação, ou fábricas de produtos químicos. Portanto 
 vê-se que quase qualquer sistema de tempo real consistindo de uma coleção de 
-elementos independentes de comunicando pode usar SNMP.
+elementos independentes se comunicando pode usar \hyperref[siglas]{SNMP}
 % However, then SNMP-based management approach is inherently generic so that 
 % it can be used to manage many types of systems. This approach can be used 
 % with computer data networks, automotive traffic networks, heating and 
 % cooling control networks, irrigation networks, or chemical plants. Thus you 
 % can see that almos any real0time system consisting of a collection of 
 % independent communicating elements can use SNMP.
-\cite[p.~2]{perkins1997understanding}
+\cite[p.~2]{perkins1997understanding}.
 \end{quote}
 
-Como nenhuma solução é perfeita para todos os casos, o SNMP sofreu também 
+Como nenhuma solução é perfeita para todos os casos, o \hyperref[siglas]{SNMP} sofreu também 
 grandes críticas. 
 A comunidade de profissionais que efetivamente fazem a gerência de redes 
 expressa opiniões negativas sobre o protocolo e sua implementação, 
 questionando a existência do termo ``simples'' em seu nome.
 Até mesmo na literatura não é incomum encontrar questionamentos a respeito das 
 decisões de projeto do protocolo e sobre a complexidade de operar um sistema 
-de gerenciamento baseado em SNMP.
-Nas palavras de \citetexto{stallings1999snmp}, ``os resultados são 
+de gerenciamento baseado em \hyperref[siglas]{SNMP}.
+Nas palavras de \citetexto[p.~111]{stallings1999snmp}, ``os resultados são 
 desanimadores para o cliente/usuário que acredita no 
-\textit{simples} em SNMP''.
+\textit{simples} em \hyperref[siglas]{SNMP}''.
 
 % the results are discouraging to the customer/user who believes the 
 % "simple" in "SNMP".
 % Stallings p111 c5
 
-Entretanto, \citetexto{Clemm2006} argumenta que a simplicidade do SNMP foi 
+Entretanto, \citetexto{Clemm2006} argumenta que a simplicidade do \hyperref[siglas]{SNMP} foi 
 pensada em termos das operações que o protocolo suporta, conforme ilustra a 
 \autoref{tab:operacoesSNMP}, o que facilita a implementação de agentes mas 
 move a complexidade para as aplicações de gerência.
 
 \begin{quote}
 Como tantas vezes é o caso na engenharia, é tudo sobre \textit{tradeoffs}.
-Os projetistas originais do SNMP decidiram que era mais importante manter a 
+Os projetistas originais do \hyperref[siglas]{SNMP} decidiram que era mais importante manter a 
 implementação de agentes simples e, como consequência, empurrar um pouco mais 
 de complexidade para a lógica da aplicação de gerenciamento.
 Primeiro, haveria um menor número de aplicações de gerência (talvez uma dúzia) 
@@ -884,7 +905,7 @@ do que implementações de agentes (talvez centenas, senão milhares).
 Além disso, aplicações de gerência não estariam sujeitas às mesmas restrições 
 de recursos computacionais de um dispositivo de rede.
 Portanto, esta complexidade se acomodaria mais facilmente nos gerentes do que 
-nos agentes.
+nos agentes
 % As is so often the case in engineering, it is all about tradeoffs. 
 % The original designers of SNMP decided that it was important to keep SNMP 
 % agent implementations simple and, as a consequence, push a little more 
@@ -899,22 +920,22 @@ nos agentes.
 % This decision led to SNMP agent implementations becoming rapidly available 
 % and quickly gaining widespread acceptance, with management applications 
 % following suit.
-\cite[p.~250]{Clemm2006}
+\cite[p.~250]{Clemm2006}.
 \end{quote}
 
 Esta transferência na complexidade é, ainda segundo \citetexto{Clemm2006}, uma 
-das responsáveis pela rápida disponibilidade de agentes SNMP, facilitando a 
+das responsáveis pela rápida disponibilidade de agentes \hyperref[siglas]{SNMP}, facilitando a 
 aceitação do protocolo nos anos que seguiram sua padronização.
-A decisão de manter o agente como a parte simplificada do modelo SNMP é também 
+A decisão de manter o agente como a parte simplificada do modelo \hyperref[siglas]{SNMP} é também 
 muito útil no contexto de Internet das Coisas, uma vez que estes dispositivos 
 compartilham das mesmas (se não piores) restrições de poder computacional que 
 os dispositivos de rede que são objeto da gerência.
 
 
-Ainda que existam outras tecnologias para gerência de redes, o SNMP segue 
+Ainda que existam outras tecnologias para gerência de redes, o \hyperref[siglas]{SNMP} segue 
 como a principal delas no contexto pessoal e empresarial.
 As informações apresentadas até aqui apenas confirmam esta hipótese
-e tornam o SNMP o protocolo de escolha para esta pesquisa.
+e tornam o \hyperref[siglas]{SNMP} o protocolo de escolha para esta pesquisa.
 Deste ponto em diante apresenta-se um detalhamento sobre o protocolo de forma
 a apresentar ao leitor suas principais características e uma visão mais 
 detalhada das suas funcionalidades.
@@ -924,9 +945,9 @@ detalhada das suas funcionalidades.
 \subsection{Versões}
 
 Devido ao seu surgimento como uma solução interina para o problema da gerência 
-de redes, o SNMP passou por diversas versões e revisões.
-Ao ser padronizado através do uso de RFCs (\textit{Request For Comments}) 
-da IETF, seu desenvolvimento passou por diversas iterações em comitês 
+de redes, o \hyperref[siglas]{SNMP} passou por diversas versões e revisões.
+Ao ser padronizado através do uso de \hyperref[siglas]{RFCs} \textit{(Request For Comments)} 
+da \hyperref[siglas]{IETF}, seu desenvolvimento passou por diversas iterações em comitês 
 específicos para este fim.
 Hoje existem em uso três principais versões do protocolo, abordadas a seguir:
 
@@ -942,15 +963,15 @@ dando a devida importância à segurança \cite{Clemm2006}, causando com que as
 senhas para configuração de dispositivos fossem transmitidas em 
 \textit{plaintext}, ou seja, visíveis a qualquer equipamento na rede 
 \cite{Hunt1997,Ding2009}.
-Ainda que com algumas falhas estabeleceu as bases do que viria a ser o SNMP 
+Ainda que com algumas falhas estabeleceu as bases do que viria a ser o \hyperref[siglas]{SNMP} 
 e a gerência de redes como conhecemos hoje;
 
 \item \textbf{SNMPv2:}
-Com o uso difundido do SNMP e o mapeamento de suas deficiências, iniciou-se no 
+Com o uso já difundido do \hyperref[siglas]{SNMP} e o mapeamento de suas deficiências, iniciou-se no 
 final de 1992 o trabalho para a definição de um sucessor \cite{Hunt1997}.
 O crescimento das redes trouxe novas necessidades para os gerentes, agravando 
-o fato de que o ``SNMPv1 é notóriamente ineficiente na busca de grandes 
-quantidades de informações gerenciais'' \cite{Clemm2006} e expondo ainda mais 
+o fato de que o ``SNMPv1 é notoriamente ineficiente na busca de grandes 
+quantidades de informações gerenciais'' \cite[p.~258]{Clemm2006} e expondo ainda mais 
 suas fragilidades de segurança.
 Sendo assim, esta versão introduziu dois novos tipos de operação
 (\textit{get-bulk} e \textit{inform})
@@ -964,42 +985,42 @@ do SNMPv1, baseado em senhas \cite{Clemm2006,Ding2009};
 
 \item \textbf{SNMPv3:}
 Após quase uma década de uso do protocolo, sua terceira versão é concluída 
-trazendo uma solução completa de segurança, o que ``finalmente torna o SNMP um 
-protocolo seguro'' \cite{Clemm2006}.
-Se fosse necessário sumarizar esta versão, \citetexto{Clemm2006} afirma que 
+trazendo uma solução completa de segurança, o que ``finalmente torna o \hyperref[siglas]{SNMP} um 
+protocolo seguro'' \cite[p.~260]{Clemm2006}.
+Se fosse necessário sumarizar esta versão, \citetexto[p.~260]{Clemm2006} afirma que 
 ela ``pode essencialmente ser pensada como SNMPv2 mais segurança''.
 Apesar das funcionalidades de criptografia, integridade e autenticação serem 
 destaque nesta versão, \citetexto{Mauro2009} ponderam que não são as únicas.
 Outra novidade é a ``introdução de novas convenções textuais, conceitos e 
-terminologia'' \cite{Mauro2009}, possibilitando que as especificações sejam 
+terminologia'' \cite[p.~73]{Mauro2009}, possibilitando que as especificações sejam 
 mais precisas e se relacionem melhor, facilitando o entendimento e 
 a implementação do padrão.
 Tais novidades, apesar de mostrarem um amadurecimento do protocolo, tornaram o 
-SNMP muito mais complexo do que inicialmente planejado e, devido ao longo 
+\hyperref[siglas]{SNMP} muito mais complexo do que inicialmente planejado e, devido ao longo 
 tempo de desenvolvimento, gerentes deixaram de usar o protocolo no contexto de 
 configuração (recorrendo a outras ferramentas) e mantendo-o apenas para 
 monitoramento \cite{Clemm2006}.
 Outra dificuldade identificada é devida aos fornecedores de equipamentos que 
 são ``notoriamente lentos em adotar novas versões do protocolo'' 
-\cite{Ding2009}.
+\cite[p.~76]{Ding2009}.
 Portanto, ``resta saber se o SNMPv3 impulsionará o uso do protocolo para 
-outros propósitos além do monitoramento'' \cite{Clemm2006}.
+outros propósitos além do monitoramento'' \cite[p.~261]{Clemm2006}.
 
 \end{itemize}
 
 \subsection{Operações}
 
-Simplicidade é um dos objetivos de projeto do SNMP, portanto espera-se que
+Simplicidade é um dos objetivos de projeto do \hyperref[siglas]{SNMP}, portanto espera-se que
 suas operações sejam simples também.
-Entretanto, as ações realizadas sobre um determinado dispositivo devem ser 
+Desta forma, as ações realizadas sobre um determinado dispositivo devem ser 
 expressas de maneira compacta e precisa, evitando a complexidade associada ao 
 decidir qual operação é válida dado o estado do objeto.
 Apesar do conjunto limitado, \citetexto{stallings1999snmp} elenca três 
 operações básicas que devem estar disponíveis em qualquer protocolo de 
-gerência e que são contempladas pelo SNMP, sendo elas: 
+gerência de redes, e que são contempladas pelo \hyperref[siglas]{SNMP}, sendo elas: 
 \textit{get}, \textit{set} e \textit{trap}.
 
-No SNMP as operações podem afetar mais de um objeto, isto é devido a sua 
+No \hyperref[siglas]{SNMP} as operações podem afetar mais de um objeto, isto deve-se a sua 
 estrutura de pacotes, explicada à seguir na seção \nameref{sec:mensagens}.
 Desta forma uma operação \textit{get}, por exemplo, pode buscar o valor de 
 diversos objetos em uma única requisição.
@@ -1009,7 +1030,7 @@ falha em um ou mais itens invalide a requisição inteira \cite{Simoneau1999}.
 A decisão de manter a complexidade no gerente e simplificar os agentes já foi 
 elogiada por \citetexto{Clemm2006} e, no que diz respeito às operações, 
 \citetexto{perkins1997understanding} corroboram ao afirmar que, embora 
-limitadas, as operações do SNMP são muito poderosas.
+limitadas, as operações do \hyperref[siglas]{SNMP} são muito poderosas.
 
 \begin{quote}
 Possuir apenas algumas poucas e simples operações permitiu que as 
@@ -1029,7 +1050,7 @@ A seguir apresenta-se um detalhamento\footnote{
 	\citetexto{stallings1999snmp},
 	\citetexto{Clemm2006} e 
 	\citetexto{Mauro2009}.
-} das operações que o protocolo SNMP prevê. 
+} das operações que o protocolo \hyperref[siglas]{SNMP} prevê. 
 
 \begin{itemize}
 
@@ -1059,7 +1080,7 @@ mensagens e, portanto, faz com que esta operação seja indicada apenas para
 comunicação entre gerentes;
 
 \item \textbf{\textit{Report}:}
-Contempla a comunicação de mensagens internas entre gerentes e agentes, 
+Contempla a comunicação de mensagens de controle entre gerentes e agentes, 
 sendo responsável pela comunicação de erros de processamento.
 Tem como objetivo informar o originador de uma requisição que um erro interno 
 ocorreu durante o processamento no receptor e não deve ser gerada por operação 
@@ -1068,17 +1089,17 @@ do usuário;
 \item \textbf{\textit{Set}:}
 Define o valor de uma determinada informação de um objeto gerenciado. 
 Esta operação é indispensável para a gerência e a compatibilidade com o 
-modelo FCAPS. 
-Devido a sua simplicidade, o SNMP não contempla ações de criação ou remoção de 
-objetos gerenciados, sendo realizadas pelo próprio \textit{set};
+modelo \hyperref[siglas]{FCAPS}. 
+Devido a sua simplicidade, o \hyperref[siglas]{SNMP} não contempla ações de criação ou remoção de 
+objetos gerenciados, sendo realizadas, quando possível, pelo próprio \textit{set};
 
 \item \textbf{\textit{Trap}:}
 Representa um aviso enviado de maneira autônoma do agente para o gerente. 
 Usado para relatar condições excepcionais e gerar alertas.
 Esta operação, ao contrário do \textit{inform}, não é confirmada, portanto
-não há como saber se foi recebida pelo gerente.
+não há como garantir que foi recebida pelo gerente.
 Com a chegada do SNMPv2 e as alterações no formato da mensagem, 
-esta operação passou a ser chamada \textit{notification}, 
+a operação passou a se chamar \textit{notification}, 
 porém esta nomenclatura é pouco usada.
 
 \end{itemize}
@@ -1149,73 +1170,73 @@ porém esta nomenclatura é pouco usada.
 
 
 Projetado desde o princípio para ser o protocolo de gerência de redes 
-associado aos protocolos de internet (TCP/IP), o SNMP trabalha nativamente 
-sobre o serviço de datagramas UDP (\textit{User Datagram Protocol}).
-Ao contrário do TCP, que exige o estabelecimento de uma conexão antes de 
-comunicar-se, o UDP evita este custo enquanto não garante a entrega nem 
+associado aos protocolos de internet (\hyperref[siglas]{TCP/IP}), o \hyperref[siglas]{SNMP} trabalha nativamente 
+sobre o serviço de datagramas \hyperref[siglas]{UDP} (\textit{User Datagram Protocol}).
+Ao contrário do \hyperref[siglas]{TCP}, que exige o estabelecimento de uma conexão antes de 
+comunicar-se, o \hyperref[siglas]{UDP} evita este custo enquanto não garante a entrega nem 
 a ordenação das mensagens.
 Apesar dessas deficiências, os ganhos obtidos são suficientes para justificar 
-sua escolha pois um vez que os metadados do pacote são menores, seu uso reduz 
+sua escolha pois, um vez que os metadados do pacote são menores, seu uso reduz 
 o impacto na operação normal da rede e aumenta as chances de sucesso na 
 comunicação em redes sobrecarregadas \cite{Mauro2009}.
 
 
 Entretanto a situação torna-se mais delicada quando \textit{traps} são 
 consideradas. 
-A ausência de confirmação por parte do UDP faz com que não seja possível ao 
-emissor saber se sua mensagem chegou ao destino e, no caso das \textit{traps}, 
+A ausência de confirmação por parte do \hyperref[siglas]{UDP} faz com que não seja possível ao 
+emissor saber se sua mensagem chegou ao destino o que, no caso das \textit{traps}, 
 pode significar a perda de um evento importante \cite{Clemm2006}.
 Para casos onde é estritamente necessária a confirmação de um evento, foi 
 adicionada a operação \textit{inform} que realiza este controle através da 
 aplicação ao invés do protocolo de transporte.
 
 
-Apesar de projetado para o funcionamento sobre redes TCP/IP, o SNMP, devido ao 
+Apesar de projetado para o funcionamento sobre redes \hyperref[siglas]{TCP/IP}, o \hyperref[siglas]{SNMP}, devido ao 
 seu sucesso, ganhou compatibilidade com outras plataformas como AppleTalk e 
-IPX, além de projetos para interoperabilidade com o modelo ISO 
+\hyperref[siglas]{IPX}, além de projetos para interoperabilidade com o modelo \hyperref[siglas]{ISO} 
 assim que ele entrasse em uso \cite{Hunt1997}.
 Entretanto tais tecnologias perderam espaço e hoje não têm mais relevância nas 
 redes de computadores e tampouco na sua gerência.
-Para comunicação sobre UDP, o SNMP utiliza a porta 161 para todas operações 
+Para comunicação sobre \hyperref[siglas]{UDP}, o \hyperref[siglas]{SNMP} utiliza a porta 161 para todas operações 
 exceto \textit{traps} e \textit{informs}, quando usa a porta 162 
 \cite{Mauro2009}.
 
 
-Ao longo de sua evolução o SNMP passou por revisões na estrutura de suas 
+Ao longo de sua evolução o \hyperref[siglas]{SNMP} passou por revisões na estrutura de suas 
 mensagens, com a principal delas ocorrendo na transição entre as versões 1 e 2.
 Tais correções tiveram por objetivo unificar a arquitetura e 
 simplificar o seu tratamento tanto no agente quanto no gerente 
 \cite{perkins1997understanding}.
-Apesar das alterações no formato das mensagens, a arquitetura do modelo SNMP, 
+Apesar das alterações no formato das mensagens, a arquitetura do modelo \hyperref[siglas]{SNMP}, 
 como ilustrada pela ~\autoref{fig:snmp-stack}, não foi alterada, 
-seguindo estável desde seu projeto.
+seguindo estável desde seu projeto inicial.
 
 
-Com a padronização de sua terceira versão o SNMP passou a contar com 
+Com a padronização de sua terceira versão o \hyperref[siglas]{SNMP} passou a contar com 
 funcionalidades maduras de segurança, entretanto esta evolução trouxe 
 consigo um significativo aumento na complexidade do protocolo
 \cite{Mauro2009}.
 Este crescimento fica evidente quando inspeciona-se a estrutura de um pacote 
-SNMP das versões 1 e 2 comparado com a versão 3.
+\hyperref[siglas]{SNMP} das versões 1 e 2 comparado com a versão 3.
 Com a ajuda da \autoref{fig:snmp-pdu}, percebe-se que as funcionalidades de 
 segurança incorrem um custo tanto no tamanho dos pacotes quanto na 
 simplicidade do protocolo.
 
 
-Apesar da mudança no pacote SNMP, a estrutura da PDU (\textit{Protocol Data 
+Apesar da mudança no pacote \hyperref[siglas]{SNMP}, a estrutura da \hyperref[siglas]{PDU} (\textit{Protocol Data 
 Unit}, ou, em tradução livre, Unidade de Dados do Protocolo) manteve-se 
 estável.
-A PDU é responsável por encapsular os dados de requisições e respostas 
-realizadas através do SNMP e, para isso, conta com campos de metadados 
+A \hyperref[siglas]{PDU} é responsável por encapsular os dados de requisições e respostas 
+realizadas através do \hyperref[siglas]{SNMP} e, para isso, conta com campos de metadados 
 e dados \cite{perkins1997understanding}.
 
 
-Todas as operações disponibilizadas pelo SNMP compartilham a mesma PDU, 
+Todas as operações disponibilizadas pelo \hyperref[siglas]{SNMP} compartilham a mesma \hyperref[siglas]{PDU}, 
 com ressalvas no caso do \textit{get-bulk}, sendo esta uma prova concreta
-da simplicidade do SNMP, uma vez que a estrutura compartilhada facilita
+da simplicidade do \hyperref[siglas]{SNMP}, uma vez que a estrutura compartilhada facilita
 a implementação de agentes \cite{Clemm2006}
 Na \autoref{tab:pdu-operacao} é detalhado o significado de cada um dos
-campos da PDU conforme a operação realizada.
+campos da \hyperref[siglas]{PDU} conforme a operação realizada.
 Cabe destacar que os campos \textit{error status} e \textit{error index} 
 adquirem outro significado quando usados na requisição \textit{get-bulk},
 informando quais dos itens nos \textit{variable bindings} devem ser 
@@ -1224,14 +1245,14 @@ interpretados como repetidos ou não \cite{perkins1997understanding}.
 
 Cabe, também, atenção especial aos \textit{variable bindings}, que indicam 
 os objetos de interesse da requisição e da resposta.
-Neste campo espera-se uma lista contendo os nomes (identificadores na MIB) 
+Neste campo espera-se uma lista contendo os nomes (identificadores na \hyperref[siglas]{MIB}) 
 e os valores dos campos sobre os quais o gerente deseja operar 
 \cite{Simoneau1999}.
 No caso de respostas, \textit{sets} e \textit{traps} 
 (considerando também \textit{informs} e \textit{reports})
 estarão presentes os valores que definem os objetos, enquanto nas requisições
-devem conter um indicador de campo vazio (NULL) \cite{Clemm2006}.
-Nessa estrutura reside a capacidade do SNMP de obter e definir diversas 
+devem conter um indicador de campo vazio, NULL \cite{Clemm2006}.
+Nessa estrutura reside a capacidade do \hyperref[siglas]{SNMP} de obter e definir diversas 
 informações de gerência em uma única requisição e de maneira atômica.
 
 
@@ -1321,15 +1342,15 @@ p{3.75cm}	% get-bulk
 \section{MIB}
 
 Parte integral da gerência de redes é a definição de um idioma comum que será 
-usado entre gerentes e agentes. O protocolo, seja SNMP ou qualquer outro, faz 
+usado entre gerentes e agentes. O protocolo, seja \hyperref[siglas]{SNMP} ou qualquer outro, faz 
 parte da solução mas sozinho não é capaz de preencher todos os requisitos 
 necessários para o estabelecimento de uma linguagem compreendida por todos os 
 interessados na gerência e, apesar de especificar o formato das mensagens, o 
 protocolo não determina como as informações serão representadas.
 Esta é a função da Base de Informações de Gerência 
-(em inglês \textit{Management Information Base}, MIB).
+(em inglês \textit{Management Information Base}, \hyperref[siglas]{MIB}).
 
-O papel da MIB é especificar a organização lógica e quais são os dados 
+O papel da \hyperref[siglas]{MIB} é especificar a organização lógica e quais são os dados 
 disponíveis para que aplicações se comuniquem de maneira padronizada 
 \cite{Silva2005}.
 Sua importância deve-se ao fato de ser 
@@ -1343,35 +1364,35 @@ gerentes e agentes''
 % takes place between managers and agents
 \cite[p.~227]{Clemm2006}.
 
-Sua origem ``deriva do modelo OSI/ISO de gerência de redes''
+Sua origem ``deriva do modelo \hyperref[siglas]{OSI/ISO} de gerência de redes''
 % stems from the OSI/ISO Network management model
 \cite[p.~46]{Ding2009} 
 e indica que
-``como um conceito, uma MIB não depende de nenhum protocolo de gerência''
+``como um conceito, uma \hyperref[siglas]{MIB} não depende de nenhum protocolo de gerência''
 % as a concept, a MIB does not depend on any particular management protocol
 \cite[p.~222]{Clemm2006}.
-Porém este nem sempre é o caso e, como o próprio \citetexto{Clemm2006} 
+Porém este nem sempre é o caso e, como o próprio \citetexto[p.~201]{Clemm2006} 
 explica, 
-``apesar de, em teoria, MIBs poderem ser definidas de forma verdadeiramente 
+``apesar de, em teoria, \hyperref[siglas]{MIBs} poderem ser definidas de forma verdadeiramente 
 independente do seu protocolo, na prática diferentes protocolos exigem sua 
 própria maneira''
 % Although in theory MIBs could be defined to be truly independent of the 
 % management protocol, in practice, different management protocols require 
 % their own specific way. [p 201 / 179]
 .
-Este foi o caso do SNMP e do modelo ISO, onde inicialmente previa-se que ambos 
-compartilhariam as mesmas MIBs, porém diferenças nos protocolos forçaram o 
+Este foi o caso do \hyperref[siglas]{SNMP} e do modelo \hyperref[siglas]{ISO}, onde inicialmente previa-se que ambos 
+compartilhariam as mesmas \hyperref[siglas]{MIBs}, porém diferenças nos protocolos forçaram o 
 desenvolvimento independente \cite{Hunt1997,stallings1999snmp,Leinwand1996}.
 
-Estruturada como uma árvore, a MIB abriga e define todas as informações de 
-gerência para determinado dispositivo ou classe de dispositivos, ou seja, 
-``MIBs são especificações contendo as definições das informações de 
+Estruturada como uma árvore, a \hyperref[siglas]{MIB} abriga e define todas as informações de 
+gerência para determinado dispositivo ou classe de dispositivos, ou seja, as
+``\hyperref[siglas]{MIBs} são especificações contendo as definições das informações de 
 gerenciamento para que sistemas em rede possam ser monitorados, configurados e 
 controlados''
 % MIBs are specifications containing definitions of management information so 
 % that networked systems can be remotely monitored, configured, and controlled.
 \cite[p.~1]{perkins1997understanding}.
-Outra forma de visualizar a MIB é como uma coleção de objetos em um banco de 
+Outra forma de visualizar a \hyperref[siglas]{MIB} é como uma coleção de objetos em um banco de 
 dados virtual usado para gerir entidades de rede, tais como computadores, 
 roteadores e impressoras 
 % It comprises a collection of objects in a (virtual) database used 
@@ -1385,25 +1406,25 @@ gerência de redes
 \cite{Clemm2006}.
 Desta forma 
 ``qualquer tipo de informação estatística ou de estado que pode ser acessada 
-pelo gerente está definida na MIB''
+pelo gerente está definida na \hyperref[siglas]{MIB}''
 % Any sort of status or statistical information that 
 % can be accessed by the NMS is defined in a MIB
 \cite[p.~4]{Mauro2009}.
 
 É importante notar que um agente pode, e é encorajado a, 
-implementar mais de uma MIB concorrentemente 
+implementar mais de uma \hyperref[siglas]{MIB} concorrentemente 
 % multiple MIBs might be supported concurrently by the same managed device, 
 % each by its own management agent
 \cite{Clemm2006}, 
 isto é possível pois 
-``permite-se a indivíduos e fornecedores definir MIBs para seu próprio uso'' 
+``permite-se a indivíduos e fornecedores definir \hyperref[siglas]{MIBs} para seu próprio uso'' 
 % vendors, and individuals, are allowed to define MIB 
 % variables for their own use
 \cite[p.~5]{Mauro2009}. 
 Grandes fabricantes como Cisco e 3Com (agora HP), além de suportar um 
-conjunto básico de MIBs, fornecem, juntamente com seus equipamentos, MIBs 
+conjunto básico de \hyperref[siglas]{MIBs}, fornecem, juntamente com seus equipamentos, \hyperref[siglas]{MIBs} 
 próprias e específicas para determinados produtos.
-Desta forma podemos concluir que uma MIB 
+Desta forma podemos concluir que uma \hyperref[siglas]{MIB} 
 ``pode ser pensada como a especificação que define os objetos gerenciados que 
 um dispositivo ou fornecedor suporta''
 % The MIB can be thought of as a specification that defines 
@@ -1429,7 +1450,7 @@ escala reduzida \cite{Smith2012}.
 Neste capítulo são apresentados os principais conceitos que possibilitaram a 
 concepção da ideia de uma Internet das Coisas e sua definição conforme 
 interpretada neste trabalho.
-Ainda é abordada aqui a importância da IoT para revolucionar a maneira como a 
+Ainda é abordada aqui a importância da \hyperref[siglas]{IoT} para revolucionar a maneira como a 
 sociedade adquire informações e conhecimento sobre si mesma, transformando-os 
 em sabedoria, assim como os principais desafios e oportunidades ligados à 
 realização deste paradigma.
@@ -1439,11 +1460,11 @@ realização deste paradigma.
 
 	Diversas tecnologias contribuíram com os avanços necessários para o 
 	desenvolvimento da Internet das Coisas. A partir dos estudos em áreas como 
-	etiquetas de Identificação por Radiofrequência (RFID), Redes de 
-	Sensores sem Fio (WSN), Protocolo de Internet versão 6 (IPv6) e Smart 
-	Objects foi possível atingir o atual nível de maturidade da IoT.
+	etiquetas de Identificação por Radiofrequência (\hyperref[siglas]{RFID}), Redes de 
+	Sensores sem Fio (\hyperref[siglas]{WSN}), Protocolo de Internet versão 6 (\hyperref[siglas]{IPv6}) e \textit{Smart 
+	Objects} foi possível atingir o atual nível de maturidade da \hyperref[siglas]{IoT}.
 	A seguir são apresentadas as principais tecnologias nas quais o conceito de 
-	Internet das Coisas se apóia e que possibilitaram o seu desenvolvimento.
+	Internet das Coisas se apoia e que possibilitaram o seu desenvolvimento.
 
 % Citar \cite[p.~8]{Buckley2006} sobre os graus de sofisticação dos 
 %dispositivos
@@ -1454,9 +1475,9 @@ realização deste paradigma.
 %	nos campos relacionados. 
 
 \subsection{RFID}
-	Etiquetas RFID representam uma nova geração dos mecanismos de 
+	Etiquetas \hyperref[siglas]{RFID} representam uma nova geração dos mecanismos de 
 	identificação de objetos \cite{Brock2001}. Diferentemente dos códigos de 
-	barras, as \textit{tags} RFID utilizam comunicação via radiofrequência, o 
+	barras, as \textit{tags} \hyperref[siglas]{RFID} utilizam comunicação via radiofrequência, o 
 	que, segundo \citetexto{Want2006}, possibilita uma maior distância de 
 	leitura e, adicionalmente, elimina a necessidade de visada direta. O autor 
 	afirma ainda que é possível que as etiquetas contenham memória de leitura 
@@ -1465,84 +1486,84 @@ realização deste paradigma.
 	ou se permaneceu dentre os limites de temperatura, por exemplo).
 	
 	Iniciativas preliminares no campo da Internet das Coisas contemplaram 
-	principalmente o uso de RFIDs para realizar o rastreamento de objetos em 
-	um ambiente dotado de diversos leitores RFID ou para ativar determinados 
+	principalmente o uso de \hyperref[siglas]{RFIDs} para realizar o rastreamento de objetos em 
+	um ambiente dotado de diversos leitores \hyperref[siglas]{RFID} ou para ativar determinados 
 	comportamentos em um sistema computacional de acordo com dados obtidos 
 	através da leitura de uma etiqueta. Os trabalhos de \citetexto{Want1999}, 
 	\citetexto{Floerkemeier2007a} e \citetexto{Welbourne2009} apresentam 
-	implementações concretas utilizando-se de RFIDs.
+	implementações concretas utilizando-se de \hyperref[siglas]{RFIDs}.
 
 \subsection{WSN}
-	Diferentemente das \textit{tags} RFID, que não realizam processamento e 
+	Diferentemente das \textit{tags} \hyperref[siglas]{RFID}, que não realizam processamento e 
 	são geralmente passivas \cite{Atzori2010b}, as Redes de Sensores sem Fio 
 	são compostas de pequenos dispositivos que, apesar da capacidade reduzida, 
 	efetuam coleta e processamento de dados \cite{Sakthidharan2012}. Segundo 
-	\citetexto{Sung2007}, boa parte das aplicações de WSNs são voltadas para 
+	\citetexto{Sung2007}, boa parte das aplicações de \hyperref[siglas]{WSNs} são voltadas para 
 	o monitoramento de ambientes físicos, contemplando fins militares, 
-	ecológicos e industriais \cite{Suhonen2012}. Pesquisas relacionando RFID e 
-	WSNs, em direção a uma visão de Internet das Coisas, foram realizadas por 
+	ecológicos e industriais \cite{Suhonen2012}. Pesquisas relacionando \hyperref[siglas]{RFID} e 
+	\hyperref[siglas]{WSNs}, em direção a uma visão de Internet das Coisas, foram realizadas por 
 	\citetexto{Sung2007}, \citetexto{Zhang2011a} e \citetexto{Hada2011}, 
 	comprovando a viabilidade da proposta.
 	
 	De acordo com \citetexto{Liu2012}, a capacidade de coletar e processar 
-	dados de maneira autônoma é uma das fundações da IoT, tornando as WSNs uma 
+	dados de maneira autônoma é uma das fundações da \hyperref[siglas]{IoT}, tornando as \hyperref[siglas]{WSNs} uma 
 	das áreas de pesquisa que mais contribuíram para o seu desenvolvimento. 
-	\citetexto{Perera2013} corrobora ao afirmar que a IoT não pode existir sem 
-	o apoio das WSNs, pois elas fornecem a maior parte da infraestrutura de 
+	\citetexto{Perera2013} corroboram ao afirmar que a \hyperref[siglas]{IoT} não pode existir sem 
+	o apoio das \hyperref[siglas]{WSNs}, pois elas fornecem a maior parte da infraestrutura de 
 	hardware para a comunicação e coleta de informações contextuais.
 
 \subsection{Gateway IoT}
-	Apesar do sucesso das WSNs para a comunicação em curta distância, 
-	\citetexto{Zhu2010} afirma que existe dificuldade 
+	Apesar do sucesso das \hyperref[siglas]{WSNs} para a comunicação em curta distância, 
+	\citetexto{Zhu2010} afirmam que existe dificuldade 
 	em conectar redes de sensores à internet devido a falta de padronização 
 	nos protocolos de comunicação. Para superar esta dificuldade foi 
 	estabelecido o conceito de dispositivo coordenador, também chamado de 
 	\textit{gateway} \cite{Steenkamp2009}. 
-	Assim como as WSNs, os protótipos iniciais de IoT conectavam-se à internet 
+	Assim como as \hyperref[siglas]{WSNs}, os protótipos iniciais de \hyperref[siglas]{IoT} conectavam-se à internet 
 	através do coordenador, um dispositivo mais potente que faz o papel de 
 	roteador na rede \cite{Kuryla2010} e, por não apresentar as mesmas 
 	restrições dos sensores, é encarregado de prover 
 	conectividade externa (através de 
-	tecnologias como GSM, CDMA e WLAN, por exemplo) \cite{Liu2012}.
+	tecnologias como \hyperref[siglas]{GSM}, \hyperref[siglas]{CDMA} e \hyperref[siglas]{WLAN}, por exemplo) \cite{Liu2012}.
 	
 	As implementações de \citetexto{Zhu2010}, \citetexto{Steenkamp2009} e 
 	\citetexto{Hada2011} apresentam resultados e percepções sobre o uso de 
-	\textit{gateways} entre WSNs e a internet, viabilizando a criação de 
+	\textit{gateways} entre \hyperref[siglas]{WSNs} e a internet, viabilizando a criação de 
 	aplicações que demonstram, na prática, o conceito de Internet das Coisas.
 
 \subsection{IPv6}
-	Uma vez cumprido o objetivo de conectar as WSNs a internet o próximo passo 
-	consiste em propiciar conectividade a cada dispositivo individualmente 
-	\cite[p.~13]{Atzori2010b}, efetivamente tornando-o parte da internet.
+	Uma vez cumprido o objetivo de conectar as \hyperref[siglas]{WSNs} a internet o próximo passo 
+	consiste em propiciar conectividade para cada dispositivo individualmente 
+	\cite{Atzori2010b}, efetivamente tornando-o parte da internet.
 	Para tanto, a escolha considerada mais sábia por \citetexto{Mattern2010a} 
 	é de utilizar-se dos mesmos protocolos já estabelecidos pela internet, 
 	favorecendo a interoperabilidade.
-	Sobre o uso de endereços IP como forma de 
+	Sobre o uso de endereços \hyperref[siglas]{IP} como forma de 
 	identificação \citetexto{Sundmaeker2010} dizem que:
 	\begin{quote}
 		a ideia de atribuí-los a cada um dos aproximadamente 5 
 		mil objetos diários que nos cercam, é bastante atraente.
-		Com a tecnologia certa em cada objeto (uma etiqueta RFID, por exemplo) 
+		Com a tecnologia certa em cada objeto (uma etiqueta \hyperref[siglas]{RFID}, por exemplo) 
 		e a rede certa nos arredores, será fácil localizar e catalogar itens 
 		em poucos segundos e colher os benefícios da vasta quantidade de novas 
-		informações que a comunicação entre eles vai prover. IPv6 é 
+		informações que a comunicação entre eles vai prover. \hyperref[siglas]{IPv6} é 
 		indiscutivelmente um dos passos para tornar a Internet das Coisas uma 
-		realidade.
+		realidade
 		\cite[p.~15]{Sundmaeker2010}.
 	\end{quote}
 	
 	Orientadas por esta visão, companhias como Intel, Cisco e SAP formaram em 
-	2008 a aliança ``IP para Objetos Inteligentes'' (IPSO), reforçando o 
+	2008 a aliança ``IP para Objetos Inteligentes'' (\hyperref[siglas]{IPSO}), reforçando o 
 	interesse da indústria pela conectividade direta entre dispositivos 
 	\cite{Dunkels2008, Mattern2010a}. 
-	Aliada a esse interesse, a Força Tarefa de Engenharia da Internet, IETF, 
-	vem desenvolvendo o protocolo IPv6 sobre Rede Local Pessoal Sem Fio de 
-	Baixo Consumo, 6LoWPAN, que define os mecanismos para troca de mensagens 
-	IPv6 sobre redes IEEE 802.15.4, especialmente projetada para o caso da 
+	Aliada a esse interesse, a Força Tarefa de Engenharia da Internet, \hyperref[siglas]{IETF}, 
+	vem desenvolvendo o protocolo \hyperref[siglas]{IPv6} sobre Rede Local Pessoal Sem Fio de 
+	Baixo Consumo, \hyperref[siglas]{6LoWPAN}, que define os mecanismos para troca de mensagens 
+	\hyperref[siglas]{IPv6} sobre redes \hyperref[siglas]{IEEE} 802.15.4, especialmente projetada para o caso da 
 	Internet das Coisas \cite{Gomez2010}.
 
 \subsection{\textit{Smart Objects}}
-	Contrastando com as etiquetas RFID, o conceito de Objetos Inteligentes 
+	Contrastando com as etiquetas \hyperref[siglas]{RFID}, o conceito de Objetos Inteligentes 
 	(\textit{Smart Objects}) compreende objetos físicos/digitais autônomos 
 	aumentados com capacidades sensoriais, de processamento e rede 
 	\cite{Gellersen2001}.
@@ -1577,10 +1598,10 @@ realização deste paradigma.
 \section{Definição}
 
 	Diversas são as definições disponíveis para o termo Internet das 
-	Coisas (IoT). \citetexto{Atzori2010b} atribuem a grande variedade de 
+	Coisas (\hyperref[siglas]{IoT}). \citetexto{Atzori2010b} atribuem a grande variedade de 
 	definições às diferentes visões que cada organização, dependendo dos 
 	seus objetivos, tem, geralmente sendo orientadas a internet ou as 
-	coisas. Apesar das diferenças o conceito de IoT é, para 
+	coisas. Apesar das diferenças o conceito de \hyperref[siglas]{IoT} é, para 
 	\citetexto{Coetzee2011}:
 	
 	\begin{quote}
@@ -1595,26 +1616,26 @@ realização deste paradigma.
 	definições por Kevin \citetexto{Ashton2009} e David 
 	\citetexto{Brock2001} do Auto-ID Labs e da União Internacional de 
 	Telecomunicações, \citetexto{ITU2005}. Enquanto a primeira é focada na 
-	identificação e detecção de objetos através do uso de RFIDs, a segunda 
+	identificação e detecção de objetos através do uso de \hyperref[siglas]{RFIDs}, a segunda 
 	aborda uma definição mais ampla, detalhada a seguir.
 	
 	Em sua definição, a \citetexto{ITU2005} sugere que a Internet das 
 	Coisas, através de suas tecnologias, será capaz de conectar objetos de 
 	maneira inteligente e sensorial, combinando avanços nos campos de:
 	\begin{itemize}
-		\item Identificação --- \textit{Tagging things}: Tecnologias para 
+		\item \textbf{Identificação -- \textit{Tagging things}:} Tecnologias para 
 		reconhecimento e rastreamento de objetos, baseadas principalmente 
-		em RFID. Possibilitam uma forma primitiva de integração entre o 
+		em \hyperref[siglas]{RFID}. Possibilitam uma forma primitiva de integração entre o 
 		real e o virtual;
 		
-		\item Sensores --- \textit{Feeling things}: Tecnologias 
-		relacionadas a WSNs, utilizando-se dos conhecimentos já adquiridos 
+		\item \textbf{Sensores -- \textit{Feeling things}:} Tecnologias 
+		relacionadas a \hyperref[siglas]{WSNs}, utilizando-se dos conhecimentos já adquiridos 
 		pelas pesquisas nesta área. Sensores ampliam a quantidade de 
 		informações contextuais para aplicações, possibilitando um melhor 
 		mapeamento do seu ambiente por meio de parâmetros como: 
 		temperatura, luminosidade, vibração, nível de ruído, entre outros;
 		
-		\item Sistemas embarcados --- \textit{Thinking things}: Refere-se 
+		\item \textbf{Sistemas embarcados -- \textit{Thinking things}:} Refere-se 
 		a crescente capacidade de embutir microcontroladores e 	
 		processadores em objetos da vida cotidiana, efetivamente 
 		possibilitando a criação de objetos inteligentes. Com a redução de 
@@ -1622,7 +1643,7 @@ realização deste paradigma.
 		específico por processadores multipropósito é favorecida, criando 
 		uma nova geração de objetos;
 		
-		\item Nanotecnologia --- \textit{Shrinking things}: Abordando o 
+		\item \textbf{Nanotecnologia -- \textit{Shrinking things}:} Abordando o 
 		impacto e as possibilidades do uso altamente difundido de 
 		tecnologias de nano escala. Dentre as previsões estão circuitos 
 		menores, mais econômicos e baratos, além do uso de novos 
@@ -1630,7 +1651,7 @@ realização deste paradigma.
 		dispositivos.
 	\end{itemize}
 	
-	Entretanto, a riqueza de possibilidades abertas pela IoT pode ser 
+	Entretanto, a riqueza de possibilidades abertas pela \hyperref[siglas]{IoT} pode ser 
 	explicada simplesmente pela análise individual de seus termos 
 	constituintes, ou seja, a combinação de internet e coisas. Segundo 
 	\citetexto{Simpson2005}, no Oxford English Dictionary, a internet é 
@@ -1640,17 +1661,16 @@ realização deste paradigma.
 	
 	Coisas, por outro lado, não tem uma definição precisa, podendo variar 
 	conforme o contexto e o foco da aplicação. \citetexto{Coetzee2011} 
-	apresentam uma definição abrangente direcionada para IoT:
+	apresentam uma definição abrangente direcionada para \hyperref[siglas]{IoT}:
 	
 	\begin{quote}
-		A definição de ``coisas'' na visão da IoT é muito ampla e inclui 
+		A definição de ``coisas'' na visão da \hyperref[siglas]{IoT} é muito ampla e inclui 
 		uma variedade de elementos físicos. Estes incluem objetos pessoais 
-		que carregamos como \textit{smart phones}, \textit{tablets} e 
+		que carregamos como \textit{smartphones}, \textit{tablets} e 
 		câmeras digitais. Ela também inclui elementos em nosso ambiente 
 		(seja em casa, no carro ou no trabalho) assim como coisas 
-		equipadas com \textit{tags} (RFID ou outras) que se tornam 
-		conectadas através de um portal de acesso (um \textit{smart 
-			phone}, por exemplo).~
+		equipadas com \textit{tags} (\hyperref[siglas]{RFID} ou outras) que se tornam 
+		conectadas através de um portal de acesso (um \textit{smartphone}, por exemplo)
 		\cite{Coetzee2011}.
 	\end{quote}
 	
@@ -1659,7 +1679,7 @@ realização deste paradigma.
 	identificação e, impulsionado pela evolução tecnológica, passando a 
 	versar sobre dispositivos inteligentes e diretamente conectados à 
 	internet sem a necessidade de intermediários. Segundo 
-	\citetexto{Buckley2006} a transformação no conceito de IoT é resultado 
+	\citetexto{Buckley2006} a transformação no conceito de \hyperref[siglas]{IoT} é resultado 
 	tanto de avanços tecnológicos quanto de interesse mercadológico 
 	impulsionado pelos potenciais benefícios.
 
@@ -1676,22 +1696,23 @@ realização deste paradigma.
 	até mesmo em nossa estrutura cerebral.
 	
 	Classificada como a terceira onda da computação \cite{Register2013}, 
-	os conceitos de IoT poderão ser aplicados a diversos setores 
+	os conceitos de \hyperref[siglas]{IoT} poderão ser aplicados a diversos setores 
 	produtivos, desde a indústria ao setor público. Os possíveis 
 	benefícios obtidos através de uma vasta rede de dispositivos 
 	interconectados fez com que especialistas como \citetexto{Hung2012}, 
-	da Gartner, classificassem a IoT como um paradigma transformacional.
+	da Gartner, classificassem a \hyperref[siglas]{IoT} como um paradigma transformacional.
 	
-	\citetexto{Cisco2011} ressaltam que a importância da IoT está 
+	\citetexto{Cisco2011} ressaltam que a importância da \hyperref[siglas]{IoT} está 
 	profundamente interligada com a maneira como a humanidade se desenvolveu: 
 	``Humanos evoluem porque se comunicam. Assim que o fogo foi descoberto 
 	e compartilhado, por exemplo, ele não precisou ser redescoberto, 
-	apenas comunicado''. Ainda sob este ponto de vista afirma que, com a 
-	aplicação dos conceitos de IoT, haverá um aumento exponencial na 
-	quantidade de dados disponível:
+	apenas comunicado''. Ainda sob este ponto de vista, afirmam que com a 
+	aplicação dos conceitos de \hyperref[siglas]{IoT}, haverá um aumento exponencial na 
+	quantidade de dados disponíveis e na forma como utilizamos estes dados
+	(representada pela \autoref{fig:wkid}):
 	
 	\begin{quote}
-		considere que a IoT representa a próxima evolução da internet, 
+		considere que a \hyperref[siglas]{IoT} representa a próxima evolução da internet, 
 		levando a um enorme salto na sua habilidade de coletar, analisar e 
 		distribuir dados que podemos transformar em informação, 
 		conhecimento e, finalmente, sabedoria.~
@@ -1715,10 +1736,10 @@ realização deste paradigma.
 A realização de uma visão de Internet das Coisas não ocorrerá sem desafios, 
 tanto sociais e políticos quanto tecnológicos.
 As implicações ligadas a existência de uma infinidade de dispositivos 
-coletando e transmitindo informações sobre a vida cotidiana de seus usuários 
+coletando e transmitindo informações sobre a vida de seus usuários 
 já causa grandes preocupações entre membros da indústria e da academia.
 Desenvolvimentos tecnológicos, necessários para viabilizar a difusão do 
-conceito de IoT, também representam grandes barreiras no avanço deste 
+conceito de \hyperref[siglas]{IoT}, também representam grandes barreiras no avanço deste 
 paradigma.
 
 
@@ -1774,11 +1795,11 @@ neutralização de objetos, como desabilitá-los de forma permanente.
 Relacionada a privacidade, existem ainda questões de segurança que previnem a 
 difusão da Internet das Coisas.
 Dada a reduzida capacidade de processamento dos dispositivos que integram o 
-paradigma da IoT, técnicas de criptografia e segurança de dados acabam sendo 
+paradigma da \hyperref[siglas]{IoT}, técnicas de criptografia e segurança de dados acabam sendo 
 de aplicabilidade limitada, portanto ainda são necessários desenvolvimentos 
-nestas técnicas \cite{Sundmaeker2010}.
+nesta área \cite{Sundmaeker2010}.
 Mecanismos de identificação, como chaves pública-privadas, por exemplo, devem 
-também ser melhorados e padronizados para o uso no contexto de IoT, uma vez 
+também ser melhorados e padronizados para o uso no contexto de \hyperref[siglas]{IoT}, uma vez 
 que serão responsáveis por manter o controle e permissionamento necessário 
 para o acesso aos dados contidos nos dispositivos, assim como mecanismos para 
 revogação destas identificações \cite{Buckley2006}.
@@ -1790,17 +1811,17 @@ risco a segurança de outras pessoas, como no caso de um passaporte clonado
 
 A quantidade de dados gerados através dos dispositivos que compõem a Internet 
 das Coisas também apresenta seus próprios desafios. 
-\citetexto{Coetzee2011} define este fenômeno como ``dilúvio de dados'', onde 
+\citetexto{Coetzee2011} definem este fenômeno como ``dilúvio de dados'', onde 
 deve-se provisionar desde espaço de armazenamento até capacidade de rede para 
 tratar do volume de informação. Existe, ainda, o problema de como interpretar 
 todos estes novos dados que, devido ao seu volume, nem sempre fazem sentido 
 com técnicas simples de análise \cite{ITU2005}.
 Apesar de diretamente relacionado às questões de segurança e privacidade, o 
-problema da quantidade de informação gerada permeia também questões técnicas.
+problema da quantidade de informação gerada permeia, também, questões técnicas.
 
 
 Os desafios de âmbito técnico apresentados pelo paradigma da Internet das 
-Coisas são muitos e diversos, caracterizando, em alguns casos, uma área de 
+Coisas são muitos e diversificados, caracterizando, em alguns casos, uma área de 
 estudo própria. Portanto são apresentados na lista abaixo uma compilação dos 
 desafios técnicos conforme definidos por 
 \citetexto{ITU2005}, 
@@ -1819,20 +1840,20 @@ com que outras características do aparelho também tenham que ser limitadas;
 	\item \textbf{Antenas:}
 Visando aumentar o alcance das comunicações e a duração das baterias, 
 desenvolvimentos em técnicas de processamento de sinais e no projeto de 
-antenas também são desejáveis para dispositivos da IoT;
+antenas também são desejáveis para dispositivos da \hyperref[siglas]{IoT};
 	
 	\item \textbf{Protocolos:}
 Reduções no custo das comunicações e métodos de tolerância a falhas são 
-necessários para tornar a comunicação sem fio mais confiável, tendo como 
-efeito colateral uma redução no gasto energético (uma vez que mensagens não 
+necessários para tornar a comunicação sem fio mais confiável, ocasionando,
+ainda, uma redução no gasto energético (uma vez que mensagens não 
 precisarão ser retransmitidas);
 	
 	\item \textbf{Sensores:}
-Melhorias na precisão e redução no consumo energético de sensores são, também, 
+Melhorias na precisão e a redução no consumo energético de sensores são, também, 
 áreas onde deseja-se desenvolvimento tecnológico. Dado que geralmente mais de 
-um sensor integra um dispositivo da Internet das Coisas e as limitações de 
-sensores como GPS em ambientes fechados, a superação destas barreiras 
-possibilitaria grandes avanços;
+um sensor integra um dispositivo da Internet das Coisas e considerando, também,
+as limitações de sensores (como \hyperref[siglas]{GPS} em ambientes fechados), 
+a superação destas barreiras possibilitaria grandes avanços para a \hyperref[siglas]{IoT};
 	
 	\item \textbf{Atuadores:}
 Complementando o trabalho dos sensores, os atuadores são responsáveis por 
@@ -1841,11 +1862,11 @@ dados de sensores), portanto o seu desenvolvimento traz melhorias para os
 dispositivos e novas possibilidades de produtos e serviços;
 	
 	\item \textbf{Endereçamento:}
-A identificação de dispositivos, não só através de endereços como o IP, também 
-é área de estudo relacionada à IoT. O desenvolvimento de ontologias e maneiras 
+A identificação de dispositivos, não só através de endereços como o \hyperref[siglas]{IP}, também 
+é área de estudo relacionada à \hyperref[siglas]{IoT}. O desenvolvimento de ontologias e maneiras 
 de endereçar as ``coisas'' conforme a aplicação em questão são necessárias, 
-uma vez que o IP não funciona bem com humanos e não provê características 
-sobre o dispositivo identificado;
+uma vez que o \hyperref[siglas]{IP} não é eficiente para memorização humana
+e não fornece características sobre o dispositivo identificado;
 	
 	\item \textbf{Busca:}
 Da mesma forma como existem algoritmos de busca para documentos na internet, 
@@ -1860,26 +1881,27 @@ endereçamento e das características de cada um destes dispositivos.
 
 \section{Oportunidades}
 
-
+%TODO Footnotes: BigData, Hadoop, Hana
 Conceitos atuais como Big Data fornecem uma amostra das possibilidades de 
 extração de conhecimento a partir de grandes conjuntos de dados. 
-Com uma Internet das Coisas funcional é possível aumentar a quantidade e a 
-qualidade dos dados obtidos e, consequentemente, melhorar também a 
+Com uma Internet das Coisas funcional, e utilizando-se destas técnicas, por exemplo,
+é possível aumentar a quantidade e a 
+qualidade dos dados obtidos, melhorando, consequentemente, a 
 qualidade e a precisão das análises.
 Projetos como Hadoop e SAP Hana já encontram-se em uso em diversas 
 organizações e contribuem para a gestão e otimização de processos, 
 possibilitando a tomada de decisões em tempo real a partir de dados 
-vindos de diversas fontes
+vindos de fontes heterogêneas.
 
 
 A grande quantidade de sensores distribuídos geograficamente poderá também 
-desempenhar um papel importante na tomada de decisão, possibilitando também, 
-em conjunto com atuadores, a automação de tarefas baseadas em dados de 
-sensores.
+desempenhar um papel importante na tomada de decisão, possibilitando, 
+em conjunto com atuadores, a automação de tarefas baseadas em dados do 
+ambiente.
 Tais decisões, por mais simples que pareçam, são necessárias ao longo de toda 
 a cadeia produtiva na forma de processos industriais, seja no controle de 
 umidade do solo, de temperatura ou de peso.
-Apesar de serem possíveis hoje, tais controles terão maior valor de negócio, 
+Apesar de já serem possíveis hoje, tais controles terão maior valor de negócio, 
 uma vez que a integração na Internet das Coisas possibilita o processamento e 
 o compartilhamento dessas decisões com outros dispositivos, potencialmente 
 servindo como dados de entrada para os demais processos \cite{ITU2005}.
@@ -1890,7 +1912,7 @@ para a criação de diversos projetos de controle e automação, seja a nível
 residencial, comercial e industrial, expandindo até mesmo à iniciativas 
 globais.
 HP, IBM e Microsoft através de seus projetos, respectivamente, CeNSE, Smarter 
-Planet e Eye-On-Earth demonstraram seu interesse e investimento em direção à 
+Planet e Eye-On-Earth demonstraram o interesse e investimento em direção à 
 realização do conceito de Internet das Coisas \cite{Coetzee2011}.
 O projeto CeNSE traz, em sua definição, uma descrição da visão de Internet das 
 Coisas que vai ao encontro de autores como \citetexto{Atzori2010b}, 
@@ -1914,11 +1936,11 @@ uma nova geração de serviços e aplicações de negócios \cite{HP2009}.
 % web services. 
 \end{quote}
 
-
+%TODO Melhorar esse parágrafo
 Os domínios de aplicação afetados pelo paradigma da Internet das Coisas são 
 variados e atingem grande parte da população e da indústria.
 A difusão de computadores e sistemas de informação pode ser apontada, em 
-parte, como responsável pelo grande alcance das tecnologias de IoT, uma vez 
+parte, como responsável pelo grande alcance das tecnologias de \hyperref[siglas]{IoT}, uma vez 
 que tais sistemas podem sempre ser aprimorados.
 Na lista abaixo encontra-se uma seleção de domínios\footnote{
 Elaborada com base nos dados apresentados por 
@@ -1942,7 +1964,7 @@ sistemas de monitoramento (pressão dos pneus, temperatura do óleo, etc),
 direção autônoma, comunicação veículo--veículo e veículo--infraestrutura;
 	
 	\item \textbf{Telecomunicações:}
-redes peer-to-peer, NFC, carteira digital;
+redes peer-to-peer, \hyperref[siglas]{NFC}, carteira digital;
 	
 	\item \textbf{Prédios Inteligentes:}
 automação residencial (luzes e ar-condicionado, por exemplo), monitoramento de 
@@ -1983,7 +2005,7 @@ monitoramento de desmatamentos e queimadas, monitoramento da qualidade do ar e
 da água, rastreamento de animais;
 	
 	\item \textbf{Transporte de Pessoas e Mercadorias:}
-Sistemas de pedágio e passagens, identificação e triagem de pessoas e 
+sistemas de pedágio e passagens, identificação e triagem de pessoas e 
 mercadorias, controle de tráfego, identificação de bagagens;
 	
 	\item \textbf{Rastreabilidade de Alimentos:}
@@ -2016,7 +2038,7 @@ itens não descartados corretamente.
 
 Uma vez apresentado o conceito de Internet das Coisas e conhecidos seus 
 desafios e oportunidades, torna-se possível identificar pontos de melhoria.
-A grande quantidade de dispositivos previstos no contexto de IoT torna sua 
+A grande quantidade de dispositivos previstos no contexto de \hyperref[siglas]{IoT} torna sua 
 gerência e configuração uma tarefa não trivial e altamente vulnerável a erros 
 humanos.
 Apesar das iniciativas em busca de autoconfiguração e gestão automatizada, é 
@@ -2038,24 +2060,24 @@ onde profissionais e acadêmicos passavam por grandes dificuldades na gestão
 de suas infraestruturas, seja na forma de um escritório ou de um laboratório.
 Semelhanças existem também no que diz respeito à falta de padronização dos 
 dispositivos usados em aplicações para a Internet das Coisas, explicitando 
-ainda mais a relação com a gerência de redes clássica e o SNMP.
+ainda mais a relação com a gerência de redes clássica e o \hyperref[siglas]{SNMP}.
 
 
 Os problemas semelhantes, no contexto de Internet das Coisas e de gerência de 
 redes, tornam oportuno o reuso de estratégias reconhecidamente eficazes e 
-postas à prova ao longo dos anos através do SNMP, que acabou tornando-se 
+postas à prova ao longo dos anos através do \hyperref[siglas]{SNMP}, que acabou tornando-se 
 o protocolo \textit{de facto} e sinônimo de gerência de redes.
-Contudo, as peculiaridades características da IoT exigem adaptações e revisões 
+Contudo, as peculiaridades características da \hyperref[siglas]{IoT} exigem adaptações e revisões 
 das antigas estratégias, de forma que aproveite-se também a oportunidade para 
 revisitar partes problemáticas do modelo clássico de gerência de redes.
 
 
-A união dos conceitos de IoT e gerência de redes traz benefícios pois 
+A união dos conceitos de \hyperref[siglas]{IoT} e gerência de redes traz benefícios pois 
 possibilita o reuso de ferramentas, protocolos e estratégias de gestão e, 
 mesmo que ainda não estejam adaptadas para a Internet das Coisas, permite 
 obter boa parte dos ganhos provenientes do seu uso.
-Ainda é possível citar, como um subproduto da mescla proposta entre SNMP e 
-IoT, a aderência ao paradigma FCAPS de gerência de redes, viabilizando o 
+Ainda é possível citar, como um subproduto da mescla proposta entre \hyperref[siglas]{SNMP} e 
+\hyperref[siglas]{IoT}, a aderência ao paradigma \hyperref[siglas]{FCAPS} de gerência de redes, viabilizando o 
 reuso de todo um arcabouço de conhecimento frente aos novos desafios 
 apresentados pela Internet das Coisas.
 
@@ -2128,10 +2150,10 @@ gerência de redes diretamente nos dispositivos.
 
 
 Contudo, dados os recursos limitados dos dispositivos da Internet das Coisas, 
-conforme detalhado por \citetexto{ietfCNN2013}, a execução de um agente SNMP 
+conforme detalhado por \citetexto{ietfCNN2013}, a execução de um agente \hyperref[siglas]{SNMP} 
 no dispositivo deixa de ser uma tarefa trivial.
 Esforços como os de \citetexto{Choi2009} e \citetexto{Kuryla2010} demonstram 
-que embutir um agente SNMP em um dispositivo para Internet das Coisas é 
+que embutir um agente \hyperref[siglas]{SNMP} em um dispositivo para Internet das Coisas é 
 possível, entretanto a implementação ocupa grande parte dos recursos do 
 dispositivo, fazendo com que este seja incapaz de executar aplicações de 
 usuário, efetivamente inutilizando-o.
@@ -2153,7 +2175,7 @@ No contexto deste trabalho, direcionado à automação residencial, a arquitetur
 com \textit{gateway} foi escolhida pois exige um menor número de alterações 
 nos dispositivos já presentes e pelo fato de que é comum a presença de algum 
 tipo de dispositivo com papel análogo ao do \textit{gateway}, como um 
-modem ou \textit{set-top box} de TV a cabo, e que poderia ser incorporado na 
+modem ou \textit{set-top box} de televisão a cabo, e que poderia ser incorporado na 
 solução proposta.
 %TODO falar mais do gateway:
 % acho importante destacar a certa facilidade que se tem hoje em dia de
@@ -2178,11 +2200,11 @@ respeito ou dos objetos aos quais ele se relaciona;
 Um dispositivo com maior poder de processamento capaz de servir como 
 intermediário e tradutor das comunicações entre dispositivos e gerentes, 
 criando uma ponte entre os protocolos específicos de Internet das Coisas e de 
-gerência de redes, neste caso o SNMP;
+gerência de redes, neste caso o \hyperref[siglas]{SNMP};
 
 
 	\item \textbf{Gerente:}
-Aplicativo de gerência de redes capaz de utilizar o protocolo SNMP e, 
+Aplicativo de gerência de redes capaz de utilizar o protocolo \hyperref[siglas]{SNMP} e, 
 portanto, possa comunicar-se com o \textit{gateway} de forma a gerenciar os 
 dispositivos da Internet das Coisas.
 
