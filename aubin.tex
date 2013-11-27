@@ -2,11 +2,15 @@
 %
 % verificar a lista de siglas
 % verificar se as definições estão junto com a primeira ocorrência do termo
-% conferir se todas as figuras/tabelas são referenciadas no texto
+% conferir se todas as figuras/tabelas são referenciadas no texto (fig 3, por exemplo)
+% sempre que uma citação tiver o "et al.", a concordância do verbo seguinte deve seguir o plural
 % cronograma do TCC 2 (janeiro/julho)
+% reforçar no capítulo 3 o significado da sigla IoT
+% é importante já preveres como será validada a proposta (simulação, protótipo, etc.).
 % == Proposta ==
 % retomar os objetivos
 % como validar o sucesso da ideia (elaboracao do prototipo)
+% a consulta ilustrada na Figura 6, Get(métrica, agrupador, filtros) vai ser suportada por um gerente SNMP normal? Deves explicar bem como isso vai funcionar.  Creio que uma boa forma seria elaborar um exemplo de consulta que implique em agregação.
 %
 %=======================================================================
 % Declarações iniciais identificando a classe de documento e
@@ -271,10 +275,10 @@ pela Universidade do Vale do Rio dos Sinos --- Unisinos
 \pagenumbering{arabic} % evitar endereços duplicados no hyperref
 
 % as epígrafes nos capítulos são opcionais
-%TODO Melhorar o alinhamento
-\epigrafecap{In the nineteenth century, machines learned to do; in the twentieth 
-			 century, they learned to think; and in the twenty-first century, they are 
-			 learning to perceive -- they actually sense and respond.}
+\epigrafecap{In the nineteenth century, machines learned to do; \\
+in the twentieth century, they learned to think; \\
+and in the twenty-first century, they are learning \\
+to perceive --- they actually sense and respond}
 {\citetexto{Sundmaeker2010}}
 
 %	Deve conter:
@@ -928,7 +932,7 @@ Hoje existem em uso três principais versões do protocolo, abordadas a seguir:
 
 \begin{itemize}
 \item \textbf{SNMPv1:}
-Versão inicial do protocolo, padronizada pela RFC 1157 %TODO add ref
+Versão inicial do protocolo, padronizada pela RFC 1157
 e publicada em 1990. 
 Hoje está obsoleta e é mantida apenas como um padrão histórico, porém 
 implementações desta versão ainda são encontradas em dispositivos 
@@ -949,7 +953,7 @@ o fato de que o ``SNMPv1 é notóriamente ineficiente na busca de grandes
 quantidades de informações gerenciais'' \cite{Clemm2006} e expondo ainda mais 
 suas fragilidades de segurança.
 Sendo assim, esta versão introduziu dois novos tipos de operação
-(\textit{get-bulk} e \textit{inform}) %TODO linkar pras operações
+(\textit{get-bulk} e \textit{inform})
 além de redefinir o formato dos pacotes (de modo à uniformizá-los) e melhorar 
 os metadados utilizados para descrever os objetos gerenciados 
 \cite{Hunt1997,stallings1999snmp,Mauro2009}. 
@@ -1018,7 +1022,7 @@ de gerência
 \cite[p.~185]{perkins1997understanding}.
 \end{quote}
 
-Abaixo apresenta-se um detalhamento\footnote{
+A seguir apresenta-se um detalhamento\footnote{
 	Adaptadas a partir de:
 	\citetexto{perkins1997understanding},
 	\citetexto{Simoneau1999},
