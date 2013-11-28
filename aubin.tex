@@ -1,10 +1,6 @@
 %TODO
 %
 % verificar se as definições estão junto com a primeira ocorrência do termo
-% cronograma do TCC 2 (janeiro/julho)
-%	fases de dev
-%	artigo
-%	validacao (1 mes)
 % == Planejamento da Implementação ==
 % a consulta ilustrada na Figura 6, Get(métrica, agrupador, filtros) vai ser suportada por um gerente SNMP normal? Deves explicar bem como isso vai funcionar.  Creio que uma boa forma seria elaborar um exemplo de consulta que implique em agregação.
 %
@@ -2363,63 +2359,78 @@ um todo e, consequentemente, da ideia proposta por este trabalho.
 Para finalizar, cria mais um capítulo com o planejamento do próximo semestre 
 -- basicamente uma revisão do teu cronograma inicial.
 
-% quando associar uma tag, testar se o dispositivo suporta fazendo um req.
-% Falar da MIB
-%
-% Criar objetos que parametrizem o request pro gateway
-% + Request
-% |-- OID 		(objeto de destino que se deseja obter)
-% |-- Agrupador	(operação de agrupamento, min, max, avg)
-% |-- Filtros	(lista dos OIDs que identificam as tags)
-% |-- Send		(executa a ação)
-%
-% Gerenciar as tags de um dispositivo
-% + TagManager
-% |-- Host		(identificador/endereço do dispositivo desejado)
-% |-- Listar	(lista as tags associadas ao dispositivo)
-% |-- Adicionar	(adiciona uma tag ao dispositivo)
-% |-- Remover	(remove uma tag do dispositivo)
-%
-% Implementar em C#? C++?
+
+\begin{figure}
+	\caption{Cronograma da implementação}
+	\label{fig:crono}
+	\centering
+	\begin{minipage}{.8\textwidth}
+		\includegraphics[clip,trim=20mm 185mm 40mm 20mm,width=\textwidth,keepaspectratio=true]{crono_tcc2}
+		\fonte{Elaborado pelo autor.}
+	\end{minipage}
+\end{figure}
 
 
-% Projetar como vai ser feita a query:
-%  avg(cosumo), 	sala 						> 20 w/h
-%  min(volume), 	quarto sala 				> -5db
-%  estado, 			sala 						> host1:0 host2:1
-%  voltagem, 		gps.lat:21.4 gsp.long:44.3 	> host3:110 host4: 220
+\begin{verbatim}
+ quando associar uma tag, testar se o dispositivo suporta fazendo um req.
+ Falar da MIB
 
 
-% \begin{verbatim}
-% aubinMIB
-%   - TagManager
-%     > Listar
-%     > Adicionar
-%     > Remover
-%   - TagDB
-%     - Tipo
-%       - Eletrônico
-%         > Estado (on / off)
-%         > Voltagem
-%         > Consumo
-%       - Áudio
-%         > Volume
-%       - Vídeo
-%         > Width
-%         > Height
-%         > Cores
-%       - Iluminação
-%         > Luminosidade %
-%         > Cor
-%     - Localização
-%       - GPS
-%         > Latitude
-%         > Longitude
-%       - Domiciliar
-%         - Sala
-%         - Quarto
-%         - Cozinha
-% \end{verbatim}
+ Criar objetos que parametrizem o request pro gateway
+ + Request
+ |-- OID 		(objeto de destino que se deseja obter)
+ |-- Agrupador	(operação de agrupamento, min, max, avg)
+ |-- Filtros	(lista dos OIDs que identificam as tags)
+ |-- Send		(executa a ação)
+
+
+ Gerenciar as tags de um dispositivo
+ + TagManager
+ |-- Host		(identificador/endereço do dispositivo desejado)
+ |-- Listar	(lista as tags associadas ao dispositivo)
+ |-- Adicionar	(adiciona uma tag ao dispositivo)
+ |-- Remover	(remove uma tag do dispositivo)
+
+
+ Implementar em C#? C++?
+
+
+ Projetar como vai ser feita a query:
+  avg(cosumo), 	sala 						> 20 w/h
+  min(volume), 	quarto sala 				> -5db
+  estado, 			sala 						> host1:0 host2:1
+  voltagem, 		gps.lat:21.4 gsp.long:44.3 	> host3:110 host4: 220
+
+
+ aubinMIB
+   - TagManager
+     > Listar
+     > Adicionar
+     > Remover
+   - TagDB
+     - Tipo
+       - Eletrônico
+         > Estado (on / off)
+         > Voltagem
+         > Consumo
+       - Áudio
+         > Volume
+       - Vídeo
+         > Width
+         > Height
+         > Cores
+       - Iluminação
+         > Luminosidade %
+         > Cor
+     - Localização
+       - GPS
+         > Latitude
+         > Longitude
+       - Domiciliar
+         - Sala
+         - Quarto
+         - Cozinha
+\end{verbatim}
   
 % Manager precisa saber todas as tags de cada elemento pra conseguir fazer 
 % consultas por tag. Criar uma "resource" que notifica o manager das alterações 
@@ -2443,8 +2454,6 @@ Para finalizar, cria mais um capítulo com o planejamento do próximo semestre
 % \url{coap://192.168.1.15/snmp/tags/tipo/eletronico/estado}
 % 
 % \url{coap://192.168.1.15/snmp/tags/2/1/1}
-
-%TODO cronograma
 
 
 %=======================================================================
