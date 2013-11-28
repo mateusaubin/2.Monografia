@@ -5,13 +5,9 @@
 %	fases de dev
 %	artigo
 %	validacao (1 mes)
-% é importante já preveres como será validada a proposta (simulação, protótipo, etc.).
-%	dispositivos (motes) emulados
-%	gerente
-%	gateway/prototipo
 % == Proposta ==
 % retomar os objetivos
-% como validar o sucesso da ideia (elaboracao do prototipo)
+% == Planejamento da Implementação ==
 % a consulta ilustrada na Figura 6, Get(métrica, agrupador, filtros) vai ser suportada por um gerente SNMP normal? Deves explicar bem como isso vai funcionar.  Creio que uma boa forma seria elaborar um exemplo de consulta que implique em agregação.
 %
 %=======================================================================
@@ -2206,18 +2202,12 @@ Distribuições como BusyBox, DD--WRT, OpenWRT e Tomato\footnote{
 classe de dispositivos, fornecem a infraestrutura necessária para a 
 execução de aplicações de usuário como se estivessem em um ambiente
 nativo Linux.
-%TODO falar mais do gateway:
-% acho importante destacar a certa facilidade que se tem hoje em dia de
-% implementar a funcionalidade do gateway em um modem ou roteador doméstico. 
-% Podes mencionar que vários desses dispositivos se baseiam em
-% micro-distribuições Linux como BusyBox (http://www.busybox.net/about.html),
-% OpenWRT (http://openwrt.org) e DD-WRT (http://dd-wrt.com/site/index), 
-% e que portanto podem ser modificadas para incorporar o gateway.
 A arquitetura proposta contempla três elementos principais, sendo eles:
+
 
 \begin{itemize}
 
-	\item \textbf{Dispositivo:}
+	\item \textbf{Dispositivo Inteligente:}
 Qualquer dispositivo que disponha de conectividade e de uma API\footnote{
 	Uma API, ou Interface de Programação de Aplicativos, é um conjunto de 
 	padrões e regras que estabelece a forma como ocorrerá a comunicação entre 
@@ -2267,7 +2257,7 @@ exemplo.
 	\label{fig:arch-diagrama}
 	\centering
 	\begin{minipage}{.8\textwidth}
-		\includegraphics[clip,trim=10mm 195mm 60mm 15mm,width=\textwidth,keepaspectratio=true]{arch_diagrama}
+		\includegraphics[width=\textwidth,keepaspectratio=true]{arch_diagrama}
 		\fonte{Elaborado pelo autor.}
 	\end{minipage}
 \end{figure}
@@ -2301,6 +2291,66 @@ Como produto final da proposta, representado pela \autoref{fig:arch-diagrama},
 é criada a possibilidade de realizar consultas que abrangem 
 todo um conjunto de dispositivos, filtrados por suas \textit{tags} e com seus 
 valores agrupados.
+
+
+\section{Validação}
+
+
+A proposta será validada através do seu efetivo uso em situações hipotéticas 
+no contexto de automação residencial, conforme especificado no escopo da 
+proposta.
+Tal avaliação será possível pois é objetivo deste trabalho a implementação de 
+um \textit{gateway} a título de protótipo, o que viabiliza a criação de um 
+cenário real de comunicação entre dispositivos, sem necessitar do uso de 
+simuladores.
+
+
+Assim como definido na arquitetura, a avaliação contará, também, com três 
+elementos principais, sendo eles:
+
+\begin{itemize}
+
+	\item \textbf{Dispositivo Inteligente:}
+Um dispositivo que disponha de conectividade e utilize protocolos da Internet 
+das Coisas, podendo assumir papéis como o de sensor, atuador, entre outros.
+Caso seja possível obter um dispositivo de uso específico para IoT planeja-se 
+usá-lo na validação, contudo há grande dificuldade em encontrar estes 
+dispositivos e, caso não seja possível, pretende-se emular seu comportamento 
+em um dispositivo comum, como um PC por exemplo;
+
+	\item \textbf{Gateway:}
+Um PC ou outro dispositivo com maior poder de processamento do que os 
+Dispositivos Inteligentes, preferencialmente executando uma das distribuições 
+Linux específicas para esta classe de dispositivos, como o OpenWRT, ou um 
+ambiente Linux.
+Este dispositivo estará executando o protótipo da solução e deverá fornecer a 
+comunicação tanto entre dispositivos inteligentes como gerentes, funcionando 
+como uma ponte entre eles;
+
+	\item \textbf{Gerente:}
+Aplicativo de gerência de redes que se comunique usando SNMP e executando em 
+um PC.
+Nesta máquina não há restrições quanto a sistema operacional ou arquitetura, 
+desde que o aplicativo de gerência a suporte.
+Não serão realizadas nenhum tipo de alterações no dispositivo gerente e seus 
+softwares, executando versões disponibilizadas diretamente pelo fabricantes de 
+forma a atestar a interoperabilidade da solução proposta, ou seja, seu 
+funcionamento em um cenário de Internet das Coisas.
+
+\end{itemize}
+
+
+Uma vez montado um ambiente com todos os elementos acima descritos será 
+possível avaliar o funcionamento do protótipo e, consequentemente da proposta.
+Esta avaliação será realizada na forma de testes através do gerente da 
+execução das diversas ações previstas na proposta como:
+adição e remoção de \textit{tags};
+execução de requisições com e sem filtros;
+execução de requisições com e sem critérios de agrupamento (como mínimo, 
+máximo e média);
+e a execução de requisições padrão do SNMP.
+O sucesso na realização destas tarefas representa o sucesso da validação como 
+um todo e, consequentemente, da ideia proposta por este trabalho.
 
 
 \chapter{Planejamento da Implementação}
