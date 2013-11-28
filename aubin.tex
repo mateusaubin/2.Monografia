@@ -2,8 +2,13 @@
 %
 % verificar se as definições estão junto com a primeira ocorrência do termo
 % cronograma do TCC 2 (janeiro/julho)
-% reforçar no capítulo 3 o significado da sigla IoT
+%	fases de dev
+%	artigo
+%	validacao (1 mes)
 % é importante já preveres como será validada a proposta (simulação, protótipo, etc.).
+%	dispositivos (motes) emulados
+%	gerente
+%	gateway/prototipo
 % == Proposta ==
 % retomar os objetivos
 % como validar o sucesso da ideia (elaboracao do prototipo)
@@ -1881,7 +1886,6 @@ endereçamento e das características de cada um destes dispositivos.
 
 \section{Oportunidades}
 
-%TODO Footnotes: BigData, Hadoop, Hana
 Conceitos atuais como Big Data fornecem uma amostra das possibilidades de 
 extração de conhecimento a partir de grandes conjuntos de dados. 
 Com uma Internet das Coisas funcional, e utilizando-se destas técnicas, por exemplo,
@@ -2157,6 +2161,8 @@ que embutir um agente \hyperref[siglas]{SNMP} em um dispositivo para Internet da
 possível, entretanto a implementação ocupa grande parte dos recursos do 
 dispositivo, fazendo com que este seja incapaz de executar aplicações de 
 usuário, efetivamente inutilizando-o.
+
+
 Em contrapartida, os trabalhos de \citetexto{Steenkamp2009} e 
 \citetexto{Zhu2010} sugerem o uso de um dispositivo dedicado a prover 
 conectividade e interoperabilidade aos nós da rede, um \textit{gateway}.
@@ -2166,17 +2172,40 @@ os dispositivos continuariam com suas aplicações de usuário intactas,
 concentrando o custo da tradução no \textit{gateway}.
 
 
-Uma avaliação das vantagens e desvantagens de cada modelo, 
-ilustrados pela \autoref{fig:arch}, 
-é necessária para uma tomada de decisão bem informada, entretanto esta análise 
-dele levar em consideração as características do problema em questão e quais 
-são os objetivos da solução.
+Cada modelo, seja de conectividade direta ou através de um \textit{gateway},
+ilustrados pela \autoref{fig:arch}, tem suas vantagens e desvantagens.
+Assim como a conectividade direta reduz o número de dispositivos envolvidos
+em uma ação e concentra um maior número de funcionalidades no dispositivo,
+seu preço é um aumento significativo na complexidade de implementação e 
+na quantidade de recursos necessários.
+Da mesma forma o modelo com \textit{gateway} impõem restrições e,
+principalmente, instaura um ponto único de falha na arquitetura enquanto
+provê facilidades como o controle centralizado e a possibilidade de 
+aliviar as restrições de processamento da rede como um todo de maneira
+economicamente viável, aumentando os recursos de um único dispositivo ao
+invés de diluir este aumento entre todos os nós.
+
+
 No contexto deste trabalho, direcionado à automação residencial, a arquitetura 
 com \textit{gateway} foi escolhida pois exige um menor número de alterações 
 nos dispositivos já presentes e pelo fato de que é comum a presença de algum 
 tipo de dispositivo com papel análogo ao do \textit{gateway}, como um 
 modem ou \textit{set-top box} de televisão a cabo, e que poderia ser incorporado na 
 solução proposta.
+É comum que tais dispositivos sejam baseados em micro--distribuições Linux,
+permitindo que o usuário possa incorporar a funcionalidade desejada
+diretamente no \textit{gateway}.
+Distribuições como BusyBox, DD--WRT, OpenWRT e Tomato\footnote{
+	Maiores informações podem ser encontradas diretamente nas páginas
+	dos projetos, respectivamente:
+	\url{http://www.busybox.net},
+	\url{http://www.dd-wrt.com},
+	\url{https://openwrt.org},
+	\url{http://www.polarcloud.com/tomato}.
+}, específicas para esta
+classe de dispositivos, fornecem a infraestrutura necessária para a 
+execução de aplicações de usuário como se estivessem em um ambiente
+nativo Linux.
 %TODO falar mais do gateway:
 % acho importante destacar a certa facilidade que se tem hoje em dia de
 % implementar a funcionalidade do gateway em um modem ou roteador doméstico. 
@@ -2184,7 +2213,7 @@ solução proposta.
 % micro-distribuições Linux como BusyBox (http://www.busybox.net/about.html),
 % OpenWRT (http://openwrt.org) e DD-WRT (http://dd-wrt.com/site/index), 
 % e que portanto podem ser modificadas para incorporar o gateway.
-Esta arquitetura contempla três elementos principais, sendo eles:
+A arquitetura proposta contempla três elementos principais, sendo eles:
 
 \begin{itemize}
 
@@ -2233,6 +2262,17 @@ classificado de acordo com sua localização, estando na sala ou no quarto, por
 exemplo.
 
 
+\begin{figure}
+	\caption{Diagrama de uma requisição SNMP conforme a proposta}
+	\label{fig:arch-diagrama}
+	\centering
+	\begin{minipage}{.8\textwidth}
+		\includegraphics[clip,trim=10mm 195mm 60mm 15mm,width=\textwidth,keepaspectratio=true]{arch_diagrama}
+		\fonte{Elaborado pelo autor.}
+	\end{minipage}
+\end{figure}
+
+
 Entretanto esta classificação ainda apresenta-se limitada no contexto de 
 automação residencial, uma vez que um televisor, por exemplo, pode pertencer a 
 múltiplos grupos representando desde categorias (como eletrônico, áudio e 
@@ -2261,20 +2301,6 @@ Como produto final da proposta, representado pela \autoref{fig:arch-diagrama},
 é criada a possibilidade de realizar consultas que abrangem 
 todo um conjunto de dispositivos, filtrados por suas \textit{tags} e com seus 
 valores agrupados.
-
-
-\begin{figure}
-	\caption{Diagrama de uma requisição}
-	\label{fig:arch-diagrama}
-	\centering
-	\begin{minipage}{.8\textwidth}
-		\includegraphics[clip,trim=10mm 195mm 60mm 15mm,width=\textwidth,keepaspectratio=true]{arch_diagrama}
-		\fonte{Elaborado pelo autor.}
-	\end{minipage}
-\end{figure}
-
-
-[\ldots]
 
 
 \chapter{Planejamento da Implementação}
