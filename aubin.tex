@@ -5,8 +5,6 @@
 %	fases de dev
 %	artigo
 %	validacao (1 mes)
-% == Proposta ==
-% retomar os objetivos
 % == Planejamento da Implementação ==
 % a consulta ilustrada na Figura 6, Get(métrica, agrupador, filtros) vai ser suportada por um gerente SNMP normal? Deves explicar bem como isso vai funcionar.  Creio que uma boa forma seria elaborar um exemplo de consulta que implique em agregação.
 %
@@ -402,8 +400,7 @@ quadrinhos Homem-Aranha, escrita por Stan Lee.
 	Percebe-se, portanto, que a cooperação entre academia, indústria e governo é fundamental 
 	para que a \hyperref[siglas]{IoT} possa demonstrar seu verdadeiro potencial.
 	
-%TODO Apresentar a estrutura do trabalho (no cap x falaremos de IoT, no cap Y 
-%		de Gerência, tal tal e tal)
+%TODO Apresentar a estrutura do trabalho (no cap x falaremos de IoT, no cap Y de Gerência, tal tal e tal)
 
 \section{Justificativa e Definição do Problema}
 %	Abordar
@@ -2035,7 +2032,6 @@ itens não descartados corretamente.
 
 \chapter{Proposta para IoT}
 
-
 Uma vez apresentado o conceito de Internet das Coisas e conhecidos seus 
 desafios e oportunidades, torna-se possível identificar pontos de melhoria.
 A grande quantidade de dispositivos previstos no contexto de \hyperref[siglas]{IoT} torna sua 
@@ -2058,9 +2054,12 @@ aplicação) apresenta mecanismos próprios de gestão e configuração.
 Tais necessidades são deveras semelhantes aquelas encontradas nos anos 1980, 
 onde profissionais e acadêmicos passavam por grandes dificuldades na gestão 
 de suas infraestruturas, seja na forma de um escritório ou de um laboratório.
-Semelhanças existem também no que diz respeito à falta de padronização dos 
-dispositivos usados em aplicações para a Internet das Coisas, explicitando 
-ainda mais a relação com a gerência de redes clássica e o \hyperref[siglas]{SNMP}.
+Devido a falta de maturidade das aplicações para a Internet das Coisas 
+existem, ainda, grandes divergências e falta de padronização dos próprios 
+dispositivos, dificultando a integração entre eles.
+Semelhanças como estas tornam ainda mais explícita a relação da 
+\hyperref[siglas]{IoT} com a gerência de redes clássica e o 
+\hyperref[siglas]{SNMP}.
 
 
 Os problemas semelhantes, no contexto de Internet das Coisas e de gerência de 
@@ -2082,12 +2081,19 @@ reuso de todo um arcabouço de conhecimento frente aos novos desafios
 apresentados pela Internet das Coisas.
 
 
-%TODO Objetivo II
-% Desenvolver um protótipo da solução projetada como prova de conceito;
-[\ldots]
-%TODO Objetivo III
-% Avaliar a solução em termos de suas forças, fraquezas e futuras oportunidades
-% Em função do protótipo
+Portanto objetiva-se, neste trabalho, provar que é possível reaproveitar boa 
+parte dos conhecimentos adquiridos com a gerência de redes clássica e 
+viabilizar a interoperabilidade entre as suas ferramentas e o paradigma da 
+Internet das Coisas.
+Para atingir este objetivo é necessária a criação de um modelo que forneça 
+denominadores comuns entre estes paradigmas, intermediando sua integração.
+O funcionamento deste modelo será demonstrado através da implementação de 
+um protótipo da solução, servindo como prova de conceito e dispensando o uso 
+de simuladores na avaliação.
+Uma vez criado o modelo de integração, implementado na forma de protótipo e 
+testado, é necessária uma avaliação crítica de suas forças e fraquezas, 
+possibilitando verificar a adequação desta proposta ao seu uso no contexto de 
+Internet das Coisas e de gerência de redes.
 
 
 \section{Escopo}
@@ -2220,7 +2226,6 @@ Um dispositivo com maior poder de processamento capaz de servir como
 intermediário e tradutor das comunicações entre dispositivos e gerentes, 
 criando uma ponte entre os protocolos específicos de Internet das Coisas e de 
 gerência de redes, neste caso o \hyperref[siglas]{SNMP};
-
 
 	\item \textbf{Gerente:}
 Aplicativo de gerência de redes capaz de utilizar o protocolo \hyperref[siglas]{SNMP} e, 
