@@ -248,6 +248,7 @@ pela Universidade do Vale do Rio dos Sinos --- Unisinos
 \item[MIB]		Management Information Base
 \item[NFC]		Near Field Communication
 \item[OSI]		Open Systems Interconnection
+\item[PC]		Personal Computer
 \item[PDU]		Protocol Data Unit
 \item[RFC]		Request For Comments
 \item[SLA]		Service Level Agreement
@@ -1142,7 +1143,6 @@ porém esta nomenclatura é pouco usada.
 \end{figure}
 
 \begin{figure}
-	%TODO tirar o azul da linha SNMP 3
     \caption{Estrutura dos Pacotes SNMP}
 	\label{fig:snmp-pdu}
     \centering
@@ -2313,13 +2313,13 @@ elementos principais, sendo eles:
 	\item \textbf{Dispositivo Inteligente:}
 Um dispositivo que disponha de conectividade e utilize protocolos da Internet 
 das Coisas, podendo assumir papéis como o de sensor, atuador, entre outros.
-Caso seja possível obter um dispositivo de uso específico para IoT planeja-se 
+Caso seja possível obter um dispositivo de uso específico para \hyperref[siglas]{IoT} planeja-se 
 usá-lo na validação, contudo há grande dificuldade em encontrar estes 
 dispositivos e, caso não seja possível, pretende-se emular seu comportamento 
-em um dispositivo comum, como um PC por exemplo;
+em um dispositivo comum, como um \hyperref[siglas]{PC} por exemplo;
 
 	\item \textbf{Gateway:}
-Um PC ou outro dispositivo com maior poder de processamento do que os 
+Um \hyperref[siglas]{PC} ou outro dispositivo com maior poder de processamento do que os 
 Dispositivos Inteligentes, preferencialmente executando uma das distribuições 
 Linux específicas para esta classe de dispositivos, como o OpenWRT, ou um 
 ambiente Linux.
@@ -2328,8 +2328,8 @@ comunicação tanto entre dispositivos inteligentes como gerentes, funcionando
 como uma ponte entre eles;
 
 	\item \textbf{Gerente:}
-Aplicativo de gerência de redes que se comunique usando SNMP e executando em 
-um PC.
+Aplicativo de gerência de redes que se comunique usando \hyperref[siglas]{SNMP} e executando em 
+um \hyperref[siglas]{PC}.
 Nesta máquina não há restrições quanto a sistema operacional ou arquitetura, 
 desde que o aplicativo de gerência a suporte.
 Não serão realizadas nenhum tipo de alterações no dispositivo gerente e seus 
@@ -2348,7 +2348,7 @@ adição e remoção de \textit{tags};
 execução de requisições com e sem filtros;
 execução de requisições com e sem critérios de agrupamento (como mínimo, 
 máximo e média);
-e a execução de requisições padrão do SNMP.
+e a execução de requisições padrão do \hyperref[siglas]{SNMP}.
 O sucesso na realização destas tarefas representa o sucesso da validação como 
 um todo e, consequentemente, da ideia proposta por este trabalho.
 
