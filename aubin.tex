@@ -14,18 +14,19 @@
 %=======================================================================
 \documentclass[twoside,english,brazilian]{UNISINOSmonografia}
 \usepackage[utf8]{inputenc} % charset do texto (utf8, latin1, etc.)
-\usepackage[T1]{fontenc} % encoding da fonte (afeta a sep. de sílabas)
-\usepackage{graphicx} % comandos para gráficos e inclusão de figuras
+\usepackage[T1]{fontenc} 	% encoding da fonte (afeta a sep. de sílabas)
+\usepackage{cmap}     		% melhorar a busca e seleção de texto no pdf
+\usepackage{graphicx} 		% comandos para gráficos e inclusão de figuras
 
 \usepackage{tabulary}
 \usepackage{pdflscape}
 \usepackage{afterpage}
 
-\usepackage{bibentry} % para inserir refs. bib. no meio do texto
+\usepackage{bibentry} 		% para inserir refs. bib. no meio do texto
 \usepackage[hidelinks]{hyperref}
 \usepackage{subcaption}
 
-%\setcounter{page}{-100} % evitar endereços duplicados no hyperref
+\hyphenation{co-ope-ra-ção}
 
 \interfootnotelinepenalty=10000 % evitar a quebra de footnotes em 
 								% mais de uma página
@@ -321,7 +322,7 @@ to perceive --- they actually sense and respond}
 	\urlbr{set.~2013}{www.ibm.com/ibm/history/ibm100/us/en/icons/sage/}}, 
 	um dos primeiros exemplos de computadores conectados em rede, 
 	caracterizado pela ``transmissão de dados digitais em linhas telefônicas 
-	de voz à 1300 bits por segundo'' \cite[p.~348]{IBMSAGE1983}.
+	de voz a 1300 bits por segundo'' \cite[p.~348]{IBMSAGE1983}.
 
 	Contudo, o SAGE comunicava-se através do conceito de circuitos, que, mais 
 	tarde, mostrou-se inferior à troca de pacotes (\textit{packet switching}). 
@@ -394,7 +395,19 @@ quadrinhos Homem-Aranha, escrita por Stan Lee.
 	Percebe-se, portanto, que a cooperação entre academia, indústria e governo é fundamental 
 	para que a \hyperref[siglas]{IoT} possa demonstrar seu verdadeiro potencial.
 	
-%TODO Apresentar a estrutura do trabalho (no cap x falaremos de IoT, no cap Y de Gerência, tal tal e tal)
+
+	Este trabalho está organizado da seguinte forma: 
+no Capítulo 2 serão abordadas questões relativas à gerência de redes e seu 
+principal protocolo, o \hyperref[siglas]{SNMP};
+no Capítulo 3 é apresentado e detalhado o conceito de Internet das Coisas, 
+detalhando desde sua origem e definição, até os desafios e as oportunidades 
+proporcionadas por este paradigma;
+o Capítulo 4 apresenta a proposta deste trabalho para unir os conceitos 
+anteriormente apresentados, combinando as estratégias da gerência de redes com 
+a Internet das Coisas;
+o Capítulo 5 versa sobre o planejamento do desenvolvimento deste trabalho, ou 
+seja, como ele prosseguirá de forma a atingir seus objetivos.
+
 
 \section{Justificativa e Definição do Problema}
 %	Abordar
@@ -453,7 +466,7 @@ quadrinhos Homem-Aranha, escrita por Stan Lee.
 	a infraestrutura já existente sem deixar de atender às restrições e 
 	características da \hyperref[siglas]{IoT}. É nesta tarefa que concentram-se os esforços deste 
 	trabalho, buscando melhorias específicas para este novo cenário e, ao 
-	mesmo tempo, manter a interoperabilidade com padrões já estabelecidos.
+	mesmo tempo, mantendo a interoperabilidade com padrões já estabelecidos.
 	
 \section{Objetivos}
 
@@ -547,9 +560,9 @@ Neste aspecto, \citetexto{MetodologiaUFSC2005} e \citetexto{Gerhardt2009}
 apoiam-se em \citetexto{Gil2007}, que a define como o processo de determinar um 
 objeto de estudo, selecionar variáveis capazes de influenciá-lo e definir 
 formas de controle e observação destas variáveis.
-Um maior detalhamento, segundo \citetexto{Fonseca2002}, ainda é possível, onde 
-deve-se dividir a pesquisa experimental em duas categorias, a de campo e a de 
-laboratório, realizada neste trabalho.
+Um maior detalhamento ainda é possível na visão de \citetexto{Fonseca2002}, 
+onde deve-se dividir a pesquisa experimental em duas categorias, a de campo e 
+a de laboratório, realizada neste trabalho.
 
 Desta forma, pode-se classificar o presente trabalho como uma proposta de 
 melhoria na abordagem de gerência de redes e, considerando que ``não é 
@@ -577,8 +590,8 @@ Cada vez mais importantes para as atividades humanas, as redes de computadores
 (especialmente a internet) obtiveram grande êxito nas atividades comerciais, 
 onde ``têm catalizado a inovação e favorecido a emergência de novos e 
 disruptivos modelos de negócio'' \cite[p.~23]{Ding2009}.
-Portanto observa-se uma crescente dependência de empresas e organizações nos 
-serviços de conectividade, demonstrando o seu valor e provando, ná prática
+Portanto, observa-se uma crescente dependência de empresas e organizações nos 
+serviços de conectividade, demonstrando o seu valor e provando, na prática,
 que ``manter estes serviços funcionando torna-se sinônimo de manter o 
 negócio funcionando''
 % keeping those services running becomes synonymous with 
@@ -615,8 +628,8 @@ negócio funcionando''
 	O reconhecimento da importância das técnicas de gerência de redes provocou 
 	esforços por parte de órgãos reguladores, como a Organização Internacional 
 	para Padronização (\hyperref[siglas]{ISO}). Em sua normativa 7498-4, a \citetexto{ISO1989} 
-	define as cinco principais categorias da gerência de redes, conhecido como 
-	o modelo \hyperref[siglas]{FCAPS} que contempla o gerenciamento de:
+	define as cinco principais categorias da gerência de redes, conhecidas como 
+	o modelo \hyperref[siglas]{FCAPS} e que contempla o gerenciamento de:
 	
 	\begin{itemize}
 		% gerenciamento/gerencia/gestao?
@@ -624,7 +637,7 @@ negócio funcionando''
 Engloba todas as ações de detecção e correção de falhas que possam ocorrer na 
 rede e em seus equipamentos. 
 Segundo \citetexto{Ding2009}, é composta por três passos fundamentais: 
-Detecção, Isolamento e Correção. 
+detecção, isolamento e correção. 
 Em suma, o ``gerenciamento de falhas está portanto interessado no 
 monitoramento da rede para garantir que tudo esteja funcionando regularmente e 
 reagir quando este não for o caso'' \cite[p.~132]{Clemm2006};
@@ -632,12 +645,12 @@ reagir quando este não for o caso'' \cite[p.~132]{Clemm2006};
 		\item \textbf{\textit{Configuration} -- Configuração:}
 Responsável por manter uma lista completa e atualizada de todos os ativos que 
 compõem a rede, guardando informações como: Configurações de Hardware, Versões 
-de Sistemas, Serviços e Documentação.
-\cite{Clemm2006,Ding2009,Mauro2009}
+de Sistemas, Serviços e Documentação
+\cite{Clemm2006,Ding2009,Mauro2009}.
 A manutenção de tal inventário não é uma tarefa trivial, devendo contemplar a 
 inclusão, remoção e atualização de dados sobre cada dispositivo que compõe a 
 rede. 
-Portanto uma boa gerência de configuração, ``para realizar estas 
+Portanto, uma boa gerência de configuração, ``para realizar estas 
 atividades deve monitorar todas as mudanças feitas aos recursos'' 
 % in order to fulfill these functionalities, 
 % it must track all changes made to network resources
@@ -648,7 +661,7 @@ Contempla principalmente a coleta de estatísticas sobre usuários e/ou grupos
 de usuários. 
 Apontada por \citetexto{Hunt1997} como desejável para o repasse 
 de custos do uso de recursos aos usuários, esta categoria é de especial 
-importância para empresas pois auxilia na cobrança à clientes internos e 
+importância para empresas pois auxilia na cobrança a clientes internos e 
 externos \cite{Clemm2006}. 
 O valor da contabilização está em ``possibilitar que o uso por indivíduos ou 
 grupos seja regulamentado de forma adequada. Tal regulamentação minimiza 
@@ -663,14 +676,14 @@ usuários''
 \cite[p.~93]{Ding2009};
 
 		\item \textbf{\textit{Performance} -- Desempenho:}
-Interessada principalmente na qualidade do serviços de rede, a finalidade 
+Interessada principalmente na qualidade dos serviços de rede, a finalidade 
 desta categoria é ``garantir que os objetivos de níveis de serviço (\hyperref[siglas]{SLA}) sejam 
 alcançados ao mesmo tempo em que os recursos de rede sejam utilizados de 
 maneira economicamente eficiente'' \cite[p.~2]{Wang2012}.
 Depende quase exclusivamente de métricas que mensurem as características da 
-rede, sendo as principais: \textit{throughput}, \textit{delay}, percentagem de 
+rede, sendo as principais: \textit{throughput}, \textit{delay}, porcentagem de 
 erros e uso de \textit{links} \cite{Clemm2006,Wang2012,Ding2009,Hunt1997}.
-Pode ainda ser discriminada em três passos: Coleta de dados, Estabelecimento 
+Pode, ainda, ser discriminada em três passos: Coleta de dados, Estabelecimento 
 de valores de referência e Monitoramento destes valores \cite{Mauro2009}. 
 Alterações nos parâmetros inicialmente definidos podem indicar recursos congestionados e/ou 
 subutilizados, desencadeando processos de gerência de falhas e configuração 
@@ -697,13 +710,13 @@ A gerência de redes ocorre, portanto, nestes dispositivos, tendo como
 requisito para seu sucesso a existência de uma infraestrutura de suporte aos 
 processos envolvidos.
 Não há uma fórmula de sucesso para a implantação de processos de gerência de 
-redes, contudo há uma série de requisitos necessários. 
+redes, contudo, há uma série de requisitos necessários. 
 \citetexto{Ding2009} os define como:
 
 \begin{itemize}
 
 \item \textbf{Dispositivo:}
-	Todo e qualquer equipamento conectado à rede e que deseja-se qe faça parte
+	Todo e qualquer equipamento conectado à rede e que deseja-se que faça parte
 da gerência. 
 Deve conter um software denominado Agente;
 
@@ -719,7 +732,7 @@ Cada equipamento da rede pode abrigar um ou mais agentes;
 	Responsável por emitir requisições e receber notificações dos agentes.
 Pode ser pensado como um software que realiza as ações solicitadas pelo 
 usuário, servindo como centralizador.
-Deve também ter uma visão geral da rede e facilitar a obtenção de informações 
+Deve, também, ter uma visão geral da rede e facilitar a obtenção de informações 
 de alto nível para embasar a tomada de decisão.
 Geralmente existem poucos gerentes na rede;
 
@@ -730,7 +743,7 @@ agentes e gerentes;
 \item \textbf{Estação de Gerência de Redes:}
 	Dispositivo onde o usuário terá acesso ao gerente, executando as 
 aplicações de gerência para monitoramento e controle dos elementos da rede.
-Constituído, geralmente, por uma máquina com abundância de recursos;
+É constituído, geralmente, por uma máquina com abundância de recursos;
 
 \item \textbf{Objeto Gerenciado:}
 	Representa algum recurso presente em um dispositivo que é de interesse do 
@@ -738,7 +751,7 @@ usuário.
 Pode ser exemplificado como a lista de conexões TCP de determinado dispositivo 
 da rede.
 Este objeto será de interesse do agente e do gerente e estará presente em uma 
-representado através da \hyperref[siglas]{SMI};
+\hyperref[siglas]{MIB} representado através da \hyperref[siglas]{SMI};
 
 \item \textbf{Estrutura das Informações de Gerenciamento (SMI):}
 	Linguagem usada para descrever as regras de nomenclatura e codificação 
@@ -801,7 +814,7 @@ problema nas mãos dos administradores de redes
 \cite{Leinwand1996}.
 
 Neste cenário, duas vertentes dominavam as iniciativas de gerência de redes. 
-De um lado os padrões \hyperref[siglas]{ISO} com seu modelo \hyperref[siglas]{OSI} de protocolos e, consequentemente 
+De um lado os padrões \hyperref[siglas]{ISO} com seu modelo \hyperref[siglas]{OSI} de protocolos e, consequentemente, 
 um modelo de gerência com base no \hyperref[siglas]{CMIP} \textit{(Common Management Information 
 Protocol)}.
 E, de outro lado, a \hyperref[siglas]{IETF} \textit{(Internet Engineering Task Force)} com o 
@@ -813,7 +826,7 @@ Com essa premissa, o \hyperref[siglas]{SNMP} seguiria como uma solução tempor�
 focada, tratando apenas das áreas de gerência de falhas e configuração, 
 enquanto no longo prazo o \hyperref[siglas]{CMIP} assumiria seu lugar como uma solução completa 
 \cite{Leinwand1996,stallings1999snmp}. 
-Entretanto tal desejo nunca se concretizou e o desenvolvimento dos padrões \hyperref[siglas]{ISO} 
+Entretanto, tal desejo nunca se concretizou e o desenvolvimento dos padrões \hyperref[siglas]{ISO} 
 passou por grandes dificuldades e incompatibilidades com o \hyperref[siglas]{TCP/IP}.
 Este desfecho é atribuído por \citetexto[p.~77]{Hunt1997} ao fato de que 
 ``o programa de 
@@ -829,8 +842,8 @@ Ainda sobre porquê o \hyperref[siglas]{SNMP} se tornou o protocolo padrão para
 
 \begin{quote}
 O Protocolo Simples de Gerência de Rede foi projetado para ser uma ferramenta 
-basica e facilmente implementável de gerência de redes que poderia ser 
-utilizado para atender num curto prazo às necessidades de gerência. Devido ao 
+básica e facilmente implementável de gerência de redes que poderia ser 
+utilizado para atender num curto prazo as necessidades de gerência. Devido ao 
 progresso lento na gerência de sistemas \hyperref[siglas]{OSI}, o \hyperref[siglas]{SNMP} preencheu a lacuna e 
 acabou se tornando o método dominante padronizado de gerência de rede em uso 
 atualmente
@@ -843,19 +856,19 @@ atualmente
 \end{quote}
 
 Apesar de ser projetado como uma solução rápida e fácil para os principais 
-problemas enfrentados na época, o sucesso do \hyperref[siglas]{SNMP} deve-se também em parte à 
+problemas enfrentados na época, o sucesso do \hyperref[siglas]{SNMP} deve-se também, em parte, à 
 sua estrutura de dados projetada para acomodar o crescimento e proporcionar 
 flexibilidade para a inclusão de novos objetos \cite{stallings1999snmp}.
 Graças a esta flexibilidade, o protocolo pôde ser adaptado para atender as 
 necessidades de diversos casos de uso, sendo utilizado em produtos que vão 
-desde computadores e impressoras a roteadores e \textit{no-breaks}.
+desde servidores a roteadores e \textit{no-breaks}.
 Neste contexto, a gestão baseada em \hyperref[siglas]{SNMP}
 
 \begin{quote}
 é inerentemente genérica de forma que ela pode ser usada para gerir diversos 
 tipos de sistemas. Esta abordagem pode ser usada com redes computacionais de 
 dados, redes de tráfego automotivo, redes de controle de calefação e 
-arrefecimento, redes de irrigação, ou fábricas de produtos químicos. Portanto 
+arrefecimento, redes de irrigação, ou fábricas de produtos químicos. Portanto, 
 vê-se que quase qualquer sistema de tempo real consistindo de uma coleção de 
 elementos independentes se comunicando pode usar \hyperref[siglas]{SNMP}
 % However, then SNMP-based management approach is inherently generic so that 
@@ -867,7 +880,7 @@ elementos independentes se comunicando pode usar \hyperref[siglas]{SNMP}
 \cite[p.~2]{perkins1997understanding}.
 \end{quote}
 
-Como nenhuma solução é perfeita para todos os casos, o \hyperref[siglas]{SNMP} sofreu também 
+Como nenhuma solução é perfeita para todos os casos, o \hyperref[siglas]{SNMP} também sofreu 
 grandes críticas. 
 A comunidade de profissionais que efetivamente fazem a gerência de redes 
 expressa opiniões negativas sobre o protocolo e sua implementação, 
@@ -930,7 +943,7 @@ como a principal delas no contexto pessoal e empresarial.
 As informações apresentadas até aqui apenas confirmam esta hipótese
 e tornam o \hyperref[siglas]{SNMP} o protocolo de escolha para esta pesquisa.
 Deste ponto em diante apresenta-se um detalhamento sobre o protocolo de forma
-a apresentar ao leitor suas principais características e uma visão mais 
+a apresentar ao leitor suas principais características, além de uma visão mais 
 detalhada das suas funcionalidades.
 
 
@@ -942,26 +955,26 @@ de redes, o \hyperref[siglas]{SNMP} passou por diversas versões e revisões.
 Ao ser padronizado através do uso de \hyperref[siglas]{RFCs} \textit{(Request For Comments)} 
 da \hyperref[siglas]{IETF}, seu desenvolvimento passou por diversas iterações em comitês 
 específicos para este fim.
-Hoje existem em uso três principais versões do protocolo, abordadas a seguir:
+Hoje, existem em uso três principais versões do protocolo, abordadas a seguir:
 
 \begin{itemize}
 \item \textbf{SNMPv1:}
 Versão inicial do protocolo, padronizada pela RFC 1157
 e publicada em 1990. 
-Hoje está obsoleta e é mantida apenas como um padrão histórico, porém 
+Hoje está obsoleta e é mantida apenas como um padrão histórico, porém, 
 implementações desta versão ainda são encontradas em dispositivos 
 \cite{Mauro2009,Ding2009}.
 Focava principalmente na detecção de falhas e no monitoramento da rede, não 
-dando a devida importância à segurança \cite{Clemm2006}, causando com que as 
+dando a devida importância à segurança \cite{Clemm2006}, fazendo com que as 
 senhas para configuração de dispositivos fossem transmitidas em 
 \textit{plaintext}, ou seja, visíveis a qualquer equipamento na rede 
 \cite{Hunt1997,Ding2009}.
-Ainda que com algumas falhas estabeleceu as bases do que viria a ser o \hyperref[siglas]{SNMP} 
+Ainda que com algumas falhas, estabeleceu as bases do que viria a ser o \hyperref[siglas]{SNMP} 
 e a gerência de redes como conhecemos hoje;
 
 \item \textbf{SNMPv2:}
-Com o uso já difundido do \hyperref[siglas]{SNMP} e o mapeamento de suas deficiências, iniciou-se no 
-final de 1992 o trabalho para a definição de um sucessor \cite{Hunt1997}.
+Com o uso já difundido do \hyperref[siglas]{SNMP} e o mapeamento de suas deficiências, iniciou-se, no 
+final de 1992, o trabalho para a definição de um sucessor \cite{Hunt1997}.
 O crescimento das redes trouxe novas necessidades para os gerentes, agravando 
 o fato de que o ``SNMPv1 é notoriamente ineficiente na busca de grandes 
 quantidades de informações gerenciais'' \cite[p.~258]{Clemm2006} e expondo ainda mais 
@@ -990,7 +1003,7 @@ mais precisas e se relacionem melhor, facilitando o entendimento e
 a implementação do padrão.
 Tais novidades, apesar de mostrarem um amadurecimento do protocolo, tornaram o 
 \hyperref[siglas]{SNMP} muito mais complexo do que inicialmente planejado e, devido ao longo 
-tempo de desenvolvimento, gerentes deixaram de usar o protocolo no contexto de 
+tempo de desenvolvimento da versão, gerentes deixaram de usar o protocolo no contexto de 
 configuração (recorrendo a outras ferramentas) e mantendo-o apenas para 
 monitoramento \cite{Clemm2006}.
 Outra dificuldade identificada é devida aos fornecedores de equipamentos que 
@@ -1006,8 +1019,8 @@ outros propósitos além do monitoramento'' \cite[p.~261]{Clemm2006}.
 Simplicidade é um dos objetivos de projeto do \hyperref[siglas]{SNMP}, portanto espera-se que
 suas operações sejam simples também.
 Desta forma, as ações realizadas sobre um determinado dispositivo devem ser 
-expressas de maneira compacta e precisa, evitando a complexidade associada ao 
-decidir qual operação é válida dado o estado do objeto.
+expressas de maneira compacta e precisa, evitando a complexidade associada a
+decisão de qual operação é válida dado o estado do objeto.
 Apesar do conjunto limitado, \citetexto{stallings1999snmp} elenca três 
 operações básicas que devem estar disponíveis em qualquer protocolo de 
 gerência de redes, e que são contempladas pelo \hyperref[siglas]{SNMP}, sendo elas: 
@@ -2340,7 +2353,7 @@ funcionamento em um cenário de Internet das Coisas.
 
 
 Uma vez montado um ambiente com todos os elementos acima descritos será 
-possível avaliar o funcionamento do protótipo e, consequentemente da proposta.
+possível avaliar o funcionamento do protótipo e, consequentemente, da proposta.
 Esta avaliação será realizada na forma de testes através do gerente da 
 execução das diversas ações previstas na proposta como:
 adição e remoção de \textit{tags};
@@ -2353,83 +2366,147 @@ um todo e, consequentemente, da ideia proposta por este trabalho.
 
 
 \chapter{Planejamento da Implementação}
-%TODO Planejamento da Implementação
-Para finalizar, cria mais um capítulo com o planejamento do próximo semestre 
--- basicamente uma revisão do teu cronograma inicial.
+
+O desenvolvimento deste trabalho se dará conforme o cronograma apresentado 
+pela \autoref{fig:crono}, tendo como principal atividade o desenvolvimento do 
+protótipo de um software para o \textit{gateway} 
+\hyperref[siglas]{IoT}---\hyperref[siglas]{SNMP}.
+Observando-se de maneira mais ampla, o desenvolvimento pode ser detalhado com 
+base nas seguintes etapas:
 
 
-\begin{figure}
+\begin{figure}[b!]
 	\caption{Cronograma da implementação}
 	\label{fig:crono}
 	\centering
-	\begin{minipage}{.8\textwidth}
+	\begin{minipage}{.9\textwidth}
 		\includegraphics[clip,trim=20mm 185mm 40mm 20mm,width=\textwidth,keepaspectratio=true]{crono_tcc2}
 		\fonte{Elaborado pelo autor.}
 	\end{minipage}
 \end{figure}
 
 
-\begin{verbatim}
- quando associar uma tag, testar se o dispositivo suporta fazendo um req.
- Falar da MIB
+\begin{itemize}
+
+	\item \textbf{Artigo:}
+Assim como o protótipo do \textit{gateway}, o artigo final compõe um dos 
+entregáveis deste trabalho.
+Seu desenvolvimento se dará na segunda metade do tempo previsto em cronograma 
+por depender das decisões, experiências e resultados do desenvolvimento do 
+protótipo.
+Ao final da escrita do artigo, detalhando o acontecido no desenvolvimento da 
+solução e os resultados encontrados, haverá a apresentação do mesmo para a 
+banca avaliadora;
+
+	\item \textbf{Análise:}
+Prevê-se logo no começo do tempo alocado em cronograma um período que 
+compreenderá atividades de análise e planejamento do desenvolvimento.
+Entre as atividades previstas estão a definição de ambientes e linguagens de 
+desenvolvimento, assim como as bibliotecas necessárias.
+Ainda nesta fase haverá um detalhamento técnico da solução proposta, visando 
+seguir padrões de desenvolvimento de software e obter maior qualidade no 
+resultado final que, mesmo em caráter de protótipo, pode ser útil à 
+comunidade, tanto profissional quanto acadêmica;
+
+	\item \textbf{Desenvolvimento:}
+Ocupando quase a metade do tempo previsto em cronograma, as atividades de 
+desenvolvimento caracterizam a efetiva codificação e integração da solução 
+proposta.
+Como produto final desta fase objetiva-se por obter um software capaz de 
+executar em ambientes embarcados, predominantemente Linux, e desempenhar a 
+função de integrador entre redes da Internet das Coisas e ambientes de 
+gerência de redes.
+Esta atividade foi dividida, no cronograma, em cinco outras atividades menores 
+em termos dos principais componentes do protótipo, sendo eles:
+agente experimental em protocolo de \hyperref[siglas]{IoT};
+camada de comunicação com protocolos de \hyperref[siglas]{IoT};
+camada de comunicação com protocolo \hyperref[siglas]{SNMP};
+camada de tradução entre os diferentes protocolos;
+e os módulos de filtro e agrupamento de requisições.
+Todas estas atividades são fundamentais para a obtenção do resultado esperado, 
+ou seja, o protótipo de \textit{gateway} 
+\hyperref[siglas]{IoT}---\hyperref[siglas]{SNMP};
+
+	\item \textbf{MIB:}
+De forma a atingir os objetivos de filtro e agregação de valores das consultas 
+\hyperref[siglas]{SNMP}, conforme detalhado na proposta deste trabalho, é 
+necessário o desenvolvimento de uma \hyperref[siglas]{MIB} própria e criada 
+especificamente para este fim.
+Assim como a análise, este é um dos passos iniciais e que definirá o rumo do 
+restante do trabalho, merecendo especial atenção;
+
+	\item \textbf{Validação:}
+A fim de comprovar a funcionalidade do protótipo, e, consequentemente, a 
+viabilidade da proposta deste trabalho, está previsto o tempo de um mês ao fim 
+do desenvolvimento.
+Neste momento serão realizados testes integrados em um ambiente que simule um 
+contexto de automação residencial e permita, entre outros, avaliar as forças, 
+as fraquezas e as oportunidades relativas a solução proposta.
+
+\end{itemize}
 
 
- Criar objetos que parametrizem o request pro gateway
- + Request
- |-- OID 		(objeto de destino que se deseja obter)
- |-- Agrupador	(operação de agrupamento, min, max, avg)
- |-- Filtros	(lista dos OIDs que identificam as tags)
- |-- Send		(executa a ação)
-
-
- Gerenciar as tags de um dispositivo
- + TagManager
- |-- Host		(identificador/endereço do dispositivo desejado)
- |-- Listar	(lista as tags associadas ao dispositivo)
- |-- Adicionar	(adiciona uma tag ao dispositivo)
- |-- Remover	(remove uma tag do dispositivo)
-
-
- Implementar em C#? C++?
-
-
- Projetar como vai ser feita a query:
-  avg(cosumo), 	sala 						> 20 w/h
-  min(volume), 	quarto sala 				> -5db
-  estado, 			sala 						> host1:0 host2:1
-  voltagem, 		gps.lat:21.4 gsp.long:44.3 	> host3:110 host4: 220
-
-
- aubinMIB
-   - TagManager
-     > Listar
-     > Adicionar
-     > Remover
-   - TagDB
-     - Tipo
-       - Eletrônico
-         > Estado (on / off)
-         > Voltagem
-         > Consumo
-       - Áudio
-         > Volume
-       - Vídeo
-         > Width
-         > Height
-         > Cores
-       - Iluminação
-         > Luminosidade %
-         > Cor
-     - Localização
-       - GPS
-         > Latitude
-         > Longitude
-       - Domiciliar
-         - Sala
-         - Quarto
-         - Cozinha
-\end{verbatim}
-  
+%\begin{verbatim}
+% quando associar uma tag, testar se o dispositivo suporta fazendo um req.
+% Falar da MIB
+%
+%
+% Criar objetos que parametrizem o request pro gateway
+% + Request
+% |-- OID 		(objeto de destino que se deseja obter)
+% |-- Agrupador	(operação de agrupamento, min, max, avg)
+% |-- Filtros	(lista dos OIDs que identificam as tags)
+% |-- Send		(executa a ação)
+%
+%
+% Gerenciar as tags de um dispositivo
+% + TagManager
+% |-- Host		(identificador/endereço do dispositivo desejado)
+% |-- Listar	(lista as tags associadas ao dispositivo)
+% |-- Adicionar	(adiciona uma tag ao dispositivo)
+% |-- Remover	(remove uma tag do dispositivo)
+%
+%
+% Implementar em C#? C++?
+%
+%
+% Projetar como vai ser feita a query:
+%  avg(cosumo), 	sala 						> 20 w/h
+%  min(volume), 	quarto sala 				> -5db
+%  estado, 			sala 						> host1:0 host2:1
+%  voltagem, 		gps.lat:21.4 gsp.long:44.3 	> host3:110 host4: 220
+%
+%
+% aubinMIB
+%   - TagManager
+%     > Listar
+%     > Adicionar
+%     > Remover
+%   - TagDB
+%     - Tipo
+%       - Eletrônico
+%         > Estado (on / off)
+%         > Voltagem
+%         > Consumo
+%       - Áudio
+%         > Volume
+%       - Vídeo
+%         > Width
+%         > Height
+%         > Cores
+%       - Iluminação
+%         > Luminosidade %
+%         > Cor
+%     - Localização
+%       - GPS
+%         > Latitude
+%         > Longitude
+%       - Domiciliar
+%         - Sala
+%         - Quarto
+%         - Cozinha
+%\end{verbatim}
+%  
 % Manager precisa saber todas as tags de cada elemento pra conseguir fazer 
 % consultas por tag. Criar uma "resource" que notifica o manager das alterações 
 % nas tags (publish/subscribe) do COAP. Senão corre o risco do manager ficar com 
